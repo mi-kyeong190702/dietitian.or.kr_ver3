@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<resultMap type="MEMBER" id="MEMBER">
+		<result property="id" 				column="ID"/>
+		<result property="pers_hp" 			column="PERS_HP"/>
+		<result property="lic_no" 			column="LIC_NO"/>
+		<result property="max_code_pers" 	column="MAX_CODE_PERS"/>
+		<result property="pers_name" 		column="PERS_NAME"/>
+		<result property="email" 			column="EMAIL"/>
+		<result property="code_bran" 		column="CODE_BRAN"/>
+		<result property="pers_birth" 		column="PERS_BIRTH"/>
+	</resultMap>
+	
+	<resultMap type="GROUPCODE" id="GROUPCODE">
+		<result property="groupcode" 	column="GROUPCODE"/>
+		<result property="groupname" 	column="GROUPNAME"/>
+		<result property="codelen" 		column="CODELEN"/>
+		<result property="detcode" 		column="DETCODE"/>
+		<result property="detcodename" 	column="DETCODENAME"/>
+		<result property="tempcd1" 		column="TEMPCD1"/>
+		<result property="tempcd2" 		column="TEMPCD2"/>
+		<result property="tempcd3" 		column="TEMPCD3"/>
+		<result property="use_yn" 		column="USE_YN"/>
+	</resultMap>
+
+	<resultMap type="DUES" id="DUES">
+		<result property="code_member" 	column="CODE_MEMBER"/>
+		<result property="sum_dues" 	column="SUM_DUES"/>
+		<result property="detcodename" 	column="DETCODENAME"/>
+		<result property="tempcd1" 		column="TEMPCD1"/>
+		<result property="tempcd2" 		column="TEMPCD2"/>
+		<result property="tempcd3" 		column="TEMPCD3"/>
+	</resultMap>
+	
+	<resultMap type="TRUST_COMPANY" 	id="TRUST_COMPANY">
+		<result property="trust_code" 	column="TRUST_CODE"/>
+		<result property="trust_name" 	column="TRUST_NAME"/>
+		<result property="trust_post" 	column="TRUST_POST"/>
+		<result property="trust_addr" 	column="TRUST_ADDR"/>
+		<result property="trust_tel" 	column="TRUST_TEL"/>
+	</resultMap>
+
+	<!-- 아이디 찾기 -->
+	<select id="getMemberId" parameterType="hashmap" resultType="MEMBER" >
+		SELECT B.ID, A.PERS_STATE
+		FROM PERSON_M_TBL A 
+		LEFT JOIN ID_TBL B ON B.CODE_PERS=A.CODE_PERS 
+		WHERE A.PERS_BIRTH = #{pers_birth}
+		AND A.PERS_NAME = #{uname}
+		AND A.PERS_HP = #{pers_hp}
+	</select>		
+	
+	<!-- 비밀번호 초기화1 -->
+	<select id="getMemberHp" parameterType="hashmap" resultType="java.lang.String">
+		SELECT A.PERS_HP FROM PERSON_M_TBL A LEFT JOIN ID_TBL B ON B.CODE_PERS=A.CODE_PERS
+		where A.PERS_BIRTH= #{pers_birth}
+		AND B.ID = #{uid} AND A.PERS_NAME = #{uname}
+	</select>
+	
+	<!-- 비밀번호 초기화2 -->
+	<update id="setInitPw" parameterType="hashmap">
+		UPDATE ID_TBL SET 
+			  PASSWD = PWDENCRYPT(#{pers_hp}) 
+			, up_date = GETDATE()	
+		WHERE ID = #{uid}
+	</update>
+	
+	<!-- 회원가입>아이디 중복체크 -->
+	<select id="checkId" parameterType="hashmap" resultType="java.lang.String">
+		SELECT ID FROM ID_TBL WHERE ID = #{ck_val}
+	</select>
+	
+	<!-- 회원가입>면허번호 중복체크 -->
+	<select id="getLicNo" parameterType="hashmap" resultType="java.lang.String">
+		SELECT LIC_NO FROM PERSON_M_TBL WHERE LIC_NO = #{ck_val}
+		<if test="codePers != null">
+		<![CDATA[
+			AND code_pers <> #{codePers}
+		]]>
+		</if>
+	</select>
+	
+	
+	
+	<!-- 산하단체/분야회 소속현황-->
+	<select id="getSUB_TBL">
+		SELECT CODE_SUB, SUB_NAME FROM SUB_TBL
+	</select>
+	
+	<!-- 회원 아이디 중복 확인 -->
+	
+	<select id="getCodePers" parameterType="hashmap" resultType="java.lang.String">
+		SELECT CODE_PERS FROM ID_TBL WHERE ID = #{id}
+	</select>	
+	
+	<select id="getMaxCodePers"  resultType="java.lang.String">
+		SELECT isnull(MAX(CODE_PERS),'') as MAX_CODE_PERS 
+		FROM ID_TBL
+		WHERE CODE_PERS LIKE CONVERT(VARCHAR(4), YEAR(GETDATE())) + '%'
+	</select>
+	
+	<select id="getDetCodeNamePay" resultType="java.lang.String">
+		--결제방식종류 가져오기
+		SELECT DETCODENAME FROM COM_CODE WHERE DETCODE = #{code_pay_flag} AND GROUPCODE = '014'
+	</select>
+	
+	<select id="getSumDues" parameterType="hashmap"  resultType="java.lang.Long">
+		--회원종류별/지부별 회비 가져오기
+		SELECT TOP 1 SUM_DUES FROM DUES WHERE CODE_MEMBER = #{code_member} AND CODE_BRAN = #{code_bran} ORDER BY YYYYMM DESC
+	</select>
+	
+	<select id="getDuesGubun">
+		SELECT DUES_GUBUN FROM DUES WHERE CODE_MEMBER = #{ref_mem_level} AND CODE_BRAN = #{code_bran} ORDER BY YYYYMM DESC
+	</select>
+	
+	<select id="getDetCodeNameDues">
+		--회비종류 가져오기
+		SELECT DETCODENAME FROM COM_CODE WHERE DETCODE = #{dues_gubun} AND GROUPCODE = '038'
+	</select>	
+			
+	<!-- 위탁코드중 가장 높은값 가져오기. -->
+	<select id="getMasDuesHSeq">
+		SELECT MAX(CAST(DUES_H_SEQ AS INTEGER))+1 SEQ FROM DUES_H_TBL
+	</select>
+	
+	<!-- // CMS MAX SEQ 구하기 -->
+	<select id="getMasDuesHSeqCMS" resultType="int">
+		SELECT MAX(CAST(DUES_H_SEQ AS INTEGER))+1 SEQ FROM DUES_H_TBL_CMS
+	</select>	
+	
+	<!-- 회원가입1 -->
+	<insert id="insert_id_tbl">
+		INSERT INTO ID_TBL ( CODE_PERS, ID, PASSWD, POINT, USE_YN, up_date )	VALUES ( #{code_pers}, #{id}, PWDENCRYPT(#{passwd}), '0', 'Y', GETDATE() )
+	</insert>
+	
+	<!-- 비밀번호 변경 월 차이 조회 18.04.17 ISNULL 추가-->
+	<select id="selectPasswdUpateMonth" parameterType="string" resultType="int">
+	SELECT 
+		ISNULL(DATEDIFF(MONTH,up_date, GETDATE()), 0)
+	FROM id_tbl WHERE code_pers = #{codePers}
+	</select>
+			
+	<!-- 회비 테이블에 삽입 시작.. -->
+	<insert id="insert_dues_h_tbl">
+		INSERT INTO DUES_H_TBL( 
+			CODE_PERS
+			, DUES_GUBUN
+			, DUES_H_SEQ
+			, REGI_DT
+			, CODE_MEMBER			
+			, AUTH_START
+			, AUTH_END
+			, MEM_DUES
+			, SUM_DUES
+			, INCOM_FLAG
+		) VALUES (
+			  #{code_pers}
+			, #{dues_gubun}
+			, 1
+			, ''
+			, #{code_member}			
+			, CONVERT(VARCHAR(20), GETDATE(), 112)
+			<if test="dues_gubun == 2">
+			, '99991231'
+			</if>
+			<if test="dues_gubun != 2">
+			, CONVERT(VARCHAR(20), DATEADD(day, 364, getdate()), 112)
+			</if>
+			, #{sum_dues}
+			, '0'
+			, 'N'
+		)
+	</insert>
+	
+	<insert id="insert_dues_b_tbl">
+		INSERT INTO DUES_B_TBL ( 
+			CODE_PERS
+			, DUES_GUBUN
+			, DUES_H_SEQ
+			, DUES_B_SEQ
+			, PRES_LET_DT
+			, CODE_INOUT_GUBUN
+			, CODE_RECEIPT
+			, PRES_MONEY
+			, CODE_PAY_FLAG
+			, REGI_DATE
+			, REGISTER
+			, CONFORM_YN
+			, BANK_NAME
+			, CONFORM_DT 
+		) VALUES (
+			#{code_pers}
+			, #{dues_gubun}
+			, 1
+			, 1
+			, CONVERT(VARCHAR(20), GETDATE(), 112)
+			, 1
+			, 2
+			, #{sum_dues}
+			, #{code_pay_flag}
+			, GETDATE()
+			, #{register}
+			, '1'
+			, ''
+			, '')
+	</insert>
+	
+	<!-- 근무처테이블에 삽입 시작.. -->
+	<insert id="insert_pers_company">
+	
+		INSERT INTO PERS_COMPANY (
+			CODE_PERS
+			, COMP_SEQ
+			, COMPANY_NAME
+			, CODE_POST
+			, COMPANY_ADD
+			, COMPANY_ADD_DETAIL
+			, COMPANY_TEL
+			, CODE_PART
+			, CODE_GREAT
+			, CODE_SMALL
+			, PERS_IN_DT
+			, CODE_USE
+			, JOB_DEPT
+			, JOB_LEVEL_CODE
+			, JOB_LINE_CODE
+			, LIC_PAY
+			, YEAR_PAY
+			, COMPANY_SICK_BAD
+			, COMPANY_MEAL
+			, JOIN_CON
+			, JOIN_COOK
+			, PERS_MULTY
+			, COMPANY_COUNT_MOM 
+			, COMPANY_COUNT_LUNCH
+			, COMPANY_COUNT_DINNER 
+			, COMPANY_COUNT_MIDNIG
+			, TRUST_CODE
+			, TRUST_NAME
+			, TRUST_ADDR
+			, TRUST_TEL
+			, REGI_DATE
+			, REGISTER
+			, PRIMARY_FLAG ) 
+		VALUES (
+			 #{code_pers}
+			, #{comp_seq}
+			, #{company_name}
+			, #{code_post}
+			, #{company_add}
+			, #{company_add_detail}
+			, #{company_tel}
+			, #{code_part}
+			, #{code_great}
+			, #{code_small}
+			, CONVERT(VARCHAR(8), GETDATE(), 112)
+			, #{code_use}
+			, #{job_dept}
+			, #{job_level_code}
+			, #{job_line_code}
+			, #{lic_pay}
+			, #{year_pay}
+			, #{company_sick_bad}
+			, #{company_meal}
+			, #{join_con}
+			, #{join_cook}
+			, #{pers_multy}
+			, #{company_count_mom}
+			, #{company_count_lunch}
+			, #{company_count_dinner}
+			, #{company_count_midnig}
+			, #{trust_code}
+			, #{trust_name}
+			, #{trust_addr}
+			, #{trust_tel}
+			, CONVERT(VARCHAR(20), GETDATE(), 112)
+			, #{register}
+			, '1')	
+	</insert>
+	
+	<!-- 회원테이블에 삽입 시작.. -->
+	<insert id="insert_person_m_tbl">
+		INSERT INTO PERSON_M_TBL ( 
+			  CODE_PERS 
+			, CODE_MEMBER 
+			, PERS_NAME
+			, PERS_BIRTH
+			, LIC_NO
+			, LIC_PRINT_DT 
+			, CODE_ADD_GUBUN
+			, CODE_POST 
+			, PERS_ADD
+			, PERS_ADD_DETAIL 
+			, PERS_TEL
+			, PERS_HP
+			, EMAIL
+			, CODE_EMAIL_COMP 
+			, CODE_SEX
+			, CODE_RELIGION 
+			, CODE_MARRY
+			, CODE_BRAN
+			, CODE_BIG
+			, CODE_SECT
+			, CODE_SCHOLAR
+			, CODE_UNIVER 
+			, CODE_SCHOOL
+			, CODE_CALL
+			, CODE_PLACE
+			, PERS_CAREER 
+			, CERTIFI_VIEW
+			, CODE_SUB 
+			, REGI_DT
+			, UP_DATE
+			, KDA_LEVEL
+			, RECOMMENDER 
+			, RECM_DIVISION
+			, RECM_HP 
+			, PERS_STATE
+			, REGISTER
+		)VALUES (
+			  #{code_pers}
+			, #{code_member}
+			, #{pers_name}
+			, #{pers_birth}
+			, #{lic_no}
+			, #{lic_print_dt}
+			, #{code_add_gubun}
+			, #{code_post}
+			, #{pers_add}
+			, #{pers_add_detail}
+			, #{pers_tel}
+			, #{pers_hp}
+			, #{email}
+			, #{code_email_comp}
+			, #{code_sex}
+			, #{code_religion}
+			, #{code_marry}
+			, #{code_bran}
+			, #{code_big}
+			, #{code_sect}
+			, #{code_scholar}
+			, #{code_univer}
+			, #{code_school}
+			, #{code_call}
+			, #{code_place}
+			, #{pers_career}
+			, #{certifi_view}
+			, #{code_sub}
+			, CONVERT(VARCHAR(20), GETDATE(), 112)
+			, GETDATE()
+			, #{kda_level}
+			, #{recommender}
+			, #{recm_division}
+			, #{recm_hp}
+			, #{pers_state}
+			, #{register}
+		)
+	</insert>
+
+	<insert id="insert_person_m_history">
+		INSERT INTO PERSON_M_HISTORY (
+			 CODE_PERS
+			, UP_DT
+			, UP_DT_SEQ
+			, CODE_MEMBER
+			, PERS_NAME
+			, PERS_BIRTH
+			, LIC_NO
+			, LIC_PRINT_DT
+			, CODE_ADD_GUBUN
+			, CODE_POST
+			, PERS_ADD
+			, PERS_ADD_DETAIL
+			, PERS_TEL
+			, PERS_HP
+			, EMAIL
+			, CODE_EMAIL_COMP
+			, CODE_SEX
+			, CODE_RELIGION
+			, CODE_MARRY
+			, CODE_BRAN
+			, CODE_BIG
+			, CODE_SECT
+			, CODE_SCHOLAR
+			, CODE_UNIVER
+			, CODE_SCHOOL
+			, CODE_CALL
+			, CODE_PLACE
+			, PERS_CAREER
+			, CERTIFI_VIEW
+			, CODE_SUB
+			, REGI_DT
+			, UP_DATE
+			, KDA_LEVEL
+			, RECOMMENDER
+			, RECM_DIVISION
+			, RECM_HP
+			, PERS_STATE
+			, REGISTER
+		) SELECT
+			CODE_PERS
+			, CONVERT(VARCHAR(20), GETDATE(), 112)
+			, 1
+			, CODE_MEMBER
+			, PERS_NAME
+			, PERS_BIRTH
+			, LIC_NO
+			, LIC_PRINT_DT
+			, CODE_ADD_GUBUN
+			, CODE_POST
+			, PERS_ADD
+			, PERS_ADD_DETAIL
+			, PERS_TEL
+			, PERS_HP
+			, EMAIL
+			, CODE_EMAIL_COMP
+			, CODE_SEX
+			, CODE_RELIGION
+			, CODE_MARRY
+			, CODE_BRAN
+			, CODE_BIG
+			, CODE_SECT
+			, CODE_SCHOLAR
+			, CODE_UNIVER
+			, CODE_SCHOOL
+			, CODE_CALL
+			, CODE_PLACE
+			, PERS_CAREER
+			, CERTIFI_VIEW
+			, CODE_SUB
+			, REGI_DT
+			, UP_DATE
+			, KDA_LEVEL
+			, RECOMMENDER
+			, RECM_DIVISION
+			, RECM_HP
+			, PERS_STATE
+			, REGISTER
+			FROM PERSON_M_TBL WHERE CODE_PERS = #{code_pers}
+	</insert>
+	
+	
+	<insert id="insert_dues_h_tbl_cms">
+		INSERT INTO DUES_H_TBL_CMS 
+		( 
+			  CODE_PERS 
+			, DUES_GUBUN
+			, DUES_H_SEQ
+			, CODE_MEMBER
+			, CMS_DATE
+			, CMS_BANK
+			, CMS_ACOUNT
+			, CMS_NAME
+			, CMS_BIRTH
+			, CMS_PERS_TEL
+			, CMS_PERS_HP
+			, CMS_AGREE_YN
+			, CMS_AGREE_OTHER_YN
+			, CMS_DUES
+			, CMS_AUTH_START
+			, CMS_AUTH_END
+			, REGI_DATE
+			, REGI_DT
+			, REGISTER
+			, UP_DATE
+			, UPDATER
+		)VALUES(
+			  #{code_pers}
+			, 4
+			, #{dues_h_seq}
+			, #{code_member}
+			, #{CMS_date}
+			, #{CMS_bank}
+			, #{CMS_acount}
+			, #{CMS_name}
+			, #{CMS_birth}
+			, #{CMS_pers_tel}
+			, #{CMS_pers_hp}
+			, #{CMS_agree_YN}
+			, #{CMS_agree_other_yn}
+			, #{CMS_dues}
+			, #{CMS_auth_start}
+			, #{CMS_auth_end}
+			, GETDATE()
+			, #{regi_dt}
+			, #{register}
+			,''
+			,'')
+	</insert>
+
+	<!-- 재가입 -->
+	<!-- 1.무통장/지로 -->
+	<select id="getDuesMonth"  resultType="java.lang.String">
+	<![CDATA[
+		SELECT TOP(1) YYYYMM FROM DUES WHERE YYYYMM <= CONVERT(VARCHAR(6), GETDATE(), 112) ORDER BY YYYYMM DESC
+	]]>
+	</select>
+	
+	<select id="getPERSON_M_TBL" parameterType="hashmap" resultType="MEMBER">
+	 SELECT PERS_NAME
+		 , LIC_NO
+		 , PERS_TEL
+		 , PERS_HP
+		 , EMAIL
+		 , CODE_BRAN
+		 , PERS_BIRTH
+	 FROM PERSON_M_TBL WHERE CODE_PERS = #{code_pers}
+	 </select>
+		
+	<select id="getDuesBranList" parameterType="hashmap" resultType="DUES">
+	<![CDATA[
+		SELECT 
+			A.CODE_MEMBER
+			, REPLACE(CONVERT(VARCHAR(50), CAST(A.SUM_DUES AS MONEY), 1) , '.00', '') AS SUM_DUES
+			, B.DETCODENAME
+			, B.TEMPCD1
+			, B.TEMPCD2
+			, B.TEMPCD3
+		FROM DUES A
+			INNER JOIN (SELECT * FROM COM_CODE WHERE GROUPCODE = '006' AND USE_YN = 'Y') B 
+			ON A.CODE_MEMBER = B.DETCODE 
+			WHERE A.YYYYMM = (SELECT TOP(1) YYYYMM FROM DUES WHERE YYYYMM <= CONVERT(VARCHAR(6), GETDATE(), 112) ORDER BY YYYYMM DESC)
+				AND A.CODE_BRAN = #{code_bran} AND A.USE_YN = 'Y' 
+			ORDER BY A.YYYYMM DESC
+			, A.CODE_MEMBER ASC
+		]]>
+	</select>
+	
+	<insert id="insert_trust_company"  parameterType="hashmap" >
+		INSERT INTO TRUST_COMPANY (
+			TRUST_CODE
+			, TRUST_NAME
+			, TRUST_POST
+			, TRUST_ADDR
+			, TRUST_TEL
+			, REGI_DATE
+			, REGISTER
+		) VALUES(
+			(SELECT MAX(CAST(TRUST_CODE AS INTEGER))+1 FROM TRUST_COMPANY)
+			, #{trust_name}
+			, #{trust_post}
+			, #{trust_addr}
+			, #{trust_tel}
+			, getdate()
+			, 'user'
+		)
+	</insert>
+	
+	<select id="getTrustCompanyList"  parameterType="hashmap" resultType="TRUST_COMPANY">
+		SELECT 
+			TRUST_CODE
+			, TRUST_NAME
+			, TRUST_POST
+			, TRUST_ADDR
+			, TRUST_TEL
+		FROM TRUST_COMPANY WHERE TRUST_NAME LIKE '%' + #{ser_keyword} + '%'
+	</select>
+	
+	<select id="selectPersonAllByKey" parameterType="hashmap" resultType="kda.member.data.PERSON_M_TBL">
+    SELECT 
+    	  a.code_pers 
+    	, a.pers_name
+    	, a.pers_birth 
+    	, a.code_sex
+    	, a.lic_no
+    	, a.lic_print_dt
+    	, a.code_member
+    	, a.code_bran
+    	, a.code_big
+    	, a.code_sect
+    	, isnull(c.code_great,'') as code_great
+    	, isnull(c.code_part,'') as code_part
+    	, isnull(c.code_small,'') as code_small
+    	, isnull(c.comp_seq,'') as comp_seq
+    	, a.code_post
+    	, a.code_add_gubun
+    	, a.pers_add
+    	, a.pers_add_detail
+    	, a.code_place
+    	, a.pers_tel
+    	, isnull(a.certifi_view,'00000') as certifi_view
+    	, a.pers_hp
+    	, a.email
+    	, a.code_email_comp
+    	, a.code_school
+    	, a.code_scholar
+    	, a.code_univer
+    	, isnull(a.pers_career,'0000') as pers_career
+    	, a.code_marry
+    	, a.code_religion
+    	, a.code_sub
+    	, a.code_call
+    	, a.recommender
+    	, a.recm_division
+    	, a.recm_hp
+    	, a.kda_level
+    	, a.pers_state
+    	, c.company_name
+    	, c.company_tel
+    	, c.code_post company_code_post
+    	, c.company_add
+    	, c.company_add_detail
+    	, c.job_dept
+    	, c.job_level_code
+    	, c.job_line_code
+    	, b.id
+	FROM PERSON_M_TBL A LEFT JOIN PERS_COMPANY C 
+		ON A.CODE_PERS = C.CODE_PERS
+   			AND C.COMP_SEQ = (
+   				SELECT TOP(1) COMP_SEQ  FROM PERS_COMPANY WHERE CODE_PERS =  A.CODE_PERS ORDER BY primary_flag DESC,  COMP_SEQ DESC
+   		  	)
+   		, ID_TBL B
+  	WHERE A.CODE_PERS = B.CODE_PERS
+  		AND A.CODE_PERS = #{codePers}
+	</select>
+	
+	<select id="selectDuesByCodePers" parameterType="string" resultType="hashmap">
+	SELECT 
+	      ROW_NUMBER()OVER(ORDER BY B.REGI_DATE DESC, B.PRES_LET_DT DESC, B.DUES_H_SEQ DESC, B.DUES_B_SEQ DESC) no
+		, DBO.GETCODEVALUE('038', B.DUES_GUBUN) AS dg_name
+		, DBO.GETCODEVALUE('015', B.CODE_INOUT_GUBUN) AS iog_name
+		, DBO.GETCODEVALUE('013', B.CODE_RECEIPT) AS rc_name
+		, DBO.GETCODEVALUE('014', B.CODE_PAY_FLAG) AS pf_name
+		, DBO.GETCODEVALUE('052', B.CONFORM_YN) AS cf_name
+		, DBO.GETCODEVALUE('006', A.CODE_MEMBER) AS cm_name
+		, A.incom_flag
+		, A.code_member
+		, A.dues_h_seq
+		, A.auth_start
+		, A.auth_end
+		, B.dues_gubun
+		, B.code_inout_gubun
+		, B.code_pay_flag
+		, B.conform_yn
+		, B.regi_date
+		, CONVERT( INT, B.pres_money ) as pres_money
+	FROM DUES_H_TBL A
+	LEFT OUTER JOIN DUES_B_TBL B ON A.CODE_PERS = B.CODE_PERS AND A.DUES_GUBUN = B.DUES_GUBUN AND A.DUES_H_SEQ = B.DUES_H_SEQ
+	WHERE A.CODE_PERS = #{code_pers}
+		ORDER BY regi_date DESC
+	</select>
+	
+	<select id="selectCountPerson" parameterType="hashmap" resultType="int">
+	SELECT 
+	 	COUNT(CODE_PERS)
+	FROM PERSON_M_TBL 
+	WHERE 1 = 1
+		<if test="persName != null">
+		AND pers_name = #{persName}
+		</if>
+		<if test="persBirth != null">
+		AND pers_birth = #{persBirth}
+		</if>
+		<if test="persHp != null">
+        AND pers_hp = #{persHp}
+		</if>
+	</select>
+	
+<!-- 20151105  회원유효기간 만료시 연동 그룹정보 변경 추가 -->	
+	<select id="selectPersonByCertTemp" parameterType="string" resultType="hashmap">
+	select case when 
+			ISNULL(b.pers_birth,'')!='' and ISNULL( p.pers_state, '' ) != '05' then '001002'
+            when ISNULL(c.pers_birth,'')!='' and ISNULL( p.pers_state, '' ) != '05' then '001003'
+            when ISNULL(e.pers_birth,'')!='' and ISNULL( p.pers_state, '' ) != '05' then '002002'  -- 재수강 일반
+            when ISNULL(f.pers_birth,'')!='' and ISNULL( p.pers_state, '' ) != '05' then '002001'  -- 재수강 임상
+            ELSE 
+         		CASE WHEN ISNULL( p.pers_state, '' ) in ( '08','05', '06') then '001004' --유효기간 만료 시 비회원 추가, 06 승인대기 추가
+         		ELSE '001001' END 
+            END as groupcode
+	     , i.passwd
+	     , p.pers_name
+	     , p.pers_birth
+	     , pers_tel
+	     , pers_hp
+	     , SUBSTRING(code_post,0,4) + '-' + SUBSTRING(code_post,4,3) as code_post
+	     , pers_add
+	     , case when p.code_email_comp='01' then 
+	     		p.email
+	       else 
+	       		p.email + '@' + d.detcodename 
+	       end 
+	       email
+	     , p.code_sex 
+		 , p.pers_birth
+		 , p.lic_no 
+	  from Person_M_TBL p
+	       left join certTemp b on b.pers_birth = p.pers_birth and b.pers_name = p.pers_name
+	       left join certOperTemp c on c.pers_birth = p.pers_birth and c.pers_name = p.pers_name
+	       left join com_code d on d.groupcode = '025' and d.detcode = p.code_email_comp
+	       left join certBasicTemp e on e.pers_birth = p.pers_birth and e.pers_name = p.pers_name
+	       left join certReTemp f on f.pers_birth = p.pers_birth and f.pers_name = p.pers_name
+	     , id_tbl i
+	 WHERE p.code_pers = i.code_pers
+	   and p.code_pers= #{codePers}
+	</select>
+	
+	<!-- // 영양사 카드 신청시 면허번호 수정 -->
+	<update id="updateLicNo" parameterType="hashmap">
+	UPDATE Person_M_TBL SET LIC_NO = #{licNo}
+	WHERE code_pers = #{codePers}
+	</update>
+	
+	<!-- // 회원 여부 체크 후 회원코드 반환 -->
+	<select id="selectCheckMemberById" parameterType="hashMap" resultType="hashmap">
+	SELECT 
+		  b.code_pers
+		, a.pers_name
+		,  case when PWDCOMPARE(#{compVal}, b.passwd) = 1 then 
+				'Y' 
+			else 
+				'N' 
+		   end as PWCHK 
+	FROM  Person_M_TBL a, id_tbl b
+	WHERE b.id = #{uid}
+		AND a.code_pers = b.code_pers
+	</select>
+	
+	<!-- // 유효기간 반환 -->
+	<select id="selectMemberDuePeriodList" parameterType="hashMap" resultType="hashmap">
+		SELECT ROW_NUMBER()OVER(ORDER BY a.regi_date desc,a.pres_let_dt desc, a.dues_h_seq desc, a.dues_b_seq desc) no 
+				, a.dues_gubun 
+				, a.dues_h_seq 
+				, a.dues_b_seq 
+				, a.code_inout_gubun
+				, a.code_receipt
+				, a.pres_money
+				, b.auth_start
+				, b.auth_end
+				, b.code_member
+				, b.incom_flag
+		FROM dues_b_tbl a,  dues_h_tbl b 
+		WHERE a.code_pers=b.code_pers  
+			AND a.dues_gubun=b.dues_gubun  
+			AND a.dues_h_seq = b.dues_h_seq 
+				AND a.code_pers = #{code_pers}
+	</select>
+	
+	
+	<select id="selectReDuesList" parameterType="hashmap" resultType="DUES">
+	<![CDATA[
+		SELECT 
+			  A.CODE_MEMBER
+			, REPLACE(CONVERT(VARCHAR(50), CAST(A.SUM_DUES AS MONEY), 1) , '.00', '') AS SUM_DUES
+			, B.DETCODENAME
+			, B.TEMPCD1
+			, B.TEMPCD2
+			, B.TEMPCD3
+		FROM DUES A
+			INNER JOIN (SELECT * FROM COM_CODE WHERE GROUPCODE = '006' AND USE_YN = 'Y') B 
+			ON A.CODE_MEMBER = B.DETCODE 
+			WHERE A.YYYYMM = (SELECT TOP(1) YYYYMM FROM DUES WHERE YYYYMM = CONVERT(VARCHAR(6), GETDATE(), 112) ORDER BY YYYYMM DESC)
+				AND A.CODE_BRAN = #{code_bran} AND A.USE_YN = 'Y' 
+			ORDER BY A.YYYYMM DESC
+			, A.CODE_MEMBER ASC
+		]]>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

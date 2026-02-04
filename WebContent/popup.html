@@ -1,0 +1,47 @@
+ 
+ <script src="/js/jquery-1.11.2.min.js"></script>
+ <script src="/js/jquery.bpopup.min.js"></script>
+    
+<script type="text/javascript">
+ 	function go_popup() {
+    	$('#popup').bPopup();         
+	};
+	
+</script>
+<style type="text/css">
+ 
+.Pstyle {
+    opacity: 0;
+    display: none;
+    position: relative;
+    width: auto;
+    border: 5px solid #fff;
+    padding: 20px;
+    background-color: #fff;
+}
+ 
+.b-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+</style>
+<body>
+     
+    <input type="button" value="Ŭ��" onclick="go_popup()"> 
+     
+    <div id="popup" class="Pstyle">
+ 
+        <span class="b-close">X</span>
+ 
+        <div class="content" style="height: auto; width: auto;">
+ 
+        ���̾� �˾��� �ϼ� �Ǿ���ϴ�. <br>�˾��� ���� ũ��� content div���� ������ �����մϴ�
+ 
+                  
+        </div>
+    </div>
+</body>

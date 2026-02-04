@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminDiscuss">
+
+
+	<sql id="discussColumn">
+		bateIndex           
+		,bateSubject     
+		,bateDate
+	</sql>
+	
+	<select id="selectDiscussCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(bateIndex)
+	FROM 	pTb_Debate
+	</select>
+	
+	<select id="selectDiscussListHelper" parameterType="hashmap" resultType="kda.admin.discuss.data.PTBDEBATE">
+  	SELECT 
+		num ,
+		<include refid="discussColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  bateIndex DESC ) AS num , 
+			<include refid="discussColumn" />
+		FROM		pTb_Debate
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getDiscuss" parameterType="hashmap" resultType="kda.admin.discuss.data.PTBDEBATE">
+	SELECT	
+		<include refid="discussColumn" />
+	FROM		pTb_Debate 
+	WHERE 	bateIndex=#{bateIndex}
+	</select>
+	
+	<insert id="insertDiscuss" parameterType="hashmap" >
+	INSERT INTO pTb_Debate
+	(
+	bateSubject
+	)
+	VALUES
+	(
+	#{bateSubject}
+	)
+	</insert>
+	
+	<update id="updateDiscuss" parameterType="hashmap" >
+	UPDATE	pTb_Debate
+	SET		bateSubject = #{bateSubject} 
+	WHERE 	bateIndex=#{bateIndex}	
+	</update>
+	
+	<delete id="deleteDiscuss" parameterType="hashmap" >
+	DELETE FROM	pTb_Debate
+	WHERE 	bateIndex=#{bateIndex}	
+	</delete>
+	
+</mapper>
+

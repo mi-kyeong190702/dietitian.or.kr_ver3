@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="kda.utils.KdaStringUtil" %>
+<%
+	String uri = request.getAttribute("javax.servlet.forward.request_uri").toString();
+	uri = KdaStringUtil.uriPage(uri);
+	int curDate = Integer.parseInt(KdaStringUtil.getTodayString());
+	
+%>
+<div class="tab t2 div4 mb30">
+	<ul>
+		<li><a href="/work/education/ke_receipt.do"  <% if( "ke_receipt.do".contains(uri) ) { %>  class="on" <% } %>>등록안내</a></li>
+		 <li><a href="/work/education/ke_receipt_application.do" <% if( "ke_receipt_application.do".contains(uri) ) { %>  class="on" <% } %>>등록신청</a></li> 
+		
+		<%--<li><a href="#" <% if( "ke_receipt_application.do".contains(uri) ) { %>  class="on" <% } %>>등록신청</a></li>--%>
+		
+		<li>
+		<%if( curDate < 20170728 ) { %><a href="/xaido/gkrtnfeoghl.xls">등록확인</a><% } else {  %><a href="#" onclick="alert('등록명단은 6월부터 확인 가능합니다.')">등록확인</a><% } %> 
+		</li>
+		<li><a href="/work/education/ke_receipt_cancel.do" <% if( "ke_receipt_cancel.do".contains(uri) ) { %> class="on" <% } %>>등록취소</a></li>
+	</ul>
+</div>

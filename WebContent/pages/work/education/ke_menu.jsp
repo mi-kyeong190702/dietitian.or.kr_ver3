@@ -1,0 +1,112 @@
+			<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+			
+			<div class="s_page">
+				<div class="sp_head">
+					<div class="sp_title">
+						<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">KDA</mark> 교육</h3>
+					</div>
+					<div class="sp_navi">
+						<ul>
+							<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
+							<li><a href="/work/education/ke_menu.do" class="cm">KDA 교육</a></li>
+						</ul>
+					</div>
+				</div>
+				<hr />
+				<div class="sp_body">
+					<div class="area center s1 mb20">
+						<p class="text middle_1">전문적인 교육으로 영양사의 희망을 디자인합니다.</p>
+					</div>
+
+					<div class="area text s1">
+						<div class="area">
+							<div class="box bw0 fl w207 h207 p20 ke_menu_bg_01">
+								<h3 class="title middle_2 bold t3">교육지원센터</h3>
+									<ul>
+										<li class="text_b link small_1 s1 i_b_t7 mt10"><a href="/work/education/ke_center_notice.do?bbs_board_code=2&bbs_category=교육">교육 공지사항</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/faq/faq_list.do?faq_category=2">자주 묻는 질문</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_center_edu.do?bbs_board_code=116">교육후기</a></li>
+									</ul>
+							</div>
+							<div class="box bw0 fl w207 h207 p20 ke_menu_bg_02">
+								<h3 class="title middle_2 bold t3">교육과정 신청</h3>
+									<ul>
+										<li class="text_b link small_1 s1 i_b_t7 mt10"><a href="/work/education/ke_curriculum.do">교육과정 신청</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_situation.do">교육과정 신청현황</a></li>
+									</ul>
+							</div>
+							<div class="box bw0 fl w207 h207 p20 ke_menu_bg_03">
+								<h3 class="title middle_2 bold t3">전국영양사 학술대회</h3>
+									<ul>
+										<!-- 학술대회 관련 부분 -->
+										<li class="text_w link small_1 s1 i_b_t7w mt10"><a href="/work/education/ke_contest_info.do">학술대회 안내</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_program.do">프로그램</a></li>
+										<!-- <li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_document.do">공문다운받기</a></li> -->
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_receipt.do">등록</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_green.do">초록접수</a></li>
+										<!-- <li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_event_info.do">행사장(숙박) 안내</a></li> -->
+										
+										<!-- <li class="text_w link small_1 s1 i_b_t7w mt10"><a href="#">학술대회 안내</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="#">프로그램</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="#">공문다운받기</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="#">등록</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="#">초록접수</a></li> -->
+									</ul>
+							</div>
+						</div>
+						<div class="area">
+							<div class="box bw0 fl w207 h207 p20 ke_menu_bg_04">
+								<h3 class="title middle_2 bold t3">교육과정 안내</h3>
+									<ul>
+										<li class="text_w link small_1 s1 i_b_t7w mt10"><a href="/work/education/ke_elderly_info.do">전문교육과정</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_health_info.do">직무 교육과정 Ⅰ</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_coach_info.do">직무 교육과정 Ⅱ</a></li>
+										<li class="text_w link small_1 s1 i_b_t7w"><a href="/work/education/ke_online_info.do">온라인 교육과정</a></li>
+									</ul>
+							</div>
+							<div class="box bw0 fl w207 h207 p20 ke_menu_bg_05">
+							<h3 class="title middle_2 bold t3">영양사 법정교육</h3>
+									<ul>
+										<li class="text_b link small_1 s1 i_b_t7 mt10"><a href="/work/education/ke_law_edu.do">영양사 보수교육</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_law_hygiene.do">영양사 식품위생교육</a></li>
+<!-- 										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_law_special.do">영양사 특별위생교육</a></li> -->
+									</ul>
+							</div>
+							<div class="box bw0 fl w207 h207 p20 center ke_menu_bg_07 ke_login">
+								<div class="kl_btn">
+									<h3 class="title middle_2 bold t3 cw">KDA 온라인 교육센터</h3>
+										<p class="ssmall cw">로그인 후 클릭해 주세요.</p>
+										<a href="/member/sso_login2.do">온라인교육센터 바로가기</a>
+								</div>
+							</div>
+							<!-- <div class="box bw0 fl w207 h207 p20 ke_menu_bg_06">
+								<h3 class="title middle_2 bold t3">전문영양사 코너</h3>
+									<ul>
+										<li class="text_b link small_1 s1 i_b_t7 mt10"><a href="/work/education/ke_about.do">전문영양사란?</a></li>
+										<li class="text_b link small_1 i_b_t7"><a href="/work/education/ke_schedule.do">평점인정 교육일정</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_exam.do">자격시험 신청</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_license.do">자격증 신청</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_exam_situation.do">자격시험 신청현황</a></li>
+										<li class="text_b link small_1 s1 i_b_t7"><a href="/work/education/ke_formboard.do?bbs_board_code=83">관련서식 다운로드</a></li>
+									</ul>
+							</div> -->
+						</div>
+						<div class="area">
+							<!-- <div class="box bw0 fl w207 h207 p20 center ke_menu_bg_07 ke_login">
+								<div class="kl_btn">
+									<h3 class="title middle_2 bold t3 cw">KDA 온라인 교육센터</h3>
+										<p class="ssmall cw">로그인 후 클릭해 주세요.</p>
+										<a href="/member/sso_login2.do">온라인교육센터 바로가기</a>
+								</div>
+							</div> -->
+							<div class="box bw0 fl w454 h207 p20 ke_menu_bg_08" style="width:701px;">
+								<h3 class="title middle_2 bold t3">KDA 교육 문의처</h3>
+									<ul>
+										<li class="text small_2 s1 i_b_t7 mt10">영양사 법정교육<br/>kdasys@kdiet.or.kr</li>
+										<li class="text small_2 s1 i_b_t7">교육과정 안내 및 신청, <!-- 전문영양사 코너, --> 온라인교육센터, 전국영양사학술대회<br/>kda516@kdiet.or.kr</li>
+									</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>

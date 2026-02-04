@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminSignature">
+
+
+	<sql id="signatureColumn">
+		kn_Code
+		,kn_Name
+		,kn_Home_Post
+		,kn_Home_Addr
+		,kn_Home_Tel
+		,kn_Contents
+		,kn_join_Date
+		,kn_Home_pcs 
+	</sql>
+	
+	<select id="selectSignatureCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(kn_Code)
+	FROM 	Tbl_KNOU
+	</select>
+	
+	<select id="selectSignatureListHelper" parameterType="hashmap" resultType="kda.admin.signature.data.TBLKNOU">
+  	SELECT 
+		num ,
+		num2 ,
+		<include refid="signatureColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  kn_Code DESC ) AS num , 
+	  		ROW_NUMBER() OVER( ORDER BY  kn_Code ASC) AS num2 , 
+			<include refid="signatureColumn" />
+		FROM		Tbl_KNOU
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<delete id="deleteSignature" parameterType="hashmap">
+	DELETE FROM	Tbl_KNOU 
+	WHERE kn_Code	=#{kn_Code}
+	</delete>
+	
+</mapper>
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="payment">
+
+	<insert id="buyaddress_insert">
+		INSERT INTO PTB_BUYADDRESS
+		(
+		    BUSERID
+		  , BF_PAYMENTDATE
+		  , BF_PAYMENTNAME
+		  , BF_NAME
+		  , BF_SSN
+		  , BF_TEL
+		  , BF_MOBILE
+		  , BF_EMAIL
+		  , BF_DELIVERY
+		  , BT_NAME
+		  , BT_POST
+		  , BT_ADDRESS
+		  , BT_TEL
+		  , BT_MOBILE
+		  , BT_PAPER
+		  , PAY_GUBUN
+		  , BF_LICENSE
+		  , BT_TEXT
+		) VALUES(
+		    ${buserid}
+		  , ${bf_paymentdate}
+		  , ${bf_paymentname}
+		  , ${bf_name}
+		  , ${bf_ssn}
+		  , ${bf_tel}
+		  , ${bf_mobile}
+		  , ${bf_email}
+		  , ${bf_delivery}
+		  , ${bt_name}
+		  , ${bt_post}
+		  , ${bt_address}
+		  , ${bt_tel}
+		  , ${bt_mobile}
+		  , ${bt_paper}
+		  , ${pay_gubun}
+		  , ${bf_license}
+		  , ${bt_text}
+		)
+	</insert>
+
+	<insert id="buygoods_insert">
+		INSERT INTO PTB_BUYGOODS
+		(
+		    BINDEX
+		  , OINDEX
+		  , EEA
+		  , EPRICE1
+		  , EPRICE2
+		)
+		(
+		  SELECT ${bindex} 
+		       , PTB_BUYCART.OINDEX
+		       , PTB_BUYCART.CTEA
+		       , PTB_BOOKGOODS.OPRICE1
+		       , PTB_BOOKGOODS.OPRICE2
+		    FROM PTB_BUYCART LEFT OUTER JOIN PTB_BOOKGOODS 
+		      ON (PTB_BUYCART.OINDEX = PTB_BOOKGOODS.OINDEX)
+		  WHERE PTB_BUYCART. CTSESSIONID= ${sessionod}  
+		)
+	</insert>
+	
+		
+	<insert id="insert_order_list" >
+		INSERT INTO TBL_ORDER_LIST
+			(
+				 CODE_BRAN -- 소속 지회코드
+				, O_GUBUN -- 사용처구분 : MEMBER(회원가입),EDU(교육),SHOP(쇼핑몰) ....
+				, REQ_TX -- 요청 구분 
+				, RES_CD -- 결과 코드
+				, RES_MSG -- 결과 메세지
+				, ORDR_IDXX -- 주문번호 -
+				, TNO -- KCP 거래번호
+				, GOOD_MNY 
+				, GOOD_NAME  -- 상품명
+				, BUYR_NAME -- 주문자명
+				, BUYR_TEL1 -- 전화번화
+				, BUYR_TEL2 -- PCS
+				, BUYR_MAIL -- 이메일
+				, CARD_CD -- 카드코드 
+				, CARD_NAME 
+				, APP_TIME -- 승인시간
+				, APP_NO  -- 승인번호
+				, QUOTA -- 할부개월
+				, ID  -- 사용자 아이디
+				, GOODS_CODE_NUM 
+				, EDU_KIND
+				, PERS_BIRTH
+			)VALUES(
+				 #{code_bran} -- 소속 지회코드
+				, #{o_gubun} -- 사용처구분 : MEMBER(회원가입),EDU(교육),SHOP(쇼핑몰) ....
+				, #{req_tx} -- 요청 구분 
+				, #{res_cd} -- 결과 코드
+				, #{res_msg} -- 결과 메세지
+				, #{ordr_idxx} -- 주문번호
+				, #{tno}  -- KCP 거래번호
+				, #{good_mny} 
+				, #{good_name} -- 상품명
+				, #{buyr_name} -- 상품명
+				, #{buyr_tel1} -- 전화번화
+				, #{buyr_tel2} -- pcs
+				, #{buyr_mail} -- 이메일
+				, #{card_cd} -- 카드코드 
+				, #{card_name} 
+				, #{app_time} -- 승인시간
+				, #{app_no} -- 승인번호
+				, #{quota} -- 할부개월
+				, #{id} -- 사용자 아이디
+				, #{goods_code_num}
+				, #{edu_kind} 
+				, #{pers_birth}
+			)		
+		</insert>
+		<update id="upadateOrderStatus">
+		UPDATE TBL_ORDER_LIST SET
+			   res_cd = #{res_cd}
+			 , res_msg = #{res_msg}
+		WHERE ordr_idxx = #{ordr_idxx}
+		</update>
+		
+		<!-- 학술대회 일때 최종 결과를 update 해 준다 -->
+		<select id="insert_science">
+			INSERT INTO SCIENCE_MEETING_ACTIVE SELECT * FROM SCIENCE_MEETING_TEMP WHERE IDX = #{goods_code_NUm}
+		</select>
+		
+		
+		<select id="get">
+			SELECT PERS_NAME, DBO.GETPERSNODECORD(PERS_NO, '1') AS PERS_NO, PERS_HP, CODE_BRAN 
+			FROM PERSON_M_TBL WHERE CODE_PERS = #{code_pers}
+		</select>
+		
+		
+</mapper>

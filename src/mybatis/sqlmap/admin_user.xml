@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminUser">
+
+	<select id="selectUserMaster" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+			DISTINCT  A.userid
+			, A.username
+			, A.userbran
+			, case when PWDCOMPARE(#{strpwd }, A.UserPW) = 1 
+				then 'Y' 
+				else 'N' 
+			  end as pwchk
+			,STUFF(
+				(SELECT ',' + x.progid
+				FROM user_power x
+				WHERE (x.userid = a.userid and x.progid IN (905,906,908))
+				FOR XML PATH (''))
+				,1,1,'')
+				progid
+	FROM user_master A , user_power B
+	WHERE A.UserId= #{strid} 
+		AND A.userid = B.UserId 
+		AND A.use_yn = 'Y' 
+		AND A.use_yn = 'Y' 
+		AND B.progid IN ( '905','906','908') 
+	</select>
+
+</mapper>
+

@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">소아</mark>비만관리</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="/" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/business/kb_nutrition.do">KDA 영양사업</a></li>
+				<li><a href="/work/business/kb_c_info118.do">영양클리닉</a></li>
+				<li><a href="/work/business/kb_c_child_obesity.do" class="cm">소아비만관리</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+		<%@ include file="inc/child_obesity.jsp" %>
+		<div class="h800 text s1 mb50">
+						<h4 class="title bold cm t2 i_b_t2 mt50">비만의 정의</h4><br>
+							<h5 class=" title bold t3 i_b_t3 mt40">비만의 정의</h5>
+								<p class="mt10 pl15">비만은 만성질환의 하나이며 , 그 유병률 이 점차 증가하고 있는 추세이다.<br><br>
+									<mark class="cm">비만이란 단순하게 체중이 증가하는 것이 아니라 지방세포의 비정상적인 증가에 의해 체중이 증가된 상태</mark>를 말한다. 
+									풍요롭고 복잡한 생활을 하게 되면서 과식, 신체활동의 부족, 과음, 식사 패턴의 불규칙 등 다양한 요인들이 복합적으로 작용하여 섭취한 열량보다 소비하는 열량이 적은 경우에 나타난다.<br><br>
+									과거에는 뚱뚱한 것을 건강해 보인다고 생각하는 경향이 있었는데 근래에는 
+									<mark class="cm">비만한 경우에 고혈압, 심장병, 당뇨병 등의 질환에 걸릴 위험이 크다는 것이 알려져 주의</mark>를 요하고 있다.
+									또한 어렸을 때 비만하면 건강하고 활달한 어린시절을 보내기 힘들며 어른이 된 후에도 비만이 될 가능성이 높으므로 주의해야 한다.<br><br>
+									건강하고 아름다운 모습을 위하여 식사요법, 운동요법, 식습관의 개선을 적극적으로 꾸준히 할 필요가 있다.
+								</p>
+					</div>
+	</div>
+</div>

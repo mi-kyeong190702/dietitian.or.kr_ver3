@@ -1,0 +1,845 @@
+*******************
+
+Microsoft Windows용 디스크 검사
+
+주의: MS-DOS 프로그램으로 이 파일을 표시할 경우 일부의 문자가 올바르게 표시되지
+않을 수 있습니다. 메모장 등의 Windows용 프로그램을 사용하십시오.
+
+1999-9-16 12:25에서 로그 파일이 작성되었습니다.
+
+디스크 검사에서 다음 옵션이 사용되었습니다.:
+  표준 테스트
+  자동 오류 수정
+
+ (C:) 드라이브에 다음 오류가 있습니다.
+
+이 드라이브에는 오류가 없습니다.
+
+-------------------
+
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:38PM on Wednesday, April 04, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 1,066 lost clusters in one chain.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 07:17AM on Thursday, April 05, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 07:41PM on Monday, April 09, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 12:01PM on Tuesday, April 10, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry
+         C:\WINDOWS\APPLIC~1\IDENTI~1\{C1B2E~1\MICROS~1\OUTLOO~1\CLEANUP.LOG had
+         an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 10:59PM on Tuesday, April 10, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:03AM on Wednesday, April 11, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not find any problems.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:29AM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There was one lost cluster.
+         ScanDisk reclaimed the lost cluster as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:34AM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There was one lost cluster.
+         ScanDisk reclaimed the lost cluster as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 05:07PM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFBD52.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 08:20PM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:27PM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not perform any tests.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 10:40PM on Thursday, April 12, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 11:41AM on Friday, April 13, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF92C2.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+         Directory entry C:\WINDOWS\TEMP\~DF51D6.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+         Directory entry
+         C:\WINDOWS\APPLIC~1\IDENTI~1\{C1B2E~1\MICROS~1\OUTLOO~1\CLEANUP.LOG had
+         an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 2,140 lost clusters in 4 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 06:43PM on Friday, April 13, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFBE6E.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 8,476 lost clusters in 2 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 08:00PM on Friday, April 13, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFAC36.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 8,775 lost clusters in 3 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 10:33AM on Monday, April 16, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF3187.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 4 lost clusters in 2 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 05:04PM on Monday, April 16, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 08:48PM on Monday, April 16, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         The free space was being reported incorrectly.
+         ScanDisk successfully fixed the free space count.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 06:19PM on Tuesday, April 17, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not perform any tests.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 12:15PM on Thursday, April 19, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF3A8F.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+         Directory entry C:\WINDOWS\TEMP\~DF29A6.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 05:07PM on Thursday, April 19, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 3 lost clusters in 3 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 03:08PM on Monday, April 23, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF4BC4.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 04:46PM on Monday, April 23, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF3DEC.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 581 lost clusters in one chain.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 04:08PM on Tuesday, April 24, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFF987.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 2 lost clusters in one chain.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 08:17PM on Tuesday, April 24, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF2791.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 22 lost clusters in 3 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 08:45PM on Tuesday, April 24, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFF183.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 09:25AM on Wednesday, April 25, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 2 lost clusters in one chain.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 04:15PM on Wednesday, April 25, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not perform any tests.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 07:54PM on Friday, April 27, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DF3206.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+         Directory entry C:\WINDOWS\TEMP\~DF1DC7.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 31 lost clusters in 6 chains.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 10:14PM on Friday, April 27, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         Directory entry C:\WINDOWS\TEMP\~DFCC33.TMP had an incorrect size.
+         ScanDisk successfully corrected the directory entry.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         There were 3 lost clusters in one chain.
+         ScanDisk reclaimed the lost clusters as free space.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     
+
+
+Microsoft ScanDisk
+
+
+Log file generated at 10:40AM on Sunday, April 29, 2001.
+
+ScanDisk checked drive C for problems, with the following results:
+
+Directory structure
+
+         ScanDisk did not find any problems.
+     
+File allocation table
+
+         ScanDisk did not find any problems.
+     
+File system
+
+         ScanDisk did not perform any tests.
+     
+Surface scan
+
+         ScanDisk did not perform any tests.
+     

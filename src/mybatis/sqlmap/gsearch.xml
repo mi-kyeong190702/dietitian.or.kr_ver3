@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="gsearch">
+	
+	<select id="gsearch_count" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT COUNT(*) FROM DBO.PAPER_BOARD AS A INNER JOIN DBO.PAPER_BOARD_SETTINGS AS B ON ( A.BBS_BOARD_CODE = B.BS_CODE)
+		#{WhereSql}
+	</select>
+	
+	<select id="gsearch_list" parameterType="hashmap" resultMap="GSEARCH">
+		SELECT * FROM (SELECT TOP #{pagesize} * FROM (
+				SELECT TOP #{page} * #{pagesize} B.BS_TOPADD
+				, B.BS_TOPLINK
+				, A.BBS_SUBJECT
+				, A.BBS_CONTENTS
+				, B.BS_NAME
+				, A.BBS_BOARD_CODE
+				, A.BBS_IDX
+				, CONVERT(VARCHAR, A.BBS_EDIT_DATE_DT, 102) BBS_EDIT_DATE_DT
+				, A.BBS_NAME
+				, BBS_M_NUMBER, B.BS_CODE FROM DBO.PAPER_BOARD AS A
+				INNER JOIN DBO.PAPER_BOARD_SETTINGS AS B ON (A.BBS_BOARD_CODE = B.BS_CODE)
+		 #{WhereSql}
+		 ORDER BY BBS_M_NUMBER
+		 ) A ORDER BY BBS_M_NUMBER DESC) B ORDER BY BBS_M_NUMBER
+	</select>
+</mapper>

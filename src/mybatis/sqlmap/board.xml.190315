@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+	
+	<resultMap type="PAPERBOARD" 				id="PAPERBOARD">
+		<result property="board_rownum" 		column="BOARD_ROWNUM"/>
+		<result property="bbs_idx" 				column="BBS_IDX"/>
+		<result property="bbs_user_id" 			column="BBS_USER_ID"/>
+		<result property="bbs_board_code"		column="BBS_BOARD_CODE"/>
+		<result property="bbs_notice" 			column="BBS_NOTICE"/>
+		<result property="bbs_notice_str" 		column="BBS_NOTICE"/>
+		<result property="bbs_m_number" 		column="BBS_M_NUMBER"/>
+		<result property="bbs_step"				column="BBS_STEP"/>
+		<result property="bbs_file_name" 		column="BBS_FILE_NAME"/>
+		<result property="bbs_file_url" 		column="BBS_FILE_URL"/>
+		<result property="bbs_file_type" 		column="BBS_FILE_TYPE"/>
+		<result property="bbs_file_size" 		column="BBS_FILE_SIZE"/>
+		<result property="bbs_file_down" 		column="BBS_FILE_DOWN"/>
+		<result property="bbs_comments_count"	column="BBS_COMMENTS_COUNT"/>
+		<result property="bbs_pwd" 				column="BBS_PWD"/>
+		<result property="bbs_category" 		column="BBS_CATEGORY"/>
+		<result property="bbs_name" 			column="BBS_NAME"/>
+		<result property="bbs_email" 			column="BBS_EMAIL"/>
+		<result property="bbs_tel" 				column="BBS_TEL"/>
+		<result property="bbs_option"			column="BBS_OPTION"/>
+		<result property="bbs_subject" 			column="BBS_SUBJECT"/>
+		<result property="bbs_contents" 		column="BBS_CONTENTS"/>
+		<result property="bbs_view" 			column="BBS_VIEW"/>
+		<result property="bbs_edit_date_dt" 	column="BBS_EDIT_DATE_DT"/>
+		<result property="bbs_reg_date_dt" 		column="BBS_REG_DATE_DT"/>
+		<result property="bbs_user_ip"			column="BBS_USER_IP"/>
+		<result property="bbs_del_flag" 		column="BBS_DEL_FLAG"/>
+		<result property="bbs_re_count" 		column="BBS_RE_COUNT"/>
+		<result property="bbs_re_number" 		column="BBS_RE_NUMBER"/>
+		<result property="bbs_file_name2" 		column="BBS_FILE_NAME2"/>
+		<result property="bbs_file_url2" 		column="BBS_FILE_URL2"/>
+		<result property="bbs_file_type2"		column="BBS_FILE_TYPE2"/>
+		<result property="bbs_file_size2" 		column="BBS_FILE_SIZE2"/>
+		<result property="bbs_file_down2" 		column="BBS_FILE_DOWN2"/>
+		<result property="bbs_file_name3" 		column="BBS_FILE_NAME3"/>
+		<result property="bbs_file_url3" 		column="BBS_FILE_URL3"/>
+		<result property="bbs_file_type3" 		column="BBS_FILE_TYPE3"/>
+		<result property="bbs_file_size3"		column="BBS_FILE_SIZE3"/>
+		<result property="bbs_file_down3" 		column="BBS_FILE_DOWN3"/>
+		<result property="bbs_file_name4" 		column="BBS_FILE_NAME4"/>
+		<result property="bbs_file_url4" 		column="BBS_FILE_URL4"/>
+		<result property="bbs_file_type4" 		column="BBS_FILE_TYPE4"/>
+		<result property="bbs_file_size4" 		column="BBS_FILE_SIZE4"/>
+		<result property="bbs_file_down4"		column="BBS_FILE_DOWN4"/>
+		<result property="bbs_file_name5" 		column="BBS_FILE_NAME5"/>
+		<result property="bbs_file_url5" 		column="BBS_FILE_URL5"/>
+		<result property="bbs_file_type5" 		column="BBS_FILE_TYPE5"/>
+		<result property="bbs_file_size5" 		column="BBS_FILE_SIZE5"/>
+		<result property="bbs_file_down5" 		column="BBS_FILE_DOWN5"/>
+		<result property="bbs_recomm"			column="BBS_RECOMM"/>
+		<result property="bbs_new"				column="BBS_NEW"/>
+	</resultMap>
+
+	<resultMap type="PAPERBOARDCOMMENTS" 		id="PAPERBOARDCOMMENTS">
+		<result property="bbc_idx" 				column="BBC_IDX"/>
+		<result property="bbc_user_id" 			column="BBC_USER_ID "/>
+		<result property="bbc_pwd" 				column="BBC_PWD"/>
+		<result property="bbs_idx" 				column="BBS_IDX"/>
+		<result property="bbc_name" 			column="BBC_NAME"/>
+		<result property="bbc_contents" 		column="BBC_CONTENTS"/>
+		<result property="bbc_user_ip" 			column="BBC_USER_IP"/>
+		<result property="bbc_date" 			column="BBC_DATE"/>
+	</resultMap>
+	
+	<resultMap type="BOOKBOARD" 				id="BOOKBOARD">
+		<result property="oindex"           	column="OINDEX"/>
+		<result property="oyear"            	column="OYEAR"/>
+		<result property="otitle"           	column="OTITLE"/>
+		<result property="oprice1"          	column="OPRICE1"/>
+		<result property="oprice2"         		column="OPRICE2"/>
+		<result property="ocontents"       		column="OCONTENTS"/>
+		<result property="oimage"          		column="OIMAGE"/>
+		<result property="odate"           		column="ODATE"/>
+		<result property="otop"            		column="OTOP"/>
+		<result property="materials_status" 	column="MATERIALS_STATUS"/>
+		<result property="bs_category"     		column="BS_CATEGORY"/>
+		<result property="bs_categorytype" 		column="BS_CATEGORYTYPE"/>
+	</resultMap>
+
+	<resultMap type="CARTBOARD" 				id="CARTBOARD">
+		<result property="ctindex"              column="CTINDEX"/>
+		<result property="ctsessionid"        	column="CTSESSIONID"/>
+		<result property="oindex"              	column="OINDEX"/>
+		<result property="ctea"                	column="CTEA"/>
+		<result property="ctdate"              	column="CTDATE"/>
+		<result property="ctgubun"             	column="CTGUBUN"/>
+		<result property="otitle"             	column="OTITLE"/>
+		<result property="oprice1"             	column="OPRICE1"/>
+		<result property="oprice2"             	column="OPRICE2"/>
+	</resultMap>
+	
+	<resultMap type="RESIBOARD" 				id="RESIBOARD">
+		<result property="resi_serial_no"       column="RESI_SERIAL_NO"/>
+		<result property="resi_depth_no"        column="RESI_DEPTH_NO"/>
+		<result property="resi_parent_no"       column="RESI_PARENT_NO"/>
+		<result property="resi_url"             column="RESI_URL"/>
+		<result property="resi_address"         column="RESI_ADDRESS"/>
+		<result property="resi_user_name"       column="RESI_USER_NAME"/>
+		<result property="resi_wrt_date"        column="RESI_WRT_DATE"/>
+		<result property="resi_wrt_time"        column="RESI_WRT_TIME"/>
+		<result property="resi_title"           column="RESI_TITLE"/>
+		<result property="resi_content1"        column="RESI_CONTENT1"/>
+		<result property="resi_content2"        column="RESI_CONTENT2"/>
+		<result property="resi_content3"        column="RESI_CONTENT3"/>
+		<result property="resi_content4"        column="RESI_CONTENT4"/>
+		<result property="resi_read_no"         column="RESI_READ_NO"/>
+		<result property="resi_password"        column="RESI_PASSWORD"/>
+		<result property="resi_new"		        column="RESI_NEW"/>
+		<result property="status"               column="STATUS"/>
+		<result property="check_ip"             column="CHECK_IP"/>
+	</resultMap>
+	
+	<resultMap type="PAPERBOARDSETTINGS" 		id="PAPERBOARDSETTINGS">
+		<result property="resi_serial_no"       column="RESI_SERIAL_NO"/>
+		<result property="resi_depth_no"        column="RESI_DEPTH_NO"/>
+		<result property="resi_parent_no"       column="RESI_PARENT_NO"/>
+		<result property="resi_url"             column="RESI_URL"/>
+		<result property="resi_address"         column="RESI_ADDRESS"/>
+		<result property="resi_user_name"       column="RESI_USER_NAME"/>
+		<result property="resi_wrt_date"        column="RESI_WRT_DATE"/>
+		<result property="resi_wrt_time"        column="RESI_WRT_TIME"/>
+		<result property="resi_title"           column="RESI_TITLE"/>
+		<result property="resi_content1"        column="RESI_CONTENT1"/>
+		<result property="resi_content2"        column="RESI_CONTENT2"/>
+		<result property="resi_content3"        column="RESI_CONTENT3"/>
+		<result property="resi_content4"        column="RESI_CONTENT4"/>
+		<result property="resi_read_no"         column="RESI_READ_NO"/>
+		<result property="resi_password"        column="RESI_PASSWORD"/>
+		<result property="resi_new"		        column="RESI_NEW"/>
+		<result property="status"               column="STATUS"/>
+		<result property="check_ip"             column="CHECK_IP"/>
+	</resultMap>	
+	
+	<select id="paper_board_settings"  parameterType="java.lang.String" resultType="PAPERBOARDSETTINGS" >
+		SELECT * FROM PAPER_BOARD_SETTINGS WHERE BS_CODE = #{bs_code}
+	</select>
+		
+	<select id="paper_board_create_number" parameterType="hashmap" resultType="java.lang.Float" >
+		SELECT MIN(BBS_M_NUMBER)-1 AS BBS_M_NUMBER FROM PAPER_BOARD
+	</select>
+	
+	<!-- // PAPER_BOARD 검색 조건 -->
+	<sql id="paperWhereQuery">
+		<if test="board_search != null and board_keyword != null">
+			<choose>
+				<when test="board_search == 0">
+					AND BBS_SUBJECT LIKE '%' + #{board_keyword} + '%'
+				</when>
+				<when test="board_search == 1">
+					AND BBS_CONTENTS LIKE '%' + #{board_keyword} + '%'
+				</when>
+				<when test="board_search == 2">
+					AND BBS_CATEGORY LIKE '%' + #{board_keyword} + '%'
+				</when>
+				<when test="board_search == 3">
+					AND BBS_NAME LIKE '%' + #{board_keyword} + '%'
+				</when>				
+				<when test="board_search == 4">
+					AND BBS_OPTION  LIKE '%' + #{board_keyword} + '%'
+				</when>	
+				<when test="board_search == 5">
+					AND BBS_USER_ID  LIKE '%' + #{board_keyword} + '%'
+				</when>
+			</choose>
+		</if>
+		
+	</sql>
+
+	<select id="paper_board_count" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT COUNT(BBS_IDX) AS CNT
+		  FROM PAPER_BOARD
+		<where>
+			<if test="bbs_board_code != null">
+					<choose>
+						<when test='bbs_board_code == "67"'>
+						BBS_BOARD_CODE ='67' 
+							AND BBS_CATEGORY = #{bbs_category}
+						</when>
+						<when test='bbs_board_code == "2" and bbs_category != null and bbs_category != "0" and bbs_category != ""'>
+						BBS_BOARD_CODE = '2' 
+							AND BBS_CATEGORY = #{bbs_category}
+						</when>
+						<otherwise>
+							BBS_BOARD_CODE IN
+							<foreach collection="code_list" item="item" index="index" 
+							open="(" separator="," close=")">  
+								#{item}
+							</foreach>	
+						</otherwise>
+					</choose>		
+			</if>
+			<include refid="paperWhereQuery" />
+		</where>
+	</select>
+	
+	<select id="paper_board_list" parameterType="hashmap" resultMap="PAPERBOARD">
+		SELECT *
+		  FROM ( 
+		  	SELECT 
+		  		<choose>
+		  			<when test="order == null">
+		  			ROW_NUMBER() OVER(ORDER BY BBS_IDX DESC) AS BOARD_ROWNUM
+		  			</when>
+		  			<otherwise>
+		  			ROW_NUMBER() OVER(ORDER BY ${order}) AS BOARD_ROWNUM
+		  			</otherwise>
+		  		</choose>
+		  		 , BBS_BOARD_CODE
+		  		 , BBS_COMMENTS_COUNT
+				 , BBS_NOTICE 
+			   	 , BBS_M_NUMBER			   	
+			   	 , BBS_IDX
+		  		 , BBS_NAME
+		  		 , BBS_USER_ID
+		  		 , BBS_SUBJECT
+		  		 , CONVERT(CHAR(10), BBS_REG_DATE_DT, 23) as BBS_REG_DATE_DT
+		  		 , BBS_VIEW
+		  		 , BBS_CATEGORY
+		  		 , CASE DATEDIFF(DD, BBS_REG_DATE_DT, GETDATE()) 
+		  		   WHEN 0 THEN 'Y'
+				   WHEN 1 THEN 'Y'
+				   WHEN 2 THEN 'Y'
+				   ELSE 'N'
+				   END AS BBS_NEW
+				 , BBS_FILE_NAME
+				 , BBS_FILE_URL	
+				 , BBS_DEL_FLAG
+				 , BBS_OPTION
+			  FROM PAPER_BOARD
+			<where>				
+				<if test="bbs_board_code != null">
+					<choose>
+						<when test='bbs_board_code == "67"'>
+							BBS_BOARD_CODE ='67' AND BBS_CATEGORY = #{bbs_category}
+						</when>
+						<otherwise>
+							BBS_BOARD_CODE IN
+							<foreach collection="code_list" item="item" index="index" 
+									open="(" separator="," close=")">  
+								#{item}
+							</foreach>	
+						</otherwise>
+					</choose>		
+				</if>
+				<include refid="paperWhereQuery" />						
+			</where>
+			) A
+			
+		<choose>
+			<when test=" page_per_cnt != null and page_per_cnt > 0">
+				WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * #{page_per_cnt}) + 1 AND #{board_page} * #{page_per_cnt}	
+			</when>
+			<otherwise>
+				WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * 10) + 1 AND #{board_page} * 10
+			</otherwise>
+		</choose>
+		
+	</select>
+	
+	<select id="paper_board_list_noti" parameterType="hashmap" resultMap="PAPERBOARD">
+		SELECT *
+		  FROM ( 
+		  	SELECT 
+		  		<choose>
+					<when test='bbs_board_code == "2"'>
+						ROW_NUMBER() OVER( ORDER BY BBS_M_NUMBER ASC) AS BOARD_ROWNUM
+					</when>
+					<otherwise>
+						ROW_NUMBER() OVER( ORDER BY BBS_NOTICE DESC, BBS_M_NUMBER ASC) AS BOARD_ROWNUM
+					</otherwise>
+				</choose>
+		  		 , BBS_BOARD_CODE
+		  		 , BBS_COMMENTS_COUNT
+				 , BBS_NOTICE 
+			   	 , BBS_M_NUMBER			   	
+			   	 , BBS_IDX		  		 
+		  		 , BBS_NAME
+		  		 , BBS_USER_ID
+		  		 , BBS_SUBJECT
+		  		 , CONVERT(CHAR(10), BBS_REG_DATE_DT, 23) as BBS_REG_DATE_DT
+		  		 , BBS_VIEW
+		  		 , BBS_CATEGORY
+		  		 , CASE DATEDIFF(DD, BBS_REG_DATE_DT, GETDATE()) 
+		  		   WHEN 0 THEN 'Y'
+				   WHEN 1 THEN 'Y'
+				   WHEN 2 THEN 'Y'
+				   ELSE 'N'
+				   END AS BBS_NEW	
+				 , BBS_FILE_NAME
+				 , BBS_FILE_URL
+			  FROM PAPER_BOARD
+			<where>
+				<if test="bbs_board_code != null">
+					<choose>
+						<when test='bbs_board_code == "2" and bbs_category != null and bbs_category != "0" and bbs_category != "" '>
+							BBS_BOARD_CODE ='2' 
+								AND BBS_CATEGORY = #{bbs_category}
+						</when>
+						<otherwise>	
+							BBS_BOARD_CODE IN
+							<foreach collection="code_list" item="item" index="index" 
+							open="(" separator="," close=")">  
+								#{item}
+							</foreach>	
+						</otherwise>	
+					</choose>			
+				</if>				
+				<if test="board_search != null and board_keyword != null">
+					<choose>
+						<when test="board_search == 0">
+							AND BBS_SUBJECT LIKE '%' + #{board_keyword} + '%'
+						</when>
+						<when test="board_search == 1">
+							AND BBS_CONTENTS LIKE '%' + #{board_keyword} + '%'
+						</when>
+						<when test="board_search == 2">
+							AND BBS_CATEGORY LIKE '%' + #{board_keyword} + '%'
+						</when>	
+						<when test="board_search == 3">
+							AND BBS_NAME LIKE '%' + #{board_keyword} + '%'
+						</when>					
+					</choose>
+				</if>
+			</where>
+		) A
+		 WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * 10) + 1 AND #{board_page} * 10
+		
+
+	</select>
+	
+	<select id="paper_board_select" parameterType="hashmap" resultMap="PAPERBOARD">
+	SELECT * FROM (
+		SELECT 
+			TOP 1 *
+		 FROM PAPER_BOARD
+		 <![CDATA[
+		 WHERE bbs_m_number <  ( 
+		 	SELECT bbs_m_number FROM PAPER_BOARD
+				WHERE bbs_idx = #{bbs_idx} )
+		AND	bbs_del_flag = 0 
+		]]>
+		<include refid="paperWhereQuery" /> 
+		AND BBS_BOARD_CODE = #{bbs_board_code}
+        order by bbs_m_number desc
+    ) A
+    UNION ALL    
+		SELECT * 
+		FROM PAPER_BOARD
+		WHERE BBS_IDX = #{bbs_idx}
+		   AND BBS_BOARD_CODE =  #{bbs_board_code}
+	UNION ALL
+	SELECT * FROM (
+		SELECT TOP 1 *
+		FROM PAPER_BOARD
+		<![CDATA[
+		WHERE bbs_m_number >  ( 
+			SELECT bbs_m_number FROM PAPER_BOARD
+				WHERE bbs_idx =  #{bbs_idx} )
+		]]>
+		AND	bbs_del_flag = 0 
+		<include refid="paperWhereQuery" /> 
+		AND BBS_BOARD_CODE =  #{bbs_board_code}
+        order by bbs_m_number 
+    ) B
+	</select>
+	
+	<select id="paper_board_select_idx" parameterType="hashmap" resultMap="PAPERBOARD">
+		SELECT * 
+		  FROM PAPER_BOARD
+		 WHERE BBS_IDX = #{bbs_idx}
+	</select>	
+
+	<insert id="paper_board_insert" parameterType="PAPERBOARD">
+		INSERT INTO PAPER_BOARD
+		(
+			BBS_USER_ID
+		  , BBS_BOARD_CODE
+		  
+		  , BBS_NOTICE
+		  , BBS_SUBJECT
+		  , BBS_CONTENTS
+		  , BBS_M_NUMBER
+		  , BBS_STEP
+		  , BBS_RE_COUNT
+ 		  , BBS_FILE_NAME
+ 		  , BBS_FILE_URL
+ 		  , BBS_FILE_TYPE
+ 		  , BBS_FILE_SIZE
+ 		  , BBS_FILE_DOWN
+ 		  , BBS_PWD
+ 		  , BBS_CATEGORY
+ 		  , BBS_NAME
+ 		  , BBS_EMAIL
+ 		  , BBS_TEL
+ 		  , BBS_OPTION
+ 		  , BBS_USER_IP
+ 		  , BBS_DEL_FLAG
+ 		  , BBS_FILE_NAME2
+ 		  , BBS_FILE_URL2
+ 		  , BBS_FILE_TYPE2
+ 		  , BBS_FILE_SIZE2
+ 		  , BBS_FILE_DOWN2
+ 		  , BBS_FILE_NAME3
+ 		  , BBS_FILE_URL3
+ 		  , BBS_FILE_TYPE3
+ 		  , BBS_FILE_SIZE3
+ 		  , BBS_FILE_DOWN3 		  
+ 		  , BBS_FILE_NAME4
+ 		  , BBS_FILE_URL4
+ 		  , BBS_FILE_TYPE4
+ 		  , BBS_FILE_SIZE4
+ 		  , BBS_FILE_DOWN4 		  
+ 		  , BBS_FILE_NAME5
+ 		  , BBS_FILE_URL5
+ 		  , BBS_FILE_TYPE5
+ 		  , BBS_FILE_SIZE5
+ 		  , BBS_FILE_DOWN5
+		) VALUES ( 
+		 	#{bbs_user_id}
+		  , #{bbs_board_code}
+		  <choose>
+		  	<when test='bbs_notice_str != null and bbs_notice_str != "" and bbs_notice_str == "1"'>
+		  	, '1'
+		  	</when>
+		  	<otherwise>
+		  	, '0'
+		  	</otherwise>
+		  </choose>
+		  , #{bbs_subject}
+		  , #{bbs_contents}
+		  , #{bbs_m_number}
+		  , #{bbs_step}	
+		  , #{bbs_re_count}	
+		  , #{bbs_file_name} 
+		  , #{bbs_file_url} 
+		  , #{bbs_file_type} 
+		  , #{bbs_file_size} 
+		  , #{bbs_file_down}
+		  , #{bbs_pwd}
+		  , #{bbs_category}
+		  , #{bbs_name}
+		  , #{bbs_email}
+		  , #{bbs_tel}
+		  , #{bbs_option}
+		  , #{bbs_user_ip}
+		  , #{bbs_del_flag}
+   		  , #{bbs_file_name2} 
+		  , #{bbs_file_url2} 
+		  , #{bbs_file_type2} 
+		  , #{bbs_file_size2} 
+		  , #{bbs_file_down2}
+   		  , #{bbs_file_name3} 
+		  , #{bbs_file_url3} 
+		  , #{bbs_file_type3} 
+		  , #{bbs_file_size3} 
+		  , #{bbs_file_down3}		  
+   		  , #{bbs_file_name4} 
+		  , #{bbs_file_url4} 
+		  , #{bbs_file_type4} 
+		  , #{bbs_file_size4} 
+		  , #{bbs_file_down4}		  
+   		  , #{bbs_file_name5} 
+		  , #{bbs_file_url5} 
+		  , #{bbs_file_type5} 
+		  , #{bbs_file_size5} 
+		  , #{bbs_file_down5}		  
+		)
+	</insert>
+	
+	<update id="paper_board_update" parameterType="hashmap"> 
+
+		UPDATE PAPER_BOARD SET
+			  <choose>
+			  	<when test='bbs_notice_str != null and bbs_notice_str != "" and bbs_notice_str == "1"'>
+			  	BBS_NOTICE = '1'
+			  	</when>
+			  	<otherwise>
+			  	 BBS_NOTICE = '0'
+			  	</otherwise>
+			  </choose>    
+		     , BBS_SUBJECT    = #{bbs_subject}   
+		     , BBS_CONTENTS   = #{bbs_contents}
+		<if test='(bbs_file_name != "" and bbs_file_name != null) or file_del_chk == "Y"'>
+		     , BBS_FILE_NAME  = #{bbs_file_name} 
+		     , BBS_FILE_URL   = #{bbs_file_url}  
+		     , BBS_FILE_TYPE  = #{bbs_file_type} 
+		     , BBS_FILE_SIZE  = #{bbs_file_size} 
+		     , BBS_FILE_DOWN  = #{bbs_file_down} 			
+		</if>
+		     , BBS_CATEGORY   = #{bbs_category}  
+		     , BBS_NAME       = #{bbs_name}      
+		     , BBS_EMAIL      = #{bbs_email}     
+		     , BBS_TEL        = #{bbs_tel}       
+		     , BBS_OPTION     = #{bbs_option}
+		     
+		<if test='(bbs_file_name2 != "" and bbs_file_name2 != null) or file_del_chk2 == "Y"'>
+		     , BBS_FILE_NAME2 = #{bbs_file_name2} 
+		     , BBS_FILE_URL2  = #{bbs_file_url2}  
+		     , BBS_FILE_TYPE2 = #{bbs_file_type2} 
+		     , BBS_FILE_SIZE2 = #{bbs_file_size2} 
+		     , BBS_FILE_DOWN2 = #{bbs_file_down2}
+		</if>
+		
+		<if test='(bbs_file_name3 != "" and bbs_file_name3 != null) or file_del_chk3 == "Y"'>
+		     , BBS_FILE_NAME3 = #{bbs_file_name3} 
+		     , BBS_FILE_URL3  = #{bbs_file_url3}  
+		     , BBS_FILE_TYPE3 = #{bbs_file_type3} 
+		     , BBS_FILE_SIZE3 = #{bbs_file_size3} 
+		     , BBS_FILE_DOWN3 = #{bbs_file_down3}
+		</if>
+		
+		<if test='(bbs_file_name4 != "" and bbs_file_name4 != null) or file_del_chk4 == "Y"'>
+		     , BBS_FILE_NAME4 = #{bbs_file_name4} 
+		     , BBS_FILE_URL4  = #{bbs_file_url4}  
+		     , BBS_FILE_TYPE4 = #{bbs_file_type4} 
+		     , BBS_FILE_SIZE4 = #{bbs_file_size4} 
+		     , BBS_FILE_DOWN4 = #{bbs_file_down4}
+		</if>
+		
+		<if test='(bbs_file_name5 != "" and bbs_file_name5 != null) or file_del_chk5 == "Y"'>
+		     , BBS_FILE_NAME5 = #{bbs_file_name5} 
+		     , BBS_FILE_URL5  = #{bbs_file_url5}  
+		     , BBS_FILE_TYPE5 = #{bbs_file_type5} 
+		     , BBS_FILE_SIZE5 = #{bbs_file_size5} 
+		     , BBS_FILE_DOWN5 = #{bbs_file_down5}
+		</if>
+		
+		WHERE BBS_IDX = #{bbs_idx}
+
+	</update>
+
+	<update id="paper_board_update_filedown_count" parameterType="java.lang.Integer">
+		<if test="num == 1">
+			UPDATE PAPER_BOARD SET BBS_FILE_DOWN = BBS_FILE_DOWN + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>
+		<if test="num == 2">
+			UPDATE PAPER_BOARD SET BBS_FILE_DOWN2 = BBS_FILE_DOWN2 + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>
+		<if test="num == 3">
+			UPDATE PAPER_BOARD SET BBS_FILE_DOWN3 = BBS_FILE_DOWN3 + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>
+		<if test="num == 4">
+			UPDATE PAPER_BOARD SET BBS_FILE_DOWN4 = BBS_FILE_DOWN4 + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>
+		<if test="num == 5">
+			UPDATE PAPER_BOARD SET BBS_FILE_DOWN5 = BBS_FILE_DOWN5 + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>								
+	</update>
+	
+	<update id="paper_board_update_view_count" parameterType="java.lang.Integer">
+		UPDATE PAPER_BOARD SET BBS_VIEW = BBS_VIEW + 1 WHERE BBS_IDX = #{bbs_idx}
+	</update>	
+	
+	<update id="paper_board_delete" parameterType="java.lang.Integer"> 
+		DELETE FROM PAPER_BOARD WHERE BBS_IDX = #{bbs_idx}
+	</update>
+	
+	<select id="paper_board_comments_list" parameterType="hashmap" resultMap="PAPERBOARDCOMMENTS"> 
+		SELECT BBC_IDX
+			 , BBC_USER_ID
+			 , BBC_PWD
+			 , BBS_IDX
+			 , BBC_NAME
+			 , BBC_CONTENTS
+			 , BBC_USER_IP
+			 , CONVERT(CHAR(10), BBC_DATE, 23) as BBC_DATE
+		  FROM PAPER_BOARD_COMMENTS
+		<where>
+			<if test="bbs_idx != null">
+				BBS_IDX = #{bbs_idx}
+			</if>									
+		</where>		 
+	</select>
+	
+	<update id="bbs_comments_count_update_insert" parameterType="hashmap"> 
+	  	<if test="bbs_idx != null">
+	  	UPDATE PAPER_BOARD SET BBS_COMMENTS_COUNT = BBS_COMMENTS_COUNT + 1 WHERE BBS_IDX = #{bbs_idx}
+		</if>					
+	</update>
+	
+	<insert id="paper_board_comments_insert" parameterType="PAPERBOARDCOMMENTS"> 
+		INSERT INTO PAPER_BOARD_COMMENTS
+		(	
+			BBC_USER_ID
+		  , BBC_PWD
+		  , BBS_IDX
+		  , BBC_NAME
+		  , BBC_CONTENTS
+		  , BBC_USER_IP
+		  , BBC_DATE
+		) VALUES (
+			#{bbc_user_id}
+		  , #{bbc_pwd}
+		  , #{bbs_idx}
+		  , #{bbc_name}
+		  , #{bbc_contents}
+		  , #{bbc_user_ip}
+		  , getdate()
+		)
+	</insert>	
+
+	<update id="bbs_comments_count_update_delete"  parameterType="java.lang.Integer">
+	  	UPDATE PAPER_BOARD SET BBS_COMMENTS_COUNT = BBS_COMMENTS_COUNT - 1 WHERE BBS_IDX = #{bbs_idx }
+	</update>	
+	
+	<delete id="paper_board_comments_delete" parameterType="java.lang.Integer">
+		DELETE FROM PAPER_BOARD_COMMENTS WHERE BBC_IDX = #{bbc_idx}
+	</delete>
+	
+	<select id="book_board_count" resultType="java.lang.Integer">
+		SELECT COUNT(OINDEX) AS CNT
+		  FROM PTB_BOOKGOODS
+		<where>
+			<if test="board_search != null and board_keyword != null">
+				<choose>
+					<when test="board_search == 0">
+						AND OTITLE LIKE '%' + #{board_keyword} + '%'
+					</when>
+					<when test="board_search == 1">
+						AND OYEAR LIKE '%' + #{board_keyword} + '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<select id="book_board_list" parameterType="hashmap" resultMap="BOOKBOARD">
+		SELECT *
+		  FROM ( 
+		  	SELECT ROW_NUMBER() OVER(ORDER BY OINDEX DESC) AS BOARD_ROWNUM
+		  		 , OINDEX
+		  		 , OYEAR
+		  		 , OTITLE
+		  		 , OPRICE1
+		  		 , OPRICE2
+		  		 , OCONTENTS
+		  		 , OIMAGE
+		  		 , CONVERT(CHAR(10), ODATE, 23) as ODATE		  	
+		  		 , OTOP	
+		  		 , BS_CATEGORYTYPE
+		  		 , MATERIALS_STATUS 
+			  FROM PTB_BOOKGOODS
+			<where>
+				<if test="board_search1 != null and board_keyword != null">
+					<choose>
+						<when test="board_search1 == 0">
+							AND OTITLE LIKE '%' + #{board_keyword} + '%'
+						</when>
+						<when test="board_search1 == 1">
+							AND OYEAR LIKE '%' + #{board_keyword} + '%'
+						</when>
+					</choose>
+				</if>
+				
+				<if test="board_search2 != null" >
+					AND BS_CATEGORYTYPE LIKE '%' + #{board_search2} + '%' 					
+				</if>
+							
+			</where>
+			) A
+		 WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * 10) + 1 AND #{board_page} * 10
+		 ORDER BY OTOP DESC, OINDEX DESC
+	</select>
+	
+	<select id="book_board_select" parameterType="hashmap" resultType="BOOKBOARD">
+		SELECT * 
+		  FROM PTB_BOOKGOODS 
+		 WHERE OINDEX = ${oindex} 
+	</select>
+	
+	<insert id="book_board_insert" parameterType="BOOKBOARD">
+		INSERT INTO PTB_BOOKGOODS
+		(
+		  OYEAR           
+		  , OTITLE          
+		  , OPRICE1         
+		  , OPRICE2         
+		  , OCONTENTS       
+		  , OIMAGE          
+		  , OTOP            
+		  , MATERIALS_STATUS
+		  , BS_CATEGORY     
+		  , BS_CATEGORYTYPE 
+		) VALUES ( 
+		  #{oyear}           
+		  , #{otitle}          
+		  , #{oprice1}         
+		  , #{oprice2}         
+		  , #{ocontents}       
+		  , #{oimage}          
+		  , #{otop}            
+		  , #{materials_status}
+		  , #{bs_category}     
+		  , #{bs_categorytype} 
+		)	
+	</insert>
+	
+ 	<update id="book_board_update" parameterType="BOOKBOARD">
+		UPDATE PTB_BOOKGOODS SET 
+		      OYEAR            = #{oyear}           
+		     , OTITLE           = #{otitle}          
+		     , OPRICE1          = #{oprice1}         
+		     , OPRICE2          = #{oprice2}         
+		     , OCONTENTS        = #{ocontents}
+		     <if test='oimage != "" and (oimage != null) or file_del_chk == "Y"'>     
+		     , OIMAGE           = #{oimage}
+		     </if>
+		     , ODATE            = #{odate}           
+		     , OTOP             = #{otop}            
+		     , MATERIALS_STATUS = #{materials_status}
+		     , BS_CATEGORY      = #{bs_category}     
+		     , BS_CATEGORYTYPE  = #{bs_categorytype} 
+		<where>
+			<if test="oindex != null">
+				OINDEX = #{oindex}
+			</if>					
+		</where>
+ 	</update>
+ 	
+	<delete id="book_board_delete" parameterType="java.lang.Integer">
+		DELETE FROM PTB_BOOKGOODS WHERE OINDEX = #{oindex}
+	</delete>
+	
+ 	<select id="cart_board_count" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT COUNT(CTINDEX) AS CNT
+		  FROM PTB_BUYCART
+		 WHERE CTSESSIONID=#{ctsessionid}
+ 	</select>
+ 
+ 	<select id="cart_board_list" parameterType="hashmap" resultMap="CARTBOARD">
+		SELECT PTB_BUYCART.*
+		     , PTB_BOOKGOODS.OTITLE AS OTITLE
+		     , PTB_BOOKGOODS.OPRICE1 AS OPRICE1
+		     , PTB_BOOKGOODS.OPRICE2 AS OPRICE2
+		  FROM PTB_BUYCART RIGHT OUTER JOIN PTB_BOOKGOODS 
+		    ON PTB_BUYCART.OINDEX=PTB_BOOKGOODS.OINDEX 
+		 WHERE CTSESSIONID=#{ctsessionid}
+ 	</select>
+ 	
+ 	<select id="cart_board_select" parameterType="hashmap" resultMap="CARTBOARD" >
+		SELECT *
+		  FROM PTB_BUYCART
+		 WHERE CTSESSIONID=#{ctsessionid}
+		   AND OINDEX=#{oindex} 
+ 	</select>
+ 	 	
+	<insert id="cart_board_insert" parameterType="CARTBOARD">
+		INSERT INTO PTB_BUYCART
+		(
+		    CTSESSIONID
+		  , OINDEX
+		  , CTEA
+		) VALUES (
+		    '${ctsessionid}'
+		  , ${oindex}
+		  , ${ctea}
+		)
+	</insert>
+	
+ 	<update id="cart_board_update" parameterType="CARTBOARD">
+		UPDATE PTB_BUYCART SET CTEA = #{ctea} WHERE 
+		 oindex= #{oindex} and 
+		CTSESSIONID = #{ctsessionid} 	
+ 	</update> 
+ 		
+	<delete id="cart_board_delete" parameterType="java.lang.Integer">
+		DELETE FROM PTB_BUYCART WHERE CTINDEX = #{ctindex}
+	</delete>
+	
+	<select id="resi_board_count" parameterType="hashmap" resultType="java.lang.Integer">
+		SELECT COUNT(*) AS CNT
+		  FROM RESI_BOARD 
+		<where>
+			<if test="board_search != null and board_keyword != null">
+				<choose>
+					<when test="board_search == 1">
+						AND resi_Address LIKE '%' + #{board_keyword} + '%'
+					</when>
+					<when test="board_search == 2">
+						AND  resi_user_name LIKE '%' + #{board_keyword} + '%'
+					</when>
+					<when test="board_search == 3">
+						AND resi_title LIKE '%' + #{board_keyword} + '%'
+					</when>
+				</choose>	
+			</if>
+		</where>		 	
+	</select>
+	
+	<select id="resi_board_list" parameterType="hashmap" resultMap="RESIBOARD">
+		SELECT *
+		  FROM ( 
+		  	SELECT ROW_NUMBER() OVER(ORDER BY RESI_SERIAL_NO DESC, RESI_PARENT_NO, 
+		  		RESI_DEPTH_NO, RESI_WRT_DATE DESC, RESI_WRT_TIME DESC) AS BOARD_ROWNUM
+		  	     , RESI_SERIAL_NO
+		  		 , RESI_DEPTH_NO 
+		  		 , RESI_PARENT_NO
+		  		 , RESI_USER_NAME
+		  		 , RESI_TITLE    
+		  		 , RESI_URL      
+		  		 , RESI_ADDRESS  
+		  		 , RESI_CONTENT1 		  	
+		  		 , RESI_CONTENT2 
+		  		 , RESI_PASSWORD 
+		  		 , CONVERT(CHAR(10), RESI_WRT_DATE, 23) as RESI_WRT_DATE
+		  		 , RESI_WRT_TIME
+		  		 , RESI_READ_NO
+		  		 , CHECK_IP      
+		  		 , CASE DATEDIFF(DD, RESI_WRT_DATE, GETDATE()) 
+		  		   WHEN 0 THEN 'Y'
+				   WHEN 1 THEN 'Y'
+				   WHEN 2 THEN 'Y'
+				   ELSE 'N'
+				   END AS RESI_NEW		  		 
+			  FROM RESI_BOARD
+			<where>
+				<if test="board_search != null and board_keyword != null">
+					<choose>
+						<when test="board_search == 1">
+							AND resi_Address LIKE '%' + #{board_keyword} + '%'
+						</when>
+						<when test="board_search == 2">
+							AND  resi_user_name LIKE '%' + #{board_keyword} + '%'
+						</when>
+						<when test="board_search == 3">
+							AND resi_title LIKE '%' + #{board_keyword} + '%'
+						</when>
+					</choose>	
+				</if>
+			</where>
+			) A
+		 WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * 10) + 1 AND #{board_page} * 10
+		 ORDER BY BOARD_ROWNUM	
+	</select>
+	
+	<select id="resi_board_select" parameterType="hashmap" resultType="RESIBOARD">
+	<![CDATA[
+		SELECT * 
+		  FROM (SELECT TOP 1 * 
+				  FROM RESI_BOARD
+				 WHERE RESI_SERIAL_NO < ${resi_serial_no}
+				 ORDER BY RESI_SERIAL_NO DESC ) PREV
+		UNION ALL
+		SELECT TOP 1 * 
+		  FROM RESI_BOARD 
+		 WHERE RESI_SERIAL_NO = ${resi_serial_no}
+		UNION ALL
+		SELECT * 
+		  FROM (SELECT TOP 1 * 
+				  FROM RESI_BOARD 
+				 WHERE RESI_SERIAL_NO > ${resi_serial_no}
+				 ORDER BY RESI_SERIAL_NO DESC ) NEXT
+	]]>  
+	</select>
+		
+ 	<select id="resi_board_select_serial_no" parameterType="hashmap" resultType="RESIBOARD" >
+		SELECT * 
+		  FROM RESI_BOARD
+		 WHERE RESI_SERIAL_NO = ${resi_serial_no}
+ 	</select>
+	
+	<insert id="resi_board_insert" parameterType="RESIBOARD">
+	<selectKey keyProperty="resi_serial_no" order="BEFORE" resultType="int"> 
+	SELECT
+		MAX(resi_serial_no) + 1
+	FROM RESI_BOARD
+	</selectKey>
+		INSERT INTO RESI_BOARD
+		(
+		    RESI_SERIAL_NO
+		  , RESI_DEPTH_NO
+		  , RESI_PARENT_NO
+		  , RESI_USER_NAME
+		  , RESI_TITLE
+		  , RESI_URL
+		  , RESI_ADDRESS
+		  , RESI_CONTENT1
+		  , RESI_CONTENT2
+		  , RESI_PASSWORD
+		  , CHECK_IP			
+		 ) VALUES (
+		    #{resi_serial_no}
+		  , #{resi_depth_no}
+		  , #{resi_parent_no}
+		  , #{resi_user_name}
+		  , #{resi_title}
+		  , #{resi_url}
+		  , #{resi_address}
+		  , #{resi_content1}
+		  , #{resi_content2}
+		  , #{resi_password}
+		  , #{check_ip}
+		 )	
+	</insert>	
+ 	
+ 	<update id="resi_board_update" parameterType="RESIBOARD">
+		UPDATE RESI_BOARD SET
+		    RESI_DEPTH_NO  = #{resi_depth_no} 
+		  , RESI_PARENT_NO = #{resi_parent_no}
+		  , RESI_USER_NAME = #{resi_user_name}
+		  , RESI_TITLE     = #{resi_title}    
+		  , RESI_URL       = #{resi_url}      
+		  , RESI_ADDRESS   = #{resi_address}  
+		  , RESI_CONTENT1  = #{resi_content1} 
+		  , RESI_CONTENT2  = #{resi_content2} 
+		  , RESI_PASSWORD  = #{resi_password} 
+		  , CHECK_IP       = #{check_ip}      
+		WHERE RESI_SERIAL_NO = #{resi_serial_no} 	
+ 	</update> 	
+ 	
+	<delete id="resi_board_delete" parameterType="java.lang.Integer">
+		DELETE FROM RESI_BOARD WHERE RESI_SERIAL_NO = #{resi_serial_no}
+	</delete>
+	
+	<!-- 20160411 식단레시피 조회수 update 추가 -->
+	<update id="update_resi_read_no_count" parameterType="java.lang.Integer"> 
+		UPDATE RESI_BOARD SET RESI_READ_NO = RESI_READ_NO + 1 WHERE RESI_SERIAL_NO = #{resi_serial_no}
+	</update>	
+	
+	
+	<!-- // 검색 결과 -->
+	
+	<sql id="searchWhere">
+		<if test='search == "1"'>
+		AND B.bs_code in (7, 11, 63, 64, 65, 66, 85, 87, 91, 92, 94)
+		</if>
+		<if test='search == "2"'>
+		And B.bs_code = 22
+		</if>
+		<if test='search == "3"'>
+		 And B.bs_code = 13
+		</if>
+		
+		<if test='check5 != "" and check5 != null '>
+		<![CDATA[
+			And A.bbs_edit_date_dt > getdate() - ${check5}
+		]]>
+		</if>
+	</sql>
+	
+	<sql id="searchWordWhere">
+	AND (
+		<if test='check1 == "on"'>
+		(
+			<foreach collection="aryWord" index="ind" item="word">
+			<if test="ind > 0 ">
+				<choose>
+					<when test='check4 ==  "1"'> AND </when>
+					<otherwise> OR </otherwise>
+				</choose>
+			</if>  
+			bbs_name like '%' + #{word} + '%'
+			</foreach> 
+		)
+		</if>
+		
+		<if test='check2 == "on"'>
+			<if test='check1 == "on"'> OR </if>
+		(
+			<foreach collection="aryWord" index="ind" item="word">
+			<if test="ind > 0 ">
+				<choose>
+					<when test='check4 ==  "1"'> AND </when>
+					<otherwise> OR </otherwise>
+				</choose>
+			</if>  
+			bbs_subject like '%' + #{word} + '%'
+			</foreach> 
+		)
+		</if>
+		
+		<if test='check3 == "on"'>
+			<if test=' check1 == "on" or check2 == "on"'> OR </if>
+		(
+			<foreach collection="aryWord" index="ind" item="word">
+			<if test="ind > 0 ">
+				<choose>
+					<when test='check4 ==  "1"'> AND </when>
+					<otherwise> OR </otherwise>
+				</choose>
+			</if>  
+			bbs_contents like '%' + #{word} + '%'
+			</foreach> 
+		)
+		</if>
+	)
+	</sql>
+	
+	<select id="selectSearchCount" parameterType="kda.main.data.SEARCH" resultType="int">
+	SELECT
+		COUNT(BBS_IDX) 
+	FROM PAPER_BOARD A, Paper_Board_Settings  B 
+	WHERE A.bbs_board_code = B.bs_code
+		AND B.bs_toptype = '1'
+		<include refid="searchWhere" />
+		<include refid="searchWordWhere"></include>
+	</select>
+	
+	<select id="selectSearchList" parameterType="kda.main.data.SEARCH" resultType="hashmap">
+	SELECT 
+		*
+	FROM ( 
+	  	SELECT 
+	  		  ROW_NUMBER() OVER(ORDER BY BBS_IDX DESC) AS board_rownum
+			, B.bs_topadd
+			, B.bs_toplink
+			, A.bbs_subject
+			, A.bbs_contents
+			, B.bs_name
+			, A.bbs_board_code
+			, A.bbs_idx
+			, convert(varchar, A.bbs_edit_date_dt, 102) bbs_edit_date_dt
+			, A.bbs_name
+			, A.bbs_m_number
+			, B.bs_code
+ 		FROM PAPER_BOARD A, Paper_Board_Settings  B 
+ 		WHERE A.bbs_board_code = B.bs_code
+  			AND B.bs_toptype = '1'
+  			<include refid="searchWhere" />
+  			<include refid="searchWordWhere"></include>
+	) C
+	WHERE BOARD_ROWNUM BETWEEN ((#{curPage}-1) * 10) + 1 AND #{curPage} * 10
+	</select>
+	
+	<select id="selectTopBoardList" parameterType="hashmap"  resultMap="PAPERBOARD" >
+	SELECT top 4 bbs_idx
+			, bbs_category
+			, bbs_subject
+			, bbs_del_flag 
+	from Paper_Board where bbs_board_code = #{bbs_board_no} and bbs_category = #{bbs_category}
+	</select>
+	
+	<update id="pointUpt" parameterType="kda.board.data.PAPERBOARD">
+	UPDATE ID_TBL
+	<if test="update_point_kind == 'add'"> 
+	SET POINT = POINT + #{update_point}
+	</if>
+	<if test="update_point_kind == 'sub'">
+	SET POINT = POINT - #{update_point}
+	</if> 
+	WHERE CODE_PERS = #{update_point_pers}
+	</update>
+</mapper>

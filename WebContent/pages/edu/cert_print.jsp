@@ -1,0 +1,235 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 			uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"			uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" 		uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="kda" 		uri="/WEB-INF/tld/kda.tld" %>
+<%@ taglib prefix="kdaFunc" 	uri="/WEB-INF/tld/kda-func.tld" %>
+<%@ taglib prefix="spring" 	uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" 	uri="http://www.springframework.org/tags/form" %>
+
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>영양사 식품위생교육 수료증 출력</title>
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="shortcut icon" href="css/favicon.ico" />
+   
+	<link rel="stylesheet" href="/css/jquery-ui-1.10.4.custom.min.css" />
+	<link rel="stylesheet" href="/css/jquery.ui.timepicker.css" />
+		
+
+	<script src="/js/jquery-1.11.2.min.js"></script>	
+	<script type="text/javascript" src="/js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.ui.datepicker-ko.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.ui.timepicker.js"></script>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+	
+<script type="text/javascript">
+		
+function f_Send() {
+/*
+	if( $("#faq_subject").val() == "" ) {
+		alert("질문을 입력해 주세요");
+		$("#faq_subject").focus();
+		return;
+	}
+ 
+	if( $("#faq_contents").val() == "" ) {
+		alert("답변을 입력해 주세요");
+		$("#faq_contents").focus();
+		return;
+	}
+*/
+    document.frm.action="cert_print.do";
+	document.frm.submit();
+}
+
+function doc_print(detcode, doc_seq)
+{
+	shape  = "width=750,height=700,";
+	shape += "toolbar=no,location=no,directories=no,status=no,";
+	shape += "menubar=no,scrollbars=no,resizable=yes";
+	path   = "docu_print_user.do?gubun=E&print_kind=4&code_kind=4&detcode=" + detcode + "&doc_seq=" + doc_seq;
+	xx = screen.availWidth;
+	yy = screen.availHeight;
+	sxx = 0;
+	syy = 0;
+	sxx = (xx/2) - 200;
+	syy = (yy/2) - 90;
+
+	shape = shape + ", top=" + syy + ", left=" + sxx;
+  	window.open(path, "doc_print", shape);
+}
+</script>
+	
+</head>
+<body>
+
+  <form name="frm" method="post">
+<div id="popup">
+	<div class="p_head">
+		<h2 class="title t3 cw bold s1 i_b_t6">영양사 식품위생교육 수료증 출력</h2>
+	</div>
+	<div class="p_body text ca small">
+    	<h5 class=" title bold s1 t3 i_b_t3 mt20 ml20">이수 처리된 교육만 확인 가능합니다.<br> 성명, 생년월일, 면허번호를 입력하신 후 검색해주세요.</h5><br/ >
+		<div class="p20">
+			<div class="area">
+				<div class="form mt10 line bt bcm">
+					<div class="f_wrap line bb p8">
+						<div class="f_field div1">
+							<label for="inputid1" class="ff_title i_b"><strong>성명</strong></label>
+							<div class="ff_wrap ml120">
+								<div class="area">
+									<input name="pers_name" type="text" class="input t1 w200"  value="">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="f_wrap line bb p8">
+						<div class="f_field div1">
+							<label for="inputid1" class="ff_title i_b"><strong>생년월일</strong></label>
+							<div class="ff_wrap ml120">
+								<div class="area">
+									<input name="pers_birth" type="text"  class="input t1 w200" ><br><span class=" ">※생년월일은 하이픈(-)없이 숫자로만 입력해주십시오. (예:19800101)</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="f_wrap line bb p8">
+						<div class="f_field div1">
+							<label for="inputid1" class="ff_title i_b"><strong>면허번호</strong></label>
+							<div class="ff_wrap ml120">
+								<div class="area">
+									<input name="pers_license" type="text" class="input t1 w200" ><span class="pl10"><a href="javascript:f_Send();" class="btn t1">검색</a></span>
+								</div>
+							</div>
+						</div>
+					</div> 
+				</div>
+			</div>
+            
+            <!-- -->
+            <style type="text/css">
+				strong, b {font-weight:bold;}
+			</style>
+			
+			
+			<table class="table t1 text s1 ca center mt20">
+				<colgroup>
+					<col width="60">					
+					<col width="100">					
+					<col width="80">
+					<col width="120">
+					<col width="*">
+					<col width="80">
+                    <col width="60">
+                    <col width="64">				
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" class="bold cm">년도</th>
+						<th scope="col" class="bold cm">신청지역</th>
+						<th scope="col" class="bold cm">교육차수</th>
+						<th scope="col" class="bold cm">이름(면허번호)</th>
+						<th scope="col" class="bold cm">근무처명</th>
+						<th scope="col" class="bold cm">수료일자</th>
+                        <th scope="col" class="bold cm">상태</th>
+                        <th scope="col" class="bold cm">출력</th>
+						
+					</tr>
+				</thead>
+				<tbody>	
+				
+				
+				<c:choose>
+						<c:when test="${empty CertPrint }">
+							<TR>
+								<TD  colspan="8">자료가 존재 하지 않습니다. </TD>
+							</TR>	
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${CertPrint}" var="Cert"  >
+							<tr>
+								<td>${Cert.yyyy}</td>
+								<td>${Cert.code_bran_txt}</td>
+								<td>${Cert.operation_cnt}</td>
+								<td>${Cert.oper_name}<br/>
+									<c:choose>
+										<c:when test="${empty Cert.oper_lic_no}">(영양사 아님)</c:when>
+										<c:otherwise>(${Cert.oper_lic_no})</c:otherwise>
+									</c:choose>
+								</td>
+								
+								<td>${Cert.oper_comp_name1}</td>
+								<td>${Cert.oper_end_dt}</td>
+								<td>
+									<c:choose>
+										<c:when test="${result_state eq '-1'}">${Cert.oper_state_txt}</c:when>
+										<c:otherwise>${Cert.result_state_txt}</c:otherwise>
+									</c:choose>
+								</td>
+								<td>
+								<c:if test="${Cert.result_state >= 10  && Cert.result_state != ''}">
+								 
+									<a href="javascript:doc_print('${Cert.detcode}','${Cert.result_no}')" class="btn form t3 p0 fl ml5">출력</a>
+								
+							 	</c:if>
+								&nbsp;</td>
+								
+								
+								
+								
+			<%-- 					<td>${kdaFunc:formatDay2(oper.oper_start_dt)}</td>
+								<td>
+								<c:if test="${ empty oper.result_state or oper.result_state == '' }">
+									${oper.oper_state_txt }
+								</c:if>
+								<c:if test="${ oper.result_state != '' }">
+									${oper.result_state_txt}
+								</c:if>
+						 		</td>
+						 		<td>
+						 		<c:if test="${(  oper.oper_state == '01' || oper.oper_state == '02' || oper.oper_state == '03'  || oper.oper_state == '04') and today <= oper.oper_start_dt  }">
+						 		<input type="hidden" id="edutest_name_${oper.examKey}" value="${oper.edutest_name}">
+						 		<input type="hidden" id="oper_name_${oper.examKey}" value="${oper.oper_name}">
+						 		<input type="hidden" id="oper_lic_no_${oper.examKey}" value="${oper.oper_lic_no}">
+						 		<input type="hidden" id="oper_hp_${oper.examKey}" value="${oper.oper_hp}">
+						 		<input type="hidden" id="oper_email_${oper.examKey}" value="${oper.oper_email}">
+						 		<a href="javascript:cancel_edu('${oper.examKey}')" class="btn small t3">취소하기</a>
+						 		</c:if>      
+								</td> --%>
+							</tr>
+							</c:forEach>   
+						</c:otherwise>
+					</c:choose>	
+				</tbody>
+			</table>
+			
+			<div class="btn_wrap mt20">
+				<ul class="fr">
+                
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="p_foot line bt">
+    	<div class="p10 text middle bold ca s1 mt50 center">2015년 이후 수료증 출력은 영양사 법정교육센터 홈페이지에서 가능합니다.</div>
+		<div id="btn_msg" class="btn_wrap mt20">
+			<ul>
+				<li><a href="https://www.kdaedu.or.kr/" class="btn big t1">KDA 영양사 법정교육센터 바로가기</a></li>
+                <li><a href="javascript:window.close()" class="btn big">취소</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</form>
+
+
+</body>
+</html>
+

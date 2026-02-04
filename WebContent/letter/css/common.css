@@ -1,0 +1,25 @@
+@charset "utf-8";
+html,body{margin:0;padding:0;background:#fff;height:100%;}
+body,form,fieldset,div,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,input,select,th,td,textarea,button{margin:0;padding:0}
+ul, ol {list-style:none;}
+em, var {font-style:normal;}
+img, fieldset, input.type-image {border:0 none;}
+div, p, span, li, table td {word-break:break-all;}
+caption, legend, hr {display:none;border:0 none;}
+th {font-weight:normal;}
+table {border-collapse: collapse;}
+ul,li{list-style:none;}
+a:link,a:visited,a:hover,a:active {text-decoration:none;}
+
+#letterBody{*zoom:1;width:360px;position:relative;height:100%;margin:0 auto;overflow:hidden;}
+#letterBody .body{height:100%;}
+.con{position:relative;}
+.slideImg{width:100%;height:auto;}
+.btn01{position:absolute;width:53.4%;height:auto;top:86.5%;left:44.1%;cursor:pointer;}
+.btn02{position:absolute;width:62.8%;height:auto;top:93.4%;left:18.3%;cursor:pointer;}
+
+.btn03{position:absolute;width:53.4%;height:auto;top:90.7%;left:44.1%;cursor:pointer;}
+.btn04{position:absolute;width:62.8%;height:auto;top:93.4%;left:18.3%;cursor:pointer;}
+
+.btn05{position:absolute;width:53.4%;height:auto;top:92.9%;left:44.1%;cursor:pointer;}
+.btn06{position:absolute;width:62.8%;height:auto;top:84.8%;left:18.3%;cursor:pointer;}

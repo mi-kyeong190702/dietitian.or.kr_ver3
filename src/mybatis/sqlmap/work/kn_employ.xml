@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kn_employ">
+
+	<sql id="whereQuery">
+		<if test='searchKind == "1"'>
+		AND ecname LIKE '%' + #{searchWord} + '%'
+		</if>
+		<if test='searchKind == "2"'>
+		AND ecpart LIKE '%' + #{searchWord} + '%'
+		</if>
+		<if test='searchKind == "3"'>
+		AND etlocation LIKE '%' + #{searchWord} + '%'
+		</if>
+	</sql>
+
+	<sql id="listColumn">
+  		, eindex
+	  	, ecname
+	  	, ecpart
+	  	, etlocation
+	  	, eclimitdate
+	  	, eview
+	  	, eDate
+	</sql>
+	
+	<!-- 구인 목록 -->
+	<select id="selectEmployCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(eIndex)
+	FROM PTB_EMPLOY
+	<![CDATA[
+	WHERE eCLimitDate >= getdate()
+	]]>
+		<include refid="whereQuery" />
+	</select>
+
+	<select id="selectEmployList" parameterType="hashmap" resultType="hashmap"> 
+	SELECT 
+		num,
+		num2
+		<include refid="listColumn" /> 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by eDate desc ) AS num,
+		  	  ROW_NUMBER() OVER( order by eDate ) AS num2
+			 <include refid="listColumn" />
+		FROM PTB_EMPLOY
+		<![CDATA[
+		WHERE eCLimitDate >= getdate()
+		]]>
+		<include refid="whereQuery" />
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 	  
+	ORDER BY 	num
+	</select>
+	
+	
+	<select id="selectEmploy" parameterType="int" resultType="kda.work.news.data.KN_EMPLOY">
+	SELECT
+		  eindex
+		, epwd
+		, ecname
+		, ecpname
+		, ectel
+		, ecfax
+		, ecemail
+		, echome
+		, ecpost
+		, ecaddress
+		, ecpart
+		, CONVERT( varchar(16), eclimitdate, 20) as eclimitdate
+		, ecnumber
+		, ecrtype
+		, erhistory
+		, ermarry
+		, ersex
+		, erfamily
+		, ettime
+		, ettimecontents
+		, etlocation
+		, etprice
+		, etsprice
+		, etcontents
+		, etwel
+		, epprocess
+		, eppaper
+		, epreport
+		, epetc
+		, edate
+		, eview
+		, bbs_file_name
+		, bbs_file_url
+		, bbs_file_type
+		, bbs_file_size
+		, bbs_file_down
+		, ecrtypetext
+		, ecparttext
+		, etweltext
+		, eppapertext
+	FROM PTB_EMPLOY A
+	WHERE eindex = #{idx}
+	</select>
+	
+	<update id="updateEmployViewCount" parameterType="int">
+	UPDATE PTB_EMPLOY SET
+		eview = eview + 1
+	WHERE eindex = #{idx}
+	</update>
+	
+	<insert id="insertEmploy" parameterType="kda.work.news.data.KN_EMPLOY">
+	INSERT INTO PTB_EMPLOY (
+ 		  epwd
+		, ecname
+		, ecpname
+		, ectel
+		, ecfax
+		, ecemail
+		, echome
+		, ecpost
+		, ecaddress
+		, ecpart
+		, eclimitdate
+		, ecnumber
+		, ecrtype
+		, erhistory
+		, ermarry
+		, ersex
+		, erfamily
+		, ettime
+		, ettimecontents
+		, etlocation
+		, etprice
+		, etsprice
+		, etcontents
+		, etwel
+		, epprocess
+		, eppaper
+		, epreport
+		, epetc
+		, eview
+		, bbs_file_name
+		, bbs_file_url
+		, bbs_file_type
+		, bbs_file_size
+		, bbs_file_down
+		, ecrtypetext
+		, ecparttext
+		, etweltext
+		, eppapertext
+	) VALUES (	
+		  #{epwd}
+		,#{ecname}
+		,#{ecpname}
+		,#{ectel}
+		,#{ecfax}
+		,#{ecemail}
+		,#{echome}
+		,#{ecpost}
+		,#{ecaddress}
+		,#{ecpart}
+		,#{eclimitdate}
+		,#{ecnumber}
+		,#{ecrtype}
+		,#{erhistory}
+		,#{ermarry}
+		,#{ersex}
+		,#{erfamily}
+		,#{ettime}
+		,#{ettimecontents}
+		,#{etlocation}
+		,#{etprice}
+		,#{etsprice}
+		,#{etcontents}
+		,#{etwel}
+		,#{epprocess}
+		,#{eppaper}
+		,#{epreport}
+		,#{epetc}
+		,#{eview}
+		,#{bbs_file_name}
+		,#{bbs_file_url}
+		,#{bbs_file_type}
+		,#{bbs_file_size}
+		,#{bbs_file_down}
+		,#{ecrtypetext}
+		,#{ecparttext}
+		,#{etweltext}
+		,#{eppapertext}
+	)
+	</insert>
+	
+	<update id="updateEmploy" parameterType="kda.work.news.data.KN_EMPLOY">
+	UPDATE PTB_EMPLOY SET 
+	      ecname        = #{ecname}
+		, ecpname      	= #{ecpname}
+		, ectel        	= #{ectel}
+		, ecfax        	= #{ecfax}
+		, ecemail      	= #{ecemail}
+		, echome       	= #{echome}
+		, ecpost       	= #{ecpost}
+		, ecaddress    	= #{ecaddress}
+		, ecpart       	= #{ecpart}
+		, eclimitdate  	= #{eclimitdate}
+		, ecnumber     	= #{ecnumber}
+		, ecrtype      	= #{ecrtype}
+		, erhistory    	= #{erhistory}
+		, ermarry      	= #{ermarry}
+		, ersex        	= #{ersex}
+		, erfamily     	= #{erfamily}
+		, ettime       	= #{ettime}
+		, ettimecontents = #{ettimecontents}
+		, etlocation   	= #{etlocation}
+		, etprice      	= #{etprice}
+		, etsprice     	= #{etsprice}
+		, etcontents   	= #{etcontents}
+		, etwel        	= #{etwel}
+		, epprocess    	= #{epprocess}
+		, eppaper      	= #{eppaper}
+		, epreport     	= #{epreport}
+		, epetc        	= #{epetc}
+		, bbs_file_name	= #{bbs_file_name}
+		, bbs_file_url 	= #{bbs_file_url}
+		, bbs_file_type	= #{bbs_file_type}
+		, bbs_file_size	= #{bbs_file_size}
+		, bbs_file_down	= #{bbs_file_down}
+		, ecrtypetext  	= #{ecrtypetext}
+		, ecparttext   	= #{ecparttext}
+		, etweltext    	= #{etweltext}
+		, eppapertext  	= #{eppapertext}
+	WHERE eindex = #{eindex}
+	</update>
+	
+	<delete id="deleteEmploy" parameterType="int">
+	DELETE FROM PTB_EMPLOY
+	WHERE eindex = #{eindex}
+	</delete>
+	
+	<select id="selectEmployNavi" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		( 	
+			SELECT 1 as dir, rnum,  eIndex, eCName, eCLimitDate FROM (
+				SELECT 
+					ROW_NUMBER() OVER( order by eDate ) as  rnum,
+					eIndex, eCName, CONVERT( varchar(16), eclimitdate, 20) eCLimitDate FROM pTb_Employ 
+				WHERE eCLimitDate > getdate()
+			) A WHERE rnum = #{rnum} - 1
+		) UNION ( 
+			SELECT 2 as dir, rnum, eIndex, eCName, eCLimitDate FROM (
+				SELECT 
+					ROW_NUMBER() OVER( order by eDate ) as  rnum,
+					eIndex, eCName, CONVERT( varchar(16), eclimitdate, 20) eCLimitDate FROM pTb_Employ 
+				WHERE eCLimitDate > getdate()
+			) A WHERE rnum = #{rnum} + 1
+		)
+		]]>
+	</select>
+	
+	<update id="updateEmployVisit" parameterType="hashmap">
+	UPDATE pTb_Employ SET
+		eview = eview + 1
+	WHERE eIndex = #{idx}
+	</update>
+	
+	<select id="selectEmployComment" parameterType="int" resultType="hashmap">
+	SELECT 
+		cIndex, cName, cContents, cDate, cUser_Id
+	FROM pTb_EmployComments 
+	WHERE cEmIndex = #{idx} 
+	ORDER BY cIndex DESC
+	</select>
+	
+	<insert id="insertEmployComment" parameterType="hashmap">
+	insert into pTb_EmployComments(
+		  cUser_Id
+		, cEmIndex
+		, cJobIndex
+		, cName
+		, cContents
+		, cUser_Ip
+	) values(
+		  #{cUser_Id}
+		, #{cEmIndex}
+		, #{cJobIndex}
+		, #{cName}
+		, #{cContents}
+		, #{cUser_Ip}
+	)
+	</insert>
+	
+	<delete id="deleteEmployComment" parameterType="int">
+	DELETE FROM pTb_EmployComments
+	WHERE cIndex = #{cIndex}
+	</delete>
+</mapper>

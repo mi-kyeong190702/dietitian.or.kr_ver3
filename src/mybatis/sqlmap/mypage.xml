@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage">
+
+	<resultMap type="MYEDUINFO" id="MYEDUINFO">
+		<result property="no"           		column="NO"/>
+		<result property="yyyy"         		column="YYYY"/>
+		<result property="code_kind"    		column="CODE_KIND"/>
+		<result property="edutest_name" 		column="EDUTEST_NAME"/>
+		<result property="edutest_full_name" 	column="EDUTEST_FULL_NAME" />
+		<result property="code_seq"     		column="CODE_SEQ"/>
+		<result property="result_no "   		column="RESULT_NO "/>
+		<result property="outside_yn"   		column="OUTSIDE_YN"/>
+		<result property="outside_yn_code"   	column="OUTSIDE_YN_CODE"/>
+		<result property="edu_marks"    		column="EDU_MARKS"/>
+		<result property="service_marks"    	column="SERVICE_MARKS"/>
+		
+		<result property="oper_start_dt"		column="OPER_START_DT"/>
+		<result property="oper_end_dt"  		column="OPER_END_DT"/>
+		<result property="result_state" 		column="RESULT_STATE"/>
+		<result property="up_date"      		column="UP_DATE"/>
+		<result property="oper_state"   		column="OPER_STATE"/>
+		<result property="code_certifi" 		column="CODE_CERTIFI"/>		
+		<result property="code_bran"    		column="CODE_BRAN"/>
+		<result property="bran_seq"     		column="BRAN_SEQ"/>
+		<result property="receipt_no"   		column="RECEIPT_NO"/>
+		<result property="point_manage" 		column="POINT_MANAGE"/>
+		<result property="rt"           		column="RT"/>
+		<result property="print_kind"   		column="PRINT_KIND"/>
+		<result property="printform_no" 		column="PRINTFORM_NO"/>
+		<result property="code_bran_str"		column="CODE_BRAN_STR"/>
+		<result property="btext"        		column="BTEXT"/>
+		<result property="detcode"      		column="DETCODE"/>
+		<result property="total"      			column="TOTAL"/>
+		<result property="certifi_txt"      	column="CERTIFI_TXT"/>
+		<result property="code_bran_txt"      	column="CODE_BRAN_TXT"/>
+		<result property="operation_place"      column="OPERATION_PLACE"/>
+		<result property="oper_state_txt"     	column="OPER_STATE_TXT"/>
+		<result property="result_state_txt"     column="RESULT_STATE_TXT"/>
+		<result property="season"     			column="SEASON"/>
+		<result property="result_point"     	column="RESULT_POINT"/>
+		<result property="ke_isutime"     		column="KE_ISUTIME"/>
+		<result property="operation_cnt"     	column="OPERATION_CNT"/>
+		<result property="certifi_name"     	column="CERTIFI_NAME"/>
+		<result property="result_dt"     		column="RESULT_DT"/>
+		<result property="result_start_dt"     	column="RESULT_START_DT"/>
+		<result property="result_end_dt"     	column="RESULT_END_DT"/>
+		<result property="print_state"     		column="PRINT_STATE"/>
+		<result property="auth_start"     		column="AUTH_START"/>
+		<result property="auth_end"     		column="AUTH_END"/>
+		<result property="cm_name"     			column="CM_NAME"/>
+		<result property="pres_money"     		column="PRES_MONEY"/>
+		<result property="incom_flag"     		column="INCOM_FLAG"/>
+		<result property="code_inout_gubun"    	column="CODE_INOUT_GUBUN"/>
+		<result property="conform_yn"     		column="CONFORM_YN"/>		
+		<result property="dues_gubun"     		column="DUES_GUBUN"/>		
+		<result property="dues_h_seq"     		column="DUES_H_SEQ"/>		
+		<result property="col1"     			column="COL1"/>		
+		<result property="col2"     			column="COL2"/>		
+		<result property="col3"     			column="COL3"/>
+		<result property="resultdt"     		column="RESULTDT"/>
+		<result property="doc_seq"     		    column="DOC_SEQ"/>		
+		
+		<result property="pers_state"			column="PERS_STATE"/>
+	</resultMap>
+	<resultMap type="MYMEMBERINFO" id="MYMEMBERINFO">
+		<result property="code_pers"      		column="CODE_PERS"/>                                       
+		<result property="pers_name"			column="PERS_NAME"/>
+		<result property="id"					column="ID"/>
+		<result property="passwd"				column="PASSWD"/>
+		<result property="pers_birth"			column="PERS_BIRTH"/>
+		<result property="code_sex"				column="CODE_SEX"/>
+		<result property="lic_no"				column="LIC_NO"/>
+		<result property="lic_print_dt"			column="LIC_PRINT_DT"/>
+		<result property="code_member"			column="CODE_MEMBER"/>
+		<result property="code_member_str"		column="CODE_MEMBER_STR"/>
+		<result property="code_bran"			column="CODE_BRAN"/>
+		<result property="code_big"				column="CODE_BIG"/>
+		<result property="code_sect"			column="CODE_SECT"/>
+		<result property="code_great"			column="CODE_GREAT"/>
+		<result property="code_part"			column="CODE_PART"/>
+		<result property="code_small"			column="CODE_SMALL"/>
+		<result property="comp_seq"				column="COMP_SEQ"/>
+		<result property="ppost"				column="PPOST"/>
+		<result property="code_add_gubun"		column="CODE_ADD_GUBUN"/>
+		<result property="pers_add"				column="PERS_ADD"/>
+		<result property="pers_add_detail"		column="PERS_ADD_DETAIL"/>
+		<result property="code_place"			column="CODE_PLACE"/>
+		<result property="pers_tel"				column="PERS_TEL"/>
+		<result property="certifi_view"			column="CERTIFI_VIEW"/>
+		<result property="pers_hp"				column="PERS_HP"/>
+		<result property="email"				column="EMAIL"/>
+		<result property="code_sool"			column="CODE_SOOL"/>
+		<result property="code_sol"				column="CODE_SOL"/>
+		<result property="code_univer"			column="CODE_UNIVER"/>
+		<result property="pers_career"			column="PERS_CAREER"/>
+		<result property="code_marry"			column="CODE_MARRY"/>
+		<result property="code_religion"		column="CODE_RELIGION"/>
+		<result property="code_sub"				column="CODE_SUB"/>
+		<result property="de_call"				column="DE_CALL"/>
+		<result property="recommender"			column="RECOMMENDER"/>
+		<result property="recm_division"		column="RECM_DIVISION"/>
+		<result property="recm_hp"				column="RECM_HP"/>
+		<result property="kda_level"			column="KDA_LEVEL"/>
+		<result property="pers_state"			column="PERS_STATE"/>
+		<result property="company_name"			column="COMPANY_NAME"/>
+		<result property="company_tel"			column="COMPANY_TEL"/>
+		<result property="cpost"				column="CPOST"/>
+		<result property="company_add"			column="COMPANY_ADD"/>
+		<result property="company_add_detail"	column="COMPANY_ADD_DETAIL"/>
+		<result property="job_dept"				column="JOB_DEPT"/>
+		<result property="job_level_code"		column="JOB_LEVEL_CODE"/>
+		<result property="job_line_code"		column="JOB_LINE_CODE"/>
+	</resultMap>
+	
+	<resultMap type="MYLICENSEINFO" id="MYLICENSEINFO">
+		<result property="code_pers"			column="CODE_PERS"/>              
+		<result property="pers_name"			column="PERS_NAME"/>              
+		<result property="id"					column="ID"/>	                  
+		<result property="passwd"				column="PASSWD"/>                 
+		<result property="pers_birth"			column="PERS_BIRTH"/>             
+		<result property="certifi_view"			column="CERTIFI_VIEW"/>           
+		<result property="pers_career"			column="PERS_CAREER"/>            
+		<result property="code_scholar"			column="CODE_SCHOLAR"/>           
+		<result property="code_univer"			column="CODE_UNIVER"/>            
+		<result property="code_school"			column="CODE_SCHOOL"/>            
+		<result property="code_part"			column="CODE_PART"/>              
+		<result property="code_great"			column="CODE_GREAT"/>             
+		<result property="code_small"			column="CODE_SMALL"/>             
+		<result property="code_use"				column="CODE_USE"/>               
+		<result property="trust_name"			column="TRUST_NAME"/>             
+		<result property="trust_tel"			column="TRUST_TEL"/>              
+		<result property="trust_addr"			column="TRUST_ADDR"/>             
+		<result property="trust_code"			column="TRUST_CODE"/>             
+		<result property="company_name"			column="COMPANY_NAME"/>           
+		<result property="company_tel"			column="COMPANY_TEL"/>            
+		<result property="cpost"				column="CPOST"/>                  
+		<result property="company_add"			column="COMPANY_ADD"/>            
+		<result property="company_add_detail"	column="COMPANY_ADD_DETAIL"/>     
+		<result property="job_dept"				column="JOB_DEPT"/>               
+		<result property="job_level_code"		column="JOB_LEVEL_CODE"/>         
+		<result property="job_line_code"		column="JOB_LINE_CODE"/>          
+		<result property="lic_pay"				column="LIC_PAY"/>                
+		<result property="year_pay"				column="YEAR_PAY"/>               
+		<result property="company_sick_bad"		column="COMPANY_SICK_BAD"/>       
+		<result property="company_meal"			column="COMPANY_MEAL"/>           
+		<result property="join_con"				column="JOIN_CON"/>               
+		<result property="join_cook"			column="JOIN_COOK"/>              
+		<result property="primary_flag"			column="PRIMARY_FLAG"/>           
+		<result property="pers_multy"			column="PERS_MULTY"/>             
+		<result property="company_count_mom"	column="COMPANY_COUNT_MOM"/>      
+		<result property="company_count_lunch"	column="COMPANY_COUNT_LUNCH"/>    
+		<result property="company_count_dinner"	column="COMPANY_COUNT_DINNER"/>   
+		<result property="company_count_midnig"	column="COMPANY_COUNT_MIDNIG"/>   
+		<result property="comp_seq"				column="COMP_SEQ"/>               
+		<result property="code_sub"				column="CODE_SUB"/>
+		<result property="code_big"				column="CODE_BIG"/>
+	</resultMap>
+	
+	<select id="getMyEduSituation" parameterType="hashmap" resultType="MYEDUINFO" >
+		SELECT ROW_NUMBER()OVER(ORDER BY F.OPER_END_DT DESC,F.YYYY, F.CODE_KIND ) NO 
+			 , F.YYYY
+			 , M.DETCODENAME
+			 , CASE WHEN F.CODE_KIND = '5'  THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME
+				 ELSE G.EDUTEST_NAME END  EDUTEST_NAME
+			 , G.CODE_SEQ
+			 , C.RESULT_NO
+			 , G.OUTSIDE_YN
+			 , F.EDU_MARKS
+			 , F.SERVICE_MARKS
+			 , F.OPER_START_DT
+			 , F.OPER_END_DT
+			 , D.DETCODENAME RESULT_STATE
+			 , C.UP_DATE
+			 , A.person_yn
+			 , (A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ) as OPERKEY
+			 , A.RECEIPT_NO
+		 	 , A.OPER_STATE
+			 , C.CODE_KIND
+			 , C.CODE_CERTIFI
+			 , C.CODE_SEQ
+			 , C.CODE_BRAN
+			 , C.BRAN_SEQ
+			 , C.RECEIPT_NO
+			 , C.POINT_MANAGE
+			 , ISNULL(C.RESULT_STATE, '-1') RT
+			 , C.RESULT_NO
+			 , G.PRINT_KIND
+			 , G.PRINTFORM_NO
+			 , DBO.GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR
+			 , F.BRAN_TXT AS BTEXT
+			 , (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE
+		  FROM OPERATER A LEFT JOIN OPER_RESULT C ON C.CODE_KIND = A.CODE_KIND
+		   AND C.CODE_CERTIFI = A.CODE_CERTIFI
+		   AND C.CODE_SEQ = A.CODE_SEQ
+		   AND C.CODE_BRAN = A.CODE_BRAN
+		   AND C.BRAN_SEQ = A.BRAN_SEQ
+		   AND C.RECEIPT_NO = A.RECEIPT_NO LEFT JOIN COM_CODE D ON D.GROUPCODE='023' 
+		   AND D.DETCODE=C.RESULT_STATE, EDU_TEST F LEFT JOIN EDU_TEST_NAME G ON G.CODE_KIND = F.CODE_KIND
+		   AND G.CODE_CERTIFI = F.CODE_CERTIFI
+		   AND G.CODE_SEQ = F.CODE_SEQ LEFT JOIN COM_CODE M ON M.GROUPCODE = '016' AND M.DETCODE = F.CODE_KIND
+		 WHERE A.CODE_KIND = F.CODE_KIND
+	 	   AND A.CODE_CERTIFI = F.CODE_CERTIFI
+	 	   AND A.CODE_SEQ = F.CODE_SEQ
+	 	   AND A.CODE_BRAN = F.CODE_BRAN
+		   AND A.BRAN_SEQ = F.BRAN_SEQ
+		   AND A.OPER_STATE = '11'
+		   AND F.CODE_KIND IN ('2','3','6','7')
+		   AND A.PERSON_YN = #{code_pers}
+	</select>
+	
+	<select id="getMyEduLicense" parameterType="hashmap" resultType="MYEDUINFO" >
+	
+		SELECT ROW_NUMBER()OVER(ORDER BY C.OPER_END_DT DESC, C.YYYY, C.CODE_KIND) NO
+			 , A.CODE_KIND
+			 , A.CODE_CERTIFI
+			 , A.CODE_SEQ
+			 , A.CODE_BRAN
+			 , A.BRAN_SEQ
+			 , A.RECEIPT_NO
+			 , (SELECT CERTIFI_NAME FROM CERTIFI E WHERE A.CODE_CERTIFI = E.CODE_CERTIFI) AS CERTIFI_TXT
+			 , C.YYYY
+			 , C.OPERATION_CNT
+			 , C.SEASON
+			 , C.OPERATION_PLACE
+			 <![CDATA[
+			 , CASE WHEN C.SEASON <= 2 THEN
+			 	('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR, C.SEASON) + '학기 ' + D.EDUTEST_NAME)
+			   WHEN C.SEASON = 3 THEN
+			      ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 집합교육 ' + D.EDUTEST_NAME) 
+			   WHEN C.SEASON = 4 THEN
+			   	 ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 온라인교육 ' + D.EDUTEST_NAME) 
+			   END
+			   AS EDUTEST_FULL_NAME
+			  ]]>
+			 , EDUTEST_NAME
+			 , D.CODE_SEQ
+			 , B.RESULT_NO
+			 , D.OUTSIDE_YN
+			 , D.EDU_MARKS
+			 , C.OPER_START_DT
+			 , C.OPER_END_DT
+			 , ISNULL(B.RESULT_STATE, '-1') AS RESULT_STATE
+			 , B.UP_DATE
+			 , DBO.GETCODEVALUE('023', B.RESULT_STATE) AS RESULT_STATE_TXT
+			 , D.PRINT_KIND
+			 , DBO.GETCODEVALUE('022', A.OPER_STATE) AS OPER_STATE_TXT
+			 , DBO.GETCODEVALUE('007', B.CODE_BRAN) AS CODE_BRAN_TXT
+			 , C.BRAN_TXT
+			 , (A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ) as OPERKEY
+			 , A.RECEIPT_NO
+			 , A.PERSON_YN
+			 , A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ + CONVERT(VARCHAR, ISNULL(C.OPERATION_CNT,   '0'))+ CONVERT(VARCHAR, ISNULL(C.SEASON,'0'))  DETCODE
+		  FROM OPERATER A
+		   LEFT JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
+		   AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO
+		   INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ
+		   AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ
+		   INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ
+		WHERE A.CODE_KIND = '1'
+		  AND A.OPER_STATE = '11'
+         AND A.PERSON_YN = #{code_pers}
+		ORDER BY A.CODE_CERTIFI, C.OPER_END_DT DESC, A.RECEIPT_DT DESC
+	
+	</select>
+	
+	
+	<select id="getMyEduOlderly" parameterType="hashmap" resultType="MYEDUINFO" >
+ 		SELECT E.RESULT_START_DT+'~'+E.RESULT_END_DT RESULTDT 
+ 		     , E.RESULT_START_DT 
+ 		     , E.RESULT_END_DT 
+ 		     , SUM(ISNULL(COL1,0)) COL1 
+ 		     , SUM(ISNULL(COL2,0)) COL2
+ 		     , SUM(ISNULL(COL3,0)) COL3  
+ 		     , Sum(Isnull(col1, 0)) + Sum(Isnull(col2, 0)) + Sum(Isnull(col3, 0)) TOTAL 
+ 		     , E.RESULT_NO 
+ 		FROM RESULT_PRINT E 
+ 		LEFT JOIN ( 
+ 		    SELECT CASE WHEN D.OUTSIDE_YN = 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL1, 
+ 		    	   CASE WHEN D.OUTSIDE_YN = 'S' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL3,
+ 		           CASE WHEN D.OUTSIDE_YN = 'Y' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL2, 
+ 		           C.OPER_END_DT, A.CODE_CERTIFI, E.CODE_PERS 
+ 		    FROM OPERATER A 
+ 		    INNER JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ 
+ 		    AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO 
+ 		    INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ 
+ 		    AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ 
+ 		    INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ 
+ 		    INNER JOIN PERSON_M_TBL E ON A.PERSON_YN = E.CODE_PERS
+	 		WHERE A.CODE_KIND = '2' AND A.CODE_CERTIFI IN ('0', #{code_certifi}) AND (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', #{code_certifi}))
+	        AND B.RESULT_STATE >= '11' AND SUBSTRING(D.POINT_MANAGE, #{code_certifi}, 1) = '1' AND E.CODE_PERS = #{code_pers} 
+	        ) F ON E.CODE_PERS = F.CODE_PERS and F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
+	        WHERE E.code_certifi=#{code_certifi} and E.CODE_PERS = #{code_pers}
+			GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO
+	        ORDER BY RESULT_END_DT DESC
+	</select>
+	
+	<select id="getMyEduOlderly2" parameterType="hashmap" resultType="MYEDUINFO" >
+		SELECT CASE WHEN F.CODE_KIND = '5' THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME
+		ELSE G.EDUTEST_NAME END  EDUTEST_NAME , CASE WHEN G.OUTSIDE_YN <![CDATA[<>]]>'N' THEN '기타'  WHEN G.OUTSIDE_YN='N' THEN '본회' END OUTSIDE_YN
+		, G.OUTSIDE_YN OUTSIDE_YN_CODE, F.OPER_END_DT  , ISNULL(C.EDU_MARKS,0)+ISNULL(C.SERVICE_MARKS,0) RESULT_POINT , D.DETCODENAME RESULT_STATE
+		, C.CODE_KIND, C.CODE_CERTIFI, C.CODE_SEQ, C.CODE_BRAN, DBO. GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR, C.BRAN_SEQ
+		, C.RECEIPT_NO, C.POINT_MANAGE, ISNULL(C.RESULT_STATE, '-1') AS RT , C.RESULT_NO, C.POINT_MANAGE, G.PRINT_KIND, G.PRINTFORM_NO , F.YYYY , F.BRAN_TXT AS BTEXT
+		, (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE
+		FROM (SELECT CODE_KIND , CODE_CERTIFI , CODE_SEQ , CODE_BRAN , BRAN_SEQ , RECEIPT_NO , PERSON_YN FROM OPERATER )A
+		LEFT JOIN (SELECT X.CODE_KIND , X.CODE_CERTIFI , X.CODE_SEQ , X.CODE_BRAN , X.BRAN_SEQ , X.RECEIPT_NO
+		, REPLACE(REPLACE(ISNULL(X.신청서,' ')+','+ISNULL(X.사진,' ')+',' +ISNULL(X.영양사면허증사본,' ')+','+ISNULL(X.경력증명서,' ')+','
+		+ISNULL(X.학위증명서,' ')+ISNULL(X.최종학위성적증명서,' ')+',' +ISNULL(X.기존자격증사본,' '),' ,',''),', ','') DETCODENAME
+		FROM ( SELECT *   FROM (SELECT AB.CODE_KIND, AB.CODE_CERTIFI, AB.CODE_SEQ, AB.CODE_BRAN,  AB.BRAN_SEQ, AB.RECEIPT_NO, BB.DETCODENAME
+		FROM OPER_ADD_FILE AB, COM_CODE BB  WHERE BB.GROUPCODE = '037'  AND BB.DETCODE = AB.ADD_FILE_NO) Z
+		PIVOT (MAX(Z.DETCODENAME) FOR Z.DETCODENAME   IN ([신청서],[사진],[영양사면허증사본],[경력증명서],[학위증명서],[최종학위성적증명서],[기존자격증사본]) ) AS PVT ) X) B
+		ON B.CODE_KIND = A.CODE_KIND   AND B.CODE_CERTIFI = A.CODE_CERTIFI  AND B.CODE_SEQ = A.CODE_SEQ  AND B.CODE_BRAN = A.CODE_BRAN
+		AND B.BRAN_SEQ = A.BRAN_SEQ  AND B.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN OPER_RESULT C   ON C.CODE_KIND = A.CODE_KIND  AND C.CODE_CERTIFI = A.CODE_CERTIFI  AND C.CODE_SEQ = A.CODE_SEQ
+		AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN COM_CODE D  ON D.GROUPCODE='023'  AND D.DETCODE=C.RESULT_STATE , EDU_TEST F
+		LEFT JOIN EDU_TEST_NAME G  ON G.CODE_KIND = F.CODE_KIND  AND G.CODE_CERTIFI = F.CODE_CERTIFI  AND G.CODE_SEQ = F.CODE_SEQ
+		WHERE A.CODE_KIND = F.CODE_KIND  
+		AND A.CODE_CERTIFI = F.CODE_CERTIFI
+		AND A.CODE_SEQ = F.CODE_SEQ
+		AND A.CODE_BRAN = F.CODE_BRAN
+		AND A.BRAN_SEQ = F.BRAN_SEQ
+		AND F.CODE_KIND = '2'
+		AND A.PERSON_YN = #{code_pers}  
+		AND F.OPER_END_DT >= #{result_start_dt} 
+		AND F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}			
+		AND ISNULL(C.POINT_MANAGE, '0') IN ('0', #{code_certifi})
+        AND SUBSTRING(G.POINT_MANAGE, #{code_certifi}, 1) = '1'
+		ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
+	</select>
+	
+	
+	<select id="getMyEduSport" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+		SELECT E.RESULT_START_DT+'~'+E.RESULT_END_DT RESULTDT
+		     , E.RESULT_START_DT
+		     , E.RESULT_END_DT
+		     , SUM(ISNULL(COL1,0)) COL1
+		     , SUM(ISNULL(COL2,0)) COL2
+		     , SUM(ISNULL(COL1,0))+SUM(ISNULL(COL2,0)) TOTAL
+		     , E.RESULT_NO
+		  FROM RESULT_PRINT E
+		  LEFT JOIN (
+		    SELECT CASE WHEN D.OUTSIDE_YN = 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL1,
+		           CASE WHEN D.OUTSIDE_YN <> 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL2,
+		           C.OPER_END_DT, A.CODE_CERTIFI, E.CODE_PERS
+		    FROM OPERATER A
+		    INNER JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
+		    AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO
+		    INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ
+		    AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ
+		    INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ
+		    INNER JOIN PERSON_M_TBL E ON A.PERSON_YN = E.CODE_PERS
+		WHERE A.CODE_KIND = '2' AND A.CODE_CERTIFI IN ('0', '5') AND (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', '5'))
+		AND B.RESULT_STATE >= '10' AND SUBSTRING(D.POINT_MANAGE, 5, 1) = '1' AND E.CODE_PERS = #{code_pers}
+		) F ON E.CODE_PERS = F.CODE_PERS and F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
+		WHERE E.code_certifi= '5'
+		GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO
+		ORDER BY RESULT_END_DT DESC
+	]]>
+	</select>
+	
+	<select id="getMyEduSport2" parameterType="hashmap" resultType="MYEDUINFO">
+		SELECT CASE WHEN F.CODE_KIND = '5'  THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME 
+		ELSE G.EDUTEST_NAME END  EDUTEST_NAME , CASE WHEN G.OUTSIDE_YN <![CDATA[<>]]>'N' THEN '기타'  WHEN G.OUTSIDE_YN='N' THEN '본회' END OUTSIDE_YN
+		, G.OUTSIDE_YN OUTSIDE_YN_CODE, F.OPER_END_DT  , ISNULL(C.EDU_MARKS,0)+ISNULL(C.SERVICE_MARKS,0) RESULT_POINT , D.DETCODENAME RESULT_STATE
+		, C.CODE_KIND, C.CODE_CERTIFI, C.CODE_SEQ, C.CODE_BRAN, DBO. GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR, C.BRAN_SEQ 
+		, C.RECEIPT_NO, C.POINT_MANAGE, ISNULL(C.RESULT_STATE, '-1') AS RT , C.RESULT_NO, C.POINT_MANAGE, G.PRINT_KIND, G.PRINTFORM_NO , F.YYYY , F.BRAN_TXT AS BTEXT 
+		, (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE 
+		FROM (SELECT CODE_KIND , CODE_CERTIFI , CODE_SEQ , CODE_BRAN , BRAN_SEQ , RECEIPT_NO , PERSON_YN, DBO.GETPERSNODECORD(OPER_NO , '1') OPER_NO  FROM OPERATER )A 
+		LEFT JOIN (SELECT X.CODE_KIND , X.CODE_CERTIFI , X.CODE_SEQ , X.CODE_BRAN , X.BRAN_SEQ , X.RECEIPT_NO
+		, REPLACE(REPLACE(ISNULL(X.신청서,' ')+','+ISNULL(X.사진,' ')+',' +ISNULL(X.영양사면허증사본,' ')+','+ISNULL(X.경력증명서,' ')+',' 
+		+ISNULL(X.학위증명서,' ')+ISNULL(X.최종학위성적증명서,' ')+',' +ISNULL(X.기존자격증사본,' '),' ,',''),', ','') DETCODENAME
+		FROM ( SELECT *   FROM (SELECT AB.CODE_KIND, AB.CODE_CERTIFI, AB.CODE_SEQ, AB.CODE_BRAN,  AB.BRAN_SEQ, AB.RECEIPT_NO, BB.DETCODENAME
+		FROM OPER_ADD_FILE AB, COM_CODE BB  WHERE BB.GROUPCODE = '037'  AND BB.DETCODE = AB.ADD_FILE_NO) Z 
+		PIVOT (MAX(Z.DETCODENAME) FOR Z.DETCODENAME   IN ([신청서],[사진],[영양사면허증사본],[경력증명서],[학위증명서]  ,[최종학위성적증명서],[기존자격증사본]) ) AS PVT ) X) B 
+		ON B.CODE_KIND = A.CODE_KIND   AND B.CODE_CERTIFI = A.CODE_CERTIFI  AND B.CODE_SEQ = A.CODE_SEQ  AND B.CODE_BRAN = A.CODE_BRAN
+		AND B.BRAN_SEQ = A.BRAN_SEQ  AND B.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN OPER_RESULT C   ON C.CODE_KIND = A.CODE_KIND  AND C.CODE_CERTIFI = A.CODE_CERTIFI  AND C.CODE_SEQ = A.CODE_SEQ  
+		AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN COM_CODE D  ON D.GROUPCODE='023'  AND D.DETCODE=C.RESULT_STATE , EDU_TEST F
+		LEFT JOIN EDU_TEST_NAME G  ON G.CODE_KIND = F.CODE_KIND  AND G.CODE_CERTIFI = F.CODE_CERTIFI  AND G.CODE_SEQ = F.CODE_SEQ		
+		WHERE A.CODE_KIND = F.CODE_KIND  AND A.CODE_CERTIFI = F.CODE_CERTIFI  AND A.CODE_SEQ = F.CODE_SEQ  AND A.CODE_BRAN = F.CODE_BRAN
+		AND A.BRAN_SEQ = F.BRAN_SEQ  AND F.CODE_KIND = '2' 
+		AND A.PERSON_YN = #{user_code}
+		AND F.OPER_END_DT >= #{result_start_dt} 
+		AND F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}
+		AND ISNULL(C.POINT_MANAGE, '0') IN ('0', #{certi_type}) 	
+		AND SUBSTRING(G.POINT_MANAGE,  #{certi_type} , 1) = '1' 
+		ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
+	</select>
+	
+	<select id="getMyEduFeed" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+		SELECT E.RESULT_START_DT+'~'+E.RESULT_END_DT RESULTDT
+		     , E.RESULT_START_DT
+		     , E.RESULT_END_DT
+		     , SUM(ISNULL(COL1,0)) COL1
+		     , SUM(ISNULL(COL2,0)) COL2
+		     , SUM(ISNULL(COL1,0))+SUM(ISNULL(COL2,0)) TOTAL
+		     , E.RESULT_NO
+		  FROM RESULT_PRINT E
+	 	  LEFT JOIN (
+		    SELECT CASE WHEN D.OUTSIDE_YN = 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL1,
+		           CASE WHEN D.OUTSIDE_YN <> 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL2,
+		           C.OPER_END_DT, A.CODE_CERTIFI, E.CODE_PERS
+		    FROM OPERATER A
+		    INNER JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
+		    AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO
+		    INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ
+		    AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ
+		    INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ
+		    INNER JOIN PERSON_M_TBL E ON A.PERSON_YN = E.CODE_PERS
+		WHERE A.CODE_KIND = '2' AND A.CODE_CERTIFI IN ('0', '1') AND (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', '1'))
+		AND B.RESULT_STATE >= '10' AND SUBSTRING(D.POINT_MANAGE, 1, 1) = '1' AND E.CODE_PERS = #{code_pers}
+		) F ON E.CODE_PERS = F.CODE_PERS and F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
+		WHERE E.code_certifi= '1' 
+		GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO
+		ORDER BY RESULT_END_DT DESC
+	]]>
+	</select>
+	
+	<select id="getMyEduFeed2" parameterType="hashmap" resultType="MYEDUINFO">
+		SELECT CASE WHEN F.CODE_KIND = '5'  THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME 
+		ELSE G.EDUTEST_NAME END  EDUTEST_NAME , CASE WHEN G.OUTSIDE_YN <![CDATA[<>]]>'N' THEN '기타'  WHEN G.OUTSIDE_YN='N' THEN '본회' END OUTSIDE_YN
+		, G.OUTSIDE_YN OUTSIDE_YN_CODE, F.OPER_END_DT  , ISNULL(C.EDU_MARKS,0)+ISNULL(C.SERVICE_MARKS,0) RESULT_POINT , D.DETCODENAME RESULT_STATE
+		, C.CODE_KIND, C.CODE_CERTIFI, C.CODE_SEQ, C.CODE_BRAN, DBO. GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR, C.BRAN_SEQ 
+		, C.RECEIPT_NO, C.POINT_MANAGE, ISNULL(C.RESULT_STATE, '-1') AS RT , C.RESULT_NO, C.POINT_MANAGE, G.PRINT_KIND, G.PRINTFORM_NO , F.YYYY , F.BRAN_TXT AS BTEXT 
+		, (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE 
+		FROM (SELECT CODE_KIND , CODE_CERTIFI , CODE_SEQ , CODE_BRAN , BRAN_SEQ , RECEIPT_NO , PERSON_YN, DBO.GETPERSNODECORD(OPER_NO , '1') OPER_NO  FROM OPERATER )A 
+		LEFT JOIN (SELECT X.CODE_KIND , X.CODE_CERTIFI , X.CODE_SEQ , X.CODE_BRAN , X.BRAN_SEQ , X.RECEIPT_NO
+		, REPLACE(REPLACE(ISNULL(X.신청서,' ')+','+ISNULL(X.사진,' ')+',' +ISNULL(X.영양사면허증사본,' ')+','+ISNULL(X.경력증명서,' ')+',' 
+		+ISNULL(X.학위증명서,' ')+ISNULL(X.최종학위성적증명서,' ')+',' +ISNULL(X.기존자격증사본,' '),' ,',''),', ','') DETCODENAME
+		FROM ( SELECT *   FROM (SELECT AB.CODE_KIND, AB.CODE_CERTIFI, AB.CODE_SEQ, AB.CODE_BRAN,  AB.BRAN_SEQ, AB.RECEIPT_NO, BB.DETCODENAME
+		FROM OPER_ADD_FILE AB, COM_CODE BB  WHERE BB.GROUPCODE = '037'  AND BB.DETCODE = AB.ADD_FILE_NO) Z 
+		PIVOT (MAX(Z.DETCODENAME) FOR Z.DETCODENAME   IN ([신청서],[사진],[영양사면허증사본],[경력증명서],[학위증명서]  ,[최종학위성적증명서],[기존자격증사본]) ) AS PVT ) X) B 
+		ON B.CODE_KIND = A.CODE_KIND   AND B.CODE_CERTIFI = A.CODE_CERTIFI  AND B.CODE_SEQ = A.CODE_SEQ  AND B.CODE_BRAN = A.CODE_BRAN
+		AND B.BRAN_SEQ = A.BRAN_SEQ  AND B.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN OPER_RESULT C   ON C.CODE_KIND = A.CODE_KIND  AND C.CODE_CERTIFI = A.CODE_CERTIFI  AND C.CODE_SEQ = A.CODE_SEQ  
+		AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN COM_CODE D  ON D.GROUPCODE='023'  AND D.DETCODE=C.RESULT_STATE , EDU_TEST F
+		LEFT JOIN EDU_TEST_NAME G  ON G.CODE_KIND = F.CODE_KIND  AND G.CODE_CERTIFI = F.CODE_CERTIFI  AND G.CODE_SEQ = F.CODE_SEQ		
+		WHERE A.CODE_KIND = F.CODE_KIND  AND A.CODE_CERTIFI = F.CODE_CERTIFI  AND A.CODE_SEQ = F.CODE_SEQ  AND A.CODE_BRAN = F.CODE_BRAN
+		AND A.BRAN_SEQ = F.BRAN_SEQ  AND F.CODE_KIND = '2' 
+		AND A.PERSON_YN = #{user_code}
+		AND F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}
+		AND C.POINT_MANAGE IN ('0', #{certi_type}) 
+		AND SUBSTRING(G.POINT_MANAGE,  #{certi_type} , 1) = '1' 
+		ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
+	</select>
+	
+	<select id="getMyEduHealth" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+		SELECT E.RESULT_START_DT+'~'+E.RESULT_END_DT RESULTDT
+		     , E.RESULT_START_DT
+		     , E.RESULT_END_DT
+		     , SUM(ISNULL(COL1,0)) COL1
+		     , SUM(ISNULL(COL2,0)) COL2
+		     , SUM(ISNULL(COL1,0))+SUM(ISNULL(COL2,0)) TOTAL
+		     , E.RESULT_NO
+		  FROM RESULT_PRINT E
+		  LEFT JOIN (
+		    SELECT CASE WHEN D.OUTSIDE_YN = 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL1,
+		           CASE WHEN D.OUTSIDE_YN <> 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL2,
+		           C.OPER_END_DT, A.CODE_CERTIFI, E.CODE_PERS
+		    FROM OPERATER A
+		    INNER JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
+		    AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO
+		    INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ
+		    AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ
+		    INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ
+		    INNER JOIN PERSON_M_TBL E ON A.PERSON_YN = E.CODE_PERS
+		WHERE A.CODE_KIND = '2' AND A.CODE_CERTIFI IN ('0', '3') AND (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', '3'))
+		AND B.RESULT_STATE >= '10' AND SUBSTRING(D.POINT_MANAGE, 3, 1) = '1' AND E.CODE_PERS = #{code_pers}
+		) F ON E.CODE_PERS = F.CODE_PERS and F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
+		WHERE E.code_certifi= '3' 
+		GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO
+		ORDER BY RESULT_END_DT DESC
+	]]>
+	</select>
+	
+	<select id="getMyEduHealth2" parameterType="hashmap" resultType="MYEDUINFO">
+		SELECT CASE WHEN F.CODE_KIND = '5'  THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME 
+		ELSE G.EDUTEST_NAME END  EDUTEST_NAME , CASE WHEN G.OUTSIDE_YN <![CDATA[<>]]> 'N' THEN '기타'  WHEN G.OUTSIDE_YN='N' THEN '본회' END OUTSIDE_YN
+		, G.OUTSIDE_YN OUTSIDE_YN_CODE, F.OPER_END_DT  , ISNULL(C.EDU_MARKS,0)+ISNULL(C.SERVICE_MARKS,0) RESULT_POINT , D.DETCODENAME RESULT_STATE
+		, C.CODE_KIND, C.CODE_CERTIFI, C.CODE_SEQ, C.CODE_BRAN, DBO.GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR, C.BRAN_SEQ 
+		, C.RECEIPT_NO, C.POINT_MANAGE, ISNULL(C.RESULT_STATE, '-1') AS RT , C.RESULT_NO, C.POINT_MANAGE, G.PRINT_KIND, G.PRINTFORM_NO , F.YYYY , F.BRAN_TXT AS BTEXT 
+		, (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE 
+		FROM (SELECT CODE_KIND , CODE_CERTIFI , CODE_SEQ , CODE_BRAN , BRAN_SEQ , RECEIPT_NO , PERSON_YN, DBO.GETPERSNODECORD(OPER_NO , '1') OPER_NO  FROM OPERATER )A 
+		LEFT JOIN (SELECT X.CODE_KIND , X.CODE_CERTIFI , X.CODE_SEQ , X.CODE_BRAN , X.BRAN_SEQ , X.RECEIPT_NO
+		, REPLACE(REPLACE(ISNULL(X.신청서,' ')+','+ISNULL(X.사진,' ')+',' +ISNULL(X.영양사면허증사본,' ')+','+ISNULL(X.경력증명서,' ')+',' 
+		+ISNULL(X.학위증명서,' ')+ISNULL(X.최종학위성적증명서,' ')+',' +ISNULL(X.기존자격증사본,' '),' ,',''),', ','') DETCODENAME
+		FROM ( SELECT *   FROM (SELECT AB.CODE_KIND, AB.CODE_CERTIFI, AB.CODE_SEQ, AB.CODE_BRAN,  AB.BRAN_SEQ, AB.RECEIPT_NO, BB.DETCODENAME
+		FROM OPER_ADD_FILE AB, COM_CODE BB  WHERE BB.GROUPCODE = '037'  AND BB.DETCODE = AB.ADD_FILE_NO) Z 
+		PIVOT (MAX(Z.DETCODENAME) FOR Z.DETCODENAME   IN ([신청서],[사진],[영양사면허증사본],[경력증명서],[학위증명서]  ,[최종학위성적증명서],[기존자격증사본]) ) AS PVT ) X) B 
+		ON B.CODE_KIND = A.CODE_KIND   AND B.CODE_CERTIFI = A.CODE_CERTIFI  AND B.CODE_SEQ = A.CODE_SEQ  AND B.CODE_BRAN = A.CODE_BRAN
+		AND B.BRAN_SEQ = A.BRAN_SEQ  AND B.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN OPER_RESULT C   ON C.CODE_KIND = A.CODE_KIND  AND C.CODE_CERTIFI = A.CODE_CERTIFI  AND C.CODE_SEQ = A.CODE_SEQ  
+		AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO
+		LEFT JOIN COM_CODE D  ON D.GROUPCODE='023'  AND D.DETCODE=C.RESULT_STATE , EDU_TEST F
+		LEFT JOIN EDU_TEST_NAME G  ON G.CODE_KIND = F.CODE_KIND  AND G.CODE_CERTIFI = F.CODE_CERTIFI  AND G.CODE_SEQ = F.CODE_SEQ		
+		WHERE A.CODE_KIND = F.CODE_KIND  AND A.CODE_CERTIFI = F.CODE_CERTIFI  AND A.CODE_SEQ = F.CODE_SEQ  AND A.CODE_BRAN = F.CODE_BRAN
+		AND A.BRAN_SEQ = F.BRAN_SEQ  AND F.CODE_KIND = '2' 
+		AND A.PERSON_YN = #{user_code}
+		AND F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}
+		AND C.POINT_MANAGE IN ('0', #{certi_type}) 
+		AND SUBSTRING(G.POINT_MANAGE, #{certi_type} , 1) = '1' 
+		ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
+	</select>	
+	
+	<select id="getMyEduHygiene" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+		SELECT ROW_NUMBER()OVER(ORDER BY C.OPER_END_DT DESC, C.YYYY, C.CODE_KIND) NO
+			 , C.YYYY
+			 , C.OPERATION_CNT
+			 , C.OPERATION_PLACE
+			 , CASE WHEN C.CODE_KIND = '5' THEN '제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR, C.SEASON) + '학기 ' + D.EDUTEST_NAME
+			   ELSE D.EDUTEST_NAME END EDUTEST_NAME
+			 , D.CODE_SEQ
+			 , B.RESULT_NO
+			 , D.OUTSIDE_YN
+			 , D.EDU_MARKS
+			 , C.OPER_START_DT
+			 , C.OPER_END_DT
+			 , ISNULL(B.RESULT_STATE, '-1') AS RESULT_STATE, B.UP_DATE, DBO.GETCODEVALUE('023', B.RESULT_STATE) AS RESULT_STATE_TXT
+			 , D.PRINT_KIND
+			 , A.CODE_KIND
+			 , A.CODE_CERTIFI
+			 , A.CODE_SEQ
+			 , A.CODE_BRAN
+			 , A.BRAN_SEQ
+			 , A.RECEIPT_NO
+			 , DBO.GETCODEVALUE('022', A.OPER_STATE) AS OPER_STATE_TXT
+			 , DBO.GETCODEVALUE('007', B.CODE_BRAN) AS CODE_BRAN_TXT
+			 , C.BRAN_TXT
+			 , (C.CODE_KIND+C.CODE_CERTIFI+C.CODE_SEQ+C.CODE_BRAN+C.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(C.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(C.SEASON,'0'))) AS DETCODE
+		FROM OPERATER A
+		   LEFT JOIN OPER_RESULT B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ 
+		   AND A.CODE_BRAN = B.CODE_BRAN AND A.BRAN_SEQ = B.BRAN_SEQ AND A.RECEIPT_NO = B.RECEIPT_NO
+		   INNER JOIN EDU_TEST C ON A.CODE_KIND = C.CODE_KIND AND A.CODE_CERTIFI = C.CODE_CERTIFI AND A.CODE_SEQ = C.CODE_SEQ
+		   AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ
+		   INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ
+		WHERE A.CODE_KIND = '4'
+		AND A.OPER_BIRTH = #{pers_birth}
+		AND A.OPER_NAME = #{pers_name}
+		ORDER BY C.OPER_END_DT DESC, A.RECEIPT_DT DESC
+	]]>
+	</select>	
+	
+	<select id="getMyEduRepair" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+		SELECT B.YYYY
+			, B.YYYY_SEQ
+			, B.KE_NAME
+			, B.KE_LIC_NO
+			, B.KE_SEQ
+			, B.KE_SUBJECT
+			, B.KE_FROMTO
+			, B.KE_ISUTIME
+			, B.KE_JESUKAING
+			, B.KE_TOTAL
+			, B.KE_FINISH_DT
+			, B.KE_FINISH_NO
+			, B.KE_FINISH_YN
+			, (	SELECT SUM (CONVERT(INT,A.KE_ISUTIME)) FROM KDA_EDU A WHERE A.KE_LIC_NO = B.KE_LIC_NO AND A.KE_FINISH_YN = 'Y' AND A.YYYY = B.YYYY ) AS ISUSUM
+		FROM KDA_EDU B 
+		WHERE B.KE_BIRTH = #{pers_birth}
+			AND B.KE_NAME = #{pers_name}
+			AND B.KE_FINISH_YN = 'Y' ORDER BY B.KE_FINISH_DT DESC
+	]]>
+	</select>
+	
+	<select id="getMyLicence" parameterType="hashmap" resultType="MYEDUINFO">
+		SELECT B.CODE_CERTIFI
+		, A.CERTIFI_NAME
+		, B.PRINT_STATE
+		, B.RESULT_DT
+		, MAX(CAST(B.RESULT_NO AS INTEGER)) RESULT_NO
+		, MAX(B.RESULT_START_DT) RESULT_START_DT
+		, MAX(B.RESULT_END_DT) RESULT_END_DT
+		FROM CERTIFI A, RESULT_PRINT B  WHERE A.CODE_CERTIFI=B.CODE_CERTIFI
+		AND B.CODE_PERS= #{code_pers} GROUP BY B.CODE_CERTIFI, A.CERTIFI_NAME, B.PRINT_STATE, B.RESULT_DT, B.RESULT_NO ORDER BY CODE_CERTIFI, RESULT_END_DT DESC
+	</select>
+	
+	<select id="getMyPayment" parameterType="hashmap" resultType="MYEDUINFO">
+	<![CDATA[
+	SELECT *
+    FROM (
+		SELECT ROW_NUMBER()OVER(ORDER BY B.REGI_DATE DESC, B.PRES_LET_DT DESC, B.DUES_H_SEQ DESC, B.DUES_B_SEQ DESC) NO
+			, DBO.GETCODEVALUE('038', B.DUES_GUBUN) AS DG_NAME
+			, DBO.GETCODEVALUE('015', B.CODE_INOUT_GUBUN) AS IOG_NAME
+			, DBO.GETCODEVALUE('013', B.CODE_RECEIPT) AS RC_NAME
+			, DBO.GETCODEVALUE('014', B.CODE_PAY_FLAG) AS PF_NAME
+			, DBO.GETCODEVALUE('052', B.CONFORM_YN) AS CF_NAME
+			, DBO.GETCODEVALUE('006', A.CODE_MEMBER) AS CM_NAME
+			, A.INCOM_FLAG
+			, A.CODE_MEMBER
+			, A.DUES_H_SEQ
+			, A.AUTH_START
+			, A.AUTH_END
+			, B.DUES_GUBUN
+			, B.CODE_INOUT_GUBUN
+			, B.CODE_PAY_FLAG
+			, B.CONFORM_YN
+			, B.REGI_DATE
+			, B.PRES_MONEY
+			, (SELECT PERS_STATE FROM Person_M_TBL WHERE CODE_PERS = #{code_pers}) PERS_STATE
+		FROM DUES_H_TBL A
+		LEFT OUTER JOIN DUES_B_TBL B ON A.CODE_PERS = B.CODE_PERS AND A.DUES_GUBUN = B.DUES_GUBUN AND A.DUES_H_SEQ = B.DUES_H_SEQ
+		WHERE A.INCOM_FLAG <> 'D' 
+		AND A.CODE_PERS = #{code_pers}
+		) T
+		WHERE T.NO BETWEEN #{start} + 1 AND #{start} + #{pageSize}
+		]]>
+	</select>
+	
+	<select id="getMyPaymentCount" parameterType="hashmap" resultType="INT">
+    <![CDATA[
+        SELECT COUNT(*)
+        FROM DUES_H_TBL A
+        LEFT OUTER JOIN DUES_B_TBL B ON A.CODE_PERS = B.CODE_PERS AND A.DUES_GUBUN = B.DUES_GUBUN AND A.DUES_H_SEQ = B.DUES_H_SEQ
+        WHERE A.INCOM_FLAG <> 'D' 
+        AND A.CODE_PERS = #{code_pers}
+        ]]>
+    </select>
+	
+	<update id="setPointAply" parameterType="hashmap">
+	<![CDATA[
+		UPDATE OPER_RESULT 
+		SET  POINT_MANAGE= #{certitype}
+			, RESULT_STATE = '11'
+			, UP_DATE = GETDATE()
+			, UPDATER = #{user_id}
+		WHERE CODE_KIND+CODE_CERTIFI+CODE_SEQ+CODE_BRAN+BRAN_SEQ+RECEIPT_NO = #{seq}
+		]]>
+	</update>
+	
+	
+	<select id="getDocName"  parameterType="hashmap"  resultType="java.lang.String" >
+	 	SELECT DETCODENAME FROM COM_CODE WHERE DETCODE = #{doc_code} AND USE_YN = 'Y'
+	</select>
+
+	<!-- 국민영양 학술지/미수령 -->
+	<select id="getMyMagazine" parameterType="hashmap" resultType="MYMEMBERINFO" >
+		SELECT A.CODE_PERS
+			 , A.PERS_NAME
+			 , B.ID, B.PASSWD
+			 , A.PERS_BIRTH
+			 , A.CODE_SEX, A.LIC_NO
+			 , A.LIC_PRINT_DT
+			 , A.CODE_MEMBER
+			 , DBO.GETCODEVALUE('006', A.CODE_MEMBER) AS CODE_MEMBER_STR, A.CODE_BRAN, A.CODE_BIG, A.CODE_SECT, ISNULL(C.CODE_GREAT,'') CODE_GREAT
+			 , ISNULL(C.CODE_PART,'') CODE_PART
+			 , ISNULL(C.CODE_SMALL,'') CODE_SMAL
+			 , ISNULL(C.COMP_SEQ,'') COMP_SEQ
+			 , A.CODE_POST PPOST
+			 , A.CODE_ADD_GUBUN
+			 , A.PERS_ADD
+			 , A.PERS_ADD_DETAIL
+			 , A.CODE_PLACE
+			 , A.PERS_TEL
+			 , ISNULL(A.CERTIFI_VIEW,'00000') CERTIFI_VIEW
+			 , A.PERS_HP
+			 , A.EMAIL
+			 , A.CODE_EMAIL_COMP
+			 , A.CODE_SCHOOL
+			 , A.CODE_SCHOLAR
+			 , A.CODE_UNIVER
+			 , ISNULL(A.PERS_CAREER,'0000') PERS_CAREER
+			 , A.CODE_MARRY
+			 , A.CODE_RELIGION
+			 , A.CODE_SUB
+			 , A.CODE_CALL
+			 , D.REGISTER
+			 , A.RECOMMENDER
+			 , A.RECM_DIVISION
+			 , D.UP_DT
+			 , A.RECM_HP
+			 , A.KDA_LEVEL
+			 , A.PERS_STATE
+			 , D.UP_DT_SEQ
+			 , C.COMPANY_NAME
+			 , C.COMPANY_TEL
+			 , C.CODE_POST CPOST
+			 , C.COMPANY_ADD
+			 , C.COMPANY_ADD_DETAIL
+			 , C.JOB_DEPT
+			 , C.JOB_LEVEL_CODE
+			 , C.JOB_LINE_CODE
+		 FROM PERSON_M_TBL A LEFT JOIN PERS_COMPANY C ON A.CODE_PERS=C.CODE_PERS
+		 AND C.COMP_SEQ = ( 
+		 	SELECT TOP(1) COMP_SEQ  FROM PERS_COMPANY WHERE CODE_PERS =  A.CODE_PERS ORDER BY primary_flag DESC,  COMP_SEQ DESC
+		 ) , ID_TBL B, PERSON_M_HISTORY D
+		 WHERE A.CODE_PERS=B.CODE_PERS AND A.CODE_PERS=D.CODE_PERS
+		 AND D.UP_DT=(SELECT MAX(UP_DT) FROM PERSON_M_HISTORY WHERE CODE_PERS=A.CODE_PERS)
+		 AND D.UP_DT_SEQ=(SELECT MAX(UP_DT_SEQ) FROM PERSON_M_HISTORY WHERE CODE_PERS=A.CODE_PERS AND UP_DT = D.UP_DT)
+		 AND A.CODE_PERS = #{code_pers} ORDER BY C.COMP_SEQ DESC
+	</select>
+
+	<!-- ============================================================================================ -->
+	<!-- 회원정보관리 > 기본정보 수정 -->
+	<!-- ============================================================================================ -->
+	
+	<select id="select_person_m_tbl_member" parameterType="hashmap" resultType="MYMEMBERINFO" >
+		SELECT A.CODE_PERS, A.PERS_NAME, B.ID, B.PASSWD, A.PERS_BIRTH,
+	    A.CODE_SEX, A.LIC_NO, A.LIC_PRINT_DT, A.CODE_MEMBER,
+	    REPLACE(DBO.GETCODEVALUE('006', A.CODE_MEMBER),'NEW','') AS CODE_MEMBER_STR, A.CODE_BRAN, A.CODE_BIG, A.CODE_SECT,
+	    ISNULL(C.CODE_GREAT,'') CODE_GREAT, ISNULL(C.CODE_PART,'') CODE_PART, ISNULL(C.CODE_SMALL,'') CODE_SMALL,
+	    ISNULL(C.COMP_SEQ,'') COMP_SEQ, A.CODE_POST PPOST, A.CODE_ADD_GUBUN, A.PERS_ADD, A.PERS_ADD_DETAIL, A.CODE_PLACE,
+	    A.PERS_TEL, ISNULL(A.CERTIFI_VIEW,'00000') CERTIFI_VIEW, A.PERS_HP, CASE WHEN A.CODE_EMAIL_COMP='01' THEN A.EMAIL ELSE A.EMAIL+'@'+D.DETCODENAME END EMAIL,
+	    A.CODE_SCHOOL, A.CODE_SCHOLAR, A.CODE_UNIVER, ISNULL(A.PERS_CAREER,'0000') PERS_CAREER, A.CODE_MARRY,
+	    A.CODE_RELIGION, A.CODE_SUB, A.CODE_CALL, A.RECOMMENDER, A.RECM_DIVISION, A.RECM_HP,
+	    A.KDA_LEVEL, A.PERS_STATE, C.COMPANY_NAME, C.COMPANY_TEL, C.CODE_POST CPOST, C.COMPANY_ADD, C.COMPANY_ADD_DETAIL,
+	    C.JOB_DEPT, C.JOB_LEVEL_CODE, C.JOB_LINE_CODE
+	    FROM PERSON_M_TBL A
+	    INNER JOIN ID_TBL B ON A.CODE_PERS = B.CODE_PERS
+	    LEFT JOIN PERS_COMPANY C ON A.CODE_PERS = C.CODE_PERS AND C.PRIMARY_FLAG = '1'
+		LEFT JOIN COM_CODE D ON D.GROUPCODE='025' AND D.DETCODE=A.CODE_EMAIL_COMP
+	    WHERE A.CODE_PERS = #{code_pers}
+	    ORDER BY C.COMP_SEQ DESC
+	</select>
+	
+	<update id="update_ib_tbl_pw" parameterType="hashmap" >
+		Update id_tbl set 
+			  passwd = PWDENCRYPT(#{passwd})
+			, up_date = GETDATE()
+		where code_pers=#{code_pers}
+	</update>
+	
+	<select id="select_user_master_id" parameterType="hashmap" resultType="java.lang.String">
+		select * from User_Master where UserId=#{id} and UserPw = PWDENCRYPT(#{passwd})
+	</select>
+	
+	<update id="update_user_master_pw" parameterType="hashmap" >
+		Update User_Master set UserPw=PWDENCRYPT(#{passwd}) where UserId=#{id}
+	</update>
+	
+	<update id="update_person_m_tbl_member" parameterType="hashmap" >
+		UPDATE PERSON_M_TBL SET 
+		      LIC_NO = #{lic_no}
+			, code_sex = #{code_sex}
+			, code_add_gubun = #{code_add_gubun}
+			, code_post = #{ppost}
+			, pers_add = #{pers_add}
+			, pers_add_detail = #{pers_add_detail}
+			, pers_tel = #{pers_tel}
+			, pers_hp = #{pers_hp}
+			, email = #{email}
+			, code_call = #{code_call}
+			, code_place = #{code_place}
+			, Up_date = CONVERT(VARCHAR(20), GETDATE(), 112)
+			, code_big = #{code_big}
+		WHERE CODE_PERS = #{code_pers}
+	</update>
+	
+	<insert id="insert_person_m_history_mypage" parameterType="hashmap" >
+	INSERT INTO PERSON_M_HISTORY (
+		 CODE_PERS ,UP_DT ,
+		 UP_DT_SEQ ,CODE_MEMBER ,
+		 PERS_NAME, PERS_BIRTH,
+		 LIC_NO, LIC_PRINT_DT,
+		 CODE_ADD_GUBUN, CODE_POST,
+		 PERS_ADD, PERS_ADD_DETAIL,
+		 PERS_TEL, PERS_HP,
+		 EMAIL, CODE_EMAIL_COMP,
+		 CODE_SEX, CODE_RELIGION,
+		 CODE_MARRY, CODE_BRAN,
+		 CODE_BIG, CODE_SECT,
+		 CODE_SCHOLAR,CODE_UNIVER ,
+		 CODE_SCHOOL, CODE_CALL,
+		 CODE_PLACE, PERS_CAREER,
+		 CERTIFI_VIEW, CODE_SUB,
+		 REGI_DT, UP_DATE,
+		 KDA_LEVEL, RECOMMENDER,
+		 RECM_DIVISION, RECM_HP,
+		 PERS_STATE, REGISTER ) SELECT
+		 CODE_PERS, CONVERT(VARCHAR(20), GETDATE(), 112),
+		 (SELECT ISNULL(MAX(UP_DT_SEQ),0)+1 FROM PERSON_M_HISTORY WHERE CODE_PERS = PT.CODE_PERS AND UP_DT = (SELECT CONVERT(VARCHAR(8),GETDATE(),112))), CODE_MEMBER,
+		 PERS_NAME, PERS_BIRTH,
+		 LIC_NO, LIC_PRINT_DT,
+		 CODE_ADD_GUBUN, CODE_POST,
+		 PERS_ADD, PERS_ADD_DETAIL,
+		 PERS_TEL, PERS_HP,
+		 EMAIL, CODE_EMAIL_COMP,
+		 CODE_SEX, CODE_RELIGION,
+		 CODE_MARRY, CODE_BRAN,
+		 CODE_BIG, CODE_SECT,
+		 CODE_SCHOLAR,CODE_UNIVER ,
+		 CODE_SCHOOL, CODE_CALL,
+		 CODE_PLACE, PERS_CAREER,
+		 CERTIFI_VIEW, CODE_SUB,
+		 REGI_DT, GETDATE(),
+		 KDA_LEVEL, RECOMMENDER,
+		 RECM_DIVISION, RECM_HP,
+		 PERS_STATE, 'SYSTEM'
+	 FROM PERSON_M_TBL PT WHERE CODE_PERS = #{code_pers}
+	</insert>
+	
+	<update id="update_primary_flag" parameterType="hashmap" >
+		UPDATE PERS_COMPANY SET PRIMARY_FLAG = '0' WHERE CODE_PERS = #{code_pers}
+	</update>
+	
+	<update id="update_pers_company_member" parameterType="hashmap" >
+		Update pers_company set code_post = #{cpost}
+			, job_dept= #{job_dept}
+			, job_line_code = #{job_line_code}
+			, job_level_code = #{job_level_code}
+			, company_add = #{company_add}
+			, company_add_detail = #{company_add_detail}
+			, company_tel = #{company_tel}
+			, primary_flag = '1'
+			, code_part = #{code_part}
+			, code_great = #{code_great}
+			, code_small = #{code_small}
+			, regi_date = getdate()
+		where code_pers=#{code_pers} and comp_seq = #{comp_seq}
+	</update>
+		
+	<update id="update_pers_out_dt" parameterType="hashmap" >
+		Update pers_company set pers_out_dt = CONVERT(VARCHAR(20), GETDATE(), 112), regi_date = getdate() 
+		where code_pers = #{code_pers} and comp_seq = #{comp_seq}
+	</update>
+	
+	<update id="update_primay_flag" parameterType="hashmap" >
+		Update pers_company set primary_flag ='0', regi_date = getdate() 
+		where code_pers = #{code_pers}
+	</update>
+	
+	<select id="select_pers_company" parameterType="hashmap" resultType="PERS_COMPANY">
+		select * from pers_company where code_pers = #{code_pers} and comp_seq = #{comp_seq}
+	</select>
+	
+	<select id="select_max_comp_seq" parameterType="hashmap" resultType="MYMEMBERINFO">
+		SELECT MAX(COMP_SEQ) AS COMP_SEQ FROM PERS_COMPANY WHERE code_pers = #{code_pers}
+	</select>
+	
+	<insert id="insert_pers_company_mypage" >
+	<selectKey keyProperty="comp_seq" order="BEFORE" resultType="int">
+	SELECT
+		ISNULL(MAX(comp_seq),0) + 1 
+	FROM pers_company 
+	WHERE code_pers = #{code_pers}
+	</selectKey>
+		INSERT INTO pers_company ( 
+			code_pers,
+			comp_seq, 
+			company_name,
+			code_post, 
+			company_add,
+			company_add_detail, 
+			company_tel,
+			code_part,
+			code_great, 
+			code_small, 
+			pers_in_dt,
+			code_use, 
+			job_dept,
+			job_level_code, 
+			job_line_code,
+			lic_pay, 
+			year_pay, 
+			company_sick_bad,
+			company_meal, 
+			join_con,
+			join_cook,
+			pers_multy,
+			company_count_mom,
+			company_count_lunch, 
+			company_count_dinner,
+			company_count_midnig, 
+			trust_code,
+			trust_name, 
+			trust_addr,
+			trust_tel, 
+			secu_no, 
+			primary_flag,
+			regi_date, 
+			register 
+		) VALUES (
+			#{code_pers},
+			#{comp_seq}, 
+			#{company_name},
+			#{code_post}, 
+			#{company_add},
+			#{company_add_detail}, 
+			#{company_tel},
+			#{code_part},
+			#{code_great}, 
+			#{code_small}, 
+			CONVERT(VARCHAR(8), GETDATE(), 112),
+			#{code_use}, 
+			#{job_dept},
+			#{job_level_code}, 
+			#{job_line_code},
+			#{lic_pay}, 
+			#{year_pay}, 
+			#{company_sick_bad},
+			#{company_meal}, 
+			#{join_con},
+			#{join_cook},
+			#{pers_multy}, 
+			#{company_count_mom},
+			#{company_count_lunch},
+			#{company_count_dinner},
+			#{company_count_midnig}, 
+			#{trust_code},
+			#{trust_name}, 
+			#{trust_addr},
+			#{trust_tel}, 
+			#{secu_no}, 
+			#{primary_flag},
+			CONVERT(VARCHAR(20), GETDATE(), 112), #{register}
+	)
+	</insert>
+
+	<!-- ============================================================================================ -->
+	<!-- 회원정보관리 > 면허정보 수정 -->
+	<!-- ============================================================================================ -->
+	
+	<select id="select_person_m_tbl_license" parameterType="hashmap" resultType="MYLICENSEINFO">
+		SELECT A.CODE_PERS, A.PERS_NAME, B.ID, B.PASSWD, A.PERS_BIRTH, A.CERTIFI_VIEW, A.PERS_CAREER, A.CODE_SCHOLAR, A.CODE_UNIVER, A.CODE_SCHOOL
+			, C.CODE_PART, C.CODE_GREAT, C.CODE_SMALL, C.CODE_USE, C.TRUST_NAME, C.TRUST_TEL, C.TRUST_ADDR, C.TRUST_CODE
+			, C.COMPANY_NAME, C.COMPANY_TEL, C.CODE_POST CPOST, C.COMPANY_ADD, C.COMPANY_ADD_DETAIL
+			, C.JOB_DEPT, C.JOB_LEVEL_CODE, C.JOB_LINE_CODE, C.LIC_PAY, C.YEAR_PAY, C.COMPANY_SICK_BAD, C.COMPANY_MEAL, C.JOIN_CON
+			, C.JOIN_COOK, C.PRIMARY_FLAG, C.PERS_MULTY, C.COMPANY_COUNT_MOM, C.COMPANY_COUNT_LUNCH
+			, C.COMPANY_COUNT_DINNER, C.COMPANY_COUNT_MIDNIG, ISNULL(C.COMP_SEQ,'') COMP_SEQ, A.CODE_SUB, ISNULL(A.CODE_BIG,'') as CODE_BIG
+		FROM PERSON_M_TBL A
+		INNER JOIN ID_TBL B ON A.CODE_PERS = B.CODE_PERS
+		LEFT JOIN PERS_COMPANY C ON A.CODE_PERS = C.CODE_PERS
+		WHERE A.CODE_PERS = #{code_pers}
+		AND C.PRIMARY_FLAG = '1' ORDER BY C.COMP_SEQ DESC
+    </select>
+    
+    <update id="update_pers_company_license" parameterType="hashmap" >
+	    Update pers_company set code_part = #{code_part}
+			, code_great= #{code_great}
+			, code_small = #{code_small}
+			, code_use = #{code_use}
+			, trust_code = #{trust_code}
+			, trust_name = #{trust_name}
+			, trust_tel = #{trust_tel}
+			, trust_addr = #{trust_addr}
+			, company_meal = #{company_meal}
+			, company_sick_bad = #{company_sick_bad}
+			, company_count_mom = #{company_count_mom}
+			, company_count_lunch = #{company_count_lunch}
+			, company_count_dinner = #{company_count_dinner}
+			, company_count_midnig = #{company_count_midnig}
+			, join_con = #{join_con}
+			, join_cook = #{join_cook}
+			, pers_multy = #{pers_multy}
+			, lic_pay = #{lic_pay}
+			, year_pay = #{year_pay}
+		 where code_pers=#{code_pers} and comp_seq = #{comp_seq}
+	</update>
+	
+	<update id="update_person_m_tbl_license" parameterType="hashmap" >
+		Update person_m_tbl set code_scholar = #{code_scholar}
+			, code_univer = #{code_univer}
+			, code_school = #{code_school}
+			, certifi_view = #{certifi_view_text}
+			, pers_career = #{pers_career}
+			, code_sub = #{code_sub}
+			, code_big = #{code_big}
+			, Up_date = CONVERT(VARCHAR(20), GETDATE(), 112)
+		where code_pers =#{code_pers}
+	</update>
+
+	<!-- // My 자격증 조회 -->
+	<select id="selectMyCertiList" parameterType="hashmap" resultType="hashmap">
+		SELECT 
+			  b.code_certifi 
+			, a.certifi_name	
+			, b.print_state 
+			, b.result_dt
+			, MAX(CAST(b.result_no as integer)) result_no 
+			, MAX(b.result_start_dt) result_start_dt
+		 	, MAX(b.result_end_dt) result_end_dt   
+		FROM CERTIFI a, RESULT_PRINT b  
+		WHERE a.code_certifi=b.code_certifi 
+		 	AND b.code_pers = #{code_pers}
+		GROUP BY b.code_certifi, a.certifi_name, b.print_state, b.result_dt, b.result_no 
+		ORDER BY code_certifi ,  result_end_dt DESC
+		 
+	</select>
+	
+	<insert id="insert_person_info_event" >
+	<selectKey keyProperty="comp_seq" order="BEFORE" resultType="int">
+	SELECT
+		ISNULL(MAX(comp_seq),0) + 1 
+	FROM person_info_event 
+	WHERE code_pers = #{code_pers}
+	</selectKey>
+		INSERT INTO person_info_event ( 
+			code_pers
+           ,comp_seq
+           ,pers_name
+           ,lic_no
+           ,pers_tel
+           ,pers_hp
+           ,email
+           ,code_post
+           ,pers_add
+           ,pers_add_detail
+           ,company_name
+           ,company_post
+           ,company_add
+           ,company_add_detail
+           ,code_part
+           ,code_great
+           ,code_small
+           ,code_place
+           ,pers_tel_org
+           ,pers_hp_org
+           ,email_org
+           ,code_post_org
+           ,pers_add_org
+           ,pers_add_detail_org
+           ,company_name_org
+           ,company_post_org
+           ,company_add_org
+           ,company_add_detail_org
+           ,code_part_org
+           ,code_great_org
+           ,code_small_org
+           ,code_place_org
+           ,regi_date
+           ,register
+		) VALUES (
+			#{code_pers},
+			#{comp_seq}, 
+			#{pers_name},
+			#{lic_no}, 
+			#{pers_tel}, 
+			#{pers_hp}, 
+			#{email}, 
+			#{code_post}, 
+			#{pers_add}, 
+			#{pers_add_detail}, 
+			#{company_name},
+			#{company_post}, 
+			#{company_add},
+			#{company_add_detail}, 
+			#{code_part},
+			#{code_great}, 
+			#{code_small}, 
+			#{code_place},
+			#{pers_tel_org}, 
+			#{pers_hp_org}, 
+			#{email_org}, 
+			#{code_post_org}, 
+			#{pers_add_org}, 
+			#{pers_add_detail_org}, 
+			#{company_name_org},
+			#{company_post_org}, 
+			#{company_add_org},
+			#{company_add_detail_org}, 
+			#{code_part_org},
+			#{code_great_org}, 
+			#{code_small_org}, 
+			#{code_place_org},
+			GETDATE(), 
+			#{register}
+	)
+	</insert>
+	<select id="getMyPayment_print" parameterType="hashmap" resultType="hashmap" >
+		 SELECT SA.CODE_PERS,
+		      SA.DUES_GUBUN, SA.DUES_H_SEQ, SA.REGI_DT, DBO.GETCODEVALUE('006',SA.CODE_MEMBER) AS CODE_MEMBER_STR, SA.AUTH_START 
+		      , SA.AUTH_END, REPLACE(CONVERT(VARCHAR, CONVERT(MONEY, SA.MEM_DUES), 1), '.00', '') MEM_DUES
+		      , dietitian_ver3.dbo.fn_NumToKorAmount(SA.MEM_DUES) MEM_DUES_KOR
+		      , SA.SUM_DUES, SA.INCOM_FLAG 
+		      , SB.DUES_GUBUN, SB.DUES_H_SEQ,  SB.DUES_B_SEQ, SB.PRES_LET_DT, SB.CODE_INOUT_GUBUN 
+		      , SB.BANK_NAME, SB.CODE_RECEIPT, SB.PRES_MONEY, SB.CODE_PAY_FLAG, SB.CONFORM_DT 
+		      , SB.CONFORM_YN, SB.REGI_DATE, SB.REGISTER  
+		  FROM DUES_H_TBL SA, DUES_B_TBL SB
+		  WHERE SA.DUES_H_SEQ = SB.DUES_H_SEQ 
+		  AND SA.CODE_PERS = SB.CODE_PERS 
+		  AND SA.DUES_GUBUN=SB.DUES_GUBUN
+		  AND SA.CODE_PERS = #{code_pers}
+		  AND SA.DUES_GUBUN = #{dues_gubun}
+          AND SA.DUES_H_SEQ = #{dues_h_seq} 
+	</select>
+	<select id="getMyPayment_user" parameterType="hashmap" resultType="hashmap" >
+		 SELECT a.code_pers
+		        , a.pers_name   
+		        , b.id     
+		        , b.passwd   
+		        , a.code_sex    
+		        , a.lic_no
+		        , a.lic_print_dt    
+		        , a.code_member  
+		        , a.code_bran
+		        , [dbo].[GetCodeValue] ('007',a.code_bran) as code_bran_str   
+		        , a.code_big   
+		        , a.code_sect   
+		        , isnull(c.code_great,'') code_great   
+		        , isnull(c.code_part,'') code_part   
+		        , isnull(c.code_small,'') code_small   
+		        , isnull(c.comp_seq,'') comp_seq   
+		        , a.code_post as pers_post
+		        , a.code_add_gubun   
+		        , a.pers_add   
+		        , a.pers_add_detail 
+		        , a.code_place   
+		        , a.pers_tel 
+		        , isnull(a.certifi_view,'00000') certifi_view  
+		        , a.pers_hp   
+		        , a.email
+		        , a.code_email_comp    
+		        , a.code_school  
+		        , a.code_scholar  
+		        , a.code_univer  
+		        , isnull(a.pers_career,'0000') pers_career  
+		        , a.code_marry  
+		        , a.code_religion  
+		        , a.code_sub   
+		        , [dbo].[GetCodeValue] ('018', a.code_call) as code_call
+		        , a.code_place
+		        , d.register   
+		        , a.recommender  
+		        , a.recm_division  
+		        , d.up_dt    
+		        , a.recm_hp   
+		        , a.kda_level
+		        , a.pers_state   
+		        , d.up_dt_seq 
+		        , c.company_add
+		        , c.company_add_detail
+		        , c.company_name   
+		        , c.job_dept
+		        , c.code_post as company_post    						         
+	   FROM Person_M_TBL a
+	             left join pers_company c
+	                    on a.code_pers=c.code_pers
+	                 AND c.comp_seq=(SELECT MAX(comp_seq) FROM pers_company WHERE code_pers=a.code_pers and primary_flag=1) 
+	        , id_tbl b
+	        , Person_M_history d
+	     WHERE a.code_pers=b.code_pers
+	      AND a.code_pers=d.code_pers
+	   AND d.up_dt=(SELECT MAX(up_dt) FROM Person_M_history WHERE code_pers=a.code_pers)      
+	   AND d.up_dt_seq=(SELECT MAX(up_dt_seq) FROM Person_M_history WHERE code_pers=a.code_pers and up_dt = d.up_dt)      
+	      AND a.code_pers = #{code_pers} 
+	</select>
+	
+	<select id="getRcp_print" parameterType="hashmap" resultType="hashmap" >
+	   SELECT 
+		    CASE c.code_kind
+		        WHEN '1' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 제' + CONVERT(VARCHAR, f.operation_cnt) + '회 ' +
+		            CASE
+		                WHEN f.season IN (1, 2) THEN CONVERT(VARCHAR, f.season) + '학기 '
+		                WHEN f.season = 3 THEN '집합교육 '
+		                WHEN f.season = 4 THEN '온라인교육 '
+		                ELSE CONVERT(VARCHAR, f.season) + ' '
+		            END +
+		            c.edutest_name + '-' + l.detcodename		
+		        WHEN '2' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 ' + c.edutest_name + '-' + l.detcodename +
+		            CASE 
+		                WHEN ISNULL(f.bran_txt, '') = '' THEN ''
+		                    <if test="rating != null ">     
+                             +'-' + CONVERT(VARCHAR, ISNULL(f.edu_marks, 0)) + '평점'
+                            </if>
+		                ELSE 
+		                    CHAR(13) + CHAR(10) + '(' + ISNULL(f.bran_txt, '') + ')'
+		                    <if test="rating != null ">
+		                    + '-' + CONVERT(VARCHAR, ISNULL(f.edu_marks, 0)) + '평점'
+		                    </if>
+		            END		
+		        WHEN '3' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 ' + c.edutest_name + '-' + l.detcodename +
+		            CASE 
+		                WHEN ISNULL(f.bran_txt, '') = '' THEN ''
+		                ELSE CHAR(13) + CHAR(10) +'(' + ISNULL(f.bran_txt, '') + ')'
+		            END		
+		        WHEN '4' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 ' + c.edutest_name + '-' + l.detcodename +
+		            '-' + CONVERT(VARCHAR, f.operation_cnt) + '차'		
+		        WHEN '5' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 제' + CONVERT(VARCHAR, f.operation_cnt) + '회 ' +
+		            CASE 
+		                WHEN f.season IN (1, 2) THEN CONVERT(VARCHAR, f.season) + '학기 '
+		                WHEN f.season = 3 THEN '집합교육 '
+		                WHEN f.season = 4 THEN '온라인교육 '
+		                ELSE CONVERT(VARCHAR, f.season) + ' '
+		            END +
+		            c.edutest_name + '-' + l.detcodename		
+		        WHEN '6' THEN 
+		            '제' + CONVERT(VARCHAR, f.operation_cnt) + '회 ' + c.edutest_name
+		
+		        WHEN '7' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 ' + c.edutest_name + '-' + l.detcodename +
+		            CASE 
+		                WHEN ISNULL(f.bran_txt, '') = '' THEN ''
+		                ELSE CHAR(13) + CHAR(10) + '(' + ISNULL(f.bran_txt, '') + ')'
+		            END		
+		        WHEN '8' THEN 
+		            CONVERT(VARCHAR, f.yyyy) + '년도 ' + c.edutest_name + '-' + l.detcodename +
+		            '-' + CONVERT(VARCHAR, f.operation_cnt) + '차'		
+		        ELSE 
+		            c.edutest_name + '-' + ISNULL(f.bran_txt, '') + '-(' + l.detcodename + ')'
+		    END AS EDUNAME,
+		    CASE  WHEN 'TRUE' = #{isMember}  THEN 
+		      dietitian_ver3.dbo.fn_NumToKorAmount(B.NEW_COST)
+		    ELSE
+		      dietitian_ver3.dbo.fn_NumToKorAmount(B.NEW_COST_NOMEM)
+		    END AS NEW_COST_KOR,
+		    CASE 
+		        WHEN 'TRUE' = #{isMember}  THEN 
+		            REPLACE(CONVERT(VARCHAR, CONVERT(MONEY, B.NEW_COST), 1), '.00', '')
+		        ELSE 
+		            REPLACE(CONVERT(VARCHAR, CONVERT(MONEY, B.NEW_COST_NOMEM), 1), '.00', '')
+		    END AS NEW_COST,
+		    SUBSTRING(B.oper_start_dt, 1, 4) + '년  ' + 
+		    SUBSTRING(B.oper_start_dt, 5, 2) + '월  ' + 
+		    SUBSTRING(B.oper_start_dt, 7, 2) + '일' AS START_DT,		
+		    A.RECEIPT_NO,
+		    A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ AS OPERKEY,
+		    A.OPER_NAME,
+		    A.CODE_KIND,
+		    A.CODE_CERTIFI,
+		    A.CODE_SEQ,
+		    A.CODE_BRAN,
+		    A.BRAN_SEQ,
+		    A.RECEIPT_NO, 
+		    SUBSTRING(COALESCE(NULLIF(A.CONFIRM_DT, ''), B.oper_start_dt), 1, 4) + '년  ' + 
+            SUBSTRING(COALESCE(NULLIF(A.CONFIRM_DT, ''), B.oper_start_dt), 5, 2) + '월  ' + 
+            SUBSTRING(COALESCE(NULLIF(A.CONFIRM_DT, ''), B.oper_start_dt), 7, 2) + '일' AS CONFIRM_DT		
+		FROM 
+		    OPERATER A
+		INNER JOIN 
+		    EDU_TEST B 
+		    ON A.CODE_KIND = B.CODE_KIND 
+		   AND A.CODE_CERTIFI = B.CODE_CERTIFI
+		   AND A.CODE_SEQ = B.CODE_SEQ 
+		   AND A.CODE_BRAN = B.CODE_BRAN 
+		   AND A.BRAN_SEQ = B.BRAN_SEQ
+		INNER JOIN 
+		    EDU_TEST_NAME C 
+		    ON B.CODE_KIND = C.CODE_KIND 
+		   AND B.CODE_CERTIFI = C.CODE_CERTIFI
+		   AND B.CODE_SEQ = C.CODE_SEQ
+		LEFT JOIN 
+		    COM_CODE L 
+		    ON L.GROUPCODE = '034' 
+		   AND L.DETCODE = B.CODE_BRAN
+		LEFT JOIN 
+		    EDU_TEST F 
+		    ON F.CODE_KIND = B.CODE_KIND
+		   AND F.CODE_CERTIFI = B.CODE_CERTIFI
+		   AND F.CODE_SEQ = B.CODE_SEQ
+		   AND F.CODE_BRAN = B.CODE_BRAN
+		   AND F.BRAN_SEQ = B.BRAN_SEQ		
+		WHERE 
+		    A.PERSON_YN = #{person_yn}
+		    AND A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ + A.RECEIPT_NO = #{operkey}    
+				
+	</select>
+	
+	<select id="getCerti_print" parameterType="hashmap" resultType="hashmap" >
+		select isnull(a.oper_comp_name1,'') oper_comp_name 
+               , CASE WHEN ISNULL(zzz.pers_name,'')='' THEN a.oper_name
+                      ELSE zzz.pers_name end oper_name
+               <if test="code_pers != null">
+               , lp.print_date + '-' + RIGHT(REPLICATE('0', 4) + CAST(print_seq AS VARCHAR), 4)  result_no
+               </if>
+               <if test="code_pers == null">
+		       , isnull(c.result_no, '') result_no
+		       </if>
+			   ,a.oper_birth
+			   , substring(a.oper_birth,1,4)+'년 '+substring(a.oper_birth,5,2)+'월 '+substring(a.oper_birth,7,2)+'일' oper_no1
+			   , a.oper_lic_no         
+			   , substring(a.oper_birth,1,4)+'년 '+substring(a.oper_birth,5,2)+'월 '+substring(a.oper_birth,7,2)+'일' birth
+		       , SUBSTRING(f.oper_start_dt,0,5)+'년 '+SUBSTRING(f.oper_start_dt,5,2)+'월 '+SUBSTRING(f.oper_start_dt,7,2)+'일' oper_start_dt
+		       , SUBSTRING(f.oper_end_dt,0,5)+'년 '+SUBSTRING(f.oper_end_dt,5,2)+'월 '+SUBSTRING(f.oper_end_dt,7,2)+'일' oper_end_dt
+		       , SUBSTRING(f.oper_end_dt,0,5)+'년  '+SUBSTRING(f.oper_end_dt,5,2)+'월  '+SUBSTRING(f.oper_end_dt,7,2)+'일' oper_end_dt2
+		       , convert(varchar,c.time_cnt)+'시간' time_cnt
+			from operater a 
+			     left join oper_result c 
+			               on c.code_kind = a.code_kind 
+			              and c.code_certifi = a.code_certifi
+			              and c.code_seq = a.code_seq
+			              and c.code_bran = a.code_bran
+			              and c.bran_seq = a.bran_seq
+			              and c.receipt_no = a.receipt_no
+			     LEFT join Person_M_TBL zzz
+			            on zzz.code_pers=a.person_yn    
+			   , edu_test f
+			     left join edu_test_name g
+			               on g.code_kind = f.code_kind
+			              and g.code_certifi = f.code_certifi
+			              and g.code_seq = f.code_seq
+			     left join com_code l
+			          on l.groupcode = '034'
+			         and l.detcode = f.code_bran
+			 <if test="code_pers != null">
+			    OUTER APPLY (
+				    SELECT TOP 1 lp.*
+				    FROM LOG_PRINT lp
+				    WHERE lp.CODE_PERS = #{code_pers}
+				    ORDER BY  PRINT_DATE DESC, lp.PRINT_SEQ DESC 
+				) lp
+		     </if>
+			 where a.code_kind = f.code_kind
+			   and a.code_certifi = f.code_certifi
+			   and a.code_seq = f.code_seq
+			   and a.code_bran = f.code_bran
+			   and a.bran_seq = f.bran_seq
+			   and a.oper_state = '11'
+			   and c.result_state IN ('10','11')
+			   and f.code_kind+f.code_certifi+f.code_seq+f.code_bran+f.bran_seq+convert(varchar,isnull(f.operation_cnt,'0'))+convert(varchar,isnull(f.season,'0')) =  #{detcode}
+			   <if test="code_pers != null"> and zzz.code_pers = #{code_pers} </if>
+			   <if test="doc_seq != null and doc_seq.size() > 0">
+				   and c.result_no IN  
+				   <foreach collection="doc_seq" item="seq" open="(" separator="," close=")">
+					    #{seq}
+					</foreach> 
+				</if>
+			order by a.oper_state, a.oper_name   	
+	</select>
+	<select id="getCertiName_print" parameterType="hashmap" resultType="hashmap" >
+			select   case
+		          when g.code_kind = '1' then
+		           convert(varchar, f.yyyy) + '년도 ' + '제' +
+		           CONVERT(varchar, f.operation_cnt) + '회 ' + (case
+		          when f.season in (1, 2) then
+		           convert(varchar, f.season) + '학기 '
+		          when f.season = 3 then
+		           '집합교육 '
+		          when f.season = 4 then
+		           '온라인교육 '
+		          else
+		           convert(varchar, f.season) + ' '
+		        end) + g.edutest_name + '-' + l.detcodename when g.code_kind = '2' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + (case
+		         when isnull(f.bran_txt,
+		                     '') = '' then		                     
+		          ''
+		          <if test="rating != null ">   
+                         + '-' +
+                  convert(varchar,
+                          isnull(f.edu_marks,
+                                0)) + '평점'
+                  </if>
+                  
+		         else
+		          CHAR(13) + CHAR(10) +'(' +
+		          isnull(f.bran_txt,
+		                 '') + ')' 
+		          <if test="rating != null ">  
+		                 + '-' +
+		          convert(varchar,
+		                  isnull(f.edu_marks,
+		                         0)) + '평점'
+		          </if>
+		       end) when g.code_kind = '3' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + (case
+		         when isnull(f.bran_txt,
+		                     '') = '' then
+		          ''
+		         else
+		          CHAR(13) + CHAR(10) +'(' +
+		          isnull(f.bran_txt,
+		                 '') + ')'
+		       end) when g.code_kind = '4' or g.code_kind = '8' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + '-' + CONVERT(varchar, f.operation_cnt) + '차' when g.code_kind = '5' then convert(varchar, f.yyyy) + '년도 ' + '제' + CONVERT(varchar, f.operation_cnt) + '회 ' + (case
+		         when f.season in
+		              (1, 2) then
+		          convert(varchar,
+		                  f.season) +
+		          '학기 '
+		         when f.season = 3 then
+		          '집합교육 '
+		         when f.season = 4 then
+		          '온라인교육 '
+		         else
+		          convert(varchar,
+		                  f.season) + ' '
+		       end) + g.edutest_name + '-' + l.detcodename when g.code_kind = '6' then '제' + CONVERT(varchar, f.operation_cnt) + '회 ' + g.edutest_name when g.code_kind = '7' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + (case
+		         when isnull(f.bran_txt,
+		                     '') = '' then
+		          ''
+		         else
+		          CHAR(13) + CHAR(10) +'(' +
+		          isnull(f.bran_txt,
+		                 '') + ')'
+		       end) else g.edutest_name + '-' + isnull(f.bran_txt, '') + '-(' + l.detcodename + ')' end edutest_name
+			 from edu_test f
+			    left join edu_test_name g
+			         on g.code_kind = f.code_kind
+			         and g.code_certifi = f.code_certifi
+			         and g.code_seq = f.code_seq
+			    left join com_code l
+			         on l.groupcode = '034'
+			         and l.detcode = f.code_bran
+			where f.code_kind+f.code_certifi+f.code_seq+f.code_bran+f.bran_seq+convert(varchar,isnull(f.operation_cnt,'0'))+convert(varchar,isnull(f.season,'0')) = #{detcode}
+	</select>
+	
+	<insert id="insertLog_print" parameterType="hashmap"  >
+	
+	   INSERT INTO LOG_PRINT
+		(PRINT_DATE, PRINT_CD, CODE_PERS, PRINT_NAME, INS_DATE, DETCODE)
+		VALUES (
+		CONVERT(VARCHAR(8), GETDATE(), 112), 
+		#{print_cd}, 
+		#{code_pers}, 
+		#{print_name}, 
+		GETDATE(),
+		#{detcode}
+		)
+	</insert>
+	
+	<select id="getSituation_print" parameterType="hashmap" resultType="hashmap" >
+	   SELECT
+	     C.EDUTEST_NAME+ISNULL(B.BRAN_TXT,'') EDUNAME, 
+	     CASE WHEN 'TRUE' = #{isMember} THEN 
+	     REPLACE(CONVERT(VARCHAR, CONVERT(MONEY, B.NEW_COST), 1), '.00', '')
+	     ELSE REPLACE(CONVERT(VARCHAR, CONVERT(MONEY, B.NEW_COST_NOMEM), 1), '.00', '') END NEW_COST,
+	     SUBSTRING(B.oper_start_dt,1,4)+'년'+SUBSTRING(B.oper_start_dt,5,2)+'월'+SUBSTRING(B.oper_start_dt,7,2)+'일' as START_DT, 
+	     A.RECEIPT_NO, 
+	     (A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ) AS OPERKEY,
+	     A.OPER_NAME ,
+	    CASE WHEN 'TRUE' = #{isMember}  THEN 
+         dietitian_ver3.dbo.fn_NumToKorAmount(B.NEW_COST)
+         ELSE dietitian_ver3.dbo.fn_NumToKorAmount(B.NEW_COST_NOMEM) END NEW_COST_KOR
+	    FROM OPERATER A 
+	     INNER JOIN EDU_TEST B 
+	     ON A.CODE_KIND = B.CODE_KIND 
+	      AND A.CODE_CERTIFI = B.CODE_CERTIFI
+	      AND A.CODE_SEQ = B.CODE_SEQ 
+	      AND A.CODE_BRAN = B.CODE_BRAN 
+	      AND A.BRAN_SEQ = B.BRAN_SEQ
+	    INNER JOIN EDU_TEST_NAME C 
+	    ON B.CODE_KIND = C.CODE_KIND AND B.CODE_CERTIFI = C.CODE_CERTIFI
+	      AND B.CODE_SEQ = C.CODE_SEQ
+	    WHERE A.person_yn = #{person_yn}
+	    AND A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ + A.RECEIPT_NO = #{operkey}
+	
+	</select>
+	
+</mapper>
+

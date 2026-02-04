@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminCampaign">
+
+
+	<sql id="handonColumn">
+		a.bbs_idx    
+		,a.bbs_subject   
+		,a.bbs_user_id       
+		,a.bbs_name      
+		,a.bbs_reg_date_dt       
+		,ISNULL(b.bbc_user_id,'없음') AS bbc_user_id
+		,ISNULL(b.bbc_name,'없음') AS bbc_name
+		,b.bbc_contents     
+		,b.bbc_date     
+		,ISNULL(z.cnt2,0) AS cnt2   
+	</sql>
+	
+	<sql id="handonContentColumn">
+		bbs_subject
+		,bbs_name   
+		,bbs_reg_date_dt
+		,bbs_view
+		,bbs_contents
+		,(bbs_file_size/1024) AS bbs_file_size
+		,bbs_file_type
+		,bbs_file_name
+		,(bbs_file_size2/1024) AS bbs_file_size2
+		,bbs_file_type2
+		,bbs_file_name2
+		,(bbs_file_size3/1024) AS bbs_file_size3
+		,bbs_file_type3
+		,bbs_file_name3
+		,(bbs_file_size4/1024) AS bbs_file_size4
+		,bbs_file_type4
+		,bbs_file_name4
+		,(bbs_file_size5/1024) AS bbs_file_size5
+		,bbs_file_type5
+		,bbs_file_name5
+	</sql>
+	
+	<sql id="handonUserColumn">
+		pers_name
+		,email   
+		,c.code_post
+		,pers_add
+		,pers_add_detail
+		,pers_tel
+		,pers_hp
+		,id
+		,company_name
+	</sql>
+	
+	<sql id="handonFrom">
+		LEFT JOIN 	Paper_Board_comments b 
+		ON 			b.bbs_idx=a.bbs_idx
+		LEFT JOIN 	(
+							SELECT 	COUNT(*) cnt2
+										, bbs_idx 
+							FROM 	Paper_Board_comments  
+							GROUP BY bbs_idx
+						) z 
+		ON 			z.bbs_idx=a.bbs_idx
+		WHERE 		a.bbs_board_code = '113'
+	</sql>
+	
+	<sql id="handonWhere">
+		<if test="startm != null and startm != ''">
+		<![CDATA[
+			AND CONVERT(CHAR(10),bbs_reg_date_dt,23)
+			BETWEEN #{startm} AND #{endm}
+		]]>
+		</if>
+	</sql>
+	
+	
+	<select id="getHandonList" parameterType="hashmap" resultType="kda.admin.campaign.data.CAMPAIGN">
+	SELECT 
+		<include refid="handonColumn" />
+	FROM			paper_board a
+		<include refid="handonFrom" />
+		<include refid="handonWhere" />
+	ORDER BY  a.bbs_reg_date_dt DESC	
+	</select>
+	
+	<select id="getHandonContent" parameterType="hashmap" resultType="kda.admin.campaign.data.CAMPAIGN">
+	SELECT
+		<include refid="handonContentColumn" />
+	FROM		Paper_Board 
+	WHERE 	bbs_board_code = '113' 
+	AND 		bbs_idx =#{bbs_idx}
+	</select>
+	
+	<select id="getHandonUser" parameterType="hashmap" resultType="kda.admin.campaign.data.CAMPAIGN">
+	SELECT 
+		<include refid="handonUserColumn" />
+	FROM 	Person_M_TBL c, dbo.id_tbl d, pers_company f 
+	WHERE 	c.code_pers=d.code_pers 
+	AND 		c.code_pers=f.code_pers
+	AND 		f.primary_flag=1
+	AND 		id =#{id}
+	</select>
+	
+	<select id="excelHandon" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		<include refid="handonColumn" />
+	FROM			paper_board a
+		<include refid="handonFrom" />
+		<include refid="handonWhere" />
+	ORDER BY  a.bbs_reg_date_dt DESC
+	</select>
+	
+	
+</mapper>
+

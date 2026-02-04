@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+               http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+               http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+               http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+               http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util">
+	
+	<context:component-scan base-package="kda">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- Log4j JDBC -->
+	
+	<bean id="dataSourceBean1" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/dataSource1"/>
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+	<bean id="dataSourceBean2" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/dataSource2"/>
+		<property name="resourceRef" value="true" />
+	</bean>	
+	
+	<bean id="dataSourceBean3" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/dataSource3"/>
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+	<bean id="dataSourceBean4" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/dataSource4"/>
+		<property name="resourceRef" value="true" />
+	</bean>	
+		
+	<bean id="dataSource1" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	 <constructor-arg ref="dataSourceBean1" />
+	 <property name="logFormatter">
+	  <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	   <property name="loggingType" value="MULTI_LINE" />
+	   <property name="sqlPrefix" value="SQL:::" />
+	  </bean>
+	 </property>
+	</bean>
+	
+	<bean id="dataSource2" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	 <constructor-arg ref="dataSourceBean2" />
+	 <property name="logFormatter">
+	  <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	   <property name="loggingType" value="MULTI_LINE" />
+	   <property name="sqlPrefix" value="SQL:::" />
+	  </bean>
+	 </property>
+	</bean>
+	
+	<bean id="dataSource3" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	 <constructor-arg ref="dataSourceBean3" />
+	 <property name="logFormatter">
+	  <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	   <property name="loggingType" value="MULTI_LINE" />
+	   <property name="sqlPrefix" value="SQL:::" />
+	  </bean>
+	 </property>
+	</bean>
+	
+	<bean id="dataSource4" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	 <constructor-arg ref="dataSourceBean4" />
+	 <property name="logFormatter">
+	  <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	   <property name="loggingType" value="MULTI_LINE" />
+	   <property name="sqlPrefix" value="SQL:::" />
+	  </bean>
+	 </property>
+	</bean>	
+ 
+ 	<!-- Transaction -->
+ 
+	<bean id="transactionManager1"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceBean1" />
+	</bean>
+	
+	<bean id="transactionManager2"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceBean2" />
+	</bean>	
+
+<!-- 	<tx:advice id="txAdvice1" transaction-manager="transactionManager1"> -->
+<!-- 		<tx:attributes> -->
+<!-- 			<tx:method name="*insert*" /> -->
+<!-- 			<tx:method name="*delete*" /> -->
+<!-- 			<tx:method name="*update*" /> -->
+<!-- 		</tx:attributes> -->
+<!-- 	</tx:advice>	 -->
+
+<!-- 	<aop:config> -->
+<!-- 		<aop:advisor pointcut="execution(* kda.*.*(..))" advice-ref="txAdvice1" /> -->
+<!-- 	</aop:config> -->
+
+	<!-- mybatis -->
+	
+	<bean id="sqlSessionFactory1" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean1" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean2" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory3" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean3" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory4" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean4" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/>
+	</bean>	 
+
+</beans>

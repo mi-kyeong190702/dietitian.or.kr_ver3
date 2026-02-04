@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kp_archiveshop_pay">
+	
+	<resultMap type="PTB_BUYADDRESS" 		id="PTB_BUYADDRESS">
+		<result property="bindex"           column="BINDEX"/>        
+		<result property="buserid"          column="BUSERID"/>       
+		<result property="bdate"            column="BDATE"/>         
+		<result property="bpayment"         column="BPAYMENT"/>      
+		<result property="bpaymentdate"     column="BPAYMENTDATE"/>  
+		<result property="bf_paymentdate"   column="BF_PAYMENTDATE"/>
+		<result property="bf_paymentname"   column="BF_PAYMENTNAME"/>
+		<result property="bf_name"          column="BF_NAME"/>       
+		<result property="pers_birth"       column="PERS_BIRTH"/>    
+		<result property="bf_tel"           column="BF_TEL"/>        
+		<result property="bf_mobile"        column="BF_MOBILE"/>     
+		<result property="bf_email"         column="BF_EMAIL"/>      
+		<result property="bf_delivery"      column="BF_DELIVERY"/>   
+		<result property="bt_name"          column="BT_NAME"/>       
+		<result property="bt_post"          column="BT_POST"/>       
+		<result property="bt_address"       column="BT_ADDRESS"/>    
+		<result property="bt_tel"           column="BT_TEL"/>        
+		<result property="bt_mobile"        column="BT_MOBILE"/>     
+		<result property="bt_paper "        column="BT_PAPER"/>      
+		<result property="bt_text"          column="BT_TEXT"/>       
+		<result property="pay_gubun"        column="PAY_GUBUN"/>     
+		<result property="bf_license"       column="BF_LICENSE"/>
+	</resultMap>
+	
+	<select id="kp_point_select" parameterType="java.lang.String" resultType="java.lang.Integer" >
+		SELECT POINT FROM  ID_TBL WHERE CODE_PERS = #{code_pers}
+	</select>
+	
+	<select id="kp_point_update" parameterType="java.lang.String">
+		UPDATE ID_TBL SET POINT = #{point} WHERE CODE_PERS = #{code_pers}
+	</select>
+	
+	
+	<insert id="insert_buyaddress" parameterType="hashmap">	
+		INSERT INTO PTB_BUYADDRESS(
+			BUSERID, BF_PAYMENTDATE, BF_PAYMENTNAME, BF_NAME, BF_TEL, BF_MOBILE, BF_EMAIL, BF_DELIVERY,
+			BT_NAME, BT_POST, BT_ADDRESS, BT_TEL, BT_MOBILE, BT_PAPER, PAY_GUBUN, BF_LICENSE, BT_TEXT, BF_BIRTH
+			 ) VALUES( 
+			 #{buserid}
+			, #{bf_paymentdate}
+			, #{bf_paymentname}
+			, #{bf_name}
+			, #{bf_tel}
+			, #{bf_mobile}
+			, #{bf_email}
+			, #{bf_delivery}
+			, #{bt_name}
+			, #{bt_post}
+			, #{bt_address}
+			, #{bt_tel}
+			, #{bt_mobile}
+			, #{bt_paper}
+			, #{pay_gubun}	
+	    	, #{bf_license}
+			, #{bt_text}
+			, #{pers_birth})
+	</insert>
+	
+	<select id="getMaxBindex" resultType="java.lang.Integer" >
+		SELECT MAX(BINDEX) AS BINDEX  FROM PTB_BUYADDRESS
+	</select>
+	
+	<insert id="insert_buygoods" parameterType="hashmap">
+		INSERT INTO PTB_BUYGOODS(
+			BINDEX
+			, OINDEX
+			, EEA
+			, EPRICE1
+			, EPRICE2)
+		( SELECT #{bindex}
+			, PTB_BUYCART.OINDEX
+			, PTB_BUYCART.CTEA
+			, CASE WHEN PTB_BUYCART.ctEa >= 100 THEN
+                    CASE WHEN PTB_BOOKGOODS.bs_categorytype = '10%' THEN
+                              PTB_BOOKGOODS.OPRICE1 * 0.9
+                         WHEN PTB_BOOKGOODS.bs_categorytype = '300원' THEN
+                              PTB_BOOKGOODS.OPRICE1 - 300
+                         WHEN PTB_BOOKGOODS.bs_categorytype = '200원' THEN
+                              PTB_BOOKGOODS.OPRICE1 - 200
+                     ELSE
+                        PTB_BOOKGOODS.OPRICE1 END
+                ELSE PTB_BOOKGOODS.OPRICE1 END AS OPRICE1
+			, PTB_BOOKGOODS.OPRICE2 
+		  FROM PTB_BUYCART 
+		  LEFT OUTER JOIN  PTB_BOOKGOODS ON (PTB_BUYCART.OINDEX = PTB_BOOKGOODS.OINDEX) 
+		  WHERE PTB_BUYCART.CTSESSIONID= #{ctsessionid}
+		) 
+	</insert>
+		
+	<select id="select_buyaddress" parameterType="hashmap" resultType="PTB_BUYADDRESS" >
+		SELECT * FROM PTB_BUYADDRESS WHERE BINDEX=#{bindex}
+	</select>
+</mapper>

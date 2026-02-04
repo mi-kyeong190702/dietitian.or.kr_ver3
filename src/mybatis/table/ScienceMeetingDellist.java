@@ -1,0 +1,29 @@
+package mybatis.table;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data public class ScienceMeetingDellist //???????? ì·¨ì????ì²? ë¦¬ì?¤í??
+{
+	private int idx;   //??ë²?
+	private String name;   //?´ë?
+	//private String pers_no;   //ì£¼ë?¼ë???
+	private String pers_birth;   //????????
+	private String office_name;   //???¬ì?´ë?
+	private String tel_hp;   //?¸ë????
+	private String in_Date;   //InDate
+	private String in_payDate;   //??ê¸???
+	private String in_payPrice;   //??ê¸???
+	//private String bank_name;   //????ëª?
+	//private String bank_num;   //ê³?ì¢?ë²???
+	//private String bank_userName;   //??ê¸?ì£?
+	private String dbindate;   //DB???¥ì??
+	private String c_Flag;   //Cflag
+	private String lic_no;   //ë©´í??ë²???
+	private String ipgum_bambup;   //??ê¸?ë°©ì??
+	private String del_date;   //ì·¨ì????
+	private String del_price;   //ì·¨ì??ê¸???
+
+}

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main">
+
+	<resultMap type="NOTICE" id="NOTICE">
+		<result property="bbs_board_code" 			column="BBS_BOARD_CODE"/>
+		<result property="bbs_category" 			column="BBS_CATEGORY"/>
+		<result property="bbs_contents" 			column="BBS_CONTENTS"/>
+		<result property="bbs_comments_count" 		column="BBS_COMMENTS_COUNT"/>
+		<result property="bbs_del_flag" 			column="BBS_DEL_FLAG"/>
+		<result property="bbs_edit_date_dt" 		column="BBS_EDIT_DATE_DT "/>
+		<result property="bbs_file_size" 			column="BBS_FILE_SIZE"/>
+		<result property="bbs_file_type" 			column="BBS_FILE_TYPE"/>
+		<result property="bbs_file_url" 			column="BBS_FILE_URL"/>
+		<result property="bbs_idx" 					column="BBS_IDX"/>
+		<result property="bbs_name" 				column="BBS_NAME"/>
+		<result property="bbs_notice" 				column="BBS_NOTICE"/>
+		<result property="bbs_reg_date_dt" 			column="BBS_REG_DATE_DT"/>
+		<result property="bbs_step" 				column="BBS_STEP"/>
+		<result property="bbs_subject" 				column="BBS_SUBJECT"/>
+		<result property="bbs_view" 				column="BBS_VIEW"/>
+	</resultMap>
+
+	<select id="noticeList" resultType="NOTICE" >
+	<![CDATA[	
+		 WITH RankedBoard AS (
+            SELECT
+                BBS_IDX,
+                BBS_BOARD_CODE,
+                BBS_SUBJECT,
+                BBS_REG_DATE_DT,
+                BBS_CATEGORY,
+                BBS_NOTICE,
+                BBS_FILE_URL,
+                BBS_CONTENTS,
+                ROW_NUMBER() OVER ( PARTITION BY BBS_BOARD_CODE
+            ORDER BY
+                ISNULL(BBS_NOTICE_ORDER,999) ASC ,
+                BBS_NOTICE DESC,
+                BBS_IDX DESC ) AS RN
+            FROM
+                dietitian_ver3.dbo.PAPER_BOARD
+            WHERE
+                BBS_BOARD_CODE IN (0, 2, 87, 91) 
+            AND CONVERT(CHAR(8),BBS_REG_DATE_DT, 112) > '20250101'
+            AND BBS_VISIBLE_YN ='Y'    
+           )             
+            SELECT
+                BBS_IDX,
+                BBS_BOARD_CODE,
+                BBS_SUBJECT,
+                BBS_REG_DATE_DT,
+                BBS_CATEGORY,
+                BBS_NOTICE,
+                BBS_FILE_URL,
+                BBS_CONTENTS
+            FROM
+                RankedBoard
+            WHERE
+                (BBS_BOARD_CODE = 0
+                    AND RN <= 5)
+                OR (BBS_BOARD_CODE = 2
+                    AND RN <= 5)
+                OR (BBS_BOARD_CODE = 87
+                    AND RN <= 2)
+                OR (BBS_BOARD_CODE = 91
+                    AND RN <= 2) 
+    
+	]]>		 
+	</select>
+	
+	<select id="noticeList1" resultType="NOTICE" > 
+        SELECT
+            TOP 5 BBS_IDX,
+            BBS_BOARD_CODE,+
+            BBS_SUBJECT,
+            BBS_REG_DATE_DT,
+            BBS_CATEGORY,
+            BBS_NOTICE,
+            BBS_FILE_URL,
+            BBS_CONTENTS  
+        FROM
+            dietitian_ver3.dbo.PAPER_BOARD
+        WHERE
+            BBS_BOARD_CODE IN (69,70,71,72,73,74,75,76,77,78,79,80,81) 
+        AND CONVERT(CHAR(8),BBS_REG_DATE_DT,112) > '20250101' 
+        AND BBS_VISIBLE_YN ='Y'
+	</select> 
+	
+	<select id="noticeList2" resultType="NOTICE" >
+	<![CDATA[
+	   WITH RankedBoard AS (
+        SELECT 
+            BBS_IDX,
+            BBS_BOARD_CODE,
+            BBS_SUBJECT,
+            BBS_REG_DATE_DT,
+            BBS_CATEGORY,
+            BBS_NOTICE,
+            BBS_FILE_URL,
+            BBS_CONTENTS,
+            ROW_NUMBER() OVER (
+                PARTITION BY BBS_BOARD_CODE
+                ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC 
+            ) AS RN
+        FROM dietitian_ver3.dbo.PAPER_BOARD
+        WHERE  BBS_BOARD_CODE BETWEEN 124 AND 127
+          AND BBS_VISIBLE_YN ='Y'
+        )
+        SELECT 
+            BBS_IDX,
+            BBS_BOARD_CODE,
+            BBS_SUBJECT,
+            BBS_REG_DATE_DT,
+            BBS_CATEGORY,
+            BBS_NOTICE,
+            BBS_FILE_URL,
+            BBS_CONTENTS
+        FROM RankedBoard
+        WHERE  RN <= 3 
+	]]>    
+	</select>
+	
+	
+	<select id="noticeList_89" resultType="NOTICE" >
+		SELECT * FROM 
+		(SELECT  TOP 4 BBS_IDX , BBS_BOARD_CODE
+					      , BBS_SUBJECT
+					      , BBS_REG_DATE_DT
+					      , BBS_CATEGORY
+					      , BBS_NOTICE
+					      , BBS_FILE_URL 
+					      , BBS_CONTENTS
+					   FROM PAPER_BOARD 
+					  WHERE BBS_BOARD_CODE=89
+					    AND BBS_VISIBLE_YN ='Y'
+		 ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC ) T1
+		 UNION ALL
+		 SELECT * FROM
+		 (SELECT  TOP 4 BBS_IDX , BBS_BOARD_CODE
+                          , BBS_SUBJECT
+                          , BBS_REG_DATE_DT
+                          , BBS_CATEGORY
+                          , BBS_NOTICE
+                          , BBS_FILE_URL 
+                          , BBS_CONTENTS
+                       FROM PAPER_BOARD 
+                      WHERE BBS_BOARD_CODE=92
+                        AND BBS_VISIBLE_YN ='Y'
+         ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC ) T2             
+	</select>
+	
+	<select id="noticeList3" resultType="NOTICE" >
+	<![CDATA[
+		WITH RankedBoard AS (
+        SELECT 
+            BBS_IDX,
+            BBS_BOARD_CODE,
+            BBS_SUBJECT,
+            BBS_REG_DATE_DT,
+            BBS_CATEGORY,
+            BBS_NOTICE,
+            BBS_FILE_URL,
+            BBS_CONTENTS,
+            ROW_NUMBER() OVER (
+                PARTITION BY BBS_BOARD_CODE
+                ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC 
+            ) AS RN
+        FROM dietitian_ver3.dbo.PAPER_BOARD
+        WHERE  ((BBS_BOARD_CODE >= 128 and  BBS_BOARD_CODE <= 132)
+            OR BBS_BOARD_CODE = 133 
+            OR   (BBS_BOARD_CODE >= 153 and  BBS_BOARD_CODE <= 183))
+          AND BBS_VISIBLE_YN ='Y'
+        )  
+            SELECT
+                BBS_IDX ,
+                BBS_BOARD_CODE ,
+                BBS_SUBJECT ,
+                BBS_REG_DATE_DT ,
+                BBS_CATEGORY ,
+                BBS_NOTICE
+            FROM
+                RankedBoard
+            WHERE  rn <= 3 
+             
+	]]>		 
+	</select>
+	
+	
+	<select id="noticeList4" resultType="NOTICE" >
+    <![CDATA[
+         SELECT * FROM (
+           SELECT
+                TOP 3 BBS_IDX ,
+                BBS_BOARD_CODE ,
+                BBS_SUBJECT ,
+                BBS_REG_DATE_DT ,
+                BBS_CATEGORY ,
+                BBS_NOTICE
+            FROM
+                dietitian_ver3.dbo.PAPER_BOARD
+            WHERE BBS_BOARD_CODE in(134,135,184)
+              AND BBS_VISIBLE_YN ='Y'
+            ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC
+              ) T1
+      union ALL
+      SELECT * FROM (  
+            SELECT
+                    TOP 3 BBS_IDX ,
+                    BBS_BOARD_CODE ,
+                    BBS_SUBJECT ,
+                    BBS_REG_DATE_DT ,
+                    BBS_CATEGORY ,
+                    BBS_NOTICE
+                FROM
+                    dietitian_ver3.dbo.PAPER_BOARD
+                WHERE BBS_BOARD_CODE in(138,139,185,186)
+                  AND BBS_VISIBLE_YN ='Y' 
+             ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC
+            ) T2
+           union ALL 
+        SELECT * FROM ( 
+            SELECT
+                    TOP 3 BBS_IDX ,
+                    BBS_BOARD_CODE ,
+                    BBS_SUBJECT ,
+                    BBS_REG_DATE_DT ,
+                    BBS_CATEGORY ,
+                    BBS_NOTICE
+                FROM
+                    dietitian_ver3.dbo.PAPER_BOARD
+                WHERE BBS_BOARD_CODE in(136,137)
+                  AND BBS_VISIBLE_YN ='Y'
+                ORDER BY BBS_NOTICE DESC, BBS_REG_DATE_DT DESC
+             ) T3
+           
+             
+             
+    ]]>      
+    </select>
+	 
+	<!-- ================================================================
+		메인 배너 관리
+	 	==================================================================-->
+	 	
+	 <sql id="bannerColumn">
+	      idx
+		, banner_type
+		, banner_name
+		, banner_img
+		, link_url
+		, link_target
+		, use_yn
+		, order_num
+		, user_id
+		, user_name
+		, regi_date
+	 </sql>
+	 
+	<sql id="bannerWhere">
+		<if test="srchTy != null and srchTy != 0">
+		AND banner_type = #{srchTy}
+		</if>
+		<if test="srchName != null and srchName != ''">
+		AND banner_name like '%' + #{srchName} + '%'
+		</if>
+	</sql>
+	
+	<select id="selectMainBannerList" resultType="kda.main.data.BANNER">
+	SELECT
+		<include refid="bannerColumn" />
+	FROM main_banner
+	WHERE use_yn = 'Y'
+	ORDER BY banner_type ASC, order_num ASC, idx DESC	
+	</select>
+	
+	<select id="selectBannerCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM main_banner
+	WHERE 1 = 1
+		<include refid="bannerWhere" />
+	</select>
+	
+	<select id="selectBannerListHelper" parameterType="hashmap" resultType="kda.main.data.BANNER">
+	SELECT 
+		num ,
+		<include refid="bannerColumn" /> 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by banner_type, order_num ) AS num ,
+			 <include refid="bannerColumn" />
+		FROM main_banner
+		WHERE 1 = 1
+			<include refid="bannerWhere" />	
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY num
+	</select>
+	
+	<select id="selectBanner" parameterType="int" resultType="kda.main.data.BANNER">
+	SELECT
+		 <include refid="bannerColumn" />
+	FROM main_banner
+	WHERE idx = #{idx}
+	</select>
+	
+	<insert id="insertBanner">
+	<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+	SELECT
+		ISNULL(MAX(idx), 0) + 1
+	FROM main_banner
+	</selectKey>
+	INSERT INTO main_banner ( 
+		<include refid="bannerColumn" />
+	) VALUES ( 
+		  #{idx}
+		, #{banner_type}
+		, #{banner_name}
+		, #{banner_img}
+		, #{link_url}
+		, #{link_target}
+		, #{use_yn}
+		, #{order_num}
+		, #{user_id}
+		, #{user_name}
+		, GETDATE()
+	)                     
+	</insert>
+	
+	<update id="updateBanner" parameterType="kda.main.data.BANNER">
+	UPDATE main_banner SET
+	      banner_type = #{banner_type}
+		, banner_name = #{banner_name}
+		, banner_img = #{banner_img}
+		, link_url = #{link_url}
+		, link_target = #{link_target}
+		, use_yn = #{use_yn}
+		, order_num = #{order_num}
+		, user_id = #{user_id}
+		, user_name = #{user_name}
+		, regi_date = GETDATE()
+	WHERE idx = #{idx}
+	</update>
+	
+	<delete id="deleteBanner" parameterType="int">
+	DELETE FROM main_banner WHERE idx = #{idx}
+	</delete>
+	
+	<insert id="saveLog" parameterType="hashmap">
+		<selectKey keyProperty="count" resultType="int" order="BEFORE">
+		SELECT
+			COUNT(time) as count
+		FROM log 
+		WHERE date = #{date}
+			AND time = #{time}
+		</selectKey>
+		
+		<choose>
+			<when test="count == 0">
+			INSERT INTO log ( date, time, hit) VALUES ( #{date}, #{time}, 1 )
+			</when>
+			<otherwise>
+			UPDATE log SET
+				hit = hit + 1
+			WHERE date = #{date}
+			AND time = #{time}
+			</otherwise>
+		</choose>
+	</insert>
+	
+	<insert id="saveLogBanner" parameterType="hashmap">
+		<selectKey keyProperty="count" resultType="int" order="BEFORE">
+		SELECT
+			COUNT(time)
+		FROM log_banner 
+		WHERE date = #{date}
+			AND time = #{time}
+			AND banner_idx = #{bannerIdx}
+		</selectKey>
+		<choose>
+			<when test="count == 0">
+			INSERT INTO log_banner (
+				date
+				, time
+				, banner_idx
+				, banner_name
+				, hit
+			) VALUES ( 
+				  #{date}
+				, #{time}
+				, #{bannerIdx}
+				, ( SELECT banner_name FROM main_banner WHERE idx = #{bannerIdx})
+				, 1 
+			)
+			</when>
+			<otherwise>
+			UPDATE log_banner SET
+				hit = hit + 1
+			WHERE date = #{date}
+			AND time = #{time}
+			AND banner_idx = #{bannerIdx}
+			</otherwise>
+		</choose>
+	</insert>
+	
+	<insert id="saveLogMember" parameterType="hashmap">
+		<selectKey keyProperty="count" resultType="int" order="BEFORE">
+		SELECT
+			COUNT(time)
+		FROM log_member 
+		WHERE code_pers = #{code_pers}
+			AND date = #{date}
+			AND time = #{time}
+			AND page_title = #{page_title}
+		</selectKey>
+		<choose>
+			<when test="count == 0">
+			INSERT INTO log_member (
+			      code_pers
+				, date
+				, time
+				, page_title
+				, pers_name
+				, hit
+			) VALUES ( 
+				  #{code_pers}
+				, #{date}
+				, #{time}
+				, #{page_title}
+				, #{pers_name}
+				, 1 
+			)
+			</when>
+			<otherwise>
+			UPDATE log_member SET
+				hit = hit + 1
+			WHERE code_pers = #{code_pers}
+				AND date = #{date}
+				AND time = #{time}
+				AND page_title = #{page_title}
+			</otherwise>
+		</choose>
+	</insert>
+	
+	<select id="getSend_edu" parameterType="hashmap" resultType="MYMEMBERINFO" >
+	SELECT		TOP 1 I.id,I.passwd, A.pers_name, A.email, A.pers_hp  
+	FROM			Person_M_TBL A, pers_company B, id_tbl I 
+	WHERE		A.code_pers = I.code_pers 
+	AND			A.code_pers = B.code_pers
+	AND			I.id = #{user_id}
+	<choose>
+		<when test="gubun == 1">
+			AND B.code_great = '103' 
+			AND B.job_line_code='60'					
+		</when>
+		<when test="gubun == 2">
+			AND			B.code_great = '104' 
+			AND			B.job_line_code='70' 
+			AND			A.lic_no NOT IN ('')
+		</when>
+	</choose> 
+	ORDER BY 	B.regi_date DESC
+	</select>
+</mapper>
+

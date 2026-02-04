@@ -1,0 +1,24 @@
+package mybatis.table;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data public class EduQcapp //??ê²©ì???ì²? ë¦¬ì?¤í??
+{
+	private int idx;   //ë²???
+	private String name;   //?´ë?
+	private String qc_type;   //??ê²©ì?ì¢?ë¥?
+	private String Serviceyear;   //ê²½ë??
+	private String bank_user;   //??ê¸?ì£¼ë?
+	private String bank_day;   //??ê¸???
+	private String regi_date;   //??????
+	private String regi_time;   //??????ê°?
+	private String user_id;   //?¬ì?©ì?????´ë?? - varchar(MAX)
+	private int qc_status;   //????
+	private String file_add;   //???? - varchar(MAX)
+	private String reissue;   //ë°?ê¸??¬ì?? - varchar(MAX)
+	private String csr_flag;   //??ì²????¸ì????
+	private String company_name;   //???¬ë?
+}

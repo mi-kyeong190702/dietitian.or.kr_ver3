@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminFund">
+
+
+	<sql id="fundColumn">
+		fund_key
+		,fund_name
+		,fund_group
+		,fund_group_job
+		,fund_bank_name
+		,fund_guja1
+		,fund_guja_etc
+		,fund_guja_price
+	</sql>
+	
+	<sql id="fundraisingColumn">
+		fund_key
+		,regdate          
+		,fund_name      
+		,fund_group     
+		,fund_group_job 
+		,fund_account   
+		,fund_guja1     
+		,fund_guja_etc  
+		,fund_guja_price
+		,fund_liscense
+		,fund_h_tel
+		,h_post1
+		,h_post2
+		,h_post_add
+		,h_post_add_detail
+		,fund_c_name
+		,fund_c_tel
+		,c_post1
+		,c_post2
+		,c_post_add
+		,c_post_add_detail
+		,fund_pcs1
+		,fund_email
+		,fund_method
+		,fund_month
+		,fund_day
+		,fund_month2
+		,fund_day2
+		,fund_price
+		,fund_input_name
+		,fund_input_name2
+	</sql>
+	
+	<select id="selectFundCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(fund_key)
+	FROM 	Tbl_Furn
+	</select>
+	
+	<select id="selectFundListHelper" parameterType="hashmap" resultType="kda.admin.fund.data.TBLFURN">
+  	SELECT 
+		num ,
+		<include refid="fundColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  fund_key DESC ) AS num , 
+			<include refid="fundColumn" />
+		FROM		Tbl_Furn
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getFund" parameterType="hashmap" resultType="kda.admin.fund.data.TBLFURN">
+	SELECT
+		<include refid="fundColumn" /> 
+	FROM		Tbl_Furn
+	WHERE 	fund_key = #{fund_key}
+	</select>
+	
+	<select id="selectFundraisingCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(fund_key)
+	FROM 	Tbl_Furn2
+	</select>
+	
+	<select id="selectFundraisingListHelper" parameterType="hashmap" resultType="kda.admin.fund.data.TBLFURN">
+  	SELECT 
+		num ,
+		<include refid="fundraisingColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  regdate,fund_name ) AS num , 
+			<include refid="fundraisingColumn" />
+		FROM		Tbl_Furn2
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getFundraising" parameterType="hashmap" resultType="kda.admin.fund.data.TBLFURN">
+	SELECT
+		<include refid="fundraisingColumn" /> 
+	FROM		Tbl_Furn2
+	WHERE 	fund_key = #{fund_key}
+	</select>
+	
+	<delete id="deleteFund" parameterType="hashmap">
+	DELETE	FROM Tbl_Furn  
+	WHERE 	fund_key = #{fund_key}
+	</delete>
+	
+	<delete id="deleteFundraising" parameterType="hashmap">
+	DELETE	FROM Tbl_Furn2  
+	WHERE 	fund_key = #{fund_key}
+	</delete>
+	
+</mapper>
+

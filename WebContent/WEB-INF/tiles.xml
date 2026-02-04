@@ -1,0 +1,204 @@
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">   
+<tiles-definitions>    
+
+<!-- error -->
+
+<definition name="alert" template="/alert/message.jsp"></definition>
+
+<!-- paper_board -->
+
+<definition name="paper_board_list"  template="/pages/board/paper_board_list.jsp"></definition>
+<definition name="paper_board_view"  template="/pages/board/paper_board_view.jsp"></definition>
+<definition name="paper_board_view_contents"  template="/pages/board/paper_board_view_contents.jsp"></definition>
+<definition name="paper_board_write" template="/pages/board/paper_board_write.jsp"></definition>
+<definition name="paper_board_write_ok" template="/pages/board/paper_board_write_ok.jsp"></definition>
+
+<definition name="sin_person_info"  template="/pages/board/paper_board_list.jsp"></definition>
+<definition name="sin_paper_board_write"  template="/pages/board/paper_board_view.jsp"></definition>
+<definition name="sin_paper_board_write_ok"  template="/pages/board/paper_board_view_contents.jsp"></definition>
+<definition name="sin_paper_board_list" template="/pages/board/paper_board_write.jsp"></definition>
+
+<!-- gallery_board -->
+
+<definition name="gallery_board_list"  template="/pages/board/gallery_board_list.jsp"></definition>   
+<definition name="gallery_board_view"  template="/pages/board/gallery_board_view.jsp"></definition>
+<definition name="gallery_board_write" template="/pages/board/gallery_board_write.jsp"></definition>
+<definition name="gallery_board_write_ok" template="/pages/board/gallery_board_write_ok.jsp"></definition>
+
+<!-- book_board -->
+
+<definition name="book_board_list"  template="/pages/board/book_board_list.jsp"></definition>   
+<definition name="book_board_view"  template="/pages/board/book_board_view.jsp"></definition>
+<definition name="book_board_write" template="/pages/board/book_board_write.jsp"></definition>
+<definition name="book_board_write_ok" template="/pages/board/book_board_write_ok.jsp"></definition>
+
+<!-- cart_board -->
+
+<definition name="cart_board_list"  template="/pages/board/cart_board_list.jsp"></definition>
+
+<!-- resi_board -->
+
+<definition name="resi_board_list"  template="/pages/board/resi_board_list.jsp"></definition>   
+<definition name="resi_board_view"  template="/pages/board/resi_board_view.jsp"></definition>
+<definition name="resi_board_write" template="/pages/board/resi_board_write.jsp"></definition>
+<definition name="resi_board_write_ok" template="/pages/board/resi_board_write_ok.jsp"></definition>
+
+<!-- trust_company -->
+
+<definition name="trust_company"  template="/pages/member/km_trust_company.jsp"></definition>   
+
+<!-- 1+1 event -->
+<definition name="eventview"  template="/pages/event/eventview.jsp"></definition>
+<definition name="eventJobView"  template="/pages/event/eventJobView.jsp"></definition>
+
+<definition name="layout" template="/pages/layout.jsp">    
+    <put-attribute name="title" 	value="DETITIAN" />         
+    <put-attribute name="header"	value="/pages/header.jsp" />
+    <put-attribute name="menu"		value=""/>       
+    <put-attribute name="body"		value=""/>    
+    <put-attribute name="footer"	value="/pages/footer.jsp" />    
+</definition>
+
+<definition name="tiles:payment-root/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/payment/{2}.jsp" />
+</definition>
+
+<definition name="tiles:payment/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/work/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/payment/{2}.jsp" />
+</definition>
+
+
+<definition name="tiles:board/*/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/work/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/board/{2}/{3}.jsp" />
+</definition>
+	
+<definition name="tiles:faq/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/faq/{2}.jsp" />
+</definition>
+
+<definition name="tiles:faq/work/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/work/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/faq/{2}.jsp" />
+</definition>
+
+<definition name="tiles/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/{1}/menu.jsp" />
+    <put-attribute name="body" value="/pages/{1}/{2}.jsp" />
+</definition>
+
+<definition name="tiles/*/*/*" extends="layout">
+	<put-attribute name="menu" value="/pages/{1}/{2}/menu.jsp" />
+    <put-attribute name="body" value="/pages/{1}/{2}/{3}.jsp" />
+</definition>
+
+
+<!-- research -->
+<definition name="research_board_list"  template="/pages/work/research/community/research_board_list.jsp"></definition>   
+<definition name="research_board_view"  template="/pages/work/research/community/research_board_view.jsp"></definition>
+<definition name="research_board_view_contents"  template="/pages/work/research/community/research_board_view_contents.jsp"></definition>
+<definition name="research_board_write" template="/pages/work/research/community/research_board_write.jsp"></definition>
+<definition name="research_board_write_ok" template="/pages/work/research/community/research_board_write_ok.jsp"></definition>
+
+<definition name="kr_report_step1" template="/pages/work/research/report/kr_report_step1.jsp"></definition>
+<definition name="kr_report_step2" template="/pages/work/research/report/kr_report_step2.jsp"></definition>
+<definition name="kr_report_step2_unconfirmed"  template="/pages/work/research/report/kr_report_step2_unconfirmed.jsp"></definition>   
+<definition name="kr_report_step2_fail"  template="/pages/work/research/report/kr_report_step2_fail.jsp"></definition>   
+<definition name="kr_report_step3"  template="/pages/work/research/report/kr_report_step3.jsp"></definition>
+<definition name="kr_report_step4"  template="/pages/work/research/report/kr_report_step4.jsp"></definition>
+<definition name="kr_report_step5"  template="/pages/work/research/report/kr_report_step5.jsp"></definition>
+<definition name="kr_report_step6"  template="/pages/work/research/report/kr_report_step6.jsp"></definition>
+<definition name="kr_report_step7"  template="/pages/work/research/report/kr_report_step7.jsp"></definition>
+<definition name="kr_report_step8"  template="/pages/work/research/report/kr_report_step8.jsp"></definition>
+
+<definition name="tiles:kp_publishing_list"  extends="layout" >
+    <put-attribute name="title"     value="DETITIAN" />         
+    <put-attribute name="header"    value="/pages/header.jsp" />
+    <put-attribute name="menu"      value="/pages/work/publication/menu.jsp"/>       
+    <put-attribute name="body"      value="/pages/work/publication/kp_publishing_list.jsp"/>    
+    <put-attribute name="footer"    value="/pages/footer.jsp" /> 
+</definition>
+
+<definition name="tiles:kp_publishing_form"  extends="layout" >
+    <put-attribute name="title"     value="DETITIAN" />         
+    <put-attribute name="header"    value="/pages/header.jsp" />
+    <put-attribute name="menu"      value="/pages/work/publication/menu.jsp"/>       
+    <put-attribute name="body"      value="/pages/work/publication/kp_publishing_form.jsp"/>    
+    <put-attribute name="footer"    value="/pages/footer.jsp" /> 
+</definition>
+
+<definition name="tiles:kp_publishing_detail"  extends="layout" >
+    <put-attribute name="title"     value="DETITIAN" />         
+    <put-attribute name="header"    value="/pages/header.jsp" />
+    <put-attribute name="menu"      value="/pages/work/publication/menu.jsp"/>       
+    <put-attribute name="body"      value="/pages/work/publication/kp_publishing_detail.jsp"/>    
+    <put-attribute name="footer"    value="/pages/footer.jsp" /> 
+</definition>
+
+<definition name="research_layout" template="/pages/work/research/research_layout.jsp">    
+    <put-attribute name="title" 	value="DETITIAN" />         
+    <put-attribute name="header"	value="/pages/work/research/research_header.jsp" />
+    <put-attribute name="menu"		value=""/>       
+    <put-attribute name="body"		value=""/>    
+    <put-attribute name="footer"	value="/pages/work/research/research_footer.jsp" />    
+</definition>
+
+<definition name="tiles/*/*/*/*" extends="research_layout">
+	<put-attribute name="menu" value="/pages/{1}/{2}/{3}/menu.jsp" />
+    <put-attribute name="body" value="/pages/{1}/{2}/{3}/{4}.jsp" />
+</definition>
+
+<!--  // english  -->
+<definition name="english_layout" template="/pages/english/layout.jsp">
+	 <put-attribute name="title" 	value="enslish" />         
+    <put-attribute name="header"	value="/pages/english/header.jsp" />
+    <put-attribute name="menu"		value=""/>     
+    <put-attribute name="footer"	value="/pages/english/footer.jsp" />
+</definition>
+
+<!-- english main -->
+<definition name="tiles:enlish"  extends="english_layout">    
+  	    <put-attribute name="body"		value="/pages/english/{1}.jsp"/>    
+</definition>
+
+<!-- english -->
+<definition name="tiles:english/*/*" extends="english_layout">    
+    <put-attribute name="menu" 		value="/pages/english/{1}/menu.jsp" />
+    <put-attribute name="body"		value="/pages/english/{1}/{2}.jsp" />    
+</definition>
+
+
+<!-- admin -->
+<definition name="admin_layout" template="/djemals/layout.jsp">    
+    <put-attribute name="title" 	value="관리자" />         
+    <put-attribute name="top"		value="/djemals/top.jsp" />
+    <put-attribute name="left"		value="/djemals/left.jsp"/>       
+    <put-attribute name="body"		value=""/>    
+    <put-attribute name="footer"	value="/djemals/footer.jsp" />    
+</definition>
+
+<definition name="admin_nomenu" template="/djemals/layout.jsp">
+	<put-attribute name="title" 	value="관리자" />
+	<put-attribute name="top"		value="/djemals/top_nomenu.jsp" />
+	<put-attribute name="left"		value="/djemals/left.jsp"/>       
+    <put-attribute name="body"		value="" />
+    <put-attribute name="footer"	value="/djemals/footer.jsp" />
+</definition>
+
+
+<definition name="tiles:admin/*/*" extends="admin_layout">
+    <put-attribute name="body" value="/pages/djemals/{1}/{2}.jsp" />
+</definition>
+
+<definition name="tiles:admin-payment/*" extends="admin_nomenu">
+	
+	<put-attribute name="body" value="/pages/djemals/payment/{1}.jsp" />
+</definition>
+
+
+</tiles-definitions>

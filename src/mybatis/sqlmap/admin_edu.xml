@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminEdu">
+
+	<sql id="certColumn1">
+		groupcode
+     	, CASE 	WHEN groupcode='001002' 	THEN '임상영양사 소지자'
+           			WHEN groupcode='001003'  	THEN '임상영양사 수료자'
+	        		WHEN groupcode='002001'  	THEN '재수강 임상 소지자 및 수료자' 
+	        		WHEN groupcode='002002'  	THEN '재수강 일반' END groupcodename
+    	, CASE 	WHEN id='' then '없음' ELSE id END id 
+     	, pers_name 
+     	, lic_no 
+     	, state
+	</sql>
+	<sql id="certColumn2">
+		CASE WHEN ISNULL(b.pers_name+b.pers_birth,'')!='' 	THEN '001002'
+				WHEN ISNULL(c.pers_name+c.pers_birth,'')!='' 	THEN '001003'
+				WHEN ISNULL(e.pers_name+e.pers_birth,'')!='' 	THEN '002002' 
+				WHEN ISNULL(f.pers_name+f.pers_birth,'')!='' 	THEN '002001' 
+				ELSE '001001' END groupcode
+	 	, p.pers_name
+	 	, i.id
+	 	, p.lic_no	
+	 	, d.detcodename state
+	</sql>
+
+	<sql id="certWhere">
+		<choose>
+			<when test="srchTy != null and srchTy != ''">
+				WHERE groupcode = #{srchTy}
+			</when>
+			<otherwise>
+				WHERE groupcode IN ('001002','001003','002001','002002') 
+			</otherwise>				
+		</choose>
+		
+		<if test="srchName != null and srchName != ''">
+			AND pers_name LIKE '%' + #{srchName} + '%'
+		</if>
+	
+	
+		<if test="srchNo != null and srchNo != ''">
+			AND lic_no LIKE '%' + #{srchNo} + '%'
+		</if>
+	</sql>
+	
+	<sql id="certChoose">
+	<choose>
+		<when test="code_val == '001002'">
+			certTemp
+		</when>
+		<when test="code_val == '001003'">
+			certOperTemp
+		</when>
+		<when test="code_val == '002001'">
+			certReTemp
+		</when>
+		<when test="code_val == '002002'">
+			certBasicTemp
+		</when>
+	</choose>
+	</sql>
+
+	<sql id="estColumn">
+	      idx
+		, name
+		, birth
+		, work_yy
+		, work_mm
+		, edu_type
+		, edu_type_text
+		, edu_area
+		, lic_no
+		, hp
+		, email
+		, big_name
+		, company_name
+		, regi_date
+		, regi_time
+	 </sql>
+	 
+	<sql id="estExcel">
+	     idx
+		, name
+		, birth
+		, work_yy + '년 ' + work_mm + '월' as work_yy
+		, work_mm
+		, edu_type
+		, edu_type_text
+		, edu_area
+		, lic_no
+		, hp
+		, email
+		, big_name
+		, company_name
+		, regi_date + ' ' + regi_time as regi_date
+	 </sql>
+
+	<sql id="greenColumn">
+	    idx       
+		,gubun      
+		,pers_no_sub
+		,email   
+		,email_sub  
+		,tel_hp    
+		,tel       
+		,branch_name
+		,name1      
+		,branch_name1
+		,edu_js_type1
+		,lic_no1    
+		,name2      
+		,branch_name2
+		,edu_js_type2
+		,lic_no2
+		,file_flag  
+		,file_add   
+		,reg_date   
+		,up_date  
+		,is_open    
+		, crtitle_name
+		, edu_type   
+		, edu_type_etc
+		, name       
+		,pers_birth 
+	 </sql>
+	 
+	 <sql id="logColumn">
+        print_seq   
+        ,print_date
+        ,print_cd
+        ,code_pers
+        ,print_name
+        ,ins_date 
+        ,lic_no
+        ,pers_name
+        ,id
+     </sql>
+    <sql id="logWhere">
+       <if test="startm != null and startm !=''">
+                AND print_date BETWEEN #{startm} AND #{endm}
+       </if>
+       <if test="person_name != null and person_name != ''">
+               AND pm.pers_name like  #{person_name} +'%'
+       </if>
+        <if test="detcode != null and detcode != ''">
+               AND lp.detcode =#{detcode}
+       </if>     
+    </sql>
+	 
+	<sql id="greenExcel">
+	    idx       
+		,CASE gubun WHEN '01' THEN '구연발표' ELSE '포스터발표' END gubun      
+		,CASE edu_type 	WHEN '01'  THEN '급식경영/단체급식'
+								WHEN '02'  THEN '영양교육'
+								WHEN '03'  THEN '임상영양'
+								WHEN '04'  THEN '식품위생'
+								WHEN '05'  THEN '식품학/식품과학'
+								WHEN '06'  THEN '식품조리'
+								WHEN '07'  THEN '지역사회영양'
+								WHEN '08'  THEN '기타' END edu_type
+		,pers_no_sub
+		,email    +'@'+ email_sub AS   email
+		,tel_hp    
+		,tel       
+		,branch_name
+		,name1      
+		,branch_name1
+		,edu_js_type1
+		,lic_no1    
+		,name2      
+		,branch_name2
+		,edu_js_type2
+		,lic_no2
+		,file_flag  
+		,file_add   
+		,reg_date   
+		,up_date  
+		,is_open    
+		,crtitle_name
+		,name       
+		,pers_birth 
+	</sql> 
+	 
+	<select id="selectCertCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(num)
+	FROM (
+		SELECT
+		 	ROW_NUMBER() OVER( ORDER BY groupcode, pers_name	 ) AS num ,
+			<include refid="certColumn1" />
+			 
+		FROM (     
+			SELECT
+				
+				<include refid="certColumn2" />  
+				
+			FROM Person_M_TBL p 
+			LEFT JOIN certTemp b ON b.lic_no=p.lic_no AND b.pers_name=p.pers_name 
+			LEFT JOIN certOperTemp c ON c.lic_no=p.lic_no AND c.pers_name=p.pers_name 
+			LEFT JOIN com_code d ON d.groupcode='021' AND d.detcode=p.pers_state 
+			LEFT JOIN certBasicTemp e ON e.lic_no=p.lic_no AND e.pers_name=p.pers_name 
+			LEFT JOIN certReTemp f ON f.lic_no=p.lic_no AND f.pers_name=p.pers_name
+			LEFT JOIN id_tbl i ON p.code_pers = i.code_pers 
+			) z
+				   
+			<include refid="certWhere" />
+			
+	) A 
+	WHERE 1 = 1
+	</select>
+	
+	<select id="selectCertListHelper" parameterType="hashmap" resultType="kda.admin.edu.data.ESTABLISHMENT">
+	SELECT
+		*
+	FROM (
+		SELECT
+		 	ROW_NUMBER() OVER( ORDER BY groupcode, pers_name	 ) AS num ,
+			<include refid="certColumn1" />
+			 
+		FROM (     
+			SELECT
+				
+				<include refid="certColumn2" />  
+				
+			FROM Person_M_TBL p 
+			LEFT JOIN certTemp b ON b.lic_no=p.lic_no AND b.pers_name=p.pers_name 
+			LEFT JOIN certOperTemp c ON c.lic_no=p.lic_no AND c.pers_name=p.pers_name 
+			LEFT JOIN com_code d ON d.groupcode='021' AND d.detcode=p.pers_state 
+			LEFT JOIN certBasicTemp e ON e.lic_no=p.lic_no AND e.pers_name=p.pers_name 
+			LEFT JOIN certReTemp f ON f.lic_no=p.lic_no AND f.pers_name=p.pers_name
+			LEFT JOIN id_tbl i ON p.code_pers = i.code_pers 
+			) z
+				   
+			<include refid="certWhere" />
+			
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY num
+	
+	</select>
+	
+	<select id="getCertInfo" parameterType="hashmap" resultType="kda.admin.edu.data.ESTABLISHMENT">
+	SELECT
+		*
+	FROM
+		<include refid="certChoose" />  
+	WHERE 	pers_name=#{pers_name}
+	AND		lic_no=#{lic_no}
+	
+	</select>
+	
+	<delete id="deleteCertInfo" parameterType="hashmap">
+	DELETE
+	FROM
+		<include refid="certChoose" />  
+	WHERE 	pers_name=#{pers_name}
+	AND		lic_no=#{lic_no}
+	</delete>
+	
+	<insert id="insertCertInfo" parameterType="hashmap">
+	INSERT INTO
+		<include refid="certChoose" />  
+	(
+		lic_no
+		,pers_name
+		,pers_birth
+	)
+	VALUES(
+		#{lic_no}     
+		,#{pers_name} 
+		,#{pers_birth}
+	)
+	</insert>
+	
+	<select id="getPersBirth" parameterType="hashmap" resultType="kda.admin.edu.data.ESTABLISHMENT">
+	SELECT
+		pers_birth
+	FROM		person_m_tbl
+	WHERE 	pers_name=#{pers_name}
+	AND		lic_no=#{lic_no}
+	</select>
+	
+	<select id="getGroupCode" parameterType="hashmap" resultType="kda.admin.edu.data.ESTABLISHMENT">
+	SELECT
+		<include refid="certColumn2" />  
+	FROM Person_M_TBL p 
+			LEFT JOIN certTemp b ON b.lic_no=p.lic_no AND b.pers_name=p.pers_name 
+			LEFT JOIN certOperTemp c ON c.lic_no=p.lic_no AND c.pers_name=p.pers_name 
+			LEFT JOIN com_code d ON d.groupcode='021' AND d.detcode=p.pers_state 
+			LEFT JOIN certBasicTemp e ON e.lic_no=p.lic_no AND e.pers_name=p.pers_name 
+			LEFT JOIN certReTemp f ON f.lic_no=p.lic_no AND f.pers_name=p.pers_name
+			LEFT JOIN id_tbl i ON p.code_pers = i.code_pers
+	WHERE 	p.pers_name=#{pers_name}
+	AND		p.lic_no=#{lic_no}
+	</select>
+	
+	<insert id="insertNewCert" parameterType="hashmap">
+	INSERT INTO
+		<include refid="certChoose" />
+	(
+		lic_no
+		,pers_name
+		,pers_birth
+	)
+	 VALUES(
+		#{lic_no}     
+		,#{pers_name} 
+		,#{pers_birth}
+	) 
+	</insert>
+	
+	
+	
+
+	<select id="selectEstCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM edu_establishment
+	WHERE 1 = 1
+	</select>
+	
+	<select id="selectEstListHelper" parameterType="hashmap" resultType="kda.admin.edu.data.ESTABLISHMENT">
+	SELECT 
+		num ,
+		<include refid="estColumn" /> 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by regi_date desc, regi_time ) AS num ,
+			 <include refid="estColumn" />
+		FROM edu_establishment
+		WHERE 1 = 1
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY num
+	</select>
+	
+	
+	
+	
+	<select id="selectGreenCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM edu_green
+	WHERE 1 = 1
+	  AND year(GETDATE()) = year(reg_date)
+	</select>
+	
+	<select id="selectGreenListHelper" parameterType="hashmap" resultType="kda.admin.edu.data.EDUGREEN">
+	SELECT 
+		num ,
+		<include refid="greenColumn" /> 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by reg_date desc) AS num ,
+			 <include refid="greenColumn" />
+		FROM edu_green
+		WHERE 1 = 1
+		  AND year(GETDATE()) = year(reg_date)
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY num
+	</select>
+	
+	<select id="selectLogCount" parameterType="hashmap" resultType="int">
+    SELECT
+        COUNT(print_seq)
+    FROM  log_print lp,  Person_M_TBL pm
+    WHERE lp.CODE_PERS  = pm.code_pers   
+    <include refid="logWhere" />
+    
+    </select>
+    
+    <select id="selectLogListHelper" parameterType="hashmap" resultType="kda.admin.edu.data.LOGDATA">
+    SELECT 
+        num ,
+        <include refid="logColumn" /> 
+    FROM (
+        SELECT 
+              ROW_NUMBER() OVER( order by print_date desc) AS num ,
+              ( select  id  from ID_TBL where ID_TBL.code_pers = lp.code_pers) id ,
+              lp.print_date + '-' + RIGHT(REPLICATE('0', 4) + CAST(print_seq AS VARCHAR), 4)  as print_seq ,
+              lp.print_date ,
+	          print_cd ,
+	          lp.code_pers ,
+	          print_name ,
+	          lp.ins_date,
+	          pm.lic_no ,
+              pm.pers_name    
+        FROM
+            log_print lp,  Person_M_TBL pm
+        WHERE
+            lp.CODE_PERS  = pm.code_pers
+            <include refid="logWhere" />  
+          
+    ) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+         
+    ORDER BY num
+    </select>
+	
+	<delete id="deleteGreen" parameterType="hashmap">
+	DELETE FROM edu_green
+	WHERE	idx IN 
+		<foreach item="item" index="index" collection="idxList" open="(" separator="," close=")">
+	        #{item}
+	  	</foreach>
+	</delete>
+	
+	<select id="getFileUrl" parameterType="hashmap" resultType="kda.admin.edu.data.EDUGREEN">
+	SELECT 
+			 <include refid="greenColumn" />
+	FROM edu_green
+	WHERE	idx = #{idx}
+	</select>
+	
+	<update id="fileDownYn" parameterType="hashmap">
+	UPDATE 		edu_green 
+	SET		 	is_open='Y' 
+	WHERE		idx = #{idx}
+	</update>
+	
+	<select id="excelEst" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by regi_date desc, regi_time ) AS num ,
+			 <include refid="estExcel" />
+		FROM edu_establishment
+		WHERE 1 = 1
+	) A
+	ORDER BY num
+	</select>
+	
+	<select id="excelGreen" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by reg_date desc) AS num ,
+			 <include refid="greenExcel" />
+		FROM edu_green
+		WHERE 1 = 1
+		  AND year(GETDATE()) = year(reg_date)
+	) A  
+	ORDER BY num
+	</select>
+	
+	<select id="excelLog" parameterType="hashmap" resultType="java.util.HashMap">
+    SELECT 
+        num ,
+        <include refid="logColumn" /> 
+    FROM (
+        SELECT 
+              ROW_NUMBER() OVER( order by print_date desc) AS num ,
+              ( select  id  from ID_TBL where ID_TBL.code_pers = lp.code_pers) id ,
+              lp.print_date + '-' + RIGHT(REPLICATE('0', 4) + CAST(print_seq AS VARCHAR), 4)  as print_seq ,
+              lp.print_date ,
+              print_cd ,
+              lp.code_pers ,
+              print_name ,
+              lp.ins_date,
+              pm.lic_no ,
+              pm.pers_name    
+        FROM
+            log_print lp,  Person_M_TBL pm
+        WHERE
+            lp.CODE_PERS  = pm.code_pers
+            <include refid="logWhere" /> 
+          
+    ) A  
+    ORDER BY num
+    </select>
+	
+	<select id="setEduList" parameterType="hashmap" resultType="hashmap">
+	   SELECT
+			    A.CODE_KIND ,
+			    A.CODE_CERTIFI ,
+			    M.CERTIFI_NAME ,
+			    A.CODE_SEQ ,
+			    A.CODE_BRAN ,
+			    A.BRAN_SEQ ,
+			    A.YYYY ,
+			    A.SEASON ,
+			    A.OPERATION_CNT ,
+			    A.OPERATION ,
+			    B.PRINT_KIND ,
+			    CASE
+			        WHEN B.CODE_KIND = '1' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + '제' + CONVERT(VARCHAR,
+			        A.OPERATION_CNT)+ '회 ' + (CASE
+			            WHEN A.SEASON IN (1, 2) THEN CONVERT(VARCHAR,
+			            A.SEASON)+ '학기 '
+			            WHEN A.SEASON = 3 THEN '집합교육 '
+			            WHEN A.SEASON = 4 THEN '온라인교육 '
+			            ELSE CONVERT(VARCHAR,
+			            A.SEASON)+ ' '
+			        END) + B.EDUTEST_NAME + '-' + K.DETCODENAME
+			        WHEN B.CODE_KIND = '2' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + B.EDUTEST_NAME + '-' + K.DETCODENAME + (CASE
+			            WHEN ISNULL(A.BRAN_TXT,
+			            '') = '' THEN '-' + CONVERT(VARCHAR,
+			            ISNULL(A.EDU_MARKS,
+			            0))+ '평점'
+			            ELSE '(' + ISNULL(A.BRAN_TXT,
+			            '')+ ')' + '-' + CONVERT(VARCHAR,
+			            ISNULL(A.EDU_MARKS,
+			            0))+ '평점'
+			        END)
+			        WHEN B.CODE_KIND = '3' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + B.EDUTEST_NAME + '-' + K.DETCODENAME + (CASE
+			            WHEN ISNULL(A.BRAN_TXT,
+			            '') = '' THEN ''
+			            ELSE '(' + ISNULL(A.BRAN_TXT,
+			            '')+ ')'
+			        END)
+			        WHEN B.CODE_KIND = '4'
+			        OR B.CODE_KIND = '8' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + B.EDUTEST_NAME + '-' + K.DETCODENAME + '-' + CONVERT(VARCHAR,
+			        A.OPERATION_CNT)+ '차'
+			        WHEN B.CODE_KIND = '5' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + '제' + CONVERT(VARCHAR,
+			        A.OPERATION_CNT)+ '회 ' + (CASE
+			            WHEN A.SEASON IN (1, 2) THEN CONVERT(VARCHAR,
+			            A.SEASON)+ '학기 '
+			            WHEN A.SEASON = 3 THEN '집합교육 '
+			            WHEN A.SEASON = 4 THEN '온라인교육 '
+			            ELSE CONVERT(VARCHAR,
+			            A.SEASON)+ ' '
+			        END) + B.EDUTEST_NAME + '-' + K.DETCODENAME
+			        WHEN B.CODE_KIND = '6' THEN '제' + CONVERT(VARCHAR,
+			        A.OPERATION_CNT)+ '회 ' + B.EDUTEST_NAME
+			        WHEN B.CODE_KIND = '7' THEN CONVERT(VARCHAR,
+			        A.YYYY)+ '년도 ' + B.EDUTEST_NAME + '-' + K.DETCODENAME + (CASE
+			            WHEN ISNULL(A.BRAN_TXT,
+			            '') = '' THEN ''
+			            ELSE '(' + ISNULL(A.BRAN_TXT,
+			            '')+ ')'
+			        END)
+			        ELSE B.EDUTEST_NAME + '-' + ISNULL(A.BRAN_TXT,
+			        '') + '-(' + K.DETCODENAME + ')'
+			    END EDUTEST_NAME ,
+			    A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ + CONVERT(VARCHAR,
+			    ISNULL(A.OPERATION_CNT,
+			    '0'))+ CONVERT(VARCHAR,
+			    ISNULL(A.SEASON,
+			    '0')) DETCODE
+			FROM
+			    EDU_TEST A
+			LEFT JOIN COM_CODE K ON
+			    K.GROUPCODE = '034'
+			    AND K.DETCODE = A.CODE_BRAN
+			LEFT JOIN CERTIFI M ON
+			    M.CODE_CERTIFI = A.CODE_CERTIFI ,
+			    EDU_TEST_NAME B
+			WHERE
+			    B.USE_YN = 'Y'
+			    AND B.CONFORM = 'Y'
+			    AND A.CODE_KIND = B.CODE_KIND
+			    AND A.CODE_CERTIFI = B.CODE_CERTIFI
+			    AND A.CODE_SEQ = B.CODE_SEQ
+			    AND A.USE_YN = 'Y' /* 교육년도  */
+			<if test="year != null">
+			    AND A.YYYY = #{year}
+			</if>
+			ORDER BY
+			    12 DESC
+	</select>
+	
+</mapper>
+

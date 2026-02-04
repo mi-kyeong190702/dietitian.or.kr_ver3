@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminHunt">
+
+
+	<sql id="huntColumn">
+		strName
+		,strLicenseNum
+		,bitSex    
+		,strPhone     
+		,strHP      
+		,strEmail   
+		,bitMarriage     
+		,strZipcode    
+		,strAddr
+		,strLastSchool     
+		,strLastScholarly
+		,intHopePrice
+		,strHopeRealm
+		,strHopeLocation
+		,bitState
+		,etc
+		,regdate
+		,strCareer1
+		,strCareer2
+		,strCareer3
+		,strCareer4
+		,strCareer5
+		,strCareer6
+		,strCareer7
+		,strCareer8
+		,strCareer9
+		,strCareer10
+		,strCareer_year1
+		,strCareer_year2
+		,strCareer_year3
+		,strCareer_year4
+		,strCareer_year5
+		,strCareer_year6
+		,strCareer_year7
+		,strCareer_year8
+		,strCareer_year9
+		,strCareer_year10
+		,strCareer_mon1
+		,strCareer_mon2
+		,strCareer_mon3
+		,strCareer_mon4
+		,strCareer_mon5
+		,strCareer_mon6
+		,strCareer_mon7
+		,strCareer_mon8
+		,strCareer_mon9
+		,strCareer_mon10
+		,strLicense1
+		,strLicense2
+		,strLicense3
+		,strLicense4
+		,strLicense5
+		,strLicense6
+		,strLicense7
+		,strLicense8
+		,strLicense9
+		,strLicense10
+		,strLicense_year1
+		,strLicense_year2
+		,strLicense_year3
+		,strLicense_year4
+		,strLicense_year5
+		,strLicense_year6
+		,strLicense_year7
+		,strLicense_year8
+		,strLicense_year9
+		,strLicense_year10
+	</sql>
+	
+	<sql id="offerColumn">
+		eindex
+		, epwd
+		, ecName
+		, ecPName
+		, ecTel
+		, ecFax
+		, ecEmail
+		, ecHome
+		, ecPost
+		, ecAddress
+		, ecPart
+		, ecLimitDate
+		, ecNumber
+		, ecRType
+		, erHistory
+		, erMarry
+		, erSex
+		, erFamily
+		, etTime
+		, etLocation
+		, etPrice
+		, etsPrice
+		, etContents
+		, etWel
+		, epProcess
+		, epPaper
+		, epReport
+		, epETC
+		, edate
+		, eview
+		, bbs_file_name
+		, bbs_file_url
+		, bbs_file_type
+		, bbs_file_size
+		, bbs_file_down
+		, ecRTypeText
+		, ecPartText
+		, etWelText
+		, epPaperText
+	</sql>
+	
+	<sql id="huntExcel">
+		strName
+		,strLicenseNum
+		,CASE bitSex  WHEN '1' THEN '남' ELSE '여' END bitSex
+		,strPhone     
+		,strHP      
+		,strEmail   
+		,CASE bitMarriage  WHEN '1' THEN '미혼' ELSE '기혼' END bitMarriage     
+		,strZipcode + ' ' + strAddr AS strZipcode
+		,strLastSchool     
+		,strLastScholarly
+		,intHopePrice
+		,strHopeRealm
+		,strHopeLocation
+		,CASE bitState  WHEN '1' THEN '구직중' ELSE '구직완료' END bitState
+		,etc
+		,regdate
+		,CASE WHEN strCareer1 IS NULL OR strCareer1='' THEN ''	ELSE strCareer1+ '\n' END  strCareer1
+		,CASE WHEN strCareer2 IS NULL OR strCareer2='' THEN ''	ELSE strCareer2+ '\n' END  strCareer2
+		,CASE WHEN strCareer3 IS NULL OR strCareer3='' THEN ''	ELSE strCareer3+ '\n' END  strCareer3
+		,CASE WHEN strCareer4 IS NULL OR strCareer4='' THEN ''	ELSE strCareer4+ '\n' END  strCareer4
+		,CASE WHEN strCareer5 IS NULL OR strCareer5='' THEN ''	ELSE strCareer5+ '\n' END  strCareer5
+		,CASE WHEN strCareer6 IS NULL OR strCareer6='' THEN ''	ELSE strCareer6+ '\n' END  strCareer6
+		,CASE WHEN strCareer7 IS NULL OR strCareer7='' THEN ''	ELSE strCareer7+ '\n' END  strCareer7
+		,CASE WHEN strCareer8 IS NULL OR strCareer8='' THEN ''	ELSE strCareer8+ '\n' END  strCareer8
+		,CASE WHEN strCareer9 IS NULL OR strCareer9='' THEN ''	ELSE strCareer9+ '\n' END  strCareer9
+		,CASE WHEN strCareer10 IS NULL OR strCareer10='' THEN ''	ELSE strCareer10+ '\n' END  strCareer10
+		,CASE WHEN strCareer_year1 IS NULL OR strCareer_year1='' THEN '' ELSE strCareer_year1 +'년'+ strCareer_mon1 +'월'+'\n' END strCareer_year1
+		,CASE WHEN strCareer_year2 IS NULL OR strCareer_year2='' THEN '' ELSE strCareer_year2 +'년'+ strCareer_mon2 +'월'+'\n' END strCareer_year2
+		,CASE WHEN strCareer_year3 IS NULL OR strCareer_year3='' THEN '' ELSE strCareer_year3 +'년'+ strCareer_mon3 +'월'+'\n' END strCareer_year3
+		,CASE WHEN strCareer_year4 IS NULL OR strCareer_year4='' THEN '' ELSE strCareer_year4 +'년'+ strCareer_mon4 +'월'+'\n' END strCareer_year4
+		,CASE WHEN strCareer_year5 IS NULL OR strCareer_year5='' THEN '' ELSE strCareer_year5 +'년'+ strCareer_mon5 +'월'+'\n' END strCareer_year5
+		,CASE WHEN strCareer_year6 IS NULL OR strCareer_year6='' THEN '' ELSE strCareer_year6 +'년'+ strCareer_mon6 +'월'+'\n' END strCareer_year6
+		,CASE WHEN strCareer_year7 IS NULL OR strCareer_year7='' THEN '' ELSE strCareer_year7 +'년'+ strCareer_mon7 +'월'+'\n' END strCareer_year7
+		,CASE WHEN strCareer_year8 IS NULL OR strCareer_year8='' THEN '' ELSE strCareer_year8 +'년'+ strCareer_mon8 +'월'+'\n' END strCareer_year8
+		,CASE WHEN strCareer_year9 IS NULL OR strCareer_year9='' THEN '' ELSE strCareer_year9 +'년'+ strCareer_mon9 +'월'+'\n' END strCareer_year9
+		,CASE WHEN strCareer_year10 IS NULL OR strCareer_year10='' THEN '' ELSE strCareer_year10 +'년'+ strCareer_mon10 +'월'+ '\n' END strCareer_year10
+		,CASE WHEN strLicense1 IS NULL OR strLicense1='' THEN ''	ELSE strLicense1+ '\n' END  strLicense1
+		,CASE WHEN strLicense2 IS NULL OR strLicense2='' THEN ''	ELSE strLicense2+ '\n' END  strLicense2
+		,CASE WHEN strLicense3 IS NULL OR strLicense3='' THEN ''	ELSE strLicense3+ '\n' END  strLicense3
+		,CASE WHEN strLicense4 IS NULL OR strLicense4='' THEN ''	ELSE strLicense4+ '\n' END  strLicense4
+		,CASE WHEN strLicense5 IS NULL OR strLicense5='' THEN ''	ELSE strLicense5+ '\n' END  strLicense5
+		,CASE WHEN strLicense6 IS NULL OR strLicense6='' THEN ''	ELSE strLicense6+ '\n' END  strLicense6
+		,CASE WHEN strLicense7 IS NULL OR strLicense7='' THEN ''	ELSE strLicense7+ '\n' END  strLicense7
+		,CASE WHEN strLicense8 IS NULL OR strLicense8='' THEN ''	ELSE strLicense8+ '\n' END  strLicense8
+		,CASE WHEN strLicense9 IS NULL OR strLicense9='' THEN ''	ELSE strLicense9+ '\n' END  strLicense9
+		,CASE WHEN strLicense10 IS NULL OR strLicense10='' THEN ''	ELSE strLicense10+ '\n' END  strLicense10
+		,CASE WHEN strLicense_year1 IS NULL OR strLicense_year1='' THEN ''	ELSE strLicense_year1+ '\n' END  strLicense_year1
+		,CASE WHEN strLicense_year2 IS NULL OR strLicense_year2='' THEN ''	ELSE strLicense_year2+ '\n' END  strLicense_year2
+		,CASE WHEN strLicense_year3 IS NULL OR strLicense_year3='' THEN ''	ELSE strLicense_year3+ '\n' END  strLicense_year3
+		,CASE WHEN strLicense_year4 IS NULL OR strLicense_year4='' THEN ''	ELSE strLicense_year4+ '\n' END  strLicense_year4
+		,CASE WHEN strLicense_year5 IS NULL OR strLicense_year5='' THEN ''	ELSE strLicense_year5+ '\n' END  strLicense_year5
+		,CASE WHEN strLicense_year6 IS NULL OR strLicense_year6='' THEN ''	ELSE strLicense_year6+ '\n' END  strLicense_year6
+		,CASE WHEN strLicense_year7 IS NULL OR strLicense_year7='' THEN ''	ELSE strLicense_year7+ '\n' END  strLicense_year7
+		,CASE WHEN strLicense_year8 IS NULL OR strLicense_year8='' THEN ''	ELSE strLicense_year8+ '\n' END  strLicense_year8
+		,CASE WHEN strLicense_year9 IS NULL OR strLicense_year9='' THEN ''	ELSE strLicense_year9+ '\n' END  strLicense_year9
+		,CASE WHEN strLicense_year10 IS NULL OR strLicense_year10='' THEN ''	ELSE strLicense_year10+ '\n' END  strLicense_year10
+	</sql>
+	
+	<sql id="offerExcel">
+		eindex
+		, epwd
+		, ecName
+		, ecPName
+		, ecTel
+		, ecFax
+		, ecEmail
+		, ecHome
+		, ecPost
+		, ecAddress
+		, CASE ecPart WHEN '기타' THEN ecPart +''+ '('+ecPartText+')' ELSE ecPart END ecPart
+		, ecLimitDate
+		, CAST(ecNumber AS CHAR(10)) +'명' AS ecNumber
+		, CASE ecRType WHEN '기타' THEN ecRType +''+ '('+ecRTypeText+')' ELSE ecRType END ecRType
+		, erHistory
+		, erMarry
+		, erSex
+		, CAST(erFamily AS CHAR(10)) +'명' AS erFamily
+		, etTime
+		, etLocation
+		, '연' + CAST(etPrice AS CHAR(10)) +'만원' AS etPrice
+		, CAST(etsPrice AS CHAR(10)) +'%' AS etsPrice
+		, etContents
+		, CASE etWel WHEN '기타' THEN etWel +''+ '('+etWelText+')' ELSE etWel END etWel
+		, epProcess
+		, CASE epPaper WHEN '기타' THEN epPaper +''+ '('+epPaperText+')' ELSE epPaper END epPaper
+		, epReport
+		, epETC
+		, edate
+		, eview
+		, bbs_file_name
+		, bbs_file_url
+		, bbs_file_type
+		, bbs_file_size
+		, bbs_file_down
+	</sql>
+	
+	
+	<select id="selectHuntCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM 	JobHunt
+	</select>
+	
+	<select id="selectHuntListHelper" parameterType="hashmap" resultType="kda.admin.hunt.data.JOBHUNT">
+  	SELECT 
+		num ,
+		<include refid="huntColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  idx DESC ) AS num , 
+			<include refid="huntColumn" />
+		FROM		JobHunt
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="selectOfferCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(eIndex)
+	FROM 	pTb_Employ
+	</select>
+	
+	<select id="selectOfferListHelper" parameterType="hashmap" resultType="kda.admin.hunt.data.JOBHUNT">
+  	SELECT 
+		num ,
+		<include refid="offerColumn" /> 
+	FROM (
+	  	SELECT
+	  		TOP 500 ROW_NUMBER() OVER( ORDER BY  eIndex DESC ) AS num , 
+			<include refid="offerColumn" />
+		FROM		pTb_Employ
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getFileUrl" parameterType="hashmap" resultType="kda.admin.hunt.data.JOBHUNT">
+	SELECT 
+		<include refid="offerColumn" /> 
+	FROM		pTb_Employ
+	WHERE	eindex = #{eindex}
+	</select>
+	
+	<select id="excelHunt" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		strName
+		,strLicenseNum
+		,bitSex
+		,strPhone     
+		,strHP      
+		,strEmail   
+		,bitMarriage     
+		,strZipcode
+		,strLastSchool     
+		,strLastScholarly
+		,intHopePrice
+		,strHopeRealm
+		,strHopeLocation
+		,bitState
+		,etc
+		,regdate
+		,strCareer1 +''+ strCareer2 +''+ strCareer3 +''+ strCareer4 +''+ strCareer5 +''+ strCareer6 +''+ strCareer7 +''+ strCareer8 +''+ strCareer9 +''+strCareer10 AS strCareer1 
+		,strCareer_year1 +''+ strCareer_year2 +''+ strCareer_year3 +''+ strCareer_year4 +''+ strCareer_year5 +''+ strCareer_year6 +''+ strCareer_year7 +''+ strCareer_year8 +''+ strCareer_year9 +''+strCareer_year10 AS strCareer_year1 
+		,strLicense1 +''+ strLicense2 +''+ strLicense3 +''+ strLicense4 +''+ strLicense5 +''+ strLicense6 +''+ strLicense7 +''+ strLicense8 +''+ strLicense9 +''+strLicense10 AS strLicense1 
+		,strLicense_year1 +''+ strLicense_year2 +''+ strLicense_year3 +''+ strLicense_year4 +''+ strLicense_year5 +''+ strLicense_year6 +''+ strLicense_year7 +''+ strLicense_year8 +''+ strLicense_year9 +''+strLicense_year10 AS strLicense_year1 
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  idx DESC ) AS num , 
+			<include refid="huntExcel" />
+		FROM		JobHunt
+		WHERE 1 = 1
+	) A  
+	ORDER BY num
+	</select>
+	
+	<select id="excelOffer" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			TOP 500 ROW_NUMBER() OVER( ORDER BY  eIndex DESC ) AS num ,
+			'1차()/2차()/3차()/기타()' as pstr,
+			<include refid="offerExcel" />
+		FROM		pTb_Employ
+		WHERE 1 = 1
+	) A  
+	ORDER BY num
+	</select>
+	
+</mapper>
+

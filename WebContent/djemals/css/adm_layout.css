@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+/* 20150318 작성자 송지수 */
+
+/* 컨텐츠 */
+#adm_contents .c_page {padding:25px 30px 100px 30px;text-align:left;}
+#adm_contents .c_page .cp_head {display:inline-block; vertical-align:middle; width:100%; height:100%; margin-bottom:10px;} 
+#adm_contents .c_page .cp_title {display:inline-block; vertical-align:middle; float:left; height:45px; text-align:left;}
+#adm_contents .c_page .cp_navi {display:inline-block; vertical-align:middle; float:right; height:50px; background:url("../images/common/visual_sub.jpg") center no-repeat;}
+#adm_contents .c_page .cp_navi .icon_home {display:inline-block; vertical-align:middle; width:16px; height:13px; background:url("../images/common/icon_home.png") center no-repeat;}
+#adm_contents .c_page .cp_navi ul {display:inline-block; vertical-align:middle; float:right; margin-right:10px;}
+#adm_contents .c_page .cp_navi li {display:inline; float:left; font:12px NanumGothic; color:#ddd; letter-spacing:-0.5px; line-height:50px;}
+#adm_contents .c_page .cp_navi a {display:inline-block; vertical-align:middle; font:12px NanumGothic; color:#4b4b4b; letter-spacing:-0.5px; line-height:50px;}
+#adm_contents .c_page .cp_navi a.cm {color:#ee1c23;}
+#adm_contents .c_page .cp_navi span {display:inline-block; vertical-align:middle; padding:0 10px;}
+#adm_contents .c_page .cp_contents {display:inline-block; vertical-align:middle; width:100%; text-align:left;}

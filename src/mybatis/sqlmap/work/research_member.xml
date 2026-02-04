@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="research_member">
+	<resultMap type="ACTULPAPERBOARD" id="ACTULPAPERBOARD">
+		<result property="board_rownum" 		column="BOARD_ROWNUM"/>
+		<result property="atc_sno" 		column="ATC_SNO"/>
+		<result property="bbs_cd" 		column="BBS_CD"/>
+		<result property="atc_no" 		column="ATC_NO"/>
+		<result property="rlt_atc_sno" 	column="RLT_ATC_SNO"/>
+		<result property="atc_dsp_ord" 	column="ATC_DSP_ORD"/>
+		<result property="atc_impatc_yn" 	column="ATC_IMPATC_YN"/>
+		<result property="atc_impatc_dsp_ord" 	column="ATC_IMPATC_DSP_ORD"/>
+		<result property="atc_scratc_yn" 	column="ATC_SCRATC_YN"/>
+		<result property="atc_rgt_se" 	column="ATC_RGT_SE"/>
+		<result property="atc_sbj" 	column="ATC_SBJ"/>
+		<result property="atc_ctg_nm" 	column="ATC_CTG_NM"/>
+		<result property="atc_hdr_nm" 		column="ATC_HDR_NM"/>
+		<result property="atc_wrtr_mbr_sno" 		column="ATC_WRTR_MBR_SNO"/>
+		<result property="atc_wrtr_nm" 		column="ATC_WRTR_NM"/>
+		<result property="atc_wrtr_eml" 		column="ATC_WRTR_EML"/>
+		<result property="atc_wrtr_cttno" 		column="ATC_WRTR_CTTNO"/>
+		<result property="atc_wrtr_dpt_nm" 		column="ATC_WRTR_DPT_NM"/>
+		<result property="atc_wrtr_ip" 	column="ATC_WRTR_IP"/>
+		<result property="atc_inqr_cnt" 	column="ATC_INQR_CNT"/>
+		<result property="atc_cn" 	column="ATC_CN"/>		
+		<result property="atc_smry" 	column="ATC_SMRY"/>
+		<result property="atc_ans_eml_ntc_yn" 	column="ATC_ANS_EML_NTC_YN"/>
+		<result property="atc_ans_stt_se" 	column="ATC_ANS_STT_SE"/>
+		<result property="atc_pst_bgn_dttm" 	column="ATC_PST_BGN_DTTM"/>
+		<result property="atc_pst_end_dttm" 	column="ATC_PST_END_DTTM"/>
+		<result property="atc_pst_rprs_dt" 		column="ATC_PST_RPRS_DT"/>
+		<result property="atc_pst_yn" 		column="ATC_PST_YN"/>		
+		<result property="atc_impatc_bgn_dttm" 	column="ATC_IMPATC_BGN_DTTM"/>
+		<result property="atc_impatc_end_dttm" 	column="ATC_IMPATC_END_DTTM"/>
+		<result property="atc_pwd" 	column="ATC_PWD"/>
+		<result property="use_yn" 	column="USE_YN"/>
+		<result property="dlt_yn" 	column="DLT_YN"/>
+		<result property="frst_rgtr_mbr_sno" 		column="FRST_RGTR_MBR_SNO"/>
+		<result property="frst_rgt_dttm" 		column="FRST_RGT_DTTM"/>		
+		<result property="last_chngr_mbr_sno" 	column="LAST_CHNGR_MBR_SNO"/>
+		<result property="last_chng_dttm" 	column="LAST_CHNG_DTTM"/>
+		<result property="last_chng_trnst_sno" 	column="LAST_CHNG_TRNST_SNO"/>
+		<result property="lic_no" 	column="LIC_NO"/>
+		<result property="lic_print_dt" 	column="LIC_PRINT_DT"/>
+		<result property="bbs_file_name" 		column="BBS_FILE_NAME"/>
+		<result property="bbs_file_url" 		column="BBS_FILE_URL"/>		
+		<result property="bbs_file_type" 	column="BBS_FILE_TYPE"/>
+		<result property="bbs_file_size" 	column="BBS_FILE_SIZE"/>
+		<result property="bbs_new"				column="BBS_NEW"/>
+		<result property="pers_name"				column="PERS_NAME"/>
+		<result property="atc_passwd"				column="ATC_PASSWD"/>
+	</resultMap>
+		
+</mapper>
+

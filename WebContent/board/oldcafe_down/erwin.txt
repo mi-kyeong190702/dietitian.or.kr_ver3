@@ -1,0 +1,146 @@
+igt_docfolder
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+userlog_id: varchar(8) 사용자 아이디
+folder_id: int 1. 게시판 2. 메일(송신함) 3. 4. 메일(예약)
+---------------------------------------------------------
+folder_date: datetime 날짜
+doc_open: char(1) 읽은상태
+doc_count: int 조회수
+sideng_chk: char(1) null
+temp_day: datetime null
+pfolder_id: int null
+sieng_seqno: int null
+
+igt_document
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+-----------------------------------
+doc_subject: 제목
+doc_type: 상태값(메일, 게시판, 전자결재)
+doc_saveday: 보관일자
+doc_security: 보안설정
+doc_message: 내용
+mail_autoreceive:
+mail_type: (긴급,보안,일반)
+fax_page: null
+doc_writer: 작성자
+doc_formid: (문서번호, 양식코드)
+doc_receiver: (받는사람)
+doc_docyerar: 날짜(년)
+doc_docnum: null
+doc__dept: 부서코드
+doc_resvdate: 예약메일(예약일자)
+
+igt_inbox (메일,결재)
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+sender: 보낸사람아이디
+receiver: 받는사람아이디
+-----------------------------------
+
+send_date: 보낸날짜
+send_name: 보낸사람이름
+recv_name: 받는사람이름
+recv_date: 받은날짜
+recv_type: 상태값 메일, 결재
+doc_del:
+send_status: null
+
+igt_signinfo
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+-----------------------------------
+
+doc_class: varchar(10) 문서분류
+doc_subno: null
+doc_docupt: 문서수정여부
+doc_signupt: 문서경로수정 여부
+doc_docopen: 문서공개여부
+doc_signpath: 결재선
+doc_lastsign: 최종결재자
+jun_id: 전결자아이디
+doc_bancheck: null
+doc_movdept: 경유
+doc_refdept: 참조
+doc_saveyear: 저장날짜
+doc_daejulchk: 대결자여부
+doc_recvno: null
+doc_reqno: 문서접수번호
+doc_keyword: 문서접수번호
+
+igt_sign
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+sign_seqno: int
+-----------------------------------
+sign_actioner: 사용자아이디
+sign_name: 이름
+sign_type: 결재여부
+sign_date: 날짜(결재날짜)
+sign_message:첨언
+sign_update: null
+agent_id:null
+view_date:null
+sign_pdate:null
+position_id: 결재자 위치
+
+igt_docreader
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+userlog_id: 아이디
+-----------------------------------
+
+bbs_id:게시판코드
+open_date:열람일짜
+read_count: 열람수
+
+igt_folder
+
+folder_id:
+userlog_id: 아이디
+-----------------------------------
+
+folder_name: 폴더이름
+folder_indent: 기본값('1')
+folder_opendate: 날짜
+folder_parent: 기본값('1')
+
+igt_member
+
+group_member:동호회,부서등록된코드
+userolg_id:아이디
+-----------------------------------
+
+group_indate: 날짜
+
+
+igt_group
+
+userlog_id: 아이디(부서코드,게시판코드)
+-----------------------------------
+group_opendate: 날짜
+group_indate: 단계 1.상위부서 2. 하위부서 3. 하위부서의 하위부서
+userlog_parent: 아이디
+dapt_symbol: 부서기호
+
+igt_attach
+
+doc_yearmon: varchar(6) 날짜(년/월)
+doc_number: int (모든글의 문서번호)
+att_seqno: 첨부파일번호
+-----------------------------------
+
+att_filename: 파일이름
+att_filepath: 파일경로
+att_name: 파일명
+att_filetype: 파일type
+att_subject: null
+att_doc_yearmon: null
+att_doc_member: null

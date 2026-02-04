@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="publication">
+
+	<resultMap type="PUBLICATION" id="PUBLICATION">
+		<result property="id" 			column="ID"/>
+		<result property="pers_hp" 		column="PERS_HP"/>
+		<result property="lic_no" 		column="LIC_NO"/>
+	</resultMap>
+
+	<insert id="insertTBL_NUTRITIONMONITOR" parameterType="hashmap">
+		INSERT INTO TBL_NUTRITIONMONITOR( 
+			M_NAME,	M_POST,	M_ADDR,	M_TEL,	M_ELEMENT,	MCODE,	MID ) 
+		VALUES (
+		   	#{M_name} 
+			, #{M_post} 
+			, #{M_addr} 
+			, #{M_Tel}
+			, ''
+			, #{MCode}
+			, #{user_id} )
+	</insert>
+
+	<insert id="insertTBL_NUTRITIONMONITOR_DETAIL" parameterType="hashmap">
+		 INSERT INTO TBL_NUTRITIONMONITOR_DETAIL(
+			 S_GUBUN01_01, S_TEXT01_01, S_GUBUN01_02, S_TEXT01_02, S_GUBUN01_03
+			,S_TEXT01_03, S_GUBUN02_01, S_TEXT02_01, S_GUBUN02_02, S_TEXT02_02
+			,S_GUBUN02_03, S_TEXT02_03, S_TEXT03_01, S_TEXT03_02, MCODE
+		)VALUES (
+			 #{S_gubun01_01}, #{S_text01_01}, #{S_gubun01_02}, #{S_text01_02}, #{S_gubun01_03}
+			,#{S_text01_03}, #{S_gubun02_01}, #{S_text02_01}, #{S_gubun02_02}	, #{S_text02_02}
+			,#{S_gubun02_03}, #{S_text02_03}, #{S_text03_01}, #{S_text03_02}, #{MCode}	) 
+	</insert>
+	
+</mapper>

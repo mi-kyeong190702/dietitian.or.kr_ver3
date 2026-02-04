@@ -1,0 +1,198 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">전문영양사</mark>란?</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
+				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do" class="cm">전문영양사란?</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+		<div class="tab t2 div3 mb30">
+			<ul>
+				<li><a href="/work/education/ke_about.do">전문영양사 종류 및 정의</a></li>
+				<li><a href="/work/education/ke_specialty_01.do">전문영양사가 되려면</a></li>
+				<li><a href="/work/education/ke_specialty_02.do" class="on">전문영양사를 유지하려면</a></li>
+			</ul>
+		</div>
+		<div class="area text s1">
+						<h4 class="title bold t2 cm s1 i_b_t2 mt30">전문영양사를 유지하려면?</h4><br>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt50">자격 유지 조건</h5><br>
+								<div class="edu_step mt30 mb30">
+									<ol class="text">
+										<li class="start mr20 ml160"><div class="icon_g"><span class="txt">전문연수<br>교육</span></div></li>
+										<li class="mr20"><div class="icon_g"><span class="txt">회원자격<br>유지</span></div></li>
+										<li class="mr20"><div class="icon_g"><span class="txt">자격증<br>갱신</span></div></li>
+									</ol>
+								</div>
+								<h5 class="title bold t3 s1 i_b_t3 mt50">전문연수교육</h5><br>
+								<ul class="text s1 mt10 ml10 mb50">
+									<li class="i_box_t1">전문영양사 자격 유지를 위해서는 전문연수교육을 받아야 하며, 이는 영양사 보수교육과 별도의 교육이어야 한다.</li>
+									<li class="i_box_t1 mt5">전문영양사의 전문연수교육은 3년에 20평점(본회8평점이상), <br/>
+									비만인정(전문임상)영양사의 경우 5년에 50평점(대한영양사협회 30평점, 대한비만학회 20평점)으로 한다.</li>
+									<!-- <li>&nbsp;&nbsp;※ 전문영양사 자격증 2개 이상 소지한 경우 3년에 10평점을 추가함.</li>
+									<li>&nbsp;&nbsp;&nbsp;예) 2개 소지 시 총 30평점/3년, 3개 소지 시 총 30평점/3년, 4개 소지 시 총 30평점/3년 </li> -->
+									<li class="i_box_t1 mt5">해외장기체류자의 경우 자격 유효기간 중 1년 6개월 이상 국내에 거주하지 않는 자에 대하여는 해외체류기간 동안 전문연수교육을 면제한다. 다만 해외체류기간이 5년이 넘을 경우에는 전문연수교육 면제조항에도 불구하고 전문영양사 자격이 자동 소멸된다.</li>
+									<li class="i_box_t1 mt5">자격 유지를 위한 전문연수교육의 종류 및 평점
+										<div class="area">
+											<font style="font-size: 13px; color: #747678;"><2018.05.25 개정></font>
+											<table class="table t3 text ssmall s1 ca center mb20">
+												<colgroup>
+													<col width="80">
+													<col width="90">
+													<col width="*">
+													<col width="180">
+													<col width="80">
+													<col width="80">
+												</colgroup>
+												<thead>
+												<tr>
+													<th scope="col" class="bold cm">평점종류</th>
+													<th scope="col" class="bold cm">교육종류*</th>
+													<th scope="col" class="bold cm">세부사항</th>
+													<th colspan="2" scope="col" class="bold cm">평점</th>
+													<th scope="col" class="bold cm">평점상한</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr>
+													<td rowspan="3" scope="row" class="bgf7 bold">본회</td>
+													<td rowspan="3" scope="row">협회 인정교육**</td>
+													<td class="left">1. 전국영양사학술대회</td>
+													<td>1일</td>
+													<td>6평점</td>
+													<td rowspan="3" scope="row"></td>
+												</tr>
+												<tr>
+													<td class="left">2. 전문영양사 보수교육</td>
+													<td>1시간</td>
+													<td>1평점</td>
+												</tr>
+												<tr>
+													<td class="left">3. 본회 직무교육</td>
+													<td>1시간</td>
+													<td>1평점</td>
+												</tr>
+												<tr>
+													<td rowspan="10" scope="row" class="bgf7 bold">기타</td>
+													<td rowspan="5" scope="row">기타 인정교육</td>
+													<td class="left">1. 중앙회 및 시•도영양사회 관련 교육</td>
+													<td>1시간</td>
+													<td>1평점</td>
+													<td rowspan="5" scope="row">1일 최대 6평점</br>1회 최대 4평점</br></br></br></br></br></br></br></br></br></td>
+												</tr><tr>
+													<td class="left">2. 인정 학회***참석</td>
+													<td>1시간</td>
+													<td>1평점</td>
+												</tr>
+												<tr>
+													<td class="left">3. 기타 학회 참석</td>
+													<td>1회(3시간 이상)</td>
+													<td>2평점</td>
+												</tr>
+												<tr>
+													<td class="left">4. 전문영양사 자율학습</td>
+													<td>1회</td>
+													<td>1평점</td>
+												</tr>
+												<tr>
+													<td class="left">5. 위탁교육</td>
+													<td>10시간 이하<br>10시간 초과~20시간 이하<br>20시간 초과~30시간 이하<br>30시간 초과</td>
+													
+													<td>4평점<br>6평점<br>8평점<br>10평점</td>
+												</tr>												
+													<tr>
+													<td rowspan="4" scope="row">교육자</td>
+													<td class="left">1. 전문영양사 교육과정 강의</td>
+													<td>1회</td>
+													<td>2평점</td>
+													<td rowspan="4" scope="row"></td>
+												</tr>
+												<tr>
+													<td class="left">2. 대한영양사협회 및 인정학회 발표자</td>
+													<td>1회</td>
+													<td>2평점</td>
+												</tr>
+												<tr>
+													<td class="left">3. 대한영양사협회 및 인정학회 논문 발표자(제1저자)</td>
+													<td>1회</td>
+													<td>1평점</td>
+												</tr>
+												<tr>
+													<td class="left">4. 대한영양사협회 및 인정학회 논문 게재자(제1저자, &nbsp;&nbsp;&nbsp;&nbsp;공동저자)</td>
+													<td>1회</td>
+													<td>2평점</td>
+												</tr>
+													
+											<tr>
+													<td scope="row">봉사</td>
+													<td class="left">1. 대한영양사협회 활동 참여</td>
+													<td>1회</td>
+													<td>2평점</td>
+													<td>1년 최대 4평점</td>
+												</tr>
+												
+											
+												<tr>
+													<td colspan="6" class="left">
+														<ul>
+															<li>※ 단, 전체 평점 중 협회 인정교육에서 8평점 이상을 이수하여야 함.</li>
+															<li>* 교육종류는 교육위원회에서 승인하고, 평점은 집합교육 1평점/시간, 온라인 교육 1평점/2차시를 기준으로 산정하되 </br>&nbsp;&nbsp;&nbsp;&nbsp;교육 시간과 동일하지 않을 수 있으며, 교육위원회에서 교육내용, 방법 및 시간에 따라 심사하여 부여함.</li>
+															<li>** 협회 인정교육은 자격증별 중복 인정 가능함.</li>
+															<li>*** 인정학회는 교육위원회에서 1년에 1회 심사하여 승인함.</li>
+														</ul>
+													</td>
+												</tr>
+												
+												</tbody>
+											</table>
+										</div>
+									</li>
+									<li class="i_box_t1">전문연수교육 평점을 인정받고자 하는 자는 다음의 서류를 첨부하여 제출하여야 함.
+										<div class="box bgs small m10 ml30 mr30 p20">
+											<p class="bold mb10">※ 구비서류</p>
+											<ul class="ssmall ml10">
+												<li class="i_b_t7">전문영양사 전문연수교육 평점 인정 신청서</li>
+												<li class="i_b_t7">참석한 교육의 교육비 영수증 혹은 참가확인증(원본)</li>
+												<li>&nbsp;&nbsp;※ 보내실 곳<br>&nbsp;&nbsp; - 대한영양사협회교육국 E-mail : kdasys@hanmail.net / 팩스 : 02-823-5990)</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							<h5 class="title bold t3 s1 i_b_t3 mt30">회원유지</h5><br>
+								<ul class="text s1 mt10 ml10">
+									<li class="i_box_t1">전문영양사는 자격기간 동안 대한영양사협회 회원자격을 유지하여야 함. 이 기준에 미달할 경우에는
+										전문영양사 자격이 자동 소멸되고, 이 경우 전문영양사자격시험에 응시하여 다시 자격을 취득하여야 함. 이는 보수교육이 면제되는
+										자의 해외체류기간에 대해서도 동일한 기준이 적용됨.
+									</li>
+								</ul>
+							<h5 class="title bold t3 s1 i_b_t3 mt30">자격증 갱신</h5><br>
+								<ul class="text s1 mt10 ml10">
+									<li class="i_box_t1">전문영양사는 3년, 비만인정(전문임상)영양사의 경우 5년마다 그 자격증을 갱신하여야 한다. 만약 전문영양사 자격증을 갱신하지 않으면 전문영양사 자격이 자동 소멸되며, 이 경우 전문영양사 자격시험에 응시하여 다시 자격을 취득하여야 한다. </li>
+									<li class="i_box_t1 mt5">위의 규정에 의해 자격증을 갱신하려는 자는 우리 협회 홈페이지 KDA 교육 → 전문영양사코너 → 
+										자격증 신청(신규·갱신) → 자격증 신청하기에서 갱신 발급 신청하기를 클릭하여
+										갱신 신청을 한 다음 구비 서류를 제출하여야 함.
+										<div class="box bgs small m10 ml30 mr30 p20">
+											<p class="bold mb10">※ 구비서류</p>
+											<ul class="ssmall ml10">
+												<li class="i_b_t7">전문영양사 자격증 원본(우편 발송)</li>
+												<li class="i_b_t7">전문영양사 회비 30,000원 / 비만인정(전문임상)영양사 회비 50,000원 (신한은행 100-026-174963 (사)대한영양사협회 )</li></ul><br>
+												<p class="bold mb10">※ 보내실 곳
+												</p><ul>
+												<li class="i_b_t7">주소 : 서울특별시 영등포구 63로 40, 202호(여의도동) 대한영양사협회교육국 (우편번호 07345)</li></ul>
+											
+										</div>
+									</li>
+								</ul>
+						</div>
+					</div>
+	</div>
+</div>

@@ -1,0 +1,666 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">올바른</mark>식습관</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="#" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/business/kb_nutrition.do">KDA 영양사업</a></li>
+				<li><a href="/work/business/kb_c_info118.do">영양클리닉</a></li>
+				<li><a href="/work/business/kb_c_habits.do" class="cm">올바른식습관</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+		<div class="tab_2 div2">
+			<ul>
+				<li><a href="/work/business/kb_c_habits.do" class="on">올바른 식습관</a></li>
+				<li><a href="/kb_c_habits_diagnosis.do">식습관 평가하기</a></li>
+			</ul>
+		</div>
+		
+		<h4 class="title bold t2 cm s1 i_b_t2 mt50">올바른식습관</h4>
+		<p class="text middle cb s1 mt10"> 건강한 내일을 위한 어렵지 않은 해법! 올바른 식생활에서 찾을 수 있다.</p>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">올바른 식생활이란?</h5>
+							<p class="text s1 mt10 ml10">올바른 식생활은<mark class="cm"> 제때에, 다양한 식품들을 골고루, 자신의 체중과 활동량에 알맞게, 싱겁게 그리고 온 가족이 한 자리에 모여 즐겁게</mark> 먹는 것이다.</p>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">우리 식생활은?</h5>
+							<p class="text s1 mt10 ml10"> 최근 식생활의 서구화, 불규칙한 식사, 잦은 외식 등 다양한 식생활의 변화로 뇌혈관질환, 심장병, 위암, 고혈압성질환, 당뇨병 등의 만성 질환이 해를 거듭할 수록 증가하고 있습니다. 
+								이러한 식습관 불균형이 원인이 된 만성 질환은 올바른 식생활로 식습관의 개선을 통해서만 좋아질 수 있다. <br>올바른 식생활은 사실 어렵지 않습니다. 아래의 다섯가지 사항을 잘 지키면 된다. 
+								<br><mark class="cm">규칙적인 시간에, 한쪽에 치우치지 않고 자연적인 식품을 골고루, 과식하지 않고 싱겁게, 가족과 함께 식사하는 것이 올바른 식생활입니다.</mark>
+								건강한 내일에의 어렵지 않은 해법!
+								<br>올바른 식생활에서 찾을 수 있습니다.
+							</p>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">제때에</h5>
+							<ul class="text s1 mt10 ml10">
+								<li class="i_box_t1">신체리듬에 맞춰 규칙적으로 식사하는 것은 아주 중요하다.</li>
+								<li class="i_box_t1 mt5">다음 끼니의 과식으로 이어져 영양불균형을 초래하게 된다.</li>
+								<li class="i_box_t1 mt5">이러한 불규칙적인 식사를 계속하면 소화기관의 손상 또는 관련질환이 생기는 등 건강을 해치게 된다.</li>
+							</ul>		
+							<p class="text s1 mt10 ml10">특히<mark class="cm"> 아침식사는 자동차에 시동을 걸 듯이 인체에 시동을 걸어주므로 꼭 챙겨 먹는 것</mark>이 좋습니다.</p>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">아침을 거르면?</h6>
+									<ul class="text s1 mt10 ml10">
+										<li class="i_box_t1">혈당치 저하로 무기력해지며 집중력이 떨어짐.</li>
+										<li class="i_box_t1 mt5">과식으로 이어져 영양불균형을 초래함.</li>
+										<li class="i_box_t1 mt5">이러한 불규칙적인 식사를 계속하면 소화기 관련질환의 발병으로 건강을 해치게 됨.</li>
+									</ul>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">골고루</h5>
+							<p class="text s1 mt10 ml10">영양소라는 것은 특정한 한 가지 식품에만 함유되어 있는 것이 아니라 여러 종류의 식품에 골고루 포함되어 있으므로
+								<mark class="cm"> 영양적으로 균형잡힌 식사를 하려면 다양한 식품을 골고루 섭취하여 너무 과하거나 부족되는 영양소가 없도록 한다.</mark>
+							</p>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">알맞게</h5>
+							<p class="text s1 mt10 ml10">가장 건강한 체중 즉, 표준 체중을 유지하기 위해서는 하루에 필요한 에너지와 영양소를 적절히 섭취하는 것이 중요하다. 나에게 알맞은 양을 섭취하는 것은 비만과 만성질환을 예방하는 기본 노력이다.
+							</p>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">표준체중이란?</h6><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark class="text s1">가장 건강한 체중을 말하며 통계적으로는 사망률이 가장 적은 체중을 의미한다.</mark>
+									<ul class="text s1 mt10 ml10">
+										<li class="i_box_t1">표준체중을 계산하는 방법
+											<ol class="small  m5 mb10 liststyle in decimal">
+												<li>BMI법
+													<ul class="ml10">
+														<li class=" s1 i_b_t7">여자 : 키(m) × 키(m) × 21</li>
+														<li class=" s1 i_b_t7">남자 : 키(m) × 키(m) × 22<br>
+															<span class="ssmall cm">※ 예) 키 160cm 인 성인여자의 표준체중은 1.6 × 1.6 × 21 = 53.8kg입니다.</span>
+														</li>
+													</ul>
+												</li>
+												<li class="mt10">브로카법 : (키(cm)-100)*0.9 <br>
+													<span class="ml20">예) 키 160cm 인 성인의 표준체중은 160 - 100 = 60 <br>
+													60 x 0.9 = 54kg이다.
+												</span></li>
+											</ol>
+										</li>
+									</ul>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">키에 따른 성인 남녀 표준체중</h6>
+								<div class="w650 ac">
+									<table class="table t2 text small s1 ca center mt20 mb10">
+										<colgroup>
+											<col width="*">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col" class="bold cm">키(cm)</th>
+												<th scope="col" class="bold cm">남(kg)</th>
+												<th scope="col" class="bold cm">여(kg)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td scope="row" class="bgf7">150</td>
+												<td>50</td>
+												<td>47</td>
+											</tr>	
+											<tr>
+												<td scope="row" class="bgf7">155</td>
+												<td>53</td>
+												<td>50</td>
+											</tr>	
+											<tr>
+												<td scope="row" class="bgf7">160</td>
+												<td>56</td>
+												<td>54</td>
+											</tr>	
+											<tr>
+												<td scope="row" class="bgf7">165</td>
+												<td>60</td>
+												<td>57</td>
+											</tr>	
+											<tr>
+												<td scope="row" class="bgf7">170</td>
+												<td>64</td>
+												<td>61</td>
+											</tr>	
+											<tr>
+												<td scope="row" class="bgf7">175</td>
+												<td>67</td>
+												<td>64</td>
+											</tr>
+										</tbody>
+									</table>
+									<p class="text s1"><span class="small cm">※ 각 연령별로 알맞은 1일 영양권장량은 '한국인 영양섭취기준' 표를 참조하세요.</span></p>
+							</div>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">싱겁게</h5>
+							<p class="text s1 mt10 ml10">소금의 과잉섭취는 고혈압을 비롯한 순환기계질환의 주요 요인이 된다. <br>건강을 위해 
+								<mark class="cm">소금 섭취를 하루 10g 이하로이하로 줄이는 것이 좋다.</mark>
+							</p>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">한국인 평균 하루 소금 섭취량 : 13.4g (2005년 국민건강영양조사)</h6><br>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">세계보건기구(WHO)권장량 : 5g 이하</h6><br>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">생리적 하루 필요 소금량 : 1g</h6>
+								<p class="text s1 ml10">&nbsp;※ 소금을 줄이려면 소금절임·가공·인스턴트 식품의 섭취를 줄이고 외식의 빈도를 줄이는 것이 좋습니다.</p>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">소금은 어떤 식품에 많은가?</h6>
+									<ul class="text s1 mt10 ml10">
+										<li class="i_box_t1">소금에 절인 식품 : 젓갈류, 장아찌, 자반고등어, 굴비</li>
+										<li class="i_box_t1 mt5">훈연·어육식품 : 햄, 소시지, 베이컨, 훈연연어</li>
+										<li class="i_box_t1 mt5">소금이 많이 첨가된 스낵식품 : 포테이토칲, 팝콘, 크래커 등</li>
+										<li class="i_box_t1 mt5">인스턴트식품 : 라면, 즉석식품류, 통조림식품</li>
+										<li class="i_box_t1 mt5">가공식품 : 치즈, 마가린, 버터, 케첩</li>
+										<li class="i_box_t1 mt5">조미료 : 간장, 된장, 고추장, 굴소스, 바베큐소스</li>
+									</ul>
+						</div>
+						<div class="area">
+							<h5 class="title bold t3 s1 i_b_t3 mt40">즐겁게</h5>
+							<p class="text s1 mt10 ml10"><mark class="cm">식사는 가능한 한 여럿이 함께 하는 것이 좋다.</mark>
+								<br>더욱이 가족끼리 즐겁게 하는 식사는 그 자체가 즐거움을 만들고 그로 인해 만성질환을 예방하는 방법이 될 수 있다. 또한, 가족이 모인 식탁은 '육체의 영양 뿐 아니라,
+								"마음의 영양'을 풍부히 얻는 장이 될 수 있다. 여기서 생기는 가족간의 단단한 유대와 예의 범절은 어디에서도 얻을 수 없는 것이다.
+							</p>
+								<h6 class="title bold t4 s1 i_b_t4 mt20 ml10">2015 한국인 영양소 섭취기준(보건복지부, (사)한국영양학회)</h6>
+								<p class="text s1 mt10 ml10">
+									<mark class="cm">한국인 영양섭취기준이란 질병이 없는 대다수의 한국 사람들이 건강을 최적상태로 유지하고 질병을 예방하는데 도움이 되도록 필요한 영양소 섭취 수준을 제시하는 기준이다. 
+									종전의 영양권장량 에서는 각 영양소별로 단일 값으로 제시하였으나 만성질환이나 영양소 과다섭취에 관한 우려와 예방의 필요성을 고려하여 여러 수준으로의 영양섭취기준을 2005년도에 새로이 설정하였고 2010년도에 1차 개정이 이루어지게 되었으며, 
+									2010년 국민영양관리법이 공포됨에 따라 정부에서 영양소 섭취기준의 제정업무를 담당하게 되어 보건복지부에서 ‘2015 한국인 영양소 섭취기준’을 제정하였다. 
+									영양섭취기준(Dietary Reference Intakes: DRIs)은 평균필요량(Estimated Average Requirement: EAR), 권장섭취량(Recommended Nutrient Intake: RNI)
+									, 충분섭취량(Adequate Intake: AI) 및 상한섭취량(Tolerable Upper Intake Level: UL)의 4가지로 구성되어 있다.</mark><br><br>
+									
+									아래 표에는 일반적으로 쉽게 적당한 섭취량을 제시하기 위하여 각 연령별 영양소의 한가지 기준 값으로 나타내었으며 에너지는 필요추정량, 비타민 D와 E는 충분섭취량, 그 외 영양소는 권장 섭취량을 기준으로 하였습니다. 
+									권장섭취량이 없는 경우는 충분섭취량으로 기준했으며 *로 구분하였다. 
+								</p>
+								<div class="area">
+									<table class="table t2 text ssmall s1 ca center m10">
+										<colgroup>
+											<col width="*">
+										</colgroup>
+										<thead>
+											  <tr>
+												<th scope="col" class="bold cm">연령</th>
+												<th scope="col" class="bold cm">에너지</th>
+												<th scope="col" class="bold cm">단백질</th>
+												<th scope="col" class="bold cm">비타민A</th>
+												<th scope="col" class="bold cm">비타민D</th>
+												<th scope="col" class="bold cm">비타민E</th>
+												<th scope="col" class="bold cm">비타민C</th>
+												<th scope="col" class="bold cm">티아민</th>
+												<th scope="col" class="bold cm">리보플라빈</th>
+												<th scope="col" class="bold cm">니아신</th>
+												<th scope="col" class="bold cm">비타민B6</th>
+												<th scope="col" class="bold cm">엽산</th>
+												<th scope="col" class="bold cm">칼슘</th>
+												<th scope="col" class="bold cm">인</th>
+												<th scope="col" class="bold cm">철분</th>
+												<th scope="col" class="bold cm">아연</th>
+											</tr>
+											<tr>
+												<th scope="col" class="bold cm">(단위)</th>
+												<th scope="col" class="bold cm">kcal</th>
+												<th scope="col" class="bold cm">g</th>
+												<th scope="col" class="bold cm">㎍ RAE</th>
+												<th scope="col" class="bold cm">㎍</th>
+												<th scope="col" class="bold cm">mgα-TE</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg NE</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">㎍</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg</th>
+												<th scope="col" class="bold cm">mg</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="18" scope="row" class="bold bgf7">영아(개월)</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs bga">0~5</td>
+												<td>550</td>
+												<td>10*</td>
+												<td>350*</td>
+												<td>5</td>
+												<td>3</td>
+												<td>35*</td>
+												<td>0.2*</td>
+												<td>0.3*</td>
+												<td>2*</td>
+												<td>0.1*</td>
+												<td>65*</td>
+												<td>210*</td>
+												<td>100*</td>
+												<td>0.3*</td>
+												<td>2*</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">6~11</td>
+												<td>700</td>
+												<td>15</td>
+												<td>450*</td>
+												<td>5</td>
+												<td>4</td>
+												<td>45*</td>
+												<td>0.3*</td>
+												<td>0.4*</td>
+												<td>3*</td>
+												<td>0.3*</td>
+												<td>80*</td>
+												<td>300*</td>
+												<td>300*</td>
+												<td>6</td>
+												<td>3</td>
+											</tr>
+											<tr>
+												<td colspan="18" scope="row" class="bold bgf7">소아(세)</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">1-2</td>
+												<td>1000</td>
+												<td>15</td>
+												<td>300</td>
+												<td>5</td>
+												<td>5</td>
+												<td>35</td>
+												<td>0.5</td>
+												<td>0.5</td>
+												<td>6</td>
+												<td>0.6</td>
+												<td>150</td>
+												<td>500</td>
+												<td>450</td>
+												<td>6</td>
+												<td>3</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">3-5</td>
+												<td>1400 </td>
+												<td>20</td>
+												<td>350</td>
+												<td>5</td>
+												<td>6</td>
+												<td>40</td>
+												<td>0.5</td>
+												<td>0.6</td>
+												<td>7</td>
+												<td>0.7</td>
+												<td>180</td>
+												<td>600</td>
+												<td>550</td>
+												<td>6</td>
+												<td>4 </td>
+											</tr>
+											<tr>
+												<td colspan="18" scope="row" class="bold bgf7">남자(세)</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">6~8</td>
+												<td>1700 </td>
+												<td>30</td>
+												<td>450</td>
+												<td>5</td>
+												<td>7</td>
+												<td>55</td>
+												<td>0.7</td>
+												<td>0.9</td>
+												<td>9</td>
+												<td>0.9</td>
+												<td>220</td>
+												<td>700</td>
+												<td>600</td>
+												<td>9</td>
+												<td>6</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">9~11</td>
+												<td>2100</td>
+												<td>40</td>
+												<td>600</td>
+												<td>5</td>
+												<td>9</td>
+												<td>70</td>
+												<td>0.9</td>
+												<td>1.2</td>
+												<td>12</td>
+												<td>1.1</td>
+												<td>300</td>
+												<td>800</td>
+												<td>1200</td>
+												<td>10</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">12~14</td>
+												<td>2500</td>
+												<td>55</td>
+												<td>750</td>
+												<td>10</td>
+												<td>10</td>
+												<td>90</td>
+												<td>1.1</td>
+												<td>1.5</td>
+												<td>15</td>
+												<td>1.5</td>
+												<td>360</td>
+												<td>1000</td>
+												<td>1200</td>
+												<td>14</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">15~18</td>
+												<td>2700</td>
+												<td>65</td>
+												<td>850</td>
+												<td>10</td>
+												<td>11</td>
+												<td>105</td>
+												<td>1.3</td>
+												<td>1.7</td>
+												<td>17</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>900</td>
+												<td>1200</td>
+												<td>14</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">19~29</td>
+												<td>2600</td>
+												<td>65</td>
+												<td>800</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.2</td>
+												<td>1.5</td>
+												<td>16</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>800</td>
+												<td>700</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">30~49</td>
+												<td>2400</td>
+												<td>60</td>
+												<td>750</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.2</td>
+												<td>1.5</td>
+												<td>16</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>800</td>
+												<td>700</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">50~64</td>
+												<td>2200</td>
+												<td>60</td>
+												<td>750</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.2</td>
+												<td>1.5</td>
+												<td>16</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>750</td>
+												<td>700</td>
+												<td>10</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">65~74</td>
+												<td>2000</td>
+												<td>55</td>
+												<td>700</td>
+												<td>15</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.2</td>
+												<td>1.5</td>
+												<td>16</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>700</td>
+												<td>700</td>
+												<td>9</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">75<br>이상</td>
+												<td>2000</td>
+												<td>55</td>
+												<td>700</td>
+												<td>15</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.2</td>
+												<td>1.5</td>
+												<td>16</td>
+												<td>1.5</td>
+												<td>400</td>
+												<td>700</td>
+												<td>700</td>
+												<td>9</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td colspan="18" scope="row" class="bold bgf7">여자(세)</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">6~8</td>
+												<td>1500</td>
+												<td>25</td>
+												<td>400</td>
+												<td>5</td>
+												<td>7</td>
+												<td>60</td>
+												<td>0.7</td>
+												<td>0.8</td>
+												<td>9</td>
+												<td>0.9</td>
+												<td>220</td>
+												<td>700</td>
+												<td>550</td>
+												<td>8</td>
+												<td>5</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">9~11</td>
+												<td>1800</td>
+												<td>40</td>
+												<td>550</td>
+												<td>5</td>
+												<td>9</td>
+												<td>80</td>
+												<td>0.9</td>
+												<td>1.0</td>
+												<td>12</td>
+												<td>1.1</td>
+												<td>300</td>
+												<td>800</td>
+												<td>1200</td>
+												<td>10</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">12~14</td>
+												<td>2000</td>
+												<td>50</td>
+												<td>650</td>
+												<td>10</td>
+												<td>10</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>15</td>
+												<td>1.4</td>
+												<td>360</td>
+												<td>900</td>
+												<td>1200</td>
+												<td>16</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">15~18</td>
+												<td>2000</td>
+												<td>50</td>
+												<td>600</td>
+												<td>10</td>
+												<td>11</td>
+												<td>95</td>
+												<td>1.2</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>800</td>
+												<td>1200</td>
+												<td>14</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">19~29</td>
+												<td>2100</td>
+												<td>55</td>
+												<td>650</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>700</td>
+												<td>700</td>
+												<td>14</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">30~49</td>
+												<td>1900</td>
+												<td>50</td>
+												<td>650</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>700</td>
+												<td>700</td>
+												<td>14</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">50~64</td>
+												<td>1800</td>
+												<td>50</td>
+												<td>600</td>
+												<td>10</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>800</td>
+												<td>700</td>
+												<td>8</td>
+												<td>7</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">65~74</td>
+												<td>1600</td>
+												<td>45</td>
+												<td>550</td>
+												<td>15</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>800</td>
+												<td>700</td>
+												<td>8</td>
+												<td>7</td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">75<br>이상</td>
+												<td>1600</td>
+												<td>45</td>
+												<td>550</td>
+												<td>15</td>
+												<td>12</td>
+												<td>100</td>
+												<td>1.1</td>
+												<td>1.2</td>
+												<td>14</td>
+												<td>1.4</td>
+												<td>400</td>
+												<td>800</td>
+												<td>700</td>
+												<td>7</td>
+												<td>7</td>
+											</tr>
+											<tr>
+												<td colspan="18" scope="row" class="bold bgf7">여자(세)</td>
+											</tr>
+											<tr><td scope="row" class="bold cs">임신※</td>
+												<td>+0/340/450</td>
+												<td>+15/30</td>
+												<td>+70</td>
+												<td>+0</td>
+												<td>+0</td>
+												<td>+10</td>
+												<td>+0.4</td>
+												<td>+0.4</td>
+												<td>+4</td>
+												<td>+0.8</td>
+												<td>+220</td>
+												<td>+0</td>
+												<td>+0</td>
+												<td>+10</td>
+												<td>+2.5 </td>
+											</tr>
+											<tr>
+												<td scope="row" class="bold cs">수유</td>
+												<td>+340</td>
+												<td>+25</td>
+												<td>+490</td>
+												<td>+0</td>
+												<td>+3</td>
+												<td>+40</td>
+												<td>+0.4</td>
+												<td>+0.5</td>
+												<td>+3</td>
+												<td>+0.8</td>
+												<td>+150</td>
+												<td>+0</td>
+												<td>+0</td>
+												<td>+0</td>
+												<td>+5.0</td>
+											</tr>
+										</tbody>
+									</table>
+									<p class="text s1"><span class="small cm">*  충분섭취량<br> / ※임신 2분기/3분기</span></p>
+								</div>
+						</div>
+					</div>
+					
+	</div>

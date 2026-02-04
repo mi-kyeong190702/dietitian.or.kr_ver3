@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kp_participation_mornitor">
+	
+	<select id="getMemCode" resultType="java.lang.String">
+		select  Replace(CONVERT(varchar(255), NEWID()),'-','') as MCode
+	</select>
+	
+	<insert id="insertTBL_NUTRITIONMONITOR" parameterType="hashmap" >
+		INSERT INTO TBL_NUTRITIONMONITOR
+		(
+		   M_NAME
+		    , M_POST
+		    , M_ADDR
+		    , M_TEL
+			, MCODE
+			, MID		
+		)VALUES (
+		   #{M_name}
+		    , #{M_post}
+		    , #{M_addr}
+			, #{M_Tel}
+			, #{MCode}
+			, #{user_id}
+		)
+	</insert>
+
+
+	<insert id="insertTBL_NUTRITIONMONITOR_DETAIL" parameterType="hashmap" >
+		INSERT INTO TBL_NUTRITIONMONITOR_DETAIL
+		(
+			  S_gubun01_01
+			, S_text01_01
+			, S_gubun01_02
+			, S_text01_02
+			, S_gubun01_03
+			, S_text01_03
+			, S_gubun02_01
+			, S_text02_01 
+			, S_gubun02_02
+			, S_text02_02 
+			, S_gubun02_03
+			, S_text02_03 
+			, S_text03_01
+			, MCode
+		)VALUES(
+			 #{S_gubun01_01}
+			, #{S_text01_01}
+			, #{S_gubun01_02}
+			, #{S_text01_02}
+			, #{S_gubun01_03}
+			, #{S_text01_03}
+			, #{S_gubun02_01}
+			, #{S_text02_01} 
+			, #{S_gubun02_02}
+			, #{S_text02_02} 
+			, #{S_gubun02_03}
+			, #{S_text02_03} 
+			, #{S_text03_01}
+			, #{MCode}
+		)
+	</insert>
+	
+	
+	<!-- 20151022 영양사협회_국민영양12월호설문요청 추가 -->		
+	<insert id="insertTBL_NUTSERVEY" parameterType="hashmap" >
+		INSERT INTO T_REASERCH
+		(
+			yyyy  
+			, interest1
+			, interest2
+			, interest3
+			, interest4
+			, interest5
+			, interest6
+			, interest7
+			, interest8 
+			, interest9
+			, interest10 
+			, interest11
+			, interest12
+			, interest13
+			, interest14
+			, interest15
+			, interest16
+			, interest17
+			, interest18
+			, interest19
+			, new_name
+			, new_tel
+			, new_compname
+			, Setdate
+		)VALUES(
+			  #{serveyYMD}
+			, #{interest1}
+			, #{interest2}
+			, #{interest3}
+			, #{interest4}
+			, #{interest5}
+			, #{interest6}
+			, #{interest7}
+			, #{interest8}
+			, #{interest9}
+			, #{interest10}
+			, #{interest11}
+			, #{interest12}
+			, #{interest13}
+			, #{interest14}
+			, #{interest15}
+			, #{interest16}
+			, #{interest17}
+			, #{interest18}
+			, #{interest19}
+			, #{new_name}
+			, #{new_tel}
+			, #{new_compname}
+			, getdate()
+		)
+	</insert>
+	
+
+</mapper>

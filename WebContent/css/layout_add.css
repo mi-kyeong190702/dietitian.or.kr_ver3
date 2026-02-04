@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* 190122학술지(e-BOOK)추가 */
+.kp_journal_e { width:742px; height:382px; background:url(/images/publication/kp_journal_back.png) no-repeat}
+.kp_journal_e img { width:154px; height:210px; padding:81px 0 0 293px;}
+.kp_journal_e p { width:100%; height:30px; text-align:center; margin:35px 0 0 0;}
+.kp_journal_e p img { width:80px; height:28px; padding:0 !important;}
+
+ul.area.journal_tit li { width:184px; text-align:center; border-right:1px solid #f4f4f4; float:left;}
+ul.area.journal_tit li:last-child { border:none !important;}
+ul.area.journal_tit li .jnumber {height:35px; font-size:17px; color:#747678; line-height:19px; margin:15px 0 5px 0; overflow:hidden;}
+ul.area.journal_tit li .jnumber a { color:#282828;}
+ul.area.journal_tit li .jnumber a:hover { color:#006ab6; }

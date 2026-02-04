@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="faq">
+
+	
+	<sql id="faqColumn">
+	 	  idx
+		, faq_category
+		, faq_subject  
+		, faq_contents 
+		, order_num
+		, user_id 
+		, faq_reg_date_dt
+		, faq_edit_date_dt 
+	</sql>
+	
+	<select id="selectFaqList" parameterType="hashmap" resultType="kda.board.data.FAQ">
+	SELECT
+		<include refid="faqColumn" />
+	FROM bbs_faq
+	WHERE faq_category = #{faqCategory}
+	ORDER BY order_num
+	</select>
+	
+	<select id="selectFaq" parameterType="int" resultType="kda.board.data.FAQ">
+	SELECT
+		<include refid="faqColumn" />
+	FROM bbs_faq
+	WHERE idx = #{idx}
+	</select>
+	
+	<insert id="insertFaq" parameterType="kda.board.data.FAQ">
+	<selectKey order="BEFORE" keyProperty="idx" resultType="int">
+	SELECT
+		ISNULL( MAX(idx), 0) + 1
+	FROM bbs_faq
+	</selectKey>
+	INSERT INTO bbs_faq (
+		 <include refid="faqColumn" />
+	) VALUES (
+	      #{idx}
+		, #{faq_category}
+		, #{faq_subject}  
+		, #{faq_contents} 
+		, #{order_num}
+		, #{user_id} 
+		, GETDATE()
+		, GETDATE()
+	)
+	</insert>	
+	
+	<update id="updateFaq" parameterType="kda.board.data.FAQ">
+	UPDATE bbs_faq SET
+		  faq_category = #{faq_category}
+		, faq_subject =  #{faq_subject} 
+		, faq_contents = #{faq_contents} 
+		, order_num = #{order_num}
+		, user_id = #{user_id} 
+		, faq_edit_date_dt = GETDATE()
+	WHERE idx = #{idx}
+	</update>
+	
+	<delete id="deleteFaq" parameterType="int">
+	DELETE FROM bbs_faq WHERE idx = #{idx}
+	</delete>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="common">
+
+	<resultMap type="GROUPCODE" id="GROUPCODE">
+		<result property="groupcode" 	column="GROUPCODE"/>
+		<result property="groupname" 	column="GROUPNAME"/>
+		<result property="codelen" 		column="CODELEN"/>
+		<result property="detcode" 		column="DETCODE"/>
+		<result property="detcodename" 	column="DETCODENAME"/>
+		<result property="tempcd1" 		column="TEMPCD1"/>
+		<result property="tempcd2" 		column="TEMPCD2"/>
+		<result property="tempcd3" 		column="TEMPCD3"/>
+		<result property="use_yn" 		column="USE_YN"/>
+	</resultMap>
+	
+	<select id="getGroupcodeInfo"  parameterType="hashmap" resultMap="GROUPCODE">
+		SELECT A.GROUPCODE
+			 , A.GROUPNAME
+			 , ISNULL(A.CODELEN,'') CODELEN
+			 , ISNULL(B.DETCODE,'') DETCODE
+			 , ISNULL(B.DETCODENAME,'') DETCODENAME
+			 , ISNULL(B.TEMPCD1,'') TEMPCD1
+			 , ISNULL(B.TEMPCD2,'') TEMPCD2
+			 , ISNULL(B.TEMPCD3,'') TEMPCD3
+			 , ISNULL(B.USE_YN,'') USE_YN
+		  FROM COM_GROUP A LEFT OUTER JOIN COM_CODE B ON A.GROUPCODE = B.GROUPCODE
+		 <where> 
+		 	B.USE_YN = 'Y'
+	 		<if test="groupcode != null">
+	 			AND B.GROUPCODE = #{groupcode}
+	 		</if>
+	 		<if test="tempcd2 != null">
+	 			AND B.TEMPCD2 = #{tempcd2}
+	 		</if>		 		
+		 </where>		   
+		 ORDER BY A.GROUPCODE ASC, B.CDSEQ   ASC, B.DETCODE   ASC
+	</select>
+	
+	<insert id="insertExcel" parameterType="hashmap">
+	INSERT INTO excel_log
+		          ( creat_date
+		          , prog_name
+		          , create_user
+		          , sheet_name
+	)VALUES
+			     ( GETDATE()
+			     , #{prog_name}
+			     , #{create_user}
+			     , #{sheet_name} 
+	)
+	</insert>
+	
+	<select id="getGroupcodeInfoNO"  parameterType="hashmap" resultMap="GROUPCODE">
+		SELECT A.GROUPCODE
+			 , A.GROUPNAME
+			 , ISNULL(A.CODELEN,'') CODELEN
+			 , ISNULL(B.DETCODE,'') DETCODE
+			 , ISNULL(B.DETCODENAME,'') DETCODENAME
+			 , ISNULL(B.TEMPCD1,'') TEMPCD1
+			 , ISNULL(B.TEMPCD2,'') TEMPCD2
+			 , ISNULL(B.TEMPCD3,'') TEMPCD3
+			 , ISNULL(B.USE_YN,'') USE_YN
+		  FROM COM_GROUP A LEFT OUTER JOIN COM_CODE B ON A.GROUPCODE = B.GROUPCODE
+		 <where> 
+		 	B.USE_YN = 'Y'
+	 		<if test="groupcode != null">
+	 			AND B.GROUPCODE = #{groupcode}
+	 		</if>
+	 		<if test="tempcd2 != null">
+	 			AND B.TEMPCD2 = #{tempcd2}
+	 		</if>		 		
+		 </where>		   
+		 ORDER BY A.GROUPCODE ASC, B.CDSEQ   ASC, B.DETCODE   ASC
+	</select>
+</mapper>

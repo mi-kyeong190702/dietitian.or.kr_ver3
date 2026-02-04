@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="diagnosis">
+	
+	<resultMap type="KB_C_HABITS_DIAGNOSIS" id="KB_C_HABITS_DIAGNOSIS">
+		<result property="hques_no" 		column="HQUES_NO"/>     
+		<result property="hques_desc" 		column="HQUES_DESC"/>   
+		<result property="hques_rmk" 		column="HQUES_RMK"/>    
+		<result property="hques_caseno" 	column="HQUES_CASENO"/> 
+		<result property="hques_cdesc" 		column="HQUES_CDESC"/>  
+		<result property="hques_comment" 	column="HQUES_COMMENT"/>
+	</resultMap>
+	
+	<select id="selectHques" parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT * 
+		  FROM HQUES_D, HQUES_M
+		 WHERE HQUES_D.HQUES_NO = HQUES_M.HQUES_NO		  
+	</select>
+	
+	
+
+	
+	<select id="selectBodList" resultType="hashmap">
+	SELECT 
+		bod_seqno, bod_desc 
+	FROM bod_m
+	</select>
+
+	<select id="selectActList" resultType="hashmap">
+	SELECT 
+		act_seqno, act_desc 
+	FROM act_m
+	</select>
+	
+	<select id="selectStandardWt" parameterType="hashmap" resultType="hashmap">
+	SELECT top(1)
+		standard_wt,
+		general_fr_high, 
+		general_to_high, 
+		exhort_kcal
+	FROM hwa_tbl
+	WHERE division_sex = #{sex}
+		<![CDATA[ 
+		AND standard_fr_high <= ${fhit} 
+		AND standard_to_high >=  ${fhit}
+		]]>
+	</select>
+	
+	<select id="selectGeneralWt" parameterType="hashmap" resultType="hashmap">
+	SELECT top(1)
+		standard_wt,
+		general_fr_high, 
+		general_to_high, 
+		exhort_kcal
+	FROM hwa_tbl
+	WHERE division_sex = #{sex}
+		AND age = ${fage}
+		<![CDATA[ 
+		AND general_fr_high <= ${fhit} 
+		AND general_to_high >=  ${fhit}
+		]]>
+	</select>
+	
+	<select id="selectObeM" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+		obe_seqno, obe_desc 
+	FROM OBE_M 
+	where obe_adult = #{gubun}
+		<![CDATA[ 
+		AND obe_from <= #{ll_weight} 
+		AND obe_to >= #{ll_weight}
+		]]>
+	</select>
+	
+	<select id="selectWhrM" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+		top(1) comment 
+	FROM whr_m
+	WHERE whr_check = #{check}
+		<![CDATA[ 
+		AND fr_min_value <= #{ll_waist}  
+		AND to_max_value >= #{ll_waist}
+		]]>
+	</select>
+	
+	<select id="selectGreM" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+		top(1) gre_desc
+	FROM gre_m
+	WHERE gre_adult = #{fatGubun}
+		AND gre_sex = #{sex} 
+		<![CDATA[
+		AND gre_fr <= #{fat} 
+		AND gre_to > #{fat}
+		]]>
+	</select>
+	
+	<select id="selectBlpM" parameterType="hashmap" resultType="hashmap" >
+	SELECT 
+		TOP(1)	comment, check_value 
+	FROM blp_m
+	WHERE blp_adult =  #{bloodGubun}
+	<if test="age > 0 ">
+		<![CDATA[
+		AND fr_age <=  #{age}
+		AND to_age >=  #{age}
+		]]>
+	</if>
+	<if test="direct == 1">
+		<![CDATA[
+		AND fr_blp_s <= #{value} 
+		AND to_blp_s >= #{value}
+		]]>	
+	</if>
+	<if test="direct == 2">
+		<![CDATA[
+		AND fr_blp_e <= #{value} 
+		AND to_blp_e >= #{value}
+		]]>
+	</if>
+	</select>
+	
+	<select id="selectBlsM" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+		TOP(1) division 
+	FROM bls_m
+	WHERE 
+		<![CDATA[
+	    fr_before_bls <= #{bloodsb}
+		and to_before_bls >=  #{bloodsb}
+		and fr_after_bls <= #{bloodsa}
+		and to_after_bls >= #{bloodsa}
+		]]>
+	</select>
+	
+	<select id="selectBlsM2" parameterType="hashmap" resultType="hashmap">
+	SELECT
+	   TOP(1)comment
+	FROM bls_m2
+	WHERE division = #{bloodgbn}
+	</select>
+	
+	<select id="selectActM" parameterType="hashmap" resultType="hashmap">
+	SELECT top(1)
+		act_index 
+	FROM act_m 
+	WHERE act_seqno = #{actSeqno}
+	</select>
+	
+	<select id="selectRdaM" parameterType="hashmap" resultType="hashmap">
+	select top(1)
+		rda_energy 
+	from rda_m
+	where rda_sex = #{sex} 
+	<![CDATA[
+		and rda_from <= #{age}
+		and rda_to >= #{age}
+	]]>
+	</select>
+	
+	<select id="selectObeTbl" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+		obe_desc 
+	FROM obe_tbl 
+	WHERE obe_seqno = #{fatcode}
+	</select>
+	
+</mapper>	
+

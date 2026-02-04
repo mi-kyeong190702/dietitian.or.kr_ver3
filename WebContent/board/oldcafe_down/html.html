@@ -1,0 +1,135 @@
+
+<html>
+<head>
+<title>좋은생각</title>
+<LINK rel="stylesheet" type="text/css" href="../css/kna.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function sub(key) {
+   if (document.form1.id.value=="") {alert("\nID를 입력하지 않았습니다.");return;}
+   if (document.form1.passwd.value=="") {alert("\nPASSWORD를 입력하지 않았습니다.");return;}
+   document.form1.action = "user_proof.asp?Gbn="+ key ;
+   document.form1.submit();
+}
+
+function EnterCheck(i) {
+   if(event.keyCode ==13 && i==1 && document.form1.id.value=="")
+   {
+   		alert("\nID를 입력하지 않았습니다.");
+   		return;
+   }
+   if(event.keyCode ==13 && i==1 && document.form1.id.value !="")
+   {
+         document.form1.passwd.focus();
+
+   }
+
+   if (event.keyCode ==13 && i==2 && document.form1.passwd.value=="")
+   {
+   		alert("\nPASSWORD를 입력하지 않았습니다.");
+   		return;
+   }
+   if(event.keyCode ==13 && i==2 && document.form1.passwd.value !="")
+   {
+      document.form1.submit();
+   }
+}
+//-->
+</SCRIPT>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red" onload="document.form1.id.focus();">
+
+<center>
+<table border="0" width="600" align="center">
+    <tr>
+        <td align="left"><img src="../image/좋은생각.gif" border="0" ALT=좋은생각></td>
+
+	</tr>
+		<Tr align=right>
+		<td><A href="/asp/member/member_id/member_kna.asp">
+			<img src="../image/member_join.gif" ALT="회원가입" border="0"></a></td>
+</table>
+<TABLE border=0 cellPadding=1 cellSpacing=1 width=600 align="center">
+    <TR>
+        <TD><table bordercorlor="gray" width="600" border="0" cellspacing=0 cellpadding=0 align=center>
+    <tr align=left>
+		<td width="14"><img src="../image/t1.gif" width=14 height=9 border=0 alt=""></td>
+		<td width="572"><img src="../image/t2.gif" width=572 height=9 border=0></td>
+		<td width="14"><img src="../image/t3.gif" width=14 height=9 border=0 alt=""></td>
+    </tr>
+    <tr>
+    	<td><img src="../image/t4.gif" border="0" width=14 height="120"></td>
+		<td align="left">
+		    <table border="0" width="500" align=center>
+		    	<tr>
+			    	<td>
+						<font id="Typecom1" size="2"> 서로의 생각과 아름다운 세상을 창조하는 회원님들의 의견을 주고 받는 방입니다.<br><br>
+			            <font color="#3187BD">▶</font> 회원은 주민등록번호와 면허번호를 입력하고 "정회원"을 Check하면 "회원공간"을<br>&nbsp;&nbsp;&nbsp; 자유롭게 이용할 수 있습니다.<br>
+	  				    <font color="#3187BD">▶</font> Cyber Member는 현재 간호대 재학생으로, 신청한 ID와 Password를 입력하신후<br>&nbsp;&nbsp;&nbsp; 이용하실 수 있습니다.<br>
+				    </td>
+				 </tr>
+		    </table>
+		</td>
+		<td><img src="../image/t5.gif" border="0" width=14 height="120"></td>
+	</tr>
+	<tr>
+		<td><img src="../image/t6.gif" width=14 height=10 border=0 alt=""></td>
+		<td width="572"><img src="../image/t7.gif" width=572 height=10></td>
+		<td><img src="../image/t8.gif" width=14 height=10 border=0 alt=""></td>
+	</tr>
+</table>
+
+
+<form method="post" action="user_proof.asp" name="form1">
+<center>
+<table width="593" border="0" cellpadding="0" cellspacing="0" align=center>
+	<TR>
+		<td width=140 align=center height=30 valign="middle" bgcolor="#DEDEC0"><font color="blue" size="-1">선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;택</font></td>
+		<td width=13 bgcolor="#DEDEC0"></td>
+		<td width=440 height=20 colspan=2 valign="middle" CLASS="Knatd1i">&nbsp;
+			<INPUT Type="radio" Name="Authority" Value="M" Checked>정 회 원
+			<INPUT Type="radio" Name="Authority" Value="B">Cyber Member
+		</td>
+	</tr>
+	<tr>
+		<td width=140 align=center height=30 valign="middle" bgcolor="#EDEDD4"><font color="blue" size="-1">주민등록번호/ID</font></td>
+		<td width=13 bgcolor="#EDEDD4"></td>
+		<td width=440 height=20 colspan=2 valign="middle" CLASS="Knatd2i">&nbsp;&nbsp;
+			<input type="text" name="id" value="" size=13 maxlength=13 OnKeyDown="EnterCheck(1);">&nbsp;&nbsp;<b>ex)7102152306491</b>("-"생략)</td>
+	</tr>
+	<tr>
+		<td width=140 align=center height=30 valign="middle" bgcolor="#DEDEC0"><font color="blue" size="-1">면&nbsp;&nbsp;허&nbsp;&nbsp;번&nbsp;&nbsp;호/PW</font></td>
+		<td width=13 bgcolor="#DEDEC0"></td>
+		<td width=400 height=20 valign="middle" CLASS="Knatd1i">&nbsp;&nbsp;
+			<input type="password" name="passwd" value="" size=13 maxlength=10 OnKeyDown="EnterCheck(2);">&nbsp;&nbsp;<b>ex)6821->006821</b>(6자리로)</td>
+		<td CLASS="Knatd1i" align="right" valign="middle" width="40">
+			<a href="javascript:sub();"><img src="../image/board_enter.gif" border="0" ALT=들어가기></a>
+		</td>
+	</tr>
+</table>
+</center>
+</form>
+
+<center>
+            <table border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td width="600" colspan="3" align="right"><hr width="600" noshade> </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                    <font face="Arial" size="1">
+                    CopyRight(c) All Right Reserved Korean nurses Association &nbsp;Email :</font>
+                    <a href="mailto:webmaster@koreanurse.or.kr">
+                    <font face="Arial" size="1"> webmaster@koreanurse.or.kr</font></a></td>
+                </tr>
+                </table>
+</center>
+</TABLE>
+</P>
+
+
+</body>
+
+</html>

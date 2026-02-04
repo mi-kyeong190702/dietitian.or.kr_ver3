@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminPayment">
+
+
+	<sql id="confirmColumn">
+		o_code
+		,code_bran
+		,o_gubun
+		,req_tx
+		,res_cd  
+		,res_msg 
+		,ordr_idxx
+		,tno 
+		,good_mny
+		,good_name    
+		,buyr_tel1    
+		,buyr_tel2    
+		,buyr_mail    
+		,card_cd      
+		,card_name    
+		,app_time     
+		,app_no       
+		,quota        
+		,dbindate     
+		,id           
+		,goods_code_num
+		,o_etc        
+		,buyr_name
+		,edu_kind
+		,order_status    
+		,order_cancel_msg
+		,order_cancel_name
+		,order_cancel_date
+		,pers_birth              
+	</sql>
+	
+	<sql id="confirmWhere">
+		<if test="startm != null and startm != ''">
+			AND CONVERT(CHAR(8),app_time,23)
+			BETWEEN #{startm} AND #{endm}
+		</if>
+		<if test="code_bran != null and code_bran != ''">
+			AND code_bran = #{code_bran}
+		</if>
+		<if test="o_gubun != null and o_gubun != ''">
+			AND o_gubun = #{o_gubun}
+		</if>
+		<if test="good_mny != null and good_mny != ''">
+			AND good_mny = #{good_mny}
+		</if>
+		<if test="pers_birth != null and pers_birth != ''">
+			AND pers_birth = #{pers_birth}
+		</if>
+		<if test="ordr_idxx != null and ordr_idxx != ''">
+			AND ordr_idxx = #{ordr_idxx}
+		</if>
+		<if test="tno != null and tno != ''">
+			AND tno = #{tno}
+		</if>
+		<if test="app_no != null and app_no != ''">
+			AND app_no = #{app_no}
+		</if>
+		<if test="good_name != null and good_name != ''">
+			AND good_name LIKE '%' + #{good_name} + '%'
+		</if>
+		<if test="buyr_name != null and buyr_name != ''">
+			AND buyr_name LIKE '%' +#{buyr_name} + '%'
+		</if>
+		<if test="order_status != null and order_status != ''">
+			AND order_status = #{order_status}
+		</if>
+	</sql>
+	
+	<sql id="confirmExcel">
+		o_code
+		,CASE 	WHEN code_bran ='0' THEN '본회'
+					WHEN code_bran ='10' OR code_bran ='2' THEN '서울지부'
+					WHEN code_bran ='20' OR code_bran ='3' THEN '부산지부'
+					WHEN code_bran ='30' OR code_bran ='4' THEN '인천지부'
+					WHEN code_bran ='40' OR code_bran ='5' THEN '경기지부'
+					WHEN code_bran ='50' OR code_bran ='6' THEN '강원지부'
+					WHEN code_bran ='60' OR code_bran ='7' THEN '충북지부'
+					WHEN code_bran ='70' OR code_bran ='8' THEN '대전충남지부'
+					WHEN code_bran ='80' OR code_bran ='9' THEN '전북지부'
+					WHEN code_bran ='90' OR code_bran ='10' THEN '광주전남지부'
+					WHEN code_bran ='100' OR code_bran ='11' THEN '대구경북부'
+					WHEN code_bran ='110' OR code_bran ='12' THEN '경남지부'
+					WHEN code_bran ='120' OR code_bran ='13' THEN '울산지부'
+					WHEN code_bran ='130' OR code_bran ='14' THEN '제주지부' END code_bran
+		,CASE o_gubun 	WHEN 'MEMBER' THEN '회원가입'
+								WHEN 'MEMBER_UP' THEN '회원재가입'
+								WHEN 'EDU-REAL' THEN '교육-판매품'
+								WHEN 'STUDY_REA' THEN '학술대회'
+								WHEN 'EDU_STUDY' THEN '홈페이지교육신청'
+								WHEN 'EDU_RETEST' THEN '재시험교육신청' END o_gubun
+		,req_tx
+		,res_cd  
+		,res_msg 
+		,ordr_idxx
+		,tno 
+		,good_mny
+		,good_name    
+		,buyr_tel1    
+		,buyr_tel2    
+		,buyr_mail    
+		,card_cd      
+		,card_name    
+		,app_time     
+		,app_no       
+		,quota        
+		,dbindate     
+		,id +'('+ buyr_name +')' as id 
+		,goods_code_num
+		,o_etc        
+		,edu_kind
+		,order_status as order_status_cd
+		,CASE order_status WHEN '00' THEN res_msg ELSE '승인 -> 취소' END order_status
+		,order_cancel_msg
+		,order_cancel_name
+		,order_cancel_date
+		,pers_birth              
+	</sql>
+	
+	<select id="selectConfirmCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(o_code)
+	FROM tbl_order_list
+	WHERE 1=1
+		<include refid="confirmWhere" />
+	</select>
+	
+	<select id="selectConfirmListHelper" parameterType="hashmap" resultType="kda.admin.payment.data.TBLORDERLIST">
+	
+  	SELECT 
+		num ,
+		<include refid="confirmColumn" />
+		,CASE WHEN CONVERT(CHAR(8),app_time,23) <![CDATA[<]]> '20121220' THEN (good_mny*0.02)
+		      WHEN CONVERT(CHAR(8),app_time,23) between '20130201' and '20160131' THEN (good_mny*0.015)
+			  WHEN CONVERT(CHAR(8),app_time,23) <![CDATA[>]]> '20160131' THEN (good_mny*0.008)
+		 ELSE  
+			CASE WHEN Code_bran='0' THEN (good_mny*0.0235) 
+			WHEN Code_bran='10' THEN (good_mny*0.0240) 
+			WHEN Code_bran='20' THEN (good_mny*0.0231) 
+			WHEN Code_bran='30' THEN (good_mny*0.0235)
+			WHEN Code_bran='40' THEN (good_mny*0.0221)
+			WHEN Code_bran='50' THEN (good_mny*0.0222)
+			WHEN Code_bran='60' THEN (good_mny*0.0226)
+			WHEN Code_bran='70' THEN (good_mny*0.0218)
+			WHEN Code_bran='80' THEN (good_mny*0.0235)
+			WHEN Code_bran='90' THEN (good_mny*0.0218)
+			WHEN Code_bran='100' THEN (good_mny*0.0220)
+			WHEN Code_bran='110' THEN (good_mny*0.0233)
+			WHEN Code_bran='120' THEN (good_mny*0.0238)
+			WHEN Code_bran='130' THEN (good_mny*0.0235)
+			END 
+		END AS round_economent
+		
+	FROM (
+	
+		SELECT 
+			ROW_NUMBER() OVER( ORDER BY  app_time DESC ) AS num , 
+			<include refid="confirmColumn" />
+		FROM tbl_order_list
+		WHERE 1=1
+			<include refid="confirmWhere" />
+		
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	
+	</select>
+	
+	<select id="getConfirm" parameterType="hashmap" resultType="kda.admin.payment.data.TBLORDERLIST">
+	SELECT
+		<include refid="confirmColumn" />
+		,CASE WHEN
+		CONVERT(CHAR(8),app_time,23) <![CDATA[<]]> '20121220' THEN (good_mny*0.02)
+		WHEN CONVERT(CHAR(8),app_time,23) between '20130201' and '20160131' THEN (good_mny*0.015)
+		WHEN CONVERT(CHAR(8),app_time,23) <![CDATA[>]]> '20160131' THEN (good_mny*0.008)
+		ELSE  
+		CASE WHEN Code_bran='0' THEN (good_mny*0.0235) 
+		WHEN Code_bran='10' THEN (good_mny*0.0240) 
+		WHEN Code_bran='20' THEN (good_mny*0.0231) 
+		WHEN Code_bran='30' THEN (good_mny*0.0235)
+		WHEN Code_bran='40' THEN (good_mny*0.0221)
+		WHEN Code_bran='50' THEN (good_mny*0.0222)
+		WHEN Code_bran='60' THEN (good_mny*0.0226)
+		WHEN Code_bran='70' THEN (good_mny*0.0218)
+		WHEN Code_bran='80' THEN (good_mny*0.0235)
+		WHEN Code_bran='90' THEN (good_mny*0.0218)
+		WHEN Code_bran='100' THEN (good_mny*0.0220)
+		WHEN Code_bran='110' THEN (good_mny*0.0233)
+		WHEN Code_bran='120' THEN (good_mny*0.0238)
+		WHEN Code_bran='130' THEN (good_mny*0.0235)
+		END 
+		END AS round_economent
+	FROM tbl_order_list
+	WHERE	o_code = #{o_code}
+	ORDER BY app_time DESC
+	</select>
+	
+	<update id="updateConfirm" parameterType="hashmap">
+	UPDATE	tbl_order_list
+	SET		order_status = '01'
+				,order_cancel_msg =  #{order_cancel_msg}
+				,order_cancel_name = #{order_cancel_name}
+				,order_cancel_date = CONVERT(VARCHAR(10),GETDATE(),112)
+	WHERE	o_code = #{o_code}
+	</update>
+	
+	<select id="getMember" parameterType="hashmap" resultType="kda.member.data.PERSON_M_TBL">
+	SELECT 	pers_name
+				,code_pers
+				,pers_birth
+				,lic_no
+				,pers_hp
+				,email
+				,code_post
+				,pers_add
+				,pers_tel
+				,DBO.GETCODEVALUE('018', code_call) AS code_call
+				,DBO.GETCODEVALUE('030', code_place) AS code_place
+				,DBO.GETCODEVALUE('002', code_sex) AS code_sex
+				,DBO.GETCODEVALUE('006', code_member) AS code_member
+	FROM person_m_tbl
+	WHERE pers_name = #{pers_name}
+	AND pers_birth = #{pers_birth}
+	</select>
+	
+	<select id="getCompany" parameterType="hashmap" resultType="kda.member.data.PERS_COMPANY">
+	SELECT TOP 1	* 
+	FROM pers_company
+	WHERE 	code_pers = #{code_pers}
+	AND 		primary_flag='1'
+	ORDER BY comp_seq DESC
+	</select>
+	
+	<select id="getMoney" parameterType="hashmap" resultType="kda.member.data.DUES_H_TBL">
+	SELECT 	code_pers
+				,dues_gubun
+				,dues_h_seq
+				,regi_dt
+				,auth_start
+				,auth_end
+				,mem_dues
+				,sum_dues
+				,incom_flag
+				,DBO.GETCODEVALUE('006', code_member) AS code_member 
+	FROM dues_h_tbl
+	WHERE code_pers = #{code_pers}
+	ORDER BY auth_start DESC
+	</select>
+	
+	<select id="getCard" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYADDRESS">
+	SELECT 	buserId
+				,bindex
+				,bdate
+				,bpayment
+				,bpaymentDate
+				,bf_PaymentDate
+				,bf_PaymentName
+				,bf_name
+				,bf_ssn
+				,bf_Tel
+				,bf_Mobile
+				,bf_Email
+				,bf_Delivery
+				,bt_name
+				,bt_Post
+				,bt_Address
+				,bt_Tel
+				,bt_Mobile
+				,bt_Paper
+				,bt_Text
+				,pay_Gubun
+	FROM pTb_BuyAddress 
+	WHERE bindex=#{bindex}
+	</select>
+	
+	<select id="getGoods" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYGOODS">
+	SELECT
+		a.*, b.otitle 
+	FROM		pTb_BuyGoods a RIGHT OUTER JOIN pTb_BookGoods b ON a.oIndex=b.oIndex
+	WHERE	bindex=#{bindex}
+	</select>
+	
+	<select id="getTech" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGACTIVE">
+	SELECT	* 
+	FROM 	science_meeting_Active 
+	WHERE 	idx =#{idx}
+	</select>
+	
+	<select id="getEdu1" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGACTIVE">
+	SELECT
+	  			Edu_TBL.edu_name
+	 			,'code_session'  as code_session 
+	 			,'code_season'  as code_season 
+	 			,Edu_TBL.edu_pay as good_mny 
+				,Edu_TBL.code_inst   as code_inst
+				,Edu_TBL.edu_open
+				,person_m_tbl.pers_no
+				,person_m_tbl.pers_name
+				,person_m_tbl.pers_tel
+				,person_m_tbl.pers_hp
+				,person_m_tbl.email
+				,id_tbl.id as id_name
+	FROM  			STD_B_TBL   
+	INNER JOIN  	Edu_TBL    
+	ON (STD_B_TBL.edu_id = Edu_TBL.edu_id) 
+	INNER JOIN  	person_m_tbl     
+	ON (person_m_tbl.pers_no = STD_B_TBL.pers_no) 
+	LEFT OUTER JOIN id_tbl 
+	ON (id_tbl.pers_no = STD_B_TBL.pers_no)
+	WHERE (STD_B_TBL.app_id =#{App_ID})  
+	</select>
+	
+	<select id="getEdu2" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGACTIVE">
+	SELECT
+				 Std_Lic_B_TBL.edu_name 
+				,Std_Lic_B_TBL.code_session 
+				,Std_Lic_B_TBL.code_season 
+				,Edu_Lic_TBL.edu_pay as good_mny 
+				,Edu_Lic_TBL.edu_open 
+				,Edu_TBL.code_inst  as code_inst 
+				,person_m_tbl.pers_no
+				,person_m_tbl.pers_name
+				,person_m_tbl.pers_tel
+				,person_m_tbl.pers_hp
+				,person_m_tbl.email
+				,id_tbl.id as id_name
+
+	FROM 				Std_Lic_B_TBL 
+	INNER JOIN		Edu_Lic_TBL 
+	ON Std_Lic_B_TBL.edu_lic_id = Edu_Lic_TBL.edu_lic_id 
+	INNER JOIN		Edu_TBL       
+	ON Edu_TBL.edu_id = Edu_Lic_TBL.edu_id 
+	INNER JOIN		Person_M_tbl 
+	ON Person_M_tbl.pers_no = Std_Lic_B_TBL.pers_no  
+	LEFT OUTER JOIN id_tbl 
+	ON (id_tbl.pers_no = Std_Lic_B_TBL.pers_no)
+	WHERE (Std_Lic_B_TBL.std_lic_b_id  =#{App_ID} ) 
+	</select>
+	
+	<select id="selectPaymentUserCount" resultType="kda.admin.payment.data.ADMINTBL">
+	SELECT  COUNT(inx) 
+	FROM admin_tbl
+	</select>
+	
+	<select id="selectPaymentUserListHelper" resultType="kda.admin.payment.data.ADMINTBL">
+	SELECT 
+			* 
+	FROM (
+		SELECT  * 
+					,ROW_NUMBER() OVER( ORDER BY  inx ) AS num  
+		FROM admin_tbl
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="selectUserCount"  parameterType="hashmap" resultType="kda.admin.payment.data.ADMINTBL">
+	SELECT  * 
+	FROM admin_tbl
+	WHERE inx=#{inx}
+	</select>
+	
+	<select id="excelConfirm" parameterType="kda.admin.payment.data.TBLORDERLIST" resultType="java.util.HashMap">
+	SELECT
+		*
+		,replace(convert(varchar,convert(money,(good_mny-round_economent)),1),'.00','')  mny
+		,replace(convert(varchar,convert(money,good_mny),1),'.00','')  good_mny2
+		,replace(convert(varchar,convert(money,round_economent),1),'.00','')  round_economent2
+	FROM (
+		  	SELECT 
+				*
+				,CASE WHEN CONVERT(CHAR(8),app_time,23) <![CDATA[<]]> '20121220' THEN (good_mny*0.02)
+				      WHEN CONVERT(CHAR(8),app_time,23) between '20130201' and '20160131' THEN (good_mny*0.015)
+					  WHEN CONVERT(CHAR(8),app_time,23) <![CDATA[>]]> '20160131' THEN (good_mny*0.008)
+				 ELSE  
+					  CASE WHEN Code_bran='0' THEN (good_mny*0.0235) 
+					  WHEN Code_bran='10' THEN (good_mny*0.0240) 
+					  WHEN Code_bran='20' THEN (good_mny*0.0231) 
+					  WHEN Code_bran='30' THEN (good_mny*0.0235)
+					  WHEN Code_bran='40' THEN (good_mny*0.0221)
+					  WHEN Code_bran='50' THEN (good_mny*0.0222)
+					  WHEN Code_bran='60' THEN (good_mny*0.0226)
+					  WHEN Code_bran='70' THEN (good_mny*0.0218)
+					  WHEN Code_bran='80' THEN (good_mny*0.0235)
+					  WHEN Code_bran='90' THEN (good_mny*0.0218)
+					  WHEN Code_bran='100' THEN (good_mny*0.0220)
+					  WHEN Code_bran='110' THEN (good_mny*0.0233)
+					  WHEN Code_bran='120' THEN (good_mny*0.0238)
+					  WHEN Code_bran='130' THEN (good_mny*0.0235)
+					  END 
+				  END AS round_economent
+				
+			FROM (
+			
+				SELECT 
+					ROW_NUMBER() OVER( ORDER BY  app_time DESC ) AS num , 
+					<include refid="confirmExcel" />
+				FROM tbl_order_list
+				WHERE 1=1
+					<include refid="confirmWhere" />
+				
+			) A  
+		) result
+		ORDER BY 	num
+	
+	</select>
+	
+	
+</mapper>
+

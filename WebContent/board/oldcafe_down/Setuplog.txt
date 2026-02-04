@@ -1,0 +1,4899 @@
+[OptionalComponents]
+"사용자 정의 문자 편집기"=1
+"보조프로그램"=1
+"화면 보호기"=1
+"그림판"=1
+"계산기"=1
+"Windows 로고"=1
+"바탕 화면 배경 무늬"=1
+"OpenGL 화면 보호기"=1
+"추가 화면 보호기"=1
+"통신"=1
+"시스템 도구"=1
+"디스크 압축 도구"=1
+"백업"=1
+"드라이브 변환기 (FAT32)"=1
+"내게 필요한 옵션"=1
+"내게 필요한 옵션 도구"=1
+"인터넷 연결 공유"=0
+"오디오 압축"=1
+"비디오 압축"=1
+"녹음기"=1
+"볼륨 조절"=1
+"다국어 지원"=0
+"발트어 지원"=0
+"중앙 유럽 언어 지원"=0
+"키릴 자모 언어 지원"=0
+"그리스 언어 지원"=0
+"터키어 지원"=0
+"서류 가방"=0
+"개인 웹 서버"=1
+"문서 서식 파일"=1
+"워드패드"=1
+"전화 접속 네트워킹"=1
+"전화 접속 서버"=0
+"케이블 직접 연결"=0
+"가상 개인 네트워킹"=0
+"전화 접속 ATM 지원"=0
+"게임"=1
+"시스템 모니터"=1
+"시스템 리소스 측정기"=1
+"네트워크 감독"=1
+"문자표"=1
+"간략히 보기"=1
+"인터넷 도구"=1
+"하이퍼터미널"=1
+"전화 걸기"=1
+"Microsoft Wallet"=1
+"Microsoft Chat 2.5"=1
+"클립보드 표시기"=1
+"그룹 규칙"=1
+"Imaging"=1
+"멀티미디어"=1
+"멀티미디어 사운드"=1
+"사운드 예제"=1
+"CD 재생기"=1
+"NetMeeting"=1
+"Outlook Express"=1
+"주소록"=1
+"온라인 서비스"=1
+"나우누리"=1
+"천리안"=1
+"하이텔"=1
+"마우스 포인터"=1
+"Macromedia Shockwave"=1
+"Macromedia Shockwave Flash"=1
+"바탕 화면 테마"=1
+"바탕 화면 테마 지원"=1
+"Windows 98"=1
+"Windows 세상"=1
+"컴퓨터 내부 구조"=1
+"과학"=1
+"우주"=1
+"미스테리"=1
+"야구"=1
+"스포츠"=1
+"평화를 향한 외침"=1
+"레오나르도 다빈치"=1
+"산업 혁명"=1
+"동물의 세계"=1
+"정글"=1
+"자연의 세계"=1
+"여행"=1
+"해저 여행"=1
+"WBEM"=1
+"웹 게시 마법사"=1
+"Windows Scripting Host"=1
+
+[System]
+"Locale"="L0412"
+"KoreanKeyboard"="PNP0303"
+"SelectedKeyboard"="KEYBOARD_00000412"
+
+[NameAndOrg]
+
+[Destination]
+1=C:\WINDOWS\OPTIONS\CABS\
+2=C:\WININST0.400
+3=C:\UNINSTAL.000
+4=C:\UNINSTAL.000
+5=C:\WININST0.400
+10=c:\windows
+11=c:\windows\SYSTEM
+12=c:\windows\SYSTEM\IOSUBSYS
+13=c:\windows\COMMAND
+17=c:\windows\INF
+18=c:\windows\HELP
+19=c:\windows
+20=c:\windows\FONTS
+21=c:\windows\SYSTEM\VIEWERS
+22=c:\windows\SYSTEM\VMM32
+23=c:\windows\SYSTEM\COLOR
+24=C:\
+25=c:\windows
+26=c:\windows
+27=C:\
+28=c:\windows
+30=C:\
+31=C:\
+32=C:\WINBOOT
+33=
+
+[]
+
+fsCmosAVCheck: Attempting CMOS Anti Virus Test
+fsCmosAVCheck: CMOS Anti Virus Test SUCCEEDED
+Drive=:A:, Host=::, Flags=:0x107:
+Drive=:C:, Host=::, Flags=:0xd:
+Drive=:P:, Host=::, Flags=:0x205:
+vfs.boot=:C:, vfs.boothost=::
+FSLog: BIOS Heads=:255:, BootPart Heads=:255:
+Batchfile=C:\WININST0.400\MSBATCH.INF
+loading 'C:\WININST0.400\suexpand.dll' returned 1177149e
+VcpClose:About to close
+VcpClose:Copy 1
+LDID is ffff failed CtlGetLdd 
+CAB-No volume name for LDID ffff, local copy - path Absolute
+MSBATCH.INF=2,,9976,22888
+VcpClose:About to End
+VcpClose:About to Terminate
+batch settings:
+[Setup]
+InstallType=3
+Customise=0
+Express=1
+ChangeDir=0
+Network=0
+OptionalComponents=1
+System=0
+MBR=1
+Reboot=2
+CCP=0
+EBD=0
+CleanBoot=0
+Win31FileSystem=-8531
+CopyFiles=1
+Verify=0
+UPI=1
+VRC=0
+External=1
+ShowEula=1
+CustomOEMInstall=0
+AutoRetry=0
+PenWinWarning=0
+CHKDSK=0
+UNINSTALL=0
+DevicePath=0
+NoDirWarn=1
+NoAppsWarn=0
+RunHwInfo=1
+BootCD=0
+CallMigrationDLLs=1
+InstallDir=c:\windows,1,0
+
+[Network]
+DisplayWorkstationSetup=0
+WorkstationSetup=0
+HDBOOT=0
+RPLSETUP=0
+SaveSuBoot=0
+
+
+[Started]
+version=262154,2222
+OldLogFile
+SourcePath=C:\WININST0.400
+CmdLine=/T:C:\WININST0.400 /SrcDir=C:\WINDOWS\OPTIONS\CABS /IS /IW /IQ /ID /IV /IZ /II /NR /II /C  /U:xxxxxxxxxxxxxxxxx
+WinVer=Mini
+ExePath=C:\WININST0.400
+FilePath=C:\WINDOWS\OPTIONS\CABS\
+RunVer=3.1
+dwSrcPathType=0
+Init:Setup initialization successful.
+Started=Passed
+
+[Dummy]
+
+[Dialogs]
+CacheFile() C:\MSDOS.SYS returns=0
+Init:Main INF=C:\WININST0.400\SETUPPP.INF.
+
+[디렉터리 선택]
+"c:\windows"=1
+DS:DS_SetAvailablePad: C=16818176, Tot=16818176
+DS:DS_SetRequiredPad: C=16818176, Tot=16818176
+TmpDirPad:Drive:C:, size:16818176
+DS:DS_SetRequiredPad: C=1500000, Tot=18318176
+BootDrvPad:Drive:C:, size:1500000
+DS:DS_SetRequiredPad: C=6000000, Tot=24318176
+dsRegSetPads:SysDatPath:c:\windows, size:6000000
+DS:DS_SetRequiredPad: C=600000, Tot=24918176
+dsRegSetPads:UserDatPath:c:\windows, size:600000
+DS:DS_SetRequiredPad: C=2000000, Tot=26918176
+dsRegSetPads:System.new pad:2000000
+DS:DS_SetRequiredPad: C=200000, Tot=27118176
+dsRegSetPads:User.new pad:200000
+DS:DS_SetRequiredPad: C=2000000, Tot=29118176
+dsRegSetPads:Regtmp pad:2000000
+SwapFile(HMR): ExtMem=:32505856: and TotalSwapReqdFromINF=:24117248:
+ValidateHostSpace:OK
+ScanReg was skipped from the command line.
+CL:Windows 98 Second Edition CD-ROM PRECOPY1.CAB
+CL:Windows 98 Second Edition CD-ROM PRECOPY2.CAB
+CL:Windows 98 Second Edition CD-ROM CATALOG3.CAB
+CL:Windows 98 Second Edition CD-ROM BASE4.CAB
+CL:Windows 98 Second Edition CD-ROM BASE5.CAB
+CL:Windows 98 Second Edition CD-ROM BASE6.CAB
+CL:Windows 98 Second Edition CD-ROM NET7.CAB
+CL:Windows 98 Second Edition CD-ROM NET8.CAB
+CL:Windows 98 Second Edition CD-ROM NET9.CAB
+CL:Windows 98 Second Edition CD-ROM NET10.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER11.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER12.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER13.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER14.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER15.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER16.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER17.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER18.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER19.CAB
+CL:Windows 98 Second Edition CD-ROM DRIVER20.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_21.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_22.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_23.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_24.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_25.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_26.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_27.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_28.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_29.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_30.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_31.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_32.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_33.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_34.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_35.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_36.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_37.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_38.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_39.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_40.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_41.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_42.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_43.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_44.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_45.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_46.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_47.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_48.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_49.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_50.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_51.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_52.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_53.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_54.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_55.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_56.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_57.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_58.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_59.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_60.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_61.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_62.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_63.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_64.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_65.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_66.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_67.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_68.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_69.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_70.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_71.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_72.CAB
+CL:Windows 98 Second Edition CD-ROM WIN98_73.CAB
+Init:Registry init OK.
+Migration:(C:\WININST0.400\9xmig.dll,Migration,WAB5.0)(stage 0x1) returned (0x0)
+Migration:(C:\WININST0.400\9xmig.dll,Migration,OE5.0)(stage 0x1) returned (0x0)
+INF:IPCacheOff(1)
+loading 'C:\WININST0.400\suexpand.dll' returned 1177149e
+CL:DEC PATHWORKS Windows 드라이버 디스크 
+CL:PC-NFS Windows 드라이버 디스크 
+VcpClose:About to close
+VcpClose:Copy 1
+"사용자 정의(&U)"=1
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+hidci.dll=5,,9893,45760
+VcpClose:About to End
+VcpClose:About to Terminate
+INF:IPCacheOff(0)
+Migration:(C:\WININST0.400\9xmig.dll,Migration,WAB5.0)(stage 0x2) returned (0x0)
+Migration:(C:\WININST0.400\9xmig.dll,Migration,OE5.0)(stage 0x2) returned (0x0)
+AddFileEntry::Ignoring File named  s3dd32_765.dll in C:\WININST0.400\msdisp.inf
+AddFileEntry::No size for CATALOG3.CAB in C:\WININST0.400\subase.inf
+DS:DS_SetRequiredPad: C=42000000, Tot=71118176
+dsSetPads:Path:c:\windows, size:42000000
+Migration:(C:\WININST0.400\9xmig.dll,Migration,WAB5.0)(stage 0x10) returned (0x0)
+Migration:(C:\WININST0.400\9xmig.dll,Migration,OE5.0)(stage 0x10) returned (0x0)
+DS:DS_SetRequiredPad: C=0, Tot=71118176
+GDD::Required=:223805412 incl Pad=:278105412 no discount 223936513
+GDD::Required=:327417828 incl Pad=:381717828 no discount 327548929
+DS(CheckDiskSpace):D=C:, Bpc=32768, F=8050696, TF=8050696, R=381717828, A=8050696, RP=71118176, AP=16818176, OF=0, SS=0
+GetUserInfo:INIT
+INF:IPCacheOff(1)
+INF:IPCacheOff(0)
+Locale: 
+Dialogs=Passed
+
+[Dummy]
+loading 'C:\WININST0.400\suexpand.dll' returned 1177149e
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+Migration:(C:\WININST0.400\9xmig.dll,Migration,WAB5.0)(stage 0x100) returned (0x0)
+Migration:(C:\WININST0.400\9xmig.dll,Migration,OE5.0)(stage 0x100) returned (0x0)
+Providers begin (PreQueueProviders)
+CallDll(C:\WININST0.400\netdi.dll,SBSTREECOPYNWBOOTDISK), hlib=6206, ret=0
+CallDll(C:\WININST0.400\infrared.dll,CleanUpPnPIrDevices), hlib=2, ret=5021
+Providers End (PreQueueProviders)
+Set CommandLine to (/T:C:\WININST0.400 /SrcDir=C:\WINDOWS\OPTIONS\CABS /IS /IW /IQ /ID /IV /IZ /II /NR /II /C  /U:xxxxxxxxxxxxxxxxx)
+loading 'C:\WININST0.400\suexpand.dll' returned 1177149e
+
+[FileQueue]
+SrcLdid:(30)win.bat
+GenInstall of Setion (Lexmark_Remove) returned (0).
+GenInstall(AlwaysInstall section) PASSED 
+GenInstall(CleanInstall section) PASSED 
+GenInstall(BaseClassWithoutNet section) PASSED 
+InstallActiveLanguages: FAILED to open HKCU\keyboard layout\preload
+SrcLdid:(25)imagehlp.dll
+SrcLdid:(25)reg.dat
+Winver (0000) specific Section:winClean, reRet=0.
+Calling Netdi to install
+Netdi return: 0
+SCfg:KoreanKeyboard:PC/AT 101키 호환 키보드/MS Natural Keyboard(종류 1) 0
+SCfg:Large fonts installed, genInstall returned 0
+SCfg:Locale:한국어 0
+SCfg:SelectedKeyboard:한국어(한글) 0
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SRCDUP:hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+SrcLdid:(5)hidci.dll
+INF:IPCacheOff(1)
+INF:IPCacheOff(0)
+Providers begin (BeforeProvider)
+PS:WS
+PS:BB 'C:\WININST0.400\MSBATCH.INF'
+CacheFile() C:\WININST0.400\MSBATCH.INF returns=0
+PS:B0
+PS:BE
+CallDll(C:\WININST0.400\msprint.dll,SETUPENTRY), hlib=7222, ret=0
+Providers End (BeforeProvider)
+FileQueue=Passed
+
+[Dummy]
+SrcLdid:(5)MSBATCH.INF
+SrcLdid:(5)MSBATCH.INF
+SrcLdid:(5)MSBATCH.INF
+
+[FileCopy]
+VcpClose:About to close
+VcpClose:Delete 3276
+VcpClose:Rename 3
+VcpClose:Copy 3575
+CAB-No volume name for LDID 2, local copy - path C:\WININST0.400
+amovie.inf=17,,9893,45760
+applets.inf=17,,9893,45760
+applets1.inf=17,,9893,45760
+atmuni.inf=17,,9893,45760
+cfgwiz.dll=11,,10032,23953
+cfgwiz32.exe=11,,9893,45760
+cxpdfgo.inf=17,,9893,45760
+cxpdfpci.inf=17,,9893,45760
+decpsmw4.inf=17,,9893,45760
+didiva.inf=17,,9893,45760
+digiisdn.inf=17,,9893,45760
+dindi.dll=11,,10032,23953
+diwan.inf=17,,9893,45760
+dlcndi.dll=11,,10032,23953
+easyisdn.inf=17,,9893,45760
+enable.inf=17,,9893,45760
+eudcedit.inf=17,,9893,45760
+hiddev.inf=17,,9893,45760
+hwinfo.exe=25,,9893,45760
+ibm4mir.inf=17,,9893,45760
+ibmeimp.inf=17,,9893,45760
+ics.inf=17,,9893,45760
+icshare.inf=17,,9893,45760
+icsharep.inf=17,,9893,45760
+icw97.inf=17,,9893,45760
+ie.inf=17,,9893,45760
+iefiles.inf=17,,9893,45760
+ieshell.inf=17,,9893,45760
+ime.inf=17,,9893,45760
+infoisdn.inf=17,,9893,45760
+infrared.dll=11,,10032,23953
+infrared.inf=17,,9893,45760
+instcm16.inf=17,,9893,45760
+issetup.dll=11,,10032,23953
+mdacinst.inf=17,,9893,45760
+mdmgl001.inf=17,,9893,45760
+mdmgl002.inf=17,,9893,45760
+mdmgl003.inf=17,,9893,45760
+mdmgl004.inf=17,,9893,45760
+mdmgl005.inf=17,,9893,45760
+mdmgl006.inf=17,,9893,45760
+mdmgl007.inf=17,,9893,45760
+mdmgl100.inf=17,,9893,45760
+mfdfgo.inf=17,,9893,45760
+mfdfpci.inf=17,,9893,45760
+mini.cab=11,,9893,45760
+mini1.cab=11,,9893,45760
+modems.inf=17,,9893,45760
+monitor.inf=17,,9893,45760
+monitor2.inf=17,,9893,45760
+monitor3.inf=17,,9893,45760
+monitor4.inf=17,,9893,45760
+monitor5.inf=17,,9893,45760
+monitor6.inf=17,,9893,45760
+monitor7.inf=17,,9893,45760
+monitr10.inf=17,,9893,45760
+monitr11.inf=17,,9893,45760
+motown.inf=17,,9893,45760
+mplay98.inf=17,,9893,45760
+msdos.inf=17,,9893,45760
+msdxwin.inf=17,,9893,45760
+msinfo.inf=17,,9893,45760
+msjava16.inf=17,,9893,45760
+msports.inf=17,,9893,45760
+mstask.inf=17,,9893,45760
+mstcp.dll=11,,10032,23953
+mtd.inf=17,,9893,45760
+mullang.inf=17,,9893,45760
+ncplatfm.inf=17,,9893,45760
+ncwandis.inf=17,,9893,45760
+ndscli.inf=17,,9893,45760
+ndswan16.dll=11,,10032,23953
+ndswan32.dll=11,,9893,45760
+net3c562.inf=17,,9893,45760
+net3com.inf=17,,9893,45760
+net3comt.inf=17,,9893,45760
+net557.inf=17,,9893,45760
+neta351.inf=17,,9893,45760
+netaic59.inf=17,,9893,45760
+netapi.dll=11,,10032,23953
+netcable.inf=17,,9893,45760
+netcd.inf=17,,9893,45760
+netcem28.inf=17,,9893,45760
+netcem33.inf=17,,9893,45760
+netcli.inf=17,,9893,45760
+netcli3.inf=17,,9893,45760
+netcmdr.inf=17,,9893,45760
+netcrc.inf=17,,9893,45760
+netdca.inf=17,,9893,45760
+netdef.inf=17,,9893,45760
+netdet.ini=25,,9893,45760
+netdfgo.inf=17,,9893,45760
+netdfpci.inf=17,,9893,45760
+netdi.dll=11,,10032,23954
+netdl660.inf=17,,9893,45760
+netdlc32.inf=17,,9893,45760
+netel59x.inf=17,,9893,45760
+Netel5x9.inf=17,,9893,45760
+netel90x.inf=17,,9893,45760
+neteni25.inf=17,,9893,45760
+netevx.inf=17,,9893,45760
+netfake.inf=17,,9893,45760
+netfam.inf=17,,9893,45760
+netfar.inf=17,,9893,45760
+netfjvi.inf=17,,9893,45760
+netfore.inf=17,,9893,45760
+netgen.inf=17,,9893,45760
+netibmtb.inf=17,,9893,45760
+netlane.inf=17,,9893,45760
+netmadge.inf=17,,9893,45760
+netmatmc.inf=17,,9893,45760
+netncr.inf=17,,9893,45760
+netoca1p.inf=17,,9893,45760
+netos.dll=11,,10032,23954
+netprot.inf=17,,9893,45760
+netracal.inf=17,,9893,45760
+netservr.inf=17,,9893,45760
+netsilc.inf=17,,9893,45760
+netsmc32.inf=17,,9893,45760
+nettcc.inf=17,,9893,45760
+nettlan.inf=17,,9893,45760
+nettulip.inf=17,,9893,45760
+netub.inf=17,,9893,45760
+netznote.inf=17,,9893,45760
+nwnds.dll=11,,10032,23954
+pidgen.dll=10,,10032,23954
+powercfg.inf=17,,9893,45760
+pppndi.dll=11,,10032,23954
+rna.inf=17,,9893,45760
+rnasetup.dll=11,,10032,23954
+shell2.inf=17,,9893,45760
+wan.tsp=11,,9893,45760
+ws2atmsp.inf=17,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+suback.bin=25,,9893,45760
+w98setup.bin=25,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\PRECOPY2.CAB=14
+DCE:remaining=0
+IEEULA.CHM=18,,9893,45760
+IESUPP.CHM=18,,9893,45760
+license.chm=18,,9893,45760
+mtshelp.chm=18,,9893,45760
+webhelp.chm=18,,9893,45760
+mpsupp.hlp=18,,9893,45760
+layout.inf=17,,9905,38561
+layout1.inf=17,,9905,38781
+layout2.inf=17,,9905,38561
+net.inf=17,,9893,45760
+nettrans.inf=17,,9893,45760
+setuppp.inf=17,setup.inf,9893,45760
+lic_help.txt=25,license.txt,9893,45760
+support.txt=25,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=6
+DCE:remaining=0
+mshbios.com=13,,9893,45760
+biling.sys=26,,9893,45760
+mouse.drv=11,,9893,45760
+msjstick.drv=11,,9893,45760
+supervga.drv=11,,9893,45760
+kbdus.kbd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=2
+DCE:remaining=0
+msmouse.vxd=11,,9893,45760
+vjoyd.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET7.CAB=8
+DCE:remaining=0
+infrared.cnt=18,,9893,45760
+IENPSTUB.DLL=11,,9893,45760
+IPHLPAPI.DLL=11,,9893,45760
+MSLOCUSR.DLL=11,,9893,45760
+rpcltc1.dll=11,,9893,45760
+rpcltc5.dll=11,,9893,45760
+rpclts5.dll=11,,9893,45760
+SECUR32.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET8.CAB=1
+DCE:remaining=0
+infrared.hlp=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET9.CAB=2
+DCE:remaining=0
+ndis.vxd=11,,9893,45760
+ndis2sup.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER11.CAB=3
+DCE:remaining=0
+dvdplay.chm=18,,9893,45760
+mplayer.cnt=18,,9893,45760
+framebuf.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER12.CAB=1
+DCE:remaining=0
+mwci.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER13.CAB=1
+DCE:remaining=0
+gm16.dls=32913,gm.dls,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER15.CAB=1
+DCE:remaining=0
+framebuf.drv=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER17.CAB=3
+DCE:remaining=0
+mplayer.exe=25,,9893,45760
+hpplot.hlp=18,,9893,45760
+mplayer.hlp=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER20.CAB=1
+DCE:remaining=0
+msanalog.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_21.CAB=8
+DCE:remaining=0
+vgafull.3gr=11,,9893,45760
+GLOBE.ANI=32857,,9893,45760
+acelpdec.ax=11,,9893,45760
+clramd.ax=11,,9893,45760
+iac25_32.ax=11,,9893,45760
+ir41_32.ax=11,,9893,45760
+ivfsrc.ax=11,,9893,45760
+l3codecx.ax=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_22.CAB=44
+DCE:remaining=0
+mpg2splt.ax=11,,9893,45760
+mpg4ds32.ax=11,,9893,45760
+tm20dec.ax=11,,9893,45760
+voxmsdec.ax=11,,9893,45760
+voxmvdec.ax=11,,9893,45760
+vvaudflt.ax=11,,9893,45760
+vvvidflt.ax=11,,9893,45760
+5344414d.bat=11,,9893,45760
+makapt15.bat=32864,,9893,45760
+makfre15.bat=32864,,9893,45760
+PINGNAME.BAT=18,,9893,45760
+PINGNUM.BAT=18,,9893,45760
+IEJAVA.CAB=11,,9893,45760
+runhelp.cab=25,,9893,45760
+xmldso4.cab=32880,,9893,45760
+classes.cer=32880,,9893,45760
+dx3.cer=32880,,9893,45760
+msjdbc.cer=32880,,9893,45760
+tclasses.cer=32880,,9893,45760
+wfc.cer=32880,,9893,45760
+midimap.cfg=11,,9893,45760
+dxdiag.chi=18,,9893,45760
+31users.chm=18,,9893,45760
+98update.chm=18,,9893,45760
+access.chm=18,,9893,45760
+ACCESSIB.CHM=18,,9893,45760
+amovie.chm=18,,9893,45760
+batch98.chm=18,,9893,45760
+brep.chm=18,,9893,45760
+calc.chm=18,,9893,45760
+camera.chm=18,,9893,45760
+cdplayer.chm=18,,9893,45760
+clipbook.chm=18,,9893,45760
+clipbrd.chm=18,,9893,45760
+common.chm=18,,9893,45760
+dcomcnfg.chm=18,,9893,45760
+dialer.chm=18,,9893,45760
+dijoy.chm=18,,9893,45760
+drvspace.chm=18,,9893,45760
+dxdiag.chm=18,,9893,45760
+eudcedit.chm=18,,9893,45760
+FIND.CHM=18,,9893,45760
+freecell.chm=18,,9893,45760
+getstart.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_23.CAB=16
+DCE:remaining=0
+htmhlp98.chm=18,,9893,45760
+hypertrm.chm=18,,9893,45760
+icwdial.chm=18,,9893,45760
+IEWEBHLP.CHM=18,,9893,45760
+IEXPLORE.CHM=18,,9893,45760
+infinst.chm=18,,9893,45760
+infrared.chm=18,,9893,45760
+macusers.chm=18,,9893,45760
+mds.chm=18,,9893,45760
+mobsync.chm=18,,9893,45760
+mouse.chm=18,,9893,45760
+msbackup.chm=18,,9893,45760
+msconfig.chm=18,,9893,45760
+mshearts.chm=18,,9893,45760
+msinfo32.chm=18,,9893,45760
+mspaint.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_24.CAB=29
+DCE:remaining=0
+mstask.chm=18,,9893,45760
+ndsnp.chm=18,,9893,45760
+netwatch.chm=18,,9893,45760
+network.chm=18,,9893,45760
+notepad.chm=18,,9893,45760
+packager.chm=18,,9893,45760
+plus.chm=18,,9893,45760
+poledit.chm=18,,9893,45760
+progman.chm=18,,9893,45760
+pwrmn.chm=18,,9893,45760
+pws.chm=18,,9893,45760
+RATINGS.CHM=18,,9893,45760
+regedit.chm=18,,9893,45760
+rnaapp.chm=18,,9893,45760
+sndvol32.chm=18,,9893,45760
+sol.chm=18,,9893,45760
+soundrec.chm=18,,9893,45760
+sysmon.chm=18,,9893,45760
+telnet.chm=18,,9893,45760
+UPDATE.CHM=18,,9893,45760
+USERS.CHM=18,,9893,45760
+vpn.chm=18,,9893,45760
+w98basic.chm=18,,9893,45760
+w98more.chm=18,,9893,45760
+w98new.chm=18,,9893,45760
+w98tour.chm=18,,9893,45760
+welc98.chm=18,,9893,45760
+whatnew.chm=18,,9893,45760
+windows.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_25.CAB=62
+DCE:remaining=0
+winfile.chm=18,,9893,45760
+winmine.chm=18,,9893,45760
+winpopup.chm=18,,9893,45760
+wordpad.chm=18,,9893,45760
+IESETUP.CIF=29000,,9893,45760
+access.cnt=18,,9893,45760
+brep.cnt=18,,9893,45760
+connect.cnt=18,,9893,45760
+dijoy.cnt=18,,9893,45760
+drvvfp.cnt=11,,9893,45760
+dvdplay.cnt=18,,9893,45760
+freecell.cnt=18,,9893,45760
+htmhlp98.cnt=18,,9893,45760
+mds.cnt=18,,9893,45760
+mplayer2.cnt=18,,9893,45760
+msbackup.cnt=18,,9893,45760
+msconfig.cnt=18,,9893,45760
+msdasc.cnt=32866,,9893,45760
+MSNAUTH.CNT=18,,9893,45760
+msorcl32.cnt=11,,9893,45760
+ndsnp.cnt=18,,9893,45760
+network.cnt=18,,9893,45760
+odbcinst.cnt=11,,9893,45760
+odbcjet.cnt=11,,9893,45760
+plus!.cnt=18,,9893,45760
+pwrmn.cnt=18,,9893,45760
+RATINGS.CNT=18,,9893,45760
+regedit.cnt=18,,9893,45760
+rnaapp.cnt=18,,9893,45760
+telnet.cnt=18,,9893,45760
+UPDATE.CNT=18,,9893,45760
+whatnew.cnt=18,,9893,45760
+winhlp32.cnt=18,,9893,45760
+html32.cnv=32855,,9893,45760
+hcode.com=13,,9893,45760
+DESKW95.CPL=11,DESK.CPL,9893,45760
+INETCPL.CPL=11,,9893,45760
+INTL.CPL=11,,9893,45760
+joy.cpl=11,,9893,45760
+mmsys.cpl=11,,9893,45760
+modem.cpl=11,,9893,45760
+netcpl.cpl=11,,9893,45760
+odbccp32.cpl=11,,9893,45760
+password.cpl=11,,9893,45760
+powercfg.cpl=11,,9893,45760
+12520437.cpx=11,,9893,45760
+12520850.cpx=11,,9893,45760
+mmsobshe.css=32899,,9893,45760
+msobshel.css=32893,,9893,45760
+jautoexp.dat=10,,9893,45760
+ACTXPRXY.DLL=11,,9893,45760
+ADVAPI32.DLL=11,,9893,45760
+ADVPACK.DLL=11,,9893,45760
+amstream.dll=11,,9893,45760
+asycfilt.dll=11,,9893,45760
+avicap.dll=11,,9893,45760
+avicap32.dll=11,,9893,45760
+avifil32.dll=11,,9893,45760
+avifile.dll=11,,9893,45760
+batmeter.dll=11,,9893,45760
+BROWSELC.DLL=11,,9893,45760
+BROWSEUI.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_26.CAB=25
+DCE:remaining=0
+CABINET.DLL=11,,9893,45760
+cabview.dll=32906,,9893,45760
+ccfg95.dll=11,,9893,45760
+CDFVIEW.DLL=11,,9893,45760
+cdm.dll=11,,9893,45760
+cfgmgr32.dll=11,,9893,45760
+cliconfg.dll=11,,9893,45760
+clrviddc.dll=11,,9893,45760
+cmcfg32.dll=11,,9893,45760
+cmdial32.dll=11,,9893,45760
+cmpbk32.dll=11,,9893,45760
+cmutil.dll=11,,9893,45760
+cnet16.dll=11,,9893,45760
+cnetcfg.dll=11,,9893,45760
+comcat.dll=11,,9893,45760
+COMCTL32.DLL=11,,9893,45760
+compobj.dll=11,,9893,45760
+cool.dll=11,,9893,45760
+CORPOL.DLL=11,,9893,45760
+CRYPT32.DLL=11,,9893,45760
+CRYPTDLG.DLL=11,,9893,45760
+CRYPTEXT.DLL=11,,9893,45760
+CRYPTNET.DLL=11,,9893,45760
+CRYPTUI.DLL=11,,9893,45760
+d3dim.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_27.CAB=26
+DCE:remaining=0
+d3dpmesh.dll=11,,9893,45760
+d3dramp.dll=11,,9893,45760
+d3drm.dll=11,,9893,45760
+d3dxof.dll=11,,9893,45760
+danim.dll=11,,9893,45760
+dbmsadsn.dll=11,,9893,45760
+dbmsrpcn.dll=11,,9893,45760
+dbmsshrn.dll=11,,9893,45760
+dbmssocn.dll=11,,9893,45760
+dbmsspxn.dll=11,,9893,45760
+dbmsvinn.dll=11,,9893,45760
+dbnmpntw.dll=11,,9893,45760
+dciman.dll=11,,9893,45760
+dciman32.dll=11,,9893,45760
+ddraw.dll=11,,9893,45760
+ddraw16.dll=11,,9893,45760
+decvw_32.dll=11,,9893,45760
+devenum.dll=11,,9893,45760
+DIGEST.DLL=11,,9893,45760
+digsig.dll=11,,9893,45760
+dinput.dll=11,,9893,45760
+dispdib.dll=11,,9893,45760
+DISPEX.DLL=11,,9893,45760
+dmband.dll=11,,9893,45760
+dmcompos.dll=11,,9893,45760
+dmime.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_28.CAB=29
+DCE:remaining=0
+dmloader.dll=11,,9893,45760
+dmstyle.dll=11,,9893,45760
+dmsynth.dll=11,,9893,45760
+dmusic.dll=11,,9893,45760
+dmusic16.dll=11,,9893,45760
+dmusic32.dll=11,,9893,45760
+dplay.dll=11,,9893,45760
+dplayx.dll=11,,9893,45760
+dpmodemx.dll=11,,9893,45760
+dpserial.dll=11,,9893,45760
+dpwsock.dll=11,,9893,45760
+dpwsockx.dll=11,,9893,45760
+ds16gt.dll=11,,9893,45760
+ds32gt.dll=11,,9893,45760
+dsound.dll=11,,9893,45760
+dsound3d.dll=11,,9893,45760
+DSSBASE.DLL=11,,9893,45760
+dx3j.dll=11,,9893,45760
+dxmasf.dll=11,,9893,45760
+dxtmsft.dll=11,,9893,45760
+dxtmsft3.dll=11,,9893,45760
+dxtrans.dll=11,,9893,45760
+ENHSIG.DLL=11,,9893,45760
+ES.DLL=11,,9893,45760
+ESENU.DLL=11,,9893,45760
+ESSHARED.DLL=11,,9893,45760
+ESTIER2.DLL=11,,9893,45760
+expsrv.dll=11,,9893,45760
+fontext.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_29.CAB=32
+DCE:remaining=0
+gcdef.dll=11,,9893,45760
+gchand.dll=11,,9893,45760
+HLINK.DLL=11,,9893,45760
+HMMAPI.DLL=29000,,9893,45760
+hwagent.dll=11,,9893,45760
+icfg95.dll=11,,9893,45760
+ICMFLTER.DLL=11,,9893,45760
+icwconn.dll=29400,,9893,45760
+icwdial.dll=11,,9893,45760
+icwdl.dll=29400,,9893,45760
+icwhelp.dll=29400,,9893,45760
+icwphbk.dll=11,,9893,45760
+icwres.dll=29400,,9893,45760
+icwutil.dll=29400,,9893,45760
+IE4.DLL=29000,,9893,45760
+IEDETECT.DLL=29000,,9893,45760
+IEDKCS32.DLL=11,,9893,45760
+IEPEERS.DLL=11,,9893,45760
+IERNONCE.DLL=11,,9893,45760
+IESETUP.DLL=11,,9893,45760
+IMAGEHLP.DLL=11,,9893,45760
+IMGUTIL.DLL=11,,9893,45760
+imm.dll=11,,9893,45760
+imm32.dll=11,,9893,45760
+indicdll.dll=11,,9893,45760
+inet16.dll=11,,9893,45760
+inetcfg.dll=11,,9893,45760
+INETCPLC.DLL=11,,9893,45760
+INITPKI.DLL=11,,9893,45760
+INSENG.DLL=11,,9893,45760
+INSTRSA.DLL=11,,9893,45760
+INSTSCH.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_30.CAB=30
+DCE:remaining=0
+iprop.dll=11,,9893,45760
+ir41_qc.dll=11,,9893,45760
+ir41_qcx.dll=11,,9893,45760
+ir50_32.dll=11,,9893,45760
+ir50_qc.dll=11,,9893,45760
+ir50_qcx.dll=11,,9893,45760
+ir_ndi.dll=11,,9893,45760
+isign32.dll=11,,9893,45760
+ITIRCL.DLL=11,,9893,45760
+ITSS.DLL=11,,9893,45760
+javacypt.dll=11,,9893,45760
+javaee.dll=11,,9893,45760
+javaprxy.dll=11,,9893,45760
+javart.dll=11,,9893,45760
+JGAW400.DLL=11,,9893,45760
+JGDW400.DLL=11,,9893,45760
+JGMD400.DLL=11,,9893,45760
+JGPL400.DLL=11,,9893,45760
+JGSD400.DLL=11,,9893,45760
+JGSH400.DLL=11,,9893,45760
+jit.dll=11,,9893,45760
+JOBEXEC.DLL=11,,9893,45760
+JSCRIPT.DLL=11,,9893,45760
+jsko.DLL=11,,9893,45760
+JSPROXY.DLL=11,,9893,45760
+laprxy.dll=30800,,9893,45760
+LICMGR10.DLL=11,,9893,45760
+lmrt.dll=11,,9893,45760
+lmrtrend.dll=11,,9893,45760
+mapi32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_31.CAB=23
+DCE:remaining=0
+mbslgn32.dll=11,,9893,45760
+mciole.dll=11,,9893,45760
+mciqtz32.dll=11,,9893,45760
+membg.dll=11,,9893,45760
+mfcuia32.dll=11,,9893,45760
+mfcuiw32.dll=11,,9893,45760
+MLANG.DLL=11,,9893,45760
+mmci.dll=11,,9893,45760
+mmsystem.dll=11,,9893,45760
+MMUTILSE.DLL=11,,9893,45760
+MOBSYNC.DLL=11,,9893,45760
+mpr.dll=11,,9893,45760
+mprserv.dll=11,,9893,45760
+msacm.dll=11,,9893,45760
+msacm32.dll=11,,9893,45760
+msadce.dll=32865,,9893,45760
+msadcer.dll=32865,,9893,45760
+msadcf.dll=32865,,9893,45760
+msadcfr.dll=32865,,9893,45760
+msadco.dll=32865,,9893,45760
+msadcor.dll=32865,,9893,45760
+msadcs.dll=32865,,9893,45760
+msadds.dll=32865,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_32.CAB=32
+DCE:remaining=0
+msaddsr.dll=32865,,9893,45760
+msader15.dll=32864,,9893,45760
+msado15.dll=32864,,9893,45760
+msadomd.dll=32864,,9893,45760
+msador15.dll=32864,,9893,45760
+msadox.dll=32864,,9893,45760
+msadrh15.dll=32864,,9893,45760
+MSAPSSPC.DLL=11,,9893,45760
+msawt.dll=11,,9893,45760
+MSCAT32.DLL=11,,9893,45760
+msconv97.dll=32855,,9893,45760
+mscpxl32.dll=11,,9893,45760
+msdadc.dll=32866,,9893,45760
+msdaenum.dll=32866,,9893,45760
+msdaer.dll=32866,,9893,45760
+msdaora.dll=32866,,9893,45760
+msdaosp.dll=32866,,9893,45760
+msdaprsr.dll=32865,,9893,45760
+msdaprst.dll=32865,,9893,45760
+msdaps.dll=32866,,9893,45760
+msdarem.dll=32865,,9893,45760
+msdaremr.dll=32865,,9893,45760
+msdasc.dll=32866,,9893,45760
+msdasql.dll=32866,,9893,45760
+msdasqlr.dll=32866,,9893,45760
+msdatl2.dll=32866,,9893,45760
+msdatt.dll=32866,,9893,45760
+msdfmap.dll=32865,,9893,45760
+MSENCODE.DLL=11,,9893,45760
+msexch40.dll=11,,9893,45760
+msexcl40.dll=11,,9893,45760
+MSHTML.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_33.CAB=9
+DCE:remaining=0
+MSHTMLED.DLL=11,,9893,45760
+MSHTMLER.DLL=11,,9893,45760
+MSIDENT.DLL=11,,9893,45760
+MSIDLE.DLL=11,,9893,45760
+MSIDNTLD.DLL=11,,9893,45760
+MSIEFTP.DLL=11,,9893,45760
+msjava.dll=11,,9893,45760
+msjdbc10.dll=11,,9893,45760
+msjet35.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_34.CAB=16
+DCE:remaining=0
+msjet40.dll=11,,9893,45760
+msjetol1.dll=11,,9893,45760
+msjint40.dll=11,,9893,45760
+msjro.dll=32864,,9893,45760
+msjt3032.dll=11,,9893,45760
+msjter40.dll=11,,9893,45760
+msjtes40.dll=11,,9893,45760
+MSLS31.DLL=11,,9893,45760
+msltus40.dll=11,,9893,45760
+msmixmgr.dll=11,,9893,45760
+MSNSSPC.DLL=11,,9893,45760
+msobcomm.dll=32883,,9893,45760
+msobmain.dll=32883,,9893,45760
+msobshel.dll=32883,,9893,45760
+msobstub.dll=32883,,9893,45760
+msobweb.dll=32883,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_35.CAB=11
+DCE:remaining=0
+msorcl32.dll=11,,9893,45760
+MSOSS.DLL=11,,9893,45760
+mspbde40.dll=11,,9893,45760
+mspwl32.dll=11,,9893,45760
+MSRATING.DLL=11,,9893,45760
+msrclr40.dll=11,,9893,45760
+msrd2x40.dll=11,,9893,45760
+msrd3x40.dll=11,,9893,45760
+msrecr40.dll=11,,9893,45760
+msrepl35.dll=11,,9893,45760
+msrepl40.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_36.CAB=11
+DCE:remaining=0
+MSSIGN32.DLL=11,,9893,45760
+MSSIP32.DLL=11,,9893,45760
+mstask.dll=11,,9893,45760
+mstext40.dll=11,,9893,45760
+msvfw32.dll=11,,9893,45760
+msvideo.dll=11,,9893,45760
+mswdat10.dll=11,,9893,45760
+mswstr10.dll=11,,9893,45760
+msxactps.dll=32866,,9893,45760
+msxbde40.dll=11,,9893,45760
+MSXML.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_37.CAB=37
+DCE:remaining=0
+mtxdm.dll=11,,9893,45760
+mtxoci.dll=11,,9893,45760
+nddeapi.dll=25,,9893,45760
+nddenb.dll=25,,9893,45760
+netapi32.dll=11,,9893,45760
+netbios.dll=11,,9893,45760
+OCCACHE.DLL=11,,9893,45760
+odbc16gt.dll=11,,9893,45760
+odbc32.dll=11,,9893,45760
+odbc32gt.dll=11,,9893,45760
+odbcbcp.dll=11,,9893,45760
+odbccp32.dll=11,,9893,45760
+odbccr32.dll=11,,9893,45760
+odbccu32.dll=11,,9893,45760
+odbcint.dll=11,,9893,45760
+odbcji32.dll=11,,9893,45760
+odbcjt32.dll=11,,9893,45760
+odbctrac.dll=11,,9893,45760
+oddbse32.dll=11,,9893,45760
+odexl32.dll=11,,9893,45760
+odfox32.dll=11,,9893,45760
+odpdx32.dll=11,,9893,45760
+odtext32.dll=11,,9893,45760
+ole2.dll=11,,9893,45760
+ole2conv.dll=11,,9893,45760
+ole2disp.dll=11,,9893,45760
+ole2nls.dll=11,,9893,45760
+ole32.dll=11,,9893,45760
+OLEACC.DLL=11,,9893,45760
+OLEACCRC.DLL=11,,9893,45760
+oleaut32.dll=11,,9893,45760
+OLECNV32.DLL=11,,9893,45760
+oledb32.dll=32866,,9893,45760
+oledb32r.dll=32866,,9893,45760
+oledb32x.dll=32866,,9893,45760
+oledlg.dll=11,,9893,45760
+OLETHK32.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_38.CAB=14
+DCE:remaining=0
+panmap.dll=11,,9893,45760
+pid.dll=11,,9893,45760
+plustab.dll=11,,9893,45760
+PNGFILT.DLL=11,,9893,45760
+powrprof.dll=11,,9893,45760
+PSBASE.DLL=11,,9893,45760
+PSTOREC.DLL=11,,9893,45760
+PSTORERC.DLL=11,,9893,45760
+qcap.dll=11,,9893,45760
+qcut.dll=11,,9893,45760
+qdv.dll=11,,9893,45760
+qdvd.dll=11,,9893,45760
+quartz.dll=11,,9893,45760
+rasapi32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_39.CAB=29
+DCE:remaining=0
+riched32.dll=11,,9893,45760
+RNAPH.DLL=11,,9893,45760
+rpcltccm.dll=11,,9893,45760
+rpcltscm.dll=11,,9893,45760
+rpcltspx.dll=11,,9893,45760
+rpcmqcl.dll=11,,9893,45760
+rpcmqsvr.dll=11,,9893,45760
+rpcns4.dll=11,,9893,45760
+rpcrt4.dll=11,,9893,45760
+RSABASE.DLL=11,,9893,45760
+RSASIG.DLL=11,,9893,45760
+sage.dll=11,,9893,45760
+SCHANNEL.DLL=11,SCHNL40.DLL,9893,45760
+scoko.DLL=11,,9893,45760
+SCROBJ.DLL=11,,9893,45760
+scrrnko.DLL=11,,9893,45760
+SENDMAIL.DLL=11,,9893,45760
+SENS.DLL=11,,9893,45760
+SENSAPI.DLL=11,,9893,45760
+SENSCFG.DLL=11,,9893,45760
+setupapi.dll=11,,9893,45760
+SETUPWBV.DLL=11,,9893,45760
+SHD401LC.DLL=11,,9893,45760
+SHDOC401.DLL=11,,9893,45760
+SHDOCLC.DLL=11,,9893,45760
+SHDOCVW.DLL=11,,9893,45760
+SHELL32.DLL=11,,9893,45760
+SHFOLDER.DLL=11,,9893,45760
+SHLWAPI.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_40.CAB=16
+DCE:remaining=0
+SOFTPUB.DLL=11,,9893,45760
+sqloledb.dll=32866,,9893,45760
+sqlsrv32.dll=11,,9893,45760
+sqlstr.dll=11,,9893,45760
+sqlwid.dll=11,,9893,45760
+sqlwoa.dll=11,,9893,45760
+storage.dll=11,,9893,45760
+strmdll.dll=11,,9893,45760
+synceng.dll=11,,9893,45760
+T2EMBED.DLL=11,,9893,45760
+THUMBVW.DLL=11,,9893,45760
+trialoc.dll=29400,,9893,45760
+TRIEDIT.DLL=32860,,9893,45760
+typelib.dll=11,,9893,45760
+URL.DLL=11,,9893,45760
+URLMON.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_41.CAB=9
+DCE:remaining=0
+vbajet32.dll=11,,9893,45760
+VBSCRIPT.DLL=11,,9893,45760
+vbsko.DLL=11,,9893,45760
+vdodec32.dll=11,,9893,45760
+vfpodbc.dll=11,,9893,45760
+vidx16.dll=11,,9893,45760
+vmhelper.dll=11,,9893,45760
+W95INF16.DLL=11,,9893,45760
+W95INF32.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_42.CAB=42
+DCE:remaining=0
+WEBCHECK.DLL=11,,9893,45760
+WEBVW.DLL=11,,9893,45760
+WININET.DLL=11,,9893,45760
+winmm.dll=11,,9893,45760
+winnet16.dll=11,,9893,45760
+winnls.dll=11,,9893,45760
+winnls32.dll=11,,9893,45760
+WINTRUST.DLL=11,,9893,45760
+XENROLL.DLL=11,,9893,45760
+script.doc=25,,9893,45760
+keyboard.drv=11,,9893,45760
+mciavi.drv=11,,9893,45760
+mcicda.drv=11,,9893,45760
+mciqtz.drv=11,,9893,45760
+mciseq.drv=11,,9893,45760
+mciwave.drv=11,,9893,45760
+midimap.drv=11,,9893,45760
+msacm.drv=11,,9893,45760
+system.drv=11,,9893,45760
+vdowave.drv=11,,9893,45760
+vga.drv=11,,9893,45760
+icwip.dun=29400,,9893,45760
+icwx25a.dun=29400,,9893,45760
+icwx25b.dun=29400,,9893,45760
+icwx25c.dun=29400,,9893,45760
+obeip.dun=32883,,9893,45760
+actmovie.exe=11,,9893,45760
+addreg.exe=11,,9893,45760
+cliconfg.exe=11,,9893,45760
+clspack.exe=10,,9893,45760
+cmdl32.exe=11,,9893,45760
+cmmgr32.exe=11,,9893,45760
+cmmon32.exe=11,,9893,45760
+cmstp.exe=11,,9893,45760
+dcomreg.exe=11,,9893,45760
+ddhelp.exe=11,,9893,45760
+dllhost.exe=11,,9893,45760
+dosrep.exe=25,,9893,45760
+dplaysvr.exe=11,,9893,45760
+drwatson.exe=25,,9893,45760
+DSSSIG.EXE=11,,9893,45760
+dxdiag.exe=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_43.CAB=37
+DCE:remaining=0
+ESSERVER.EXE=11,,9893,45760
+EXPLORER.EXE=25,,9893,45760
+EXTRAC32.EXE=25,,9893,45760
+fontreg.exe=11,,9893,45760
+fontview.exe=25,,9893,45760
+GRPCONV.EXE=25,,9893,45760
+HH.EXE=25,,9893,45760
+icwconn1.exe=29400,,9893,45760
+icwconn2.exe=29400,,9893,45760
+icwoobe.exe=29400,,9893,45760
+icwrmind.exe=29400,,9893,45760
+icwscrpt.exe=11,,9893,45760
+icwtutor.exe=29400,,9893,45760
+IE4UINIT.EXE=11,,9893,45760
+IESHWIZ.EXE=11,,9893,45760
+IEXPLORE.EXE=29000,,9893,45760
+IEXTRACT.EXE=13,,9893,45760
+inetwiz.exe=29400,,9893,45760
+internat.exe=11,,9893,45760
+isignup.exe=29400,,9893,45760
+ISO10646.EXE=10,,9893,45760
+jdbgmgr.exe=11,,9893,45760
+jview.exe=10,,9893,45760
+lights.exe=11,,9893,45760
+LOADWC.EXE=11,,9893,45760
+logagent.exe=30800,,9893,45760
+MOBSYNC.EXE=11,,9893,45760
+mplayer2.exe=30800,,9893,45760
+mprexe.exe=11,,9893,45760
+MSHTA.EXE=11,,9893,45760
+msinfo32.exe=32902,,9893,45760
+msoobe.exe=32883,,9893,45760
+mstask.exe=11,,9893,45760
+mstinit.exe=11,,9893,45760
+netdde.exe=25,,9893,45760
+odbcad32.exe=11,,9893,45760
+odbcconf.exe=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_44.CAB=16
+DCE:remaining=0
+pidset.exe=10,,9893,45760
+PSTORES.EXE=11,,9893,45760
+redir32.exe=11,,9893,45760
+REGSVR32.EXE=11,,9893,45760
+rpcss.exe=11,,9893,45760
+sage.exe=11,,9893,45760
+setdebug.exe=10,,9893,45760
+sigverif.exe=25,,9893,45760
+sysagent.exe=11,,9893,45760
+tuneup.exe=25,,9893,45760
+unam4ie.exe=11,,9893,45760
+unregmp2.exe=17,,9893,45760
+upwizun.exe=25,,9893,45760
+winrep.exe=25,,9893,45760
+wjview.exe=10,,9893,45760
+wnlssub.exe=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_45.CAB=133
+DCE:remaining=0
+vga850.fon=20,,9893,45760
+ACE.GIF=32888,,9893,45760
+backgrnd.gif=25,,9893,45760
+ball_ani.gif=32890,,9893,45760
+BGLEFTDO.GIF=32890,,9893,45760
+BGLEFTUP.GIF=32890,,9893,45760
+BGPHONE1.GIF=32890,,9893,45760
+BGRIGHTD.GIF=32890,,9893,45760
+BIN.GIF=32888,,9893,45760
+BINF.GIF=32888,,9893,45760
+BINFS.GIF=32888,,9893,45760
+BINS.GIF=32888,,9893,45760
+black.gif=32890,,9893,45760
+BLUEPIX.GIF=32890,,9893,45760
+CARDBACK.GIF=32888,,9893,45760
+cfgani.gif=32890,,9893,45760
+click.gif=32890,,9893,45760
+clickl.gif=32890,,9893,45760
+clickr.gif=32890,,9893,45760
+cloud.gif=25,,9893,45760
+CLUBS.GIF=32888,,9893,45760
+coa.gif=32890,,9893,45760
+con_ani.gif=32890,,9893,45760
+con_off.gif=32890,,9893,45760
+confetti.gif=32890,,9893,45760
+CONGRATS.GIF=32890,,9893,45760
+content.gif=25,,9893,45760
+DBLCLICK.GIF=32888,,9893,45760
+default.gif=32890,,9893,45760
+defaultl.gif=32890,,9893,45760
+defaultr.gif=32890,,9893,45760
+dial_ani.gif=32890,,9893,45760
+dial_off.gif=32890,,9893,45760
+DIALING.GIF=32890,,9893,45760
+dialtone.gif=32890,,9893,45760
+DIAMONDS.GIF=32888,,9893,45760
+disabldl.gif=32890,,9893,45760
+disabldr.gif=32890,,9893,45760
+disabled.gif=32890,,9893,45760
+DRAGGING.GIF=32888,,9893,45760
+FLAG.GIF=32890,,9893,45760
+flagani.gif=32890,,9893,45760
+GIF.GIF=32888,,9893,45760
+GIFS.GIF=32888,,9893,45760
+GIFT.GIF=32888,,9893,45760
+GRADIENT.GIF=32890,,9893,45760
+hlpbell.gif=25,,9893,45760
+hlpcd.gif=25,,9893,45760
+hlpglobe.gif=25,,9893,45760
+hlplogo.gif=25,,9893,45760
+hlpstep1.gif=25,,9893,45760
+hlpstep2.gif=25,,9893,45760
+hlpstep3.gif=25,,9893,45760
+hover.gif=32890,,9893,45760
+hoverl.gif=32890,,9893,45760
+hoverr.gif=32890,,9893,45760
+IE.GIF=32888,,9893,45760
+IES.GIF=32888,,9893,45760
+ime.gif=32901,,9893,45760
+imebk1.gif=32901,,9893,45760
+imebk2.gif=32901,,9893,45760
+JITALERT.GIF=32858,,9893,45760
+lftclk.gif=32890,,9893,45760
+lftclkw.gif=32890,,9893,45760
+lftdef.gif=32890,,9893,45760
+lftdefw.gif=32890,,9893,45760
+lftdsld.gif=32890,,9893,45760
+lftdsldw.gif=32890,,9893,45760
+lfthvr.gif=32890,,9893,45760
+lfthvrw.gif=32890,,9893,45760
+MENULFT.GIF=32888,,9893,45760
+MENUMID.GIF=32888,,9893,45760
+MENURHT.GIF=32888,,9893,45760
+MOUSE1.GIF=32888,,9893,45760
+MOVING.GIF=32888,,9893,45760
+MSNIALOG.GIF=32890,,9893,45760
+MSNIAOLD.GIF=32890,,9893,45760
+MSNLOGO.GIF=32890,,9893,45760
+msnwtrmk.gif=32890,,9893,45760
+MYCOMP.GIF=32888,,9893,45760
+MYCOMPS.GIF=32888,,9893,45760
+MYDOC.GIF=32888,,9893,45760
+MYDOCS.GIF=32888,,9893,45760
+neg_ani.gif=32890,,9893,45760
+neg_off.gif=32890,,9893,45760
+NTPAD.GIF=32888,,9893,45760
+NTPADS.GIF=32888,,9893,45760
+NTPADT.GIF=32888,,9893,45760
+oemlogo.gif=32890,,9893,45760
+offTbAMX.GIF=32890,,9893,45760
+offTbDsc.GIF=32890,,9893,45760
+offTbJCB.GIF=32890,,9893,45760
+offTbMC.GIF=32890,,9893,45760
+offTbVSA.GIF=32890,,9893,45760
+onTbAMX.GIF=32890,,9893,45760
+onTbDsc.GIF=32890,,9893,45760
+onTbJCB.GIF=32890,,9893,45760
+onTbMC.GIF=32890,,9893,45760
+onTbVSA.GIF=32890,,9893,45760
+PAINT.GIF=32888,,9893,45760
+PAINTS.GIF=32888,,9893,45760
+PAINTT.GIF=32888,,9893,45760
+PASSPORT.GIF=32890,,9893,45760
+PSTITLFT.GIF=32888,,9893,45760
+PSTITMID.GIF=32888,,9893,45760
+PSTITRHT.GIF=32888,,9893,45760
+REGISTER.GIF=32890,,9893,45760
+rhtclk.gif=32890,,9893,45760
+rhtclkw.gif=32890,,9893,45760
+rhtdef.gif=32890,,9893,45760
+rhtdefw.gif=32890,,9893,45760
+rhtdsld.gif=32890,,9893,45760
+rhtdsldw.gif=32890,,9893,45760
+rhthvr.gif=32890,,9893,45760
+rhthvrw.gif=32890,,9893,45760
+SNGLCLK.GIF=32888,,9893,45760
+SPADES.GIF=32888,,9893,45760
+STRTLFT.GIF=32888,,9893,45760
+STRTLFTP.GIF=32888,,9893,45760
+STRTMID.GIF=32888,,9893,45760
+STRTMIDP.GIF=32888,,9893,45760
+STRTRHT.GIF=32888,,9893,45760
+STRTRHTP.GIF=32888,,9893,45760
+TABAMEX.GIF=32890,,9893,45760
+TABDISCO.GIF=32890,,9893,45760
+TABMC.GIF=32890,,9893,45760
+TABVISA.GIF=32890,,9893,45760
+TIPS.GIF=32858,,9893,45760
+TTIP_LFT.GIF=32888,,9893,45760
+TTIP_MID.GIF=32888,,9893,45760
+TTIP_RHT.GIF=32888,,9893,45760
+TTIPLNP.GIF=32888,,9893,45760
+WATERMRK.GIF=32890,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+INSTALL.INS=32856,,9979,29000
+oobeinfo.ini=32883,,9993,35227
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_46.CAB=381
+DCE:remaining=0
+WELCOME.GIF=32888,,9893,45760
+winlogo.gif=25,,9893,45760
+wm_key.gif=32890,,9893,45760
+wm_pc.gif=32890,,9893,45760
+wm_pencl.gif=32890,,9893,45760
+wm_phone.gif=32890,,9893,45760
+wm_pport.gif=32890,,9893,45760
+WVBACK.GIF=32862,,9893,45760
+WVLOGO.GIF=32862,,9893,45760
+YLLWBAR.GIF=32890,,9893,45760
+amovie.hlp=18,,9893,45760
+audiocdc.hlp=18,,9893,45760
+brep.hlp=18,,9893,45760
+CHNSCSVR.HLP=18,,9893,45760
+cliconf.hlp=11,,9893,45760
+clipbrd.hlp=18,,9893,45760
+cmmgr32.hlp=11,,9893,45760
+common.hlp=18,,9893,45760
+connect.hlp=18,,9893,45760
+dcomcnfg.hlp=18,,9893,45760
+dijoy.hlp=18,,9893,45760
+display.hlp=18,,9893,45760
+drvvfp.hlp=11,,9893,45760
+dvdplay.hlp=18,,9893,45760
+freecell.hlp=18,,9893,45760
+htmhlp98.hlp=18,,9893,45760
+IEXPLORE.HLP=18,,9893,45760
+interwiz.hlp=18,,9893,45760
+javaperm.hlp=11,,9893,45760
+javasec.hlp=11,,9893,45760
+magnify.hlp=18,,9893,45760
+mds.hlp=18,,9893,45760
+MFCUIX.HLP=18,,9893,45760
+mmdrv.hlp=18,,9893,45760
+MOBSYNC.HLP=18,,9893,45760
+mplayer2.hlp=18,,9893,45760
+msbackup.hlp=18,,9893,45760
+msconfig.hlp=18,,9893,45760
+msdasc.hlp=32866,,9893,45760
+mshearts.hlp=18,,9893,45760
+MSIDENT.HLP=18,,9893,45760
+msimn.hlp=18,,9893,45760
+MSNAUTH.HLP=18,,9893,45760
+msorcl32.hlp=11,,9893,45760
+mstask.hlp=32910,,9893,45760
+ndsnp.hlp=18,,9893,45760
+odbcinst.hlp=11,,9893,45760
+odbcjet.hlp=11,,9893,45760
+packager.hlp=18,,9893,45760
+plus!.hlp=18,,9893,45760
+pnpwhenu.hlp=18,,9893,45760
+pwrmn.hlp=18,,9893,45760
+RATINGS.HLP=18,,9893,45760
+rnaapp.hlp=18,,9893,45760
+SECAUTH.HLP=18,,9893,45760
+sfc.hlp=18,,9893,45760
+SIGNIN.HLP=18,,9893,45760
+sol.hlp=18,,9893,45760
+sqlsodbc.hlp=11,,9893,45760
+sqlsoldb.hlp=32866,,9893,45760
+unimdm.hlp=18,,9893,45760
+UPDATE.HLP=18,,9893,45760
+USERS.HLP=18,,9893,45760
+whatnew.hlp=18,,9893,45760
+winhlp32.hlp=18,,9893,45760
+acme.htm=32889,,9893,45760
+badpid.htm=32893,,9893,45760
+blank.htm=32883,,9893,45760
+cnncterr.htm=32884,,9893,45760
+congrats.htm=32893,,9893,45760
+connect.htm=32893,,9893,45760
+dialtone.htm=32884,,9893,45760
+error.htm=32884,,9893,45760
+eula.htm=32893,,9893,45760
+eulawarn.htm=32893,,9893,45760
+frame.htm=32905,,9893,45760
+HNDSHAKE.HTM=32884,,9893,45760
+htmlhelp.htm=25,,9893,45760
+IEJIT.HTM=32858,,9893,45760
+imetut1.htm=32900,,9893,45760
+imetut2.htm=32900,,9893,45760
+imetut3.htm=32900,,9893,45760
+imetut4.htm=32900,,9893,45760
+inserror.htm=32884,,9893,45760
+installd.htm=32893,,9893,45760
+isp2busy.htm=32884,,9893,45760
+ispcnnct.htm=32884,,9893,45760
+ispopt.htm=32889,,9893,45760
+ispreset.htm=32884,,9893,45760
+ispsgnup.htm=32889,,9893,45760
+m_msn.htm=32898,,9893,45760
+macme.htm=32898,,9893,45760
+mbadpid.htm=32899,,9893,45760
+mcnncter.htm=32894,,9893,45760
+mcongrat.htm=32899,,9893,45760
+mconnect.htm=32899,,9893,45760
+mdialton.htm=32894,,9893,45760
+membg.htm=11,,9893,45760
+merror.htm=32894,,9893,45760
+meula.htm=32899,,9893,45760
+meulawar.htm=32899,,9893,45760
+mhndshak.htm=32894,,9893,45760
+minserro.htm=32894,,9893,45760
+minstall.htm=32899,,9893,45760
+misp2bus.htm=32894,,9893,45760
+mispcnnc.htm=32894,,9893,45760
+mispopt.htm=32898,,9893,45760
+misprese.htm=32894,,9893,45760
+mispsgnu.htm=32898,,9893,45760
+mlan.htm=32899,,9893,45760
+mmouse.htm=32897,,9893,45760
+mnoanswe.htm=32894,,9893,45760
+mnomodem.htm=32894,,9893,45760
+mnotavai.htm=32894,,9893,45760
+mouse.htm=32887,,9893,45760
+mouse10.htm=32887,,9893,45760
+mouse11.htm=32887,,9893,45760
+mouse2.htm=32887,,9893,45760
+mouse3.htm=32887,,9893,45760
+mouse4.htm=32887,,9893,45760
+mouse5.htm=32887,,9893,45760
+mouse6.htm=32887,,9893,45760
+mouse7.htm=32887,,9893,45760
+mouse8.htm=32887,,9893,45760
+mouse9.htm=32887,,9893,45760
+mpid.htm=32899,,9893,45760
+mregiste.htm=32899,,9893,45760
+mregkb.htm=32899,,9893,45760
+mregkbcm.htm=32899,,9893,45760
+msn.htm=32889,,9893,45760
+msnconst.htm=32891,,9893,45760
+msneula.htm=32891,,9893,45760
+msnidpss.htm=32891,,9893,45760
+msninfo.htm=32891,,9893,45760
+msnpymnt.htm=32891,,9893,45760
+msnsign.htm=32891,,9893,45760
+msobshel.htm=32883,,9893,45760
+mspeedy2.htm=32898,,9893,45760
+mspeedy3.htm=32898,,9893,45760
+msrverro.htm=32894,,9893,45760
+mstart.htm=32899,,9893,45760
+mtapi.htm=32899,,9893,45760
+mtemplat.htm=32899,,9893,45760
+mtoobusy.htm=32894,,9893,45760
+musemode.htm=32899,,9893,45760
+muserinf.htm=32899,,9893,45760
+noanswer.htm=32884,,9893,45760
+nomodem.htm=32884,,9893,45760
+notavail.htm=32884,,9893,45760
+offline.htm=32903,,9893,45760
+passact.htm=32892,,9893,45760
+passreg.htm=32892,,9893,45760
+passsign.htm=32892,,9893,45760
+pid.htm=32893,,9893,45760
+readme.htm=25,,9893,45760
+register.htm=32893,,9893,45760
+regkb.htm=32893,,9893,45760
+regkbcmt.htm=32893,,9893,45760
+RELATED.HTM=32858,,9893,45760
+speedy2.htm=32889,,9893,45760
+speedy3.htm=32889,,9893,45760
+srverror.htm=32884,,9893,45760
+start.htm=32893,,9893,45760
+tapi.htm=32893,,9893,45760
+TEMPLATE.HTM=32893,,9893,45760
+TIP.HTM=32858,,9893,45760
+toobusy.htm=32884,,9893,45760
+usemodem.htm=32893,,9893,45760
+userinfo.htm=32893,,9893,45760
+WALLPAPR.HTM=32863,,9893,45760
+CONTROLP.HTT=32862,,9893,45760
+DESKMOVR.HTT=32862,,9893,45760
+FOLDER.HTT=32862,,9893,45760
+MYCOMP.HTT=32862,,9893,45760
+PRINTERS.HTT=32862,,9893,45760
+SAFEMODE.HTT=32862,,9893,45760
+readm_01.htz=25,,9893,45760
+readm_02.htz=25,,9893,45760
+SRGB.ICM=32859,,9893,45760
+phone.icw=29400,,9893,45760
+state.icw=29400,,9893,45760
+support.icw=29400,,9893,45760
+general.idf=32907,,9893,45760
+adcjavas.inc=32865,,9893,45760
+adcvbs.inc=32865,,9893,45760
+adojavas.inc=32864,,9893,45760
+adovbs.inc=32864,,9893,45760
+fastir.inf=17,,9893,45760
+HOMEPAGE.INF=11,,9893,45760
+IE4UINIT.INF=11,,9893,45760
+IERESET.INF=17,,9893,45760
+IEUINIT.INF=11,,9893,45760
+irmini.inf=17,,9893,45760
+irxfer.inf=17,,9893,45760
+mdm3cisa.inf=17,,9893,45760
+mdm3com.inf=17,,9893,45760
+mdm3x.inf=17,,9893,45760
+mdmaceex.inf=17,,9893,45760
+mdmadc.inf=17,,9893,45760
+mdmairte.inf=17,,9893,45760
+mdmar1.inf=17,,9893,45760
+mdmarch.inf=17,,9893,45760
+mdmarcht.inf=17,,9893,45760
+mdmarn.inf=17,,9893,45760
+mdmati.inf=17,,9893,45760
+mdmatt.inf=17,,9893,45760
+mdmaus.inf=17,,9893,45760
+mdmblatz.inf=17,,9893,45760
+mdmboca.inf=17,,9893,45760
+mdmbsb.inf=17,,9893,45760
+mdmbsch.inf=17,,9893,45760
+mdmcm28.inf=17,,9893,45760
+mdmcmcm.inf=17,,9893,45760
+mdmcodex.inf=17,,9893,45760
+mdmcom1.inf=17,,9893,45760
+mdmcomm1.inf=17,,9893,45760
+mdmcommu.inf=17,,9893,45760
+mdmcpi.inf=17,,9893,45760
+mdmcpv.inf=17,,9893,45760
+mdmcrtix.inf=17,,9893,45760
+mdmdefd.inf=17,,9893,45760
+mdmdgitn.inf=17,,9893,45760
+mdmdicom.inf=17,,9893,45760
+mdmdisco.inf=17,,9893,45760
+mdmdyna.inf=17,,9893,45760
+mdmeiger.inf=17,,9893,45760
+mdmelink.inf=17,,9893,45760
+mdmelpro.inf=17,,9893,45760
+mdmelsa.inf=17,,9893,45760
+mdmeric.inf=17,,9893,45760
+mdmeric2.inf=17,,9893,45760
+mdmetech.inf=17,,9893,45760
+mdmexp.inf=17,,9893,45760
+mdmeyp.inf=17,,9893,45760
+mdmgal.inf=17,,9893,45760
+mdmgatew.inf=17,,9893,45760
+mdmgen.inf=17,,9893,45760
+mdmgsm.inf=17,,9893,45760
+mdmgv.inf=17,,9893,45760
+mdmgvc.inf=17,,9893,45760
+mdmhaeu.inf=17,,9893,45760
+mdmhaeus.inf=17,,9893,45760
+mdmhandy.inf=17,,9893,45760
+mdmhay2.inf=17,,9893,45760
+mdmhayes.inf=17,,9893,45760
+mdmico.inf=17,,9893,45760
+mdminfot.inf=17,,9893,45760
+mdminsys.inf=17,,9893,45760
+mdmintel.inf=17,,9893,45760
+mdmintpc.inf=17,,9893,45760
+mdmisdn.inf=17,,9893,45760
+mdmitex.inf=17,,9893,45760
+mdmke.inf=17,,9893,45760
+mdmkortx.inf=17,,9893,45760
+mdmlasat.inf=17,,9893,45760
+mdmlasno.inf=17,,9893,45760
+mdmlce.inf=17,,9893,45760
+mdmlight.inf=17,,9893,45760
+mdmlngsh.inf=17,,9893,45760
+mdmmart.inf=17,,9893,45760
+mdmmcom.inf=17,,9893,45760
+mdmmetri.inf=17,,9893,45760
+mdmmhrtz.inf=17,,9893,45760
+mdmmhza.inf=17,,9893,45760
+mdmmhzel.inf=17,,9893,45760
+mdmmhzk1.inf=17,,9893,45760
+mdmmix.inf=17,,9893,45760
+mdmmod.inf=17,,9893,45760
+mdmmoto.inf=17,,9893,45760
+mdmmoto1.inf=17,,9893,45760
+mdmmoton.inf=17,,9893,45760
+mdmmotou.inf=17,,9893,45760
+mdmmtd.inf=17,,9893,45760
+mdmmts.inf=17,,9893,45760
+mdmmulog.inf=17,,9893,45760
+mdmneuhs.inf=17,,9893,45760
+mdmnokia.inf=17,,9893,45760
+mdmnokno.inf=17,,9893,45760
+mdmnova.inf=17,,9893,45760
+mdmnovfx.inf=17,,9893,45760
+mdmolic.inf=17,,9893,45760
+mdmolive.inf=17,,9893,45760
+mdmopt1.inf=17,,9893,45760
+mdmoptn.inf=17,,9893,45760
+mdmosi.inf=17,,9893,45760
+mdmpace.inf=17,,9893,45760
+mdmpbit.inf=17,,9893,45760
+mdmpenr.inf=17,,9893,45760
+mdmphils.inf=17,,9893,45760
+mdmpn1.inf=17,,9893,45760
+mdmpnb.inf=17,,9893,45760
+mdmpp.inf=17,,9893,45760
+mdmprodm.inf=17,,9893,45760
+mdmpsion.inf=17,,9893,45760
+mdmracal.inf=17,,9893,45760
+mdmrfi.inf=17,,9893,45760
+mdmsecdy.inf=17,,9893,45760
+mdmsier.inf=17,,9893,45760
+mdmsimpl.inf=17,,9893,45760
+mdmsmart.inf=17,,9893,45760
+mdmsnit1.inf=17,,9893,45760
+mdmsnitn.inf=17,,9893,45760
+mdmsonix.inf=17,,9893,45760
+mdmspec.inf=17,,9893,45760
+mdmspq28.inf=17,,9893,45760
+mdmsrt.inf=17,,9893,45760
+mdmsupr3.inf=17,,9893,45760
+mdmsupra.inf=17,,9893,45760
+mdmsuprv.inf=17,,9893,45760
+mdmtaicm.inf=17,,9893,45760
+mdmtdk.inf=17,,9893,45760
+mdmtelbt.inf=17,,9893,45760
+mdmtelin.inf=17,,9893,45760
+mdmtelnk.inf=17,,9893,45760
+mdmtexas.inf=17,,9893,45760
+mdmtger.inf=17,,9893,45760
+mdmti.inf=17,,9893,45760
+mdmtkr.inf=17,,9893,45760
+mdmtorn.inf=17,,9893,45760
+mdmtosh.inf=17,,9893,45760
+mdmtripl.inf=17,,9893,45760
+mdmtron.inf=17,,9893,45760
+mdmtrust.inf=17,,9893,45760
+mdmucom.inf=17,,9893,45760
+mdmusrcr.inf=17,,9893,45760
+mdmusrf.inf=17,,9893,45760
+mdmusrg.inf=17,,9893,45760
+mdmusrk1.inf=17,,9893,45760
+mdmusrsp.inf=17,,9893,45760
+mdmusrwp.inf=17,,9893,45760
+mdmvayrs.inf=17,,9893,45760
+mdmvdot.inf=17,,9893,45760
+mdmvict.inf=17,,9893,45760
+mdmvv.inf=17,,9893,45760
+mdmwell.inf=17,,9893,45760
+mdmwhql0.inf=17,,9893,45760
+mdmwoer.inf=17,,9893,45760
+mdmyorik.inf=17,,9893,45760
+mdmzoom.inf=17,,9893,45760
+mdmzyp.inf=17,,9893,45760
+mdmzyxel.inf=17,,9893,45760
+mdmzyxld.inf=17,,9893,45760
+mdmzyxlg.inf=17,,9893,45760
+mwavmdm.inf=17,,9893,45760
+mwavwrap.inf=17,,9893,45760
+mwdsp420.inf=17,,9893,45760
+mwdsp460.inf=17,,9893,45760
+mwmcimed.inf=17,,9893,45760
+mwmdm420.inf=17,,9893,45760
+mwmed420.inf=17,,9893,45760
+mwmed460.inf=17,,9893,45760
+mwprt420.inf=17,,9893,45760
+mwprt460.inf=17,,9893,45760
+mwutl460.inf=17,,9893,45760
+nscirda.inf=17,,9893,45760
+smcirda.inf=17,,9893,45760
+tos4mo.inf=17,,9893,45760
+tos4mu.inf=17,,9893,45760
+wbfirpio.inf=17,,9893,45760
+desktop.ini=20,,9893,45760
+dosrep.ini=25,,9893,45760
+htmlhelp.ini=25,,9893,45760
+msdfmap.ini=10,,9893,45760
+mstask.ini=32909,desktop.ini,9893,45760
+oldosapp.ini=26,,9893,45760
+instcm.inx=11,instcm.inf,9893,45760
+msicw.isp=29400,,9893,45760
+msn.isp=29400,,9893,45760
+msobe.isp=32883,,9893,45760
+winalign.job=32911,,9893,45760
+BGAMEX.JPG=32890,,9893,45760
+BGCC.JPG=32890,,9893,45760
+BGDISCOV.JPG=32890,,9893,45760
+bgJCB.jpg=32890,,9893,45760
+BGMC.JPG=32890,,9893,45760
+BGVISA.JPG=32890,,9893,45760
+CNNCTERR.JPG=32890,,9893,45760
+connect.jpg=32890,,9893,45760
+dialtone.jpg=32890,,9893,45760
+drpshdw.jpg=32890,,9893,45760
+error.jpg=32890,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_47.CAB=45
+DCE:remaining=0
+eula.jpg=32890,,9893,45760
+HNDSHAKE.JPG=32890,,9893,45760
+installd.jpg=32890,,9893,45760
+logo.jpg=32890,,9893,45760
+msn.jpg=32890,,9893,45760
+pid.jpg=32890,,9893,45760
+PK.JPG=32890,,9893,45760
+reg.jpg=32890,,9893,45760
+start.jpg=32890,,9893,45760
+statback.jpg=32890,,9893,45760
+statbar.jpg=32890,,9893,45760
+tapi.jpg=32890,,9893,45760
+TOOBUSY.JPG=32890,,9893,45760
+watermrk.jpg=32890,,9893,45760
+deluxecd.mdb=10,,9893,45760
+CERTMGR.MSC=11,,9893,45760
+cp_1252.nls=11,,9893,45760
+cp_1361.nls=11,,9893,45760
+CP_20866.NLS=11,,9893,45760
+CP_28591.NLS=11,,9893,45760
+CP_28592.NLS=11,,9893,45760
+CP_28595.NLS=11,,9893,45760
+CP_28597.NLS=11,,9893,45760
+cp_437.nls=11,,9893,45760
+cp_850.nls=11,,9893,45760
+cp_949.nls=11,,9893,45760
+locale.nls=11,,9893,45760
+unicode.nls=11,,9893,45760
+phone.obe=32883,,9893,45760
+amovie.ocx=11,,9893,45760
+ASCTRLS.OCX=11,,9893,45760
+br549.ocx=11,,9893,45760
+DHTMLED.OCX=32860,,9893,45760
+eyedog.ocx=11,,9893,45760
+HHCTRL.OCX=11,,9893,45760
+MMEFXE.OCX=11,,9893,45760
+msdxm.ocx=11,,9893,45760
+msiav.ocx=32902,,9893,45760
+msicdrom.ocx=32902,,9893,45760
+msiolerg.ocx=32902,,9893,45760
+msiprint.ocx=32902,,9893,45760
+msisys.ocx=32902,,9893,45760
+msupdate.ocx=32902,,9893,45760
+PLUGIN.OCX=11,,9893,45760
+PROCTEXE.OCX=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_48.CAB=25
+DCE:remaining=0
+txtview.ocx=32902,,9893,45760
+dosprmpt.pif=25,,9893,45760
+RSACI.RAT=11,,9893,45760
+adoapt15.reg=32864,,9893,45760
+adofre15.reg=32864,,9893,45760
+handler.reg=32865,,9893,45760
+handsafe.reg=32865,,9893,45760
+handunsf.reg=32865,,9893,45760
+odbcconf.rsp=11,,9893,45760
+DESKTOP.SCF=11,,9893,45760
+EXPLORER.SCF=25,,9893,45760
+ACTSAVER.SCR=25,,9893,45760
+instcat.sql=11,,9893,45760
+country.sys=26,,9893,45760
+dxapi.sys=11,,9893,45760
+hfont.sys=11,,9893,45760
+msado20.tlb=32864,,9893,45760
+MSDATSRC.TLB=11,,9893,45760
+MSHTML.TLB=11,,9893,45760
+SIMPDATA.TLB=11,,9893,45760
+stdole.tlb=11,,9893,45760
+stdole2.tlb=11,,9893,45760
+stdole32.tlb=11,,9893,45760
+mmtask.tsk=11,,9893,45760
+batang.ttc=32851,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_51.CAB=1
+DCE:remaining=0
+gulim.ttc=32851,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_53.CAB=3
+DCE:remaining=0
+ARIBLK.TTF=20,,9893,45760
+COMIC.TTF=20,,9893,45760
+COMICBD.TTF=20,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_54.CAB=32
+DCE:remaining=0
+IMPACT.TTF=20,,9893,45760
+VERDANA.TTF=20,,9893,45760
+VERDANAB.TTF=20,,9893,45760
+VERDANAI.TTF=20,,9893,45760
+VERDANAZ.TTF=20,,9893,45760
+WEBDINGS.TTF=20,,9893,45760
+adomdrd.txt=32864,,9893,45760
+adoreadm.txt=32864,,9893,45760
+adoxrdme.txt=32864,,9893,45760
+config.txt=25,,9893,45760
+display.txt=25,,9893,45760
+faq.txt=25,,9893,45760
+general.txt=25,,9893,45760
+gmreadme.txt=32913,,9893,45760
+hardware.txt=25,,9893,45760
+jroread.txt=32864,,9893,45760
+mouse.txt=25,,9893,45760
+msdasc.txt=32866,,9893,45760
+msdosdrv.txt=25,,9893,45760
+msdsqlrm.txt=32866,,9893,45760
+msorcolr.txt=32866,,9893,45760
+msorcrdm.txt=11,,9893,45760
+network.txt=25,,9893,45760
+printers.txt=25,,9893,45760
+programs.txt=25,,9893,45760
+recover.txt=25,,9893,45760
+sqloledb.txt=32866,,9893,45760
+sqlsrdme.txt=11,,9893,45760
+tips.txt=25,,9893,45760
+vfpodbc.txt=11,,9893,45760
+phone.ver=29400,,9893,45760
+msms001.vwp=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_55.CAB=21
+DCE:remaining=0
+mvoiced.vwp=11,,9893,45760
+ddraw.vxd=11,,9893,45760
+dinput.vxd=11,,9893,45760
+dsound.vxd=11,,9893,45760
+javasup.vxd=11,,9893,45760
+logger.vxd=11,,9893,45760
+mmdevldr.vxd=11,,9893,45760
+msgame.vxd=11,,9893,45760
+mshbios.vxd=22,,9893,45760
+paralink.vxd=11,,9893,45760
+quartz.vxd=11,,9893,45760
+SAGE.VXD=11,,9893,45760
+sw3dpro.vxd=11,,9893,45760
+sw3dpro2.vxd=11,,9893,45760
+swgampad.vxd=11,,9893,45760
+vdd.vxd=22,,9893,45760
+vflatd.vxd=22,,9893,45760
+vhbiosd.vxd=22,,9893,45760
+vkd.vxd=22,,9893,45760
+vmouse.vxd=22,,9893,45760
+logon.wav=32908,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_56.CAB=2
+DCE:remaining=0
+START.WAV=32861,,9893,45760
+classes.zip=32880,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_57.CAB=4
+DCE:remaining=0
+dx3.zip=32880,,9893,45760
+msjdbc.zip=32880,,9893,45760
+tclasses.zip=32880,,9893,45760
+wfc.zip=32880,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_58.CAB=1
+DCE:remaining=0
+lhacm.acm=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_59.CAB=1
+DCE:remaining=0
+tshoot98.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_60.CAB=1
+DCE:remaining=0
+ddrawex.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_61.CAB=3
+DCE:remaining=0
+mfc42.dll=11,,9893,45760
+mfc42loc.dll=11,,9893,45760
+modemui.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_62.CAB=2
+DCE:remaining=0
+MSVCRT.DLL=11,,9893,45760
+olepro32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_63.CAB=5
+DCE:remaining=0
+SCRRUN.DLL=11,,9893,45760
+umdm16.dll=11,,9893,45760
+umdm32.dll=11,,9893,45760
+umdmxfrm.dll=11,,9893,45760
+vmodctl.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_64.CAB=4
+DCE:remaining=0
+WLDAP32.DLL=11,,9893,45760
+WSHEXT.DLL=11,,9893,45760
+serwvdrv.drv=11,,9893,45760
+wavewrap.drv=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_65.CAB=2
+DCE:remaining=0
+CSCRIPT.EXE=13,,9893,45760
+WSCRIPT.EXE=25,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_66.CAB=9
+DCE:remaining=0
+wscript.hlp=18,,9893,45760
+mdmcpq.inf=17,,9893,45760
+mdmdsi.inf=17,,9893,45760
+mdmrock.inf=17,,9893,45760
+mdmrock2.inf=17,,9893,45760
+mdmrock3.inf=17,,9893,45760
+mdmrock4.inf=17,,9893,45760
+mdmrock5.inf=17,,9893,45760
+serwave.inf=17,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_67.CAB=1
+DCE:remaining=0
+WSHOM.OCX=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_68.CAB=3
+DCE:remaining=0
+unimdm.tsp=11,,9893,45760
+serwave.vxd=11,,9893,45760
+unimodem.vxd=11,,9893,45760
+CAB-No volume name for LDID 2, local copy - path C:\WININST0.400
+1394.inf=17,,9893,45760
+adapter.inf=17,,9893,45760
+appletpp.inf=17,,9893,45760
+atitunep.inf=17,,9893,45760
+atixbar.inf=17,,9893,45760
+awupd.inf=17,,9893,45760
+axa.inf=17,,9893,45760
+bt829.inf=17,,9893,45760
+cabpayie.inf=17,,9893,45760
+cchat25.inf=17,,9893,45760
+cemmf.inf=17,,9893,45760
+clip.inf=17,,9893,45760
+command.com=30,command.new,9893,45760
+cwbaud98.inf=17,,9893,45760
+dbc.inf=17,,9893,45760
+default.sfc=10,,9905,38388
+diskdrv.inf=17,,9893,45760
+drivers.ddb=17,,9893,45760
+drvspace.bin=13,,9893,45760
+drvspace.sys=13,,9893,45760
+dskmaint.dll=11,,10032,23953
+dvd.inf=17,,9893,45760
+dxati.inf=17,,9893,45760
+dxchips.inf=17,,9893,45760
+dxcirrus.inf=17,,9893,45760
+dxglint.inf=17,,9893,45760
+dxi128.inf=17,,9893,45760
+dxmga.inf=17,,9893,45760
+dxmm3dfx.inf=17,,9893,45760
+dxneom.inf=17,,9893,45760
+dxnvidia.inf=17,,9893,45760
+dxpmedia.inf=17,,9893,45760
+dxrend.inf=17,,9893,45760
+dxs3.inf=17,,9893,45760
+dxtrid.inf=17,,9893,45760
+dxtseng.inf=17,,9893,45760
+dxwd.inf=17,,9893,45760
+ethpcmdm.inf=17,,9893,45760
+ethpcmf.inf=17,,9893,45760
+ethpcnet.inf=17,,9893,45760
+extract.exe=13,,9893,45760
+f3audio.inf=17,,9893,45760
+fonts.inf=17,,9893,45760
+gps.inf=17,,9893,45760
+grouppol.inf=17,,9893,45760
+iedat16.inf=17,,9893,45760
+image.inf=17,,9893,45760
+imagevue.inf=17,,9893,45760
+joystick.inf=17,,9893,45760
+keyboard.inf=17,,9893,45760
+kommctrl.dll=11,,10032,23953
+ks.inf=17,,9893,45760
+kscaptur.inf=17,,9893,45760
+ksfilter.inf=17,,9893,45760
+locale.inf=17,,9893,45760
+lzexpand.dll=11,,10032,23953
+machine.inf=17,,9893,45760
+machine2.inf=17,,9893,45760
+mdm3cusb.inf=17,,9893,45760
+mdmluc.inf=17,,9893,45760
+mf.inf=17,,9893,45760
+mf8020m.inf=17,,9893,45760
+mfcem28.inf=17,,9893,45760
+mfcem33.inf=17,,9893,45760
+mfosi.inf=17,,9893,45760
+midi.inf=17,,9893,45760
+mmopt.inf=17,,9893,45760
+mscdrom.inf=17,,9893,45760
+msddraw.inf=17,,9893,45760
+msdet.inf=17,,10032,23947
+msdisp.inf=17,,9893,45760
+msdsound.inf=17,,9893,45760
+msdv.inf=17,,9893,45760
+msdxddex.inf=17,,9893,45760
+msfdc.inf=17,,9893,45760
+msmouse.inf=17,,9893,45760
+msnetmtg.inf=17,,9893,45760
+msprint.dll=11,,10032,23953
+msprint.inf=17,,9893,45760
+msprint2.dll=11,,9893,45760
+msprint2.inf=17,,9893,45760
+msprint3.inf=17,,9893,45760
+msprint4.inf=17,,9893,45760
+multilng.inf=17,,9893,45760
+ndiswan.inf=17,,9893,45760
+net100i.inf=17,,9893,45760
+net2xnet.inf=17,,9893,45760
+net3c575.inf=17,,9893,45760
+net3c589.inf=17,,9893,45760
+net8020m.inf=17,,9893,45760
+netamd.inf=17,,9893,45760
+netatki.inf=17,,9893,45760
+netblue.inf=17,,9893,45760
+netbw.inf=17,,9893,45760
+netcbdec.inf=17,,9893,45760
+netcbe.inf=17,,9893,45760
+netce2.inf=17,,9893,45760
+netce3.inf=17,,9893,45760
+netcem.inf=17,,9893,45760
+netcpq.inf=17,,9893,45760
+netdec.inf=17,,9893,45760
+netdlc.inf=17,,9893,45760
+nete100i.inf=17,,9893,45760
+nete10p.inf=17,,9893,45760
+netee16.inf=17,,9893,45760
+netejet.inf=17,,9893,45760
+netenet.inf=17,,9893,45760
+netepc.inf=17,,9893,45760
+netex10.inf=17,,9893,45760
+netfjvj.inf=17,,9893,45760
+netfl32.inf=17,,9893,45760
+netflex.inf=17,,9893,45760
+nethp.inf=17,,9893,45760
+nethpind.inf=17,,9893,45760
+nethppci.inf=17,,9893,45760
+nethppnd.inf=17,,9893,45760
+netibm.inf=17,,9893,45760
+netibm1.inf=17,,9893,45760
+netibm2.inf=17,,9893,45760
+netibmv.inf=17,,9893,45760
+neticard.inf=17,,9893,45760
+netinfo.inf=17,,9893,45760
+netm16a.inf=17,,9893,45760
+netm32a.inf=17,,9893,45760
+netmdyp.inf=17,,9893,45760
+netmhz.inf=17,,9893,45760
+netnepls.inf=17,,9893,45760
+netnf3.inf=17,,9893,45760
+netnice.inf=17,,9893,45760
+netnovel.inf=17,,9893,45760
+neto100.inf=17,,9893,45760
+netoce3x.inf=17,,9893,45760
+netoce4x.inf=17,,9893,45760
+netoli.inf=17,,9893,45760
+netosi.inf=17,,9893,45760
+netpci.inf=17,,9893,45760
+netppp.inf=17,,9893,45760
+netpptp.inf=17,,9893,45760
+netpro10.inf=17,,9893,45760
+netrnsf.inf=17,,9893,45760
+netrptip.inf=17,,9893,45760
+netrt.inf=17,,9893,45760
+netrtf.inf=17,,9893,45760
+netsmc.inf=17,,9893,45760
+netsmc1.inf=17,,9893,45760
+netsmc2.inf=17,,9893,45760
+netsmctr.inf=17,,9893,45760
+netsnip.inf=17,,9893,45760
+netsock.inf=17,,9893,45760
+netstrm.inf=17,,9893,45760
+nettdkp.inf=17,,9893,45760
+nettpro.inf=17,,9893,45760
+netxir.inf=17,,9893,45760
+nodriver.inf=17,,9893,45760
+ntmap.inf=17,,9893,45760
+oce2xmf.inf=17,,9893,45760
+octkmf.inf=17,,9893,45760
+octknet.inf=17,,9893,45760
+oe9x50.inf=17,,9893,45760
+ols.inf=17,,9893,45760
+pcmcia.inf=17,,9893,45760
+pcmciamf.inf=17,,9893,45760
+prtupd.inf=17,,9893,45760
+pws_main.htm=18,,9893,45760
+pwsinfo.inf=17,,9893,45760
+regwiz.inf=17,,9893,45760
+sb16awe.inf=17,,9893,45760
+sbp2.inf=17,,9893,45760
+scandisk.com=13,,9893,45760
+scandisk.exe=13,,9893,45760
+scandsk2.exe=13,,9893,45760
+scanreg.exe=13,,9893,45760
+scsi.inf=17,,9893,45760
+shell.inf=17,,9893,45760
+shell3.inf=17,,9893,45760
+smartdrv.exe=10,,9893,45760
+smcmodem.inf=17,,9893,45760
+sti.inf=17,,9893,45760
+subase.inf=17,,9893,45760
+sulfnbk.exe=13,,9893,45760
+swdir16.inf=17,,9893,45760
+swenum.inf=17,,9893,45760
+swflsh16.inf=17,,9893,45760
+sysdetmg.dll=11,,10032,23954
+taishid.inf=17,,9893,45760
+tapi.inf=17,,9893,45760
+themes.inf=17,,9893,45760
+themes1.inf=17,,9893,45760
+themes2.inf=17,,9893,45760
+tshoot.inf=17,,9893,45760
+umaxusd.inf=17,,9893,45760
+unknown.inf=17,,9893,45760
+usb.inf=17,,9893,45760
+usbcdc.inf=17,,9893,45760
+usbwave.inf=17,,9893,45760
+usp10.inf=17,,9893,45760
+vgx.inf=17,,9893,45760
+vidcap.inf=17,,9893,45760
+wab9x50.inf=17,,9893,45760
+wave.inf=17,,9893,45760
+wbem.inf=17,,9893,45760
+wdmaudio.inf=17,,9893,45760
+wdmfs.sys=32919,,9893,45760
+webfdr16.inf=17,,9893,45760
+winboot.sys=30,winboot.new,9893,45760
+wmidrv.sys=32919,,9893,45760
+wordpad.inf=17,,9893,45760
+wpwin98.inf=17,,9893,45760
+wsh.inf=17,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+CATALOG3.CAB=32920,,9893,45760
+sucatreg.exe=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\PRECOPY2.CAB=4
+DCE:remaining=0
+setupx.dll=11,,9893,45760
+mshdc.inf=17,,9893,45760
+setupc.inf=17,,9893,45760
+license.txt=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=7
+DCE:remaining=0
+fdisk.exe=13,,9893,45760
+mscdex.exe=13,,9893,45760
+himem.sys=26,,9893,45760
+ramdrive.sys=10,,9893,45760
+serialui.dll=11,,9893,45760
+ccport.sys=32941,,9893,45760
+ks.sys=32919,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=4
+DCE:remaining=0
+wmilib.sys=32919,,9893,45760
+lpt.vxd=11,,9893,45760
+serial.vxd=11,,9893,45760
+wdmmdmld.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET7.CAB=7
+DCE:remaining=0
+msshrui.dll=11,,9893,45760
+mswsock.dll=11,,9893,45760
+mswsosp.dll=11,,9893,45760
+ws2_32.dll=11,,9893,45760
+ws2help.dll=11,,9893,45760
+ws2thk.dll=11,,9893,45760
+wscthunk.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET8.CAB=3
+DCE:remaining=0
+wsasrv.exe=11,,9893,45760
+logos.sys=25,,9893,45760
+logow.sys=25,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET9.CAB=2
+DCE:remaining=0
+filesec.vxd=11,,9893,45760
+pppmac.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET10.CAB=2
+DCE:remaining=0
+wsock.vxd=11,,9893,45760
+wsock2.vxd=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER11.CAB=1
+DCE:remaining=0
+ksuser.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER16.CAB=1
+DCE:remaining=0
+wdmaud.drv=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER19.CAB=7
+DCE:remaining=0
+kmixer.sys=32919,,9893,45760
+portcls.sys=32919,,9893,45760
+redbook.sys=32919,,9893,45760
+sbemul.sys=32919,,9893,45760
+stream.sys=32919,,9893,45760
+swmidi.sys=32919,,9893,45760
+sysaudio.sys=32919,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\DRIVER20.CAB=3
+DCE:remaining=0
+usbaudio.sys=32919,,9893,45760
+wdmaud.sys=32919,,9893,45760
+threed.vbx=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_21.CAB=7
+DCE:remaining=0
+vrtwd.386=11,,9893,45760
+imaadp32.acm=11,,9893,45760
+msadp32.acm=11,,9893,45760
+msgsm32.acm=11,,9893,45760
+tssoft32.acm=11,,9893,45760
+appstart.ani=32917,,9893,45760
+hourglas.ani=32917,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_22.CAB=29
+DCE:remaining=0
+oemreg.bin=11,,9893,45760
+unicode.bin=11,,9893,45760
+1stboot.bmp=25,,9893,45760
+3dblocks.bmp=25,,9893,45760
+bamboo.bmp=25,,9893,45760
+bigfoot.bmp=32975,,9893,45760
+bubbles.bmp=25,,9893,45760
+circles.bmp=25,,9893,45760
+clouds.bmp=25,,9893,45760
+egypt.bmp=25,,9893,45760
+forest.bmp=25,,9893,45760
+gator.bmp=25,,9893,45760
+halftone.bmp=25,,9893,45760
+hounds.bmp=25,,9893,45760
+infospbz.bmp=32975,,9893,45760
+infospce.bmp=32975,,9893,45760
+mesh.bmp=25,,9893,45760
+pstripe.bmp=25,,9893,45760
+pyramid2.bmp=25,,9893,45760
+redtile.bmp=25,,9893,45760
+rivets2.bmp=25,,9893,45760
+sand.bmp=25,,9893,45760
+setup.bmp=25,,9893,45760
+swtchbrd.bmp=32975,,9893,45760
+thatch2.bmp=25,,9893,45760
+verisign.bmp=32975,,9893,45760
+weave2.bmp=25,,9893,45760
+whowhere.bmp=32975,,9893,45760
+yahoo.bmp=32975,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_23.CAB=1
+DCE:remaining=0
+msoe.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_24.CAB=1
+DCE:remaining=0
+wab.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+edit.com=13,,9893,45760
+sys.com=13,,9893,45760
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_25.CAB=125
+DCE:remaining=0
+win.cnf=10,win.com,9893,45760
+calc.cnt=18,,9893,45760
+conn_oe.cnt=18,,9893,45760
+drvspace.cnt=18,,9893,45760
+eudcedit.cnt=18,,9893,45760
+mouse.cnt=18,,9893,45760
+MSPAINT.CNT=18,,9893,45760
+notepad.cnt=18,,9893,45760
+packager.cnt=18,,9893,45760
+progman.cnt=18,,9893,45760
+sndvol32.cnt=18,,9893,45760
+soundrec.cnt=18,,9893,45760
+windows.cnt=18,,9893,45760
+winfile.cnt=18,,9893,45760
+WORDPAD.CNT=18,,9893,45760
+mswrd832.cnv=32956,,9893,45760
+choice.com=13,,9893,45760
+diskcopy.com=13,,9893,45760
+doskey.com=13,,9893,45760
+format.com=13,,9893,45760
+mode.com=13,,9893,45760
+more.com=13,,9893,45760
+ACCESS.CPL=11,,9893,45760
+APPWIZ.CPL=11,,9893,45760
+main.cpl=11,,9893,45760
+sticpl.cpl=11,,9893,45760
+sysdm.cpl=11,,9893,45760
+telephon.cpl=11,,9893,45760
+timedate.cpl=11,,9893,45760
+arrow_i.cur=32953,,9893,45760
+arrow_il.cur=32953,,9893,45760
+arrow_im.cur=32953,,9893,45760
+arrow_r.cur=32953,,9893,45760
+arrow_rl.cur=32953,,9893,45760
+arrow_rm.cur=32953,,9893,45760
+beam_i.cur=32953,,9893,45760
+beam_il.cur=32953,,9893,45760
+beam_im.cur=32953,,9893,45760
+beam_r.cur=32953,,9893,45760
+beam_rl.cur=32953,,9893,45760
+beam_rm.cur=32953,,9893,45760
+busy_i.cur=32953,,9893,45760
+busy_il.cur=32953,,9893,45760
+busy_im.cur=32953,,9893,45760
+busy_r.cur=32953,,9893,45760
+busy_rl.cur=32953,,9893,45760
+busy_rm.cur=32953,,9893,45760
+cross_i.cur=32953,,9893,45760
+cross_il.cur=32953,,9893,45760
+cross_im.cur=32953,,9893,45760
+cross_r.cur=32953,,9893,45760
+cross_rl.cur=32953,,9893,45760
+cross_rm.cur=32953,,9893,45760
+hand-i.cur=32953,,9893,45760
+hand-il.cur=32953,,9893,45760
+hand-im.cur=32953,,9893,45760
+hand-l.cur=32953,,9893,45760
+hand-m.cur=32953,,9893,45760
+hand-r.cur=32953,,9893,45760
+hand-rl.cur=32953,,9893,45760
+hand-rm.cur=32953,,9893,45760
+help_i.cur=32953,,9893,45760
+help_il.cur=32953,,9893,45760
+help_im.cur=32953,,9893,45760
+help_r.cur=32953,,9893,45760
+help_rl.cur=32953,,9893,45760
+help_rm.cur=32953,,9893,45760
+move_i.cur=32953,,9893,45760
+move_il.cur=32953,,9893,45760
+move_im.cur=32953,,9893,45760
+move_r.cur=32953,,9893,45760
+move_rl.cur=32953,,9893,45760
+move_rm.cur=32953,,9893,45760
+no_i.cur=32953,,9893,45760
+no_il.cur=32953,,9893,45760
+no_im.cur=32953,,9893,45760
+no_r.cur=32953,,9893,45760
+no_rl.cur=32953,,9893,45760
+no_rm.cur=32953,,9893,45760
+pen_i.cur=32953,,9893,45760
+pen_il.cur=32953,,9893,45760
+pen_im.cur=32953,,9893,45760
+pen_r.cur=32953,,9893,45760
+pen_rl.cur=32953,,9893,45760
+pen_rm.cur=32953,,9893,45760
+size1_i.cur=32953,,9893,45760
+size1_il.cur=32953,,9893,45760
+size1_im.cur=32953,,9893,45760
+size1_r.cur=32953,,9893,45760
+size1_rl.cur=32953,,9893,45760
+size1_rm.cur=32953,,9893,45760
+size2_i.cur=32953,,9893,45760
+size2_il.cur=32953,,9893,45760
+size2_im.cur=32953,,9893,45760
+size2_r.cur=32953,,9893,45760
+size2_rl.cur=32953,,9893,45760
+size2_rm.cur=32953,,9893,45760
+size3_i.cur=32953,,9893,45760
+size3_il.cur=32953,,9893,45760
+size3_im.cur=32953,,9893,45760
+size3_r.cur=32953,,9893,45760
+size3_rl.cur=32953,,9893,45760
+size3_rm.cur=32953,,9893,45760
+size4_i.cur=32953,,9893,45760
+size4_il.cur=32953,,9893,45760
+size4_im.cur=32953,,9893,45760
+size4_r.cur=32953,,9893,45760
+size4_rl.cur=32953,,9893,45760
+size4_rm.cur=32953,,9893,45760
+up_i.cur=32953,,9893,45760
+up_il.cur=32953,,9893,45760
+up_im.cur=32953,,9893,45760
+up_r.cur=32953,,9893,45760
+up_rl.cur=32953,,9893,45760
+up_rm.cur=32953,,9893,45760
+wait_i.cur=32953,,9893,45760
+wait_il.cur=32953,,9893,45760
+wait_im.cur=32953,,9893,45760
+wait_r.cur=32953,,9893,45760
+wait_rl.cur=32953,,9893,45760
+wait_rm.cur=32953,,9893,45760
+drvspace.dat=32946,,9893,45760
+welcome.dat=32918,,9893,45760
+pconfig.dcf=32948,,9893,45760
+acctres.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_26.CAB=19
+DCE:remaining=0
+citwbase.dll=32948,,9893,45760
+citwconn.dll=32948,,9893,45760
+citwdmk.dll=32948,,9893,45760
+citwhsrv.dll=32948,,9893,45760
+citwsrv.dll=32948,,9893,45760
+citwstrm.dll=32948,,9893,45760
+clusalgo.dll=11,,9893,45760
+cmpw0001.dll=32948,,9893,45760
+cmpw0abe.dll=32948,,9893,45760
+comdlg32.dll=11,,9893,45760
+compext.dll=32946,,9893,45760
+corwrenu.dll=32948,,9893,45760
+crtdll.dll=11,,9893,45760
+csapi3t1.dll=32972,,9893,45760
+ctl3d.dll=11,,9893,45760
+ctl3d32.dll=11,,9893,45760
+ctl3dv2.dll=11,,9893,45760
+cvt16.dll=11,,9893,45760
+cvt32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_27.CAB=8
+DCE:remaining=0
+dataclen.dll=11,,9893,45760
+ddeml.dll=11,,9893,45760
+deskcp16.dll=11,,9893,45760
+devmgr32.dll=11,,9893,45760
+dibeng.dll=11,,9893,45760
+dirapi.dll=32983,,9893,45760
+directdb.dll=32973,,9893,45760
+diskcopy.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_28.CAB=8
+DCE:remaining=0
+docprop.dll=11,,9893,45760
+drvwcdb.dll=32948,,9893,45760
+drvwddm.dll=32948,,9893,45760
+drvwffd.dll=32948,,9893,45760
+ENABLE3.DLL=11,,9893,45760
+enumfile.dll=11,,9893,45760
+FP4ANWI.DLL=32932,,9893,45760
+FP4AUTL.DLL=32932,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_29.CAB=13
+DCE:remaining=0
+FP4AWEC.DLL=32932,,9893,45760
+gapi.dll=11,,9893,45760
+gapi32.dll=11,,9893,45760
+gdi32.dll=11,,9893,45760
+glu32.dll=11,,9893,45760
+hid.dll=11,,9893,45760
+iccvid.dll=11,,9893,45760
+icm32.dll=11,,9893,45760
+icmui.dll=11,,9893,45760
+icmupg.dll=11,,9893,45760
+iml32.dll=32983,,9893,45760
+inetcomm.dll=11,,9893,45760
+inetres.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_30.CAB=10
+DCE:remaining=0
+iosclass.dll=11,,9893,45760
+ipcw0000.dll=32948,,9893,45760
+ir32_32.dll=11,,9893,45760
+kernel32.dll=11,,9893,45760
+linkinfo.dll=11,,9893,45760
+lz32.dll=11,,9893,45760
+M5if32.dll=32982,,9893,45760
+MAG_HOOK.DLL=11,,9893,45760
+maincp16.dll=11,,9893,45760
+mainrenu.dll=32948,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_31.CAB=13
+DCE:remaining=0
+mapistub.dll=11,,9893,45760
+maswmx.dll=32948,,9893,45760
+mf3216.dll=11,,9893,45760
+mfc30.dll=11,,9893,45760
+mfc30loc.dll=11,,9893,45760
+mfc40.dll=11,,9893,45760
+mfcans32.dll=11,,9893,45760
+mfcd30.dll=11,,9893,45760
+mfcn30.dll=11,,9893,45760
+mfco30.dll=11,,9893,45760
+moricons.dll=25,,9893,45760
+mpi32enu.dll=32948,,9893,45760
+mpiww32.dll=32948,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_32.CAB=4
+DCE:remaining=0
+mscms.dll=11,,9893,45760
+MSDAIPP.DLL=32931,,9893,45760
+MSDAPML.DLL=32931,,9893,45760
+MSDAURL.DLL=32931,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_33.CAB=1
+DCE:remaining=0
+msimg32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_34.CAB=1
+DCE:remaining=0
+msoe.dll=30000,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_35.CAB=9
+DCE:remaining=0
+msoeacct.dll=11,,9893,45760
+msoeres.dll=30000,,9893,45760
+msoert2.dll=11,,9893,45760
+MSONSEXT.DLL=32933,,9893,45760
+msows412.dll=25,,9893,45760
+mspcic.dll=11,,9893,45760
+mspcx32.dll=28710,,9893,45760
+MSR2C.DLL=11,,9893,45760
+MSR2CENU.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_36.CAB=5
+DCE:remaining=0
+msrle32.dll=11,,9893,45760
+msvbvm50.dll=11,,9893,45760
+msvcrt20.dll=11,,9893,45760
+msvcrt40.dll=11,,9893,45760
+msvidc32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_37.CAB=13
+DCE:remaining=0
+mydocs.dll=11,,9893,45760
+nme1wenu.dll=32948,,9893,45760
+nmew0110.dll=32948,,9893,45760
+ntdll.dll=11,,9893,45760
+oeimport.dll=30000,,9893,45760
+oejunk.dll=30000,,9893,45760
+oemiglib.dll=30000,,9893,45760
+oemreg.dll=11,,9893,45760
+olecli.dll=11,,9893,45760
+olecli32.dll=11,,9893,45760
+olesvr.dll=11,,9893,45760
+olesvr32.dll=11,,9893,45760
+opengl32.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_38.CAB=11
+DCE:remaining=0
+pifmgr.dll=11,,9893,45760
+pkpd.dll=11,,9893,45760
+pkpd32.dll=11,,9893,45760
+pnpwprop.dll=11,,9893,45760
+pnpwrenu.dll=11,,9893,45760
+powerold.dll=11,,9893,45760
+RAGENT.DLL=32933,,9893,45760
+rasapi16.dll=11,,9893,45760
+regwizC.DLL=11,,9893,45760
+riched.dll=11,,9893,45760
+riched20.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_39.CAB=7
+DCE:remaining=0
+rnanp.dll=11,,9893,45760
+rnasmm.dll=11,,9893,45760
+rnathunk.dll=11,,9893,45760
+rnaui.dll=11,,9893,45760
+setup4.dll=11,,9893,45760
+sfcdll.dll=11,,9893,45760
+sh31w32.dll=32949,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_40.CAB=24
+DCE:remaining=0
+shscrap.dll=11,,9893,45760
+smew0001.dll=32948,,9893,45760
+smew0002.dll=32948,,9893,45760
+smmscrpt.dll=11,,9893,45760
+smmsetup.dll=11,,9893,45760
+splash.dll=32948,,9893,45760
+spoolss.dll=11,,9893,45760
+stem0409.dll=11,,9893,45760
+sti.dll=11,,9893,45760
+sti_ci.dll=11,,9893,45760
+sti_ci32.dll=11,,9893,45760
+SwDir.dll=32982,,9893,45760
+syncui.dll=11,,9893,45760
+sysclass.dll=11,,9893,45760
+sysinv.dll=11,,9893,45760
+systhunk.dll=11,,9893,45760
+tapi.dll=11,,9893,45760
+tapi32.dll=11,,9893,45760
+tapiui.dll=11,,9893,45760
+tmapi.dll=11,,9893,45760
+toolhelp.dll=11,,9893,45760
+tsd32.dll=11,,9893,45760
+tsp3216s.dll=11,,9893,45760
+uiserve.dll=32948,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_41.CAB=8
+DCE:remaining=0
+user32.dll=11,,9893,45760
+usp10.dll=11,,9893,45760
+vb5ko.dll=11,,9893,45760
+vdmdbg.dll=11,,9893,45760
+version.dll=11,,9893,45760
+vgx.dll=32930,,9893,45760
+wab32.dll=32974,,9893,45760
+wab32res.dll=32974,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+attrib.exe=13,,9893,45760
+chkdsk.exe=13,,9893,45760
+Debug.exe=13,,9893,45760
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_42.CAB=38
+DCE:remaining=0
+wabfind.dll=30000,,9893,45760
+wabimp.dll=30000,,9893,45760
+whlp16t.dll=11,,9893,45760
+whlp32t.dll=11,,9893,45760
+win32s16.dll=11,,9893,45760
+win87em.dll=11,,9893,45760
+winalign.dll=11,,9893,45760
+winaspi.dll=11,,9893,45760
+wmi.dll=11,,9893,45760
+wmicore.dll=11,,9893,45760
+wnaspi32.dll=11,,9893,45760
+wow32.dll=11,,9893,45760
+wupdinfo.dll=11,,9893,45760
+winword.doc=32916,,9893,45760
+winword2.doc=32954,,9893,45760
+bigmem.drv=12,,9893,45760
+comm.drv=11,,9893,45760
+mmsound.drv=11,,9893,45760
+winspl16.drv=11,,9893,45760
+winspool.drv=11,,9893,45760
+bootdisk.ebd=13,bootdisk.bat,9893,45760
+ACCSTAT.EXE=25,,9893,45760
+ACCWIZ.EXE=11,,9893,45760
+asd.exe=10,,9893,45760
+calc.exe=25,,9893,45760
+cleanmgr.exe=25,,9893,45760
+cmpagent.exe=32945,,9893,45760
+conagent.exe=11,,9893,45760
+control.exe=25,,9893,45760
+cvt.exe=13,,9893,45760
+cvt1.exe=25,,9893,45760
+CVTAPLOG.EXE=25,,9893,45760
+DEFRAG.EXE=25,,9893,45760
+deltree.exe=13,,9893,45760
+DRVSPACE.EXE=25,,9893,45760
+edit.exe=13,,9893,45760
+edit2.exe=13,,9893,45760
+emm386.exe=10,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_43.CAB=24
+DCE:remaining=0
+eudcedit.exe=32944,,9893,45760
+fc.exe=13,,9893,45760
+find.exe=13,,9893,45760
+fixmapi.exe=11,,9893,45760
+gdi.exe=11,,9893,45760
+krnl386.exe=11,,9893,45760
+label.exe=13,,9893,45760
+M5drvr32.exe=32982,,9893,45760
+MAGNIFY.EXE=11,,9893,45760
+mem.exe=13,,9893,45760
+mkcompat.exe=11,,9893,45760
+mm2ent.exe=25,,9893,45760
+move.exe=13,,9893,45760
+msbackup.exe=32947,,9893,45760
+msconfig.exe=11,,9893,45760
+msgsrv32.exe=11,,9893,45760
+msimn.exe=30000,,9893,45760
+mspaint.exe=28710,,9893,45760
+nlsfunc.exe=13,,9893,45760
+nocomp.exe=32946,,9893,45760
+notepad.exe=25,,9893,45760
+oemig50.exe=30000,,9893,45760
+packager.exe=25,,9893,45760
+pbrush.exe=25,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+regedit.exe=25,,9893,45760
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_44.CAB=56
+DCE:remaining=0
+pnpwtape.exe=32950,,9893,45760
+progman.exe=25,,9893,45760
+REGWIZ.EXE=11,,9893,45760
+rg2catdb.exe=25,,9893,45760
+rnaapp.exe=11,,9893,45760
+rundll.exe=25,,9893,45760
+rundll32.exe=25,,9893,45760
+runonce.exe=11,,9893,45760
+SCANDSKW.EXE=25,,9893,45760
+ScanRegW.exe=25,,9893,45760
+setup50.exe=30000,,9893,45760
+setver.exe=26,setver.win,9893,45760
+sfc.exe=11,,9893,45760
+sndrec32.exe=25,,9893,45760
+sndvol32.exe=25,,9893,45760
+sort.exe=13,,9893,45760
+spool32.exe=11,,9893,45760
+srw.exe=11,,9893,45760
+start.exe=13,,9893,45760
+stimon.exe=11,,9893,45760
+subst.exe=13,,9893,45760
+sysedit.exe=11,,9893,45760
+systray.exe=11,,9893,45760
+tapi16.exe=11,,9893,45760
+tapiini.exe=11,,9893,45760
+tapisrv.exe=11,,9893,45760
+tapiupr.exe=11,,9893,45760
+taskman.exe=25,,9893,45760
+taskmon.exe=25,,9893,45760
+tcmsetup.exe=11,,9893,45760
+tlocmgr.exe=11,,9893,45760
+user.exe=11,,9893,45760
+vcmui.exe=25,,9893,45760
+wab.exe=30000,,9893,45760
+wabmig.exe=30000,,9893,45760
+walign.exe=11,,9893,45760
+WELCOME.EXE=25,,9893,45760
+weldata.exe=32918,,9893,45760
+winfile.exe=25,,9893,45760
+winhelp.exe=25,,9893,45760
+winhlp32.exe=25,,9893,45760
+wininit.exe=10,,9893,45760
+winver.exe=25,,9893,45760
+wmiexe.exe=11,,9893,45760
+wordpad.exe=28710,,9893,45760
+write.exe=25,,9893,45760
+wupdmgr.exe=25,,9893,45760
+xcopy.exe=13,,9893,45760
+xcopy32.exe=13,,9893,45760
+pcximp32.flt=28710,,9893,45760
+8514fix.fon=32943,,9893,45760
+8514oem.fon=32943,,9893,45760
+8514sys.fon=32943,,9893,45760
+coure.fon=32943,,9893,45760
+courf.fon=32943,,9893,45760
+DOSAPP.FON=32943,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_45.CAB=34
+DCE:remaining=0
+modern.fon=20,,9893,45760
+serife.fon=32943,,9893,45760
+seriff.fon=32943,,9893,45760
+smalle.fon=32943,,9893,45760
+smallf.fon=32943,,9893,45760
+sserife.fon=32943,,9893,45760
+sseriff.fon=32943,,9893,45760
+symbole.fon=32943,,9893,45760
+symbolf.fon=32943,,9893,45760
+vgafix.fon=32943,,9893,45760
+vgaoem.fon=32943,,9893,45760
+vgasys.fon=32943,,9893,45760
+1green.gif=32971,,9893,45760
+baby.gif=32971,,9893,45760
+chess.gif=32971,,9893,45760
+chicken.gif=32971,,9893,45760
+formal.gif=32971,,9893,45760
+forsale.gif=32971,,9893,45760
+funbus.gif=32971,,9893,45760
+hol_ltr.gif=32971,,9893,45760
+mabelb.gif=32971,,9893,45760
+mabelt.gif=32971,,9893,45760
+pws_flag.gif=18,,9893,45760
+pws_msft.gif=18,,9893,45760
+pws_smal.gif=18,,9893,45760
+pws_titl.gif=18,,9893,45760
+running.gif=32971,,9893,45760
+santa.gif=32971,,9893,45760
+soup.gif=32971,,9893,45760
+squig.gif=32971,,9893,45760
+story.gif=32971,,9893,45760
+tech.gif=32971,,9893,45760
+tiki.gif=32971,,9893,45760
+trees.gif=32971,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+scandisk.ini=13,,9893,45760
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_46.CAB=83
+DCE:remaining=0
+wuicon1.gif=32923,,9893,45760
+wuicon2.gif=32923,,9893,45760
+wulogo.gif=32923,,9893,45760
+xivy.gif=32971,,9893,45760
+ACCESS.HLP=18,,9893,45760
+apps.hlp=18,,9893,45760
+calc.hlp=18,,9893,45760
+conn_oe.hlp=18,,9893,45760
+drvspace.hlp=18,,9893,45760
+edit.hlp=13,,9893,45760
+edit2.hlp=13,,9893,45760
+eudcedit.hlp=18,,9893,45760
+mouse.hlp=18,,9893,45760
+msoe.hlp=18,,9893,45760
+msoeacct.hlp=18,,9893,45760
+MSPAINT.HLP=18,,9893,45760
+NETWORK.HLP=18,,9893,45760
+notepad.hlp=18,,9893,45760
+progman.hlp=18,,9893,45760
+regedit.hlp=18,,9893,45760
+sndvol32.hlp=18,,9893,45760
+soundrec.hlp=18,,9893,45760
+wab.hlp=18,,9893,45760
+windows.hlp=18,,9893,45760
+winfile.hlp=18,,9893,45760
+WORDPAD.HLP=18,,9893,45760
+baby.htm=32971,,9893,45760
+balloon.htm=32971,,9893,45760
+chess.htm=32971,,9893,45760
+chicken.htm=32971,,9893,45760
+formal.htm=32971,,9893,45760
+forsale.htm=32971,,9893,45760
+funbus.htm=32971,,9893,45760
+hol_ltr.htm=32971,,9893,45760
+mabel.htm=32971,,9893,45760
+runbday.htm=32971,,9893,45760
+story.htm=32971,,9893,45760
+tech.htm=32971,,9893,45760
+tiki.htm=32971,,9893,45760
+wum.htm=32923,,9893,45760
+xivy.htm=32971,,9893,45760
+dg22d93.icm=23,,9893,45760
+hg22d93.icm=23,,9893,45760
+mnB22G15.ICM=23,,9893,45760
+mnB22G18.ICM=23,,9893,45760
+mnB22G21.ICM=23,,9893,45760
+mnEBUG15.ICM=23,,9893,45760
+mnEBUG18.ICM=23,,9893,45760
+mnEBUG21.ICM=23,,9893,45760
+mnP22G15.ICM=23,,9893,45760
+mnP22G18.ICM=23,,9893,45760
+mnP22G21.ICM=23,,9893,45760
+ng22d93.icm=23,,9893,45760
+tg22d93.icm=23,,9893,45760
+winupd.ico=25,,9893,45760
+apps.inf=17,,9893,45760
+biosinfo.inf=17,,9893,45760
+control.inf=11,,9893,45760
+DRVSPACE.INF=25,,9893,45760
+hpscanms.inf=17,,9893,45760
+kodak.inf=17,,9893,45760
+lghpscan.inf=17,,9893,45760
+logiscan.inf=17,,9893,45760
+mfmhz.inf=17,,9893,45760
+nocomp.inf=32946,,9893,45760
+oemcpl.inf=17,,9893,45760
+pnpwfdc.inf=17,,9893,45760
+pnpwide.inf=17,,9893,45760
+pnpwppt.inf=17,,9893,45760
+pnpwtape.inf=17,,9893,45760
+pppatm.inf=17,,9893,45760
+wanatm.inf=17,,9893,45760
+wdma_azt.inf=17,,9893,45760
+wdma_csc.inf=17,,9893,45760
+wdma_ess.inf=17,,9893,45760
+wdma_usb.inf=17,,9893,45760
+wdma_ymh.inf=17,,9893,45760
+winpopup.inf=17,,9893,45760
+ios.ini=10,,9893,45760
+ScanReg.ini=25,,9893,45760
+winali.ini=11,,9893,45760
+winalx.ini=11,,9893,45760
+balloon.jpg=32971,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_47.CAB=11
+DCE:remaining=0
+junkmail.lko=30000,,9893,45760
+conlock.mod=11,,9893,45760
+redirect.mod=11,,9893,45760
+xcopy32.mod=13,,9893,45760
+fpext.msg=32934,,9893,45760
+commdlg.new=11,commdlg.dll,9893,45760
+shell.new=11,shell.dll,9893,45760
+ver.new=11,ver.dll,9893,45760
+winoa386.new=11,winoa386.mod,9893,45760
+swflash.ocx=32989,,9893,45760
+TDC.OCX=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_48.CAB=34
+DCE:remaining=0
+esdi_506.pdr=12,,9893,45760
+hsflop.pdr=12,,9893,45760
+rmm.pdr=12,,9893,45760
+scsiport.pdr=12,,9893,45760
+cvt.pif=32952,,9893,45760
+dosmode.pif=25,,9893,45760
+ems_xms.pif=25,,9893,45760
+powerpnt.ppt=32954,,9893,45760
+amipro.sam=32954,,9893,45760
+cis.scp=32957,,9893,45760
+pppmenu.scp=32957,,9893,45760
+slip.scp=32957,,9893,45760
+slipmenu.scp=32957,,9893,45760
+bezier.scr=11,,9893,45760
+scrnsave.scr=11,,9893,45760
+ss3dfo.scr=11,,9893,45760
+ssflwbox.scr=11,,9893,45760
+ssflywin.scr=11,,9893,45760
+ssmarque.scr=11,,9893,45760
+ssmaze.scr=11,,9893,45760
+ssmyst.scr=11,,9893,45760
+sspipes.scr=11,,9893,45760
+ssstars.scr=11,,9893,45760
+sstext3d.scr=11,,9893,45760
+presenta.shw=32954,,9893,45760
+ansi.sys=13,,9893,45760
+aspi2hlp.sys=26,,9893,45760
+CMD640X.SYS=26,,9893,45760
+CMD640X2.SYS=26,,9893,45760
+dblbuff.sys=26,,9893,45760
+ifshlp.sys=26,,9893,45760
+sulogo.sys=30,,9893,45760
+remotesp.tsp=11,,9893,45760
+tsp3216l.tsp=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_53.CAB=6
+DCE:remaining=0
+arial.ttf=20,,9893,45760
+arialbd.ttf=20,,9893,45760
+arialbi.ttf=20,,9893,45760
+ariali.ttf=20,,9893,45760
+cour.ttf=20,,9893,45760
+courbd.ttf=20,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_54.CAB=14
+DCE:remaining=0
+courbi.ttf=20,,9893,45760
+couri.ttf=20,,9893,45760
+lucon.ttf=20,,9893,45760
+marlett.ttf=20,,9893,45760
+symbol.ttf=20,,9893,45760
+tahoma.ttf=20,,9893,45760
+tahomabd.ttf=20,,9893,45760
+times.ttf=20,,9893,45760
+timesbd.ttf=20,,9893,45760
+timesbi.ttf=20,,9893,45760
+timesi.ttf=20,,9893,45760
+wingding.ttf=20,,9893,45760
+msoe.txt=30000,,9893,45760
+sfcsync.txt=10,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_55.CAB=70
+DCE:remaining=0
+apix.vxd=12,,9893,45760
+atapchng.vxd=12,,9893,45760
+biosxlat.vxd=22,,9893,45760
+cdfs.vxd=12,,9893,45760
+cdtsd.vxd=12,,9893,45760
+cdvsd.vxd=12,,9893,45760
+combuff.vxd=22,,9893,45760
+configmg.vxd=22,,9893,45760
+disktsd.vxd=12,,9893,45760
+diskvsd.vxd=12,,9893,45760
+dosmgr.vxd=22,,9893,45760
+dosnet.vxd=22,,9893,45760
+drvspacx.vxd=12,,9893,45760
+drvwcdb.vxd=12,drvwcdb.vx_,9893,45760
+drvwppqt.vxd=12,drvwppqt.vx_,9893,45760
+drvwq117.vxd=12,drvwq117.vx_,9893,45760
+dynapage.vxd=22,,9893,45760
+ebios.vxd=22,,9893,45760
+enable.vxd=22,,9893,45760
+ENABLE2.VXD=11,,9893,45760
+ENABLE4.VXD=11,,9893,45760
+fiolog.vxd=11,,9893,45760
+ifsmgr.vxd=22,,9893,45760
+int13.vxd=22,,9893,45760
+ios.vxd=22,,9893,45760
+lptenum.vxd=11,,9893,45760
+mrci2.vxd=22,,9893,45760
+mtrr.vxd=22,,9893,45760
+necatapi.vxd=12,,9893,45760
+ntkern.vxd=22,,9893,45760
+pageswap.vxd=22,,9893,45760
+parity.vxd=22,,9893,45760
+perf.vxd=22,,9893,45760
+qemmfix.vxd=22,,9893,45760
+reboot.vxd=22,,9893,45760
+scsi1hlp.vxd=12,,9893,45760
+serenum.vxd=11,,9893,45760
+shell.vxd=22,,9893,45760
+smartvsd.vxd=11,,9893,45760
+spap.vxd=11,,9893,45760
+splitter.vxd=11,,9893,45760
+spooler.vxd=22,,9893,45760
+torisan3.vxd=12,,9893,45760
+udf.vxd=22,,9893,45760
+v86mmgr.vxd=22,,9893,45760
+vcache.vxd=22,,9893,45760
+vcd.vxd=22,,9893,45760
+vcdfsd.vxd=22,,9893,45760
+vcomm.vxd=22,,9893,45760
+vcond.vxd=22,,9893,45760
+vdef.vxd=22,,9893,45760
+vdmad.vxd=22,,9893,45760
+vfat.vxd=22,,9893,45760
+vfbackup.vxd=22,,9893,45760
+vfd.vxd=11,,9893,45760
+vfixd.vxd=11,,9893,45760
+vgateway.vxd=11,,9893,45760
+vmcpd.vxd=22,,9893,45760
+vmd.vxd=22,,9893,45760
+vmm32.vxd=11,,9893,45760
+vmpoll.vxd=22,,9893,45760
+voltrack.vxd=12,,9893,45760
+vpd.vxd=22,,9893,45760
+vpicd.vxd=22,,9893,45760
+vsd.vxd=22,,9893,45760
+vshare.vxd=22,,9893,45760
+vtd.vxd=22,,9893,45760
+vtdapi.vxd=22,,9893,45760
+vwin32.vxd=22,,9893,45760
+vxdldr.vxd=22,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_56.CAB=32
+DCE:remaining=0
+sndrec.wav=32916,,9893,45760
+welcom98.wav=32918,,9893,45760
+quattro.wb2=32954,,9893,45760
+default.wbm=32918,,9893,45760
+icw.wbm=32918,,9893,45760
+logo.wbm=32918,,9893,45760
+ms.wbm=32918,,9893,45760
+regwiz.wbm=32918,,9893,45760
+tour.wbm=32918,,9893,45760
+tuneup.wbm=32918,,9893,45760
+win.wbm=32918,,9893,45760
+lotus.wk4=32954,,9893,45760
+spbanner.wmf=11,,9893,45760
+mswrd632.wpc=32956,,9893,45760
+write32.wpc=32956,,9893,45760
+wordpfct.wpd=32954,,9893,45760
+wordpfct.wpg=32954,,9893,45760
+CBrowser.x32=32984,,9893,45760
+flashass.x32=32984,,9893,45760
+fontass.x32=32984,,9893,45760
+FontXtra.x32=32984,,9893,45760
+MacroMix.x32=32984,,9893,45760
+Multiusr.x32=32984,,9893,45760
+Netfile.x32=32984,,9893,45760
+Netlingo.x32=32984,,9893,45760
+Prefs.x32=32984,,9893,45760
+Swadcmpr.x32=32984,,9893,45760
+Swastrm.x32=32984,,9893,45760
+textass.x32=32984,,9893,45760
+TextXtra.x32=32984,,9893,45760
+excel.xls=32954,,9893,45760
+excel4.xls=32954,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_57.CAB=1
+DCE:remaining=0
+OSP.ZIP=32915,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_58.CAB=35
+DCE:remaining=0
+msg711.acm=11,,9893,45760
+msg723.acm=11,,9893,45760
+ANNA.AVB=32960,,9893,45760
+ARMANDO.AVB=32960,,9893,45760
+BOLO.AVB=32960,,9893,45760
+CRO.AVB=32960,,9893,45760
+DAN.AVB=32960,,9893,45760
+DENISE.AVB=32960,,9893,45760
+HUGH.AVB=32960,,9893,45760
+JORDAN.AVB=32960,,9893,45760
+KEVIN.AVB=32960,,9893,45760
+KWENSA.AVB=32960,,9893,45760
+LANCE.AVB=32960,,9893,45760
+LYNNEA.AVB=32960,,9893,45760
+MARGARET.AVB=32960,,9893,45760
+MAYNARD.AVB=32960,,9893,45760
+MIKE.AVB=32960,,9893,45760
+REBECCA.AVB=32960,,9893,45760
+SAGE.AVB=32960,,9893,45760
+SCOTTY.AVB=32960,,9893,45760
+SUSAN.AVB=32960,,9893,45760
+TIKI.AVB=32960,,9893,45760
+TONGTYED.AVB=32960,,9893,45760
+XENO.AVB=32960,,9893,45760
+DEN.BGB=32960,,9893,45760
+FIELD.BGB=32960,,9893,45760
+PASTORAL.BGB=32960,,9893,45760
+ROOM.BGB=32960,,9893,45760
+VOLCANO.BGB=32960,,9893,45760
+cmmap000.bin=21,,9893,45760
+d_flash.cab=32979,,9893,45760
+dajava.cab=11,,9893,45760
+SERVERS.CFG=29600,,9893,45760
+conf.chm=18,,9893,45760
+imgtasks.chm=18,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_59.CAB=67
+DCE:remaining=0
+imgview.chm=18,,9893,45760
+mswallet.chm=18,,9893,45760
+nm3bnts.chm=18,,9893,45760
+nmchat.chm=18,,9893,45760
+nmwhiteb.chm=18,,9893,45760
+CCHAT.CNT=18,,9893,45760
+cdplayer.cnt=18,,9893,45760
+clipbrd.cnt=18,,9893,45760
+conf.cnt=18,,9893,45760
+DIALER.CNT=18,,9893,45760
+hypertrm.cnt=18,,9893,45760
+imghelp.cnt=18,,9893,45760
+imgocxd.cnt=18,,9893,45760
+netwatch.cnt=18,,9893,45760
+sysmon.cnt=18,,9893,45760
+THEMES.CPL=11,,9893,45760
+arrow_1.cur=32981,,9893,45760
+arrow_l.cur=32953,,9893,45760
+arrow_m.cur=32953,,9893,45760
+beam_1.cur=32981,,9893,45760
+beam_l.cur=32953,,9893,45760
+beam_m.cur=32953,,9893,45760
+busy_1.cur=32981,,9893,45760
+busy_l.cur=32953,,9893,45760
+busy_m.cur=32953,,9893,45760
+cross_1.cur=32981,,9893,45760
+cross_l.cur=32953,,9893,45760
+cross_m.cur=32953,,9893,45760
+help_1.cur=32981,,9893,45760
+help_l.cur=32953,,9893,45760
+help_m.cur=32953,,9893,45760
+move_1.cur=32981,,9893,45760
+move_l.cur=32953,,9893,45760
+move_m.cur=32953,,9893,45760
+no_1.cur=32981,,9893,45760
+no_l.cur=32953,,9893,45760
+no_m.cur=32953,,9893,45760
+pen_1.cur=32981,,9893,45760
+pen_l.cur=32953,,9893,45760
+pen_m.cur=32953,,9893,45760
+size1_1.cur=32981,,9893,45760
+size1_l.cur=32953,,9893,45760
+size1_m.cur=32953,,9893,45760
+size2_1.cur=32981,,9893,45760
+size2_l.cur=32953,,9893,45760
+size2_m.cur=32953,,9893,45760
+size3_1.cur=32981,,9893,45760
+size3_l.cur=32953,,9893,45760
+size3_m.cur=32953,,9893,45760
+size4_1.cur=32981,,9893,45760
+size4_l.cur=32953,,9893,45760
+size4_m.cur=32953,,9893,45760
+up_1.cur=32981,,9893,45760
+up_l.cur=32953,,9893,45760
+up_m.cur=32953,,9893,45760
+wait_1.cur=32981,,9893,45760
+wait_l.cur=32953,,9893,45760
+wait_m.cur=32953,,9893,45760
+awcodc32.dll=11,,9893,45760
+awdcxc32.dll=11,,9893,45760
+awdenc32.dll=11,,9893,45760
+awkrnl32.dll=11,,9893,45760
+awresx32.dll=11,,9893,45760
+awview32.dll=11,,9893,45760
+bnts.dll=18,,9893,45760
+callcont.dll=29800,,9893,45760
+cards.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_60.CAB=18
+DCE:remaining=0
+confmrsl.dll=29800,,9893,45760
+datime.dll=11,,9893,45760
+dcap16.dll=29800,,9893,45760
+debmp.dll=21,,9893,45760
+dehex.dll=21,,9893,45760
+demet.dll=21,,9893,45760
+dess.dll=21,,9893,45760
+dewp.dll=21,,9893,45760
+dskapi16.dll=11,,9893,45760
+dskapi32.dll=11,,9893,45760
+grouppol.dll=11,,9893,45760
+h323cc.dll=29800,,9893,45760
+hticons.dll=28720,,9893,45760
+hypertrm.dll=28720,,9893,45760
+ils.dll=11,,9893,45760
+imgcmn.dll=11,,9893,45760
+imgshl.dll=11,,9893,45760
+insoview.dll=21,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_61.CAB=5
+DCE:remaining=0
+jpeg1x32.dll=11,,9893,45760
+jpeg2x32.dll=11,,9893,45760
+mfc40loc.dll=11,,9893,45760
+msasn1.dll=11,,9893,45760
+msconf.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_62.CAB=31
+DCE:remaining=0
+MSJPEG32.DLL=32990,,9893,45760
+MST120.DLL=29800,,9893,45760
+MST123.DLL=29800,,9893,45760
+MSVCIRT.DLL=11,,9893,45760
+mswltres.dll=11,,9893,45760
+nac.dll=29800,,9893,45760
+nmaswin.dll=29800,,9893,45760
+nmchat.dll=29800,,9893,45760
+nmcom.dll=29800,,9893,45760
+nmft.dll=29800,,9893,45760
+nmmkcert.dll=11,,9893,45760
+nmoldwb.dll=29800,,9893,45760
+nmwb.dll=29800,,9893,45760
+oiadm400.dll=11,,9893,45760
+oicom400.dll=11,,9893,45760
+oidis400.dll=11,,9893,45760
+oifil400.dll=11,,9893,45760
+oigfs400.dll=11,,9893,45760
+oiprt400.dll=11,,9893,45760
+oislb400.dll=11,,9893,45760
+oissq400.dll=11,,9893,45760
+oitwa400.dll=11,,9893,45760
+oiui400.dll=11,,9893,45760
+PLUS!.DLL=32991,,9893,45760
+rrcm.dll=29800,,9893,45760
+rsrc16.dll=11,,9893,45760
+rsrc32.dll=11,,9893,45760
+sccca.dll=21,,9893,45760
+sccch.dll=21,,9893,45760
+sccda.dll=21,,9893,45760
+sccdu.dll=21,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_63.CAB=26
+DCE:remaining=0
+sccfa.dll=21,,9893,45760
+sccfi.dll=21,,9893,45760
+scclo.dll=21,,9893,45760
+sccole.dll=21,,9893,45760
+sccra.dll=21,,9893,45760
+sccta.dll=21,,9893,45760
+sccut.dll=21,,9893,45760
+sccvw.dll=21,,9893,45760
+twain.dll=25,,9893,45760
+twain_32.dll=25,,9893,45760
+vsacs.dll=21,,9893,45760
+vsbmp.dll=21,,9893,45760
+vsdbs.dll=21,,9893,45760
+vsdrw.dll=21,,9893,45760
+vsemf.dll=21,,9893,45760
+vsexe2.dll=21,,9893,45760
+vsmp.dll=21,,9893,45760
+vsmsw.dll=21,,9893,45760
+vspdx.dll=21,,9893,45760
+vspp2.dll=21,,9893,45760
+vspp7.dll=21,,9893,45760
+vspp97.dll=21,,9893,45760
+vsqp6.dll=21,,9893,45760
+vsrtf.dll=21,,9893,45760
+vstext.dll=21,,9893,45760
+vstif6.dll=21,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_64.CAB=22
+DCE:remaining=0
+vsw6.dll=21,,9893,45760
+vsw97.dll=21,,9893,45760
+vswk4.dll=21,,9893,45760
+vswks.dll=21,,9893,45760
+vswmf.dll=21,,9893,45760
+vsword.dll=21,,9893,45760
+vswork.dll=21,,9893,45760
+vswp5.dll=21,,9893,45760
+vswp6.dll=21,,9893,45760
+vswpf.dll=21,,9893,45760
+vsxl5.dll=21,,9893,45760
+WILDLB32.DLL=11,,9893,45760
+WL32DLL.DLL=11,,9893,45760
+wltsecur.dll=11,,9893,45760
+xfilexr.dll=11,,9893,45760
+mcipionr.drv=11,,9893,45760
+mcivisca.drv=11,,9893,45760
+msh261.drv=11,,9893,45760
+msh263.drv=11,,9893,45760
+awfxex32.exe=11,,9893,45760
+cb32.exe=29800,,9893,45760
+CChat.exe=29600,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_65.CAB=33
+DCE:remaining=0
+cdplayer.exe=25,,9893,45760
+charmap.exe=25,,9893,45760
+clipbrd.exe=25,,9893,45760
+conf.exe=29800,,9893,45760
+dialer.exe=25,,9893,45760
+freecell.exe=25,,9893,45760
+hypertrm.exe=28720,,9893,45760
+kodakimg.exe=25,,9893,45760
+kodakprv.exe=25,,9893,45760
+mnmsrvc.exe=11,,9893,45760
+mshearts.exe=25,,9893,45760
+netwatch.exe=25,,9893,45760
+quikview.exe=21,,9893,45760
+rsrcmtr.exe=25,,9893,45760
+sol.exe=25,,9893,45760
+sysmon.exe=25,,9893,45760
+THEMES.EXE=32991,,9893,45760
+tour98.exe=10,,9893,45760
+twunk_16.exe=25,,9893,45760
+twunk_32.exe=25,,9893,45760
+wb32.exe=29800,,9893,45760
+winmine.exe=25,,9893,45760
+wltmime.exe=11,,9893,45760
+wltunins.exe=11,,9893,45760
+JPEGIM32.FLT=32990,,9893,45760
+comimage.gif=32980,,9893,45760
+d_1_1.gif=32979,,9893,45760
+d_1_1_1.gif=32979,,9893,45760
+d_1_1_2.gif=32979,,9893,45760
+d_1_2.gif=32979,,9893,45760
+d_1_3.gif=32979,,9893,45760
+d_1_3_1.gif=32979,,9893,45760
+d_1_3_2.gif=32979,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_66.CAB=118
+DCE:remaining=0
+d_1_3_3.gif=32979,,9893,45760
+d_1_5.gif=32979,,9893,45760
+d_agency.gif=32979,,9893,45760
+d_cancel.gif=32979,,9893,45760
+d_educ.gif=32979,,9893,45760
+d_feeico.gif=32979,,9893,45760
+d_home.gif=32979,,9893,45760
+d_intro.gif=32979,,9893,45760
+d_logo.gif=32979,,9893,45760
+d_phoico.gif=32979,,9893,45760
+d_phone.gif=32979,,9893,45760
+d_prev.gif=32979,,9893,45760
+d_reg.gif=32979,,9893,45760
+d_tanim.gif=32979,,9893,45760
+future.gif=32980,,9893,45760
+h_bg.gif=32980,,9893,45760
+h_now.gif=32980,,9893,45760
+h_submit.gif=32980,,9893,45760
+h_telnet.gif=32980,,9893,45760
+h_text1.gif=32980,,9893,45760
+h_text2.gif=32980,,9893,45760
+h_text3.gif=32980,,9893,45760
+hitel.gif=32980,,9893,45760
+hitel-sv.gif=32980,,9893,45760
+kolnet.gif=32980,,9893,45760
+n_ball_b.gif=32978,,9893,45760
+n_ball_g.gif=32978,,9893,45760
+n_ball_r.gif=32978,,9893,45760
+n_ball_w.gif=32978,,9893,45760
+n_ball_y.gif=32978,,9893,45760
+n_ballgr.gif=32978,,9893,45760
+n_bg.gif=32978,,9893,45760
+n_centis.gif=32978,,9893,45760
+n_comtop.gif=32978,,9893,45760
+n_dguest.gif=32978,,9893,45760
+n_dn_now.gif=32978,,9893,45760
+n_dsign.gif=32978,,9893,45760
+n_dtop.gif=32978,,9893,45760
+n_dwel.gif=32978,,9893,45760
+n_exit.gif=32978,,9893,45760
+n_eyes2.gif=32978,,9893,45760
+n_focus2.gif=32978,,9893,45760
+n_gotop.gif=32978,,9893,45760
+n_gotop2.gif=32978,,9893,45760
+n_guest.gif=32978,,9893,45760
+n_intro.gif=32978,,9893,45760
+n_kkebi.gif=32978,,9893,45760
+n_map.gif=32978,,9893,45760
+n_more_i.gif=32978,,9893,45760
+n_nowcom.gif=32978,,9893,45760
+n_nuri.gif=32978,,9893,45760
+n_regi.gif=32978,,9893,45760
+n_signon.gif=32978,,9893,45760
+n_tlogo.gif=32978,,9893,45760
+n_top.gif=32978,,9893,45760
+n_top1.gif=32978,,9893,45760
+n_top100.gif=32978,,9893,45760
+n_top150.gif=32978,,9893,45760
+n_top2.gif=32978,,9893,45760
+n_top3.gif=32978,,9893,45760
+n_top4.gif=32978,,9893,45760
+n_top_ex.gif=32978,,9893,45760
+n_topbar.gif=32978,,9893,45760
+n_topbg.gif=32978,,9893,45760
+n_wel.gif=32978,,9893,45760
+n_yahoo.gif=32978,,9893,45760
+CCHAT.HLP=18,,9893,45760
+cdplayer.hlp=18,,9893,45760
+conf.hlp=18,,9893,45760
+dialer.hlp=18,,9893,45760
+hypertrm.hlp=18,,9893,45760
+imghelp.hlp=18,,9893,45760
+imgocxd.hlp=18,,9893,45760
+netwatch.hlp=18,,9893,45760
+sysmon.hlp=18,,9893,45760
+d_agency.htm=32979,,9893,45760
+d_conn.htm=32979,,9893,45760
+d_dacom.htm=32979,,9893,45760
+d_educ.htm=32979,,9893,45760
+d_fee.htm=32979,,9893,45760
+d_help.htm=32979,,9893,45760
+d_intro.htm=32979,,9893,45760
+d_phone.htm=32979,,9893,45760
+d_svc.htm=32979,,9893,45760
+h_rh01.htm=32980,,9893,45760
+h_rh02.htm=32980,,9893,45760
+h_rh03.htm=32980,,9893,45760
+h_rh04.htm=32980,,9893,45760
+n_busi.htm=32978,,9893,45760
+n_cnt.htm=32978,,9893,45760
+n_his.htm=32978,,9893,45760
+n_index.htm=32978,,9893,45760
+n_info.htm=32978,,9893,45760
+n_info_1.htm=32978,,9893,45760
+n_intnet.htm=32978,,9893,45760
+n_local.htm=32978,,9893,45760
+n_locate.htm=32978,,9893,45760
+n_nowcom.htm=32978,,9893,45760
+n_nowro.htm=32978,,9893,45760
+n_nuri.htm=32978,,9893,45760
+n_vision.htm=32978,,9893,45760
+netmeet.htm=29800,,9893,45760
+d_dacom.ico=32979,,9893,45760
+hitel.ico=32980,,9893,45760
+n_nowcom.ico=32978,,9893,45760
+WINDOW~1.ICO=32992,,9893,45760
+WINDOW~2.ICO=32992,,9893,45760
+WINDOW~3.ICO=32992,,9893,45760
+WINDOW~4.ICO=32992,,9893,45760
+d_cancel.ins=32979,,9893,45760
+h_cancel.ins=32980,,9893,45760
+n_cancel.ins=32978,,9893,45760
+d_dacom.isp=32979,,9893,45760
+d_down.isp=32979,,9893,45760
+hitel.isp=32980,,9893,45760
+n_nowcom.isp=32978,,9893,45760
+future.jpg=32980,,9893,45760
+n_top350.jpg=32978,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_67.CAB=21
+DCE:remaining=0
+WINDOW~1.JPG=32992,,9893,45760
+canyon.mid=32967,,9893,45760
+passport.mid=32967,,9893,45760
+actpmnt.ocx=11,,9893,45760
+Daxctle.ocx=11,,9893,45760
+hhopen.ocx=11,,9893,45760
+imgadmin.ocx=11,,9893,45760
+imgedit.ocx=11,,9893,45760
+imgscan.ocx=11,,9893,45760
+imgthumb.ocx=11,,9893,45760
+TSHOOT.ocx=18,,9893,45760
+WINDOW~1.PAL=32992,,9893,45760
+BACHSB~1.RMI=32967,,9893,45760
+BEETHO~2.RMI=32967,,9893,45760
+CLAIRE~1.RMI=32967,,9893,45760
+DANCEO~2.RMI=32967,,9893,45760
+FURELI~1.RMI=32967,,9893,45760
+HALLOF~2.RMI=32967,,9893,45760
+MOZART~2.RMI=32967,,9893,45760
+WINDOW~1.SCR=11,,9893,45760
+d_main3.spl=32979,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_68.CAB=32
+DCE:remaining=0
+WINDOW~1.THE=32992,,9893,45760
+WINDOW~2.THE=32992,,9893,45760
+ABALC.TTF=20,,9893,45760
+ANTQUAB.TTF=20,,9893,45760
+ANTQUABI.TTF=20,,9893,45760
+ANTQUAI.TTF=20,,9893,45760
+BKANT.TTF=20,,9893,45760
+CALIST.TTF=20,,9893,45760
+COPRGTB.TTF=20,,9893,45760
+COPRGTL.TTF=20,,9893,45760
+GOTHIC.TTF=20,,9893,45760
+GOTHICB.TTF=20,,9893,45760
+GOTHICBI.TTF=20,,9893,45760
+GOTHICI.TTF=20,,9893,45760
+LHANDW.TTF=20,,9893,45760
+LSANSI.TTF=20,,9893,45760
+LSANSUNI.TTF=20,,9893,45760
+MATISSE_.TTF=20,,9893,45760
+NWGTHC.TTF=20,,9893,45760
+NWGTHCB.TTF=20,,9893,45760
+NWGTHCI.TTF=20,,9893,45760
+OCRAEXT.TTF=20,,9893,45760
+TEMPSITC.TTF=20,,9893,45760
+WESTM.TTF=20,,9893,45760
+CHAT.TXT=29600,readme.txt,9893,45760
+services.txt=25,,9893,45760
+dcapvxd.vxd=11,,9893,45760
+dcap32.w95=29800,dcap32.dll,9893,45760
+nmas.w95=29800,nmas.dll,9893,45760
+Blip.wav=29800,,9893,45760
+chimes.wav=32935,,9893,45760
+chord.wav=32935,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_69.CAB=16
+DCE:remaining=0
+ding.wav=32935,,9893,45760
+jungleas.wav=32964,,9893,45760
+junglecl.wav=32964,,9893,45760
+junglecr.wav=32964,,9893,45760
+junglede.wav=32964,,9893,45760
+jungleer.wav=32964,,9893,45760
+jungleex.wav=32964,,9893,45760
+junglema.wav=32964,,9893,45760
+jungleme.wav=32964,,9893,45760
+junglemi.wav=32964,,9893,45760
+junglemp.wav=32964,,9893,45760
+jungleop.wav=32964,,9893,45760
+junglequ.wav=32964,,9893,45760
+junglerd.wav=32964,,9893,45760
+junglere.wav=32964,,9893,45760
+jungleru.wav=32964,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_70.CAB=20
+DCE:remaining=0
+junglewe.wav=32964,,9893,45760
+junglewi.wav=32964,,9893,45760
+logoff.wav=32935,,9893,45760
+musicaas.wav=32963,,9893,45760
+musicacl.wav=32963,,9893,45760
+musicacr.wav=32963,,9893,45760
+musicade.wav=32963,,9893,45760
+musicaer.wav=32963,,9893,45760
+musicaex.wav=32963,,9893,45760
+musicama.wav=32963,,9893,45760
+musicame.wav=32963,,9893,45760
+musicami.wav=32963,,9893,45760
+musicaop.wav=32963,,9893,45760
+musicaqu.wav=32963,,9893,45760
+musicare.wav=32963,,9893,45760
+musicawi.wav=32963,,9893,45760
+musica~1.wav=32963,,9893,45760
+musica~2.wav=32963,,9893,45760
+musica~3.wav=32963,,9893,45760
+musica~4.wav=32963,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_71.CAB=20
+DCE:remaining=0
+notify.wav=32935,,9893,45760
+recycle.wav=32935,,9893,45760
+RingIn.wav=29800,,9893,45760
+robotzas.wav=32965,,9893,45760
+robotzcl.wav=32965,,9893,45760
+robotzcr.wav=32965,,9893,45760
+robotzde.wav=32965,,9893,45760
+robotzer.wav=32965,,9893,45760
+robotzex.wav=32965,,9893,45760
+robotzma.wav=32965,,9893,45760
+robotzme.wav=32965,,9893,45760
+robotzmi.wav=32965,,9893,45760
+robotzop.wav=32965,,9893,45760
+robotzqu.wav=32965,,9893,45760
+robotzre.wav=32965,,9893,45760
+robotzwi.wav=32965,,9893,45760
+robotz~1.wav=32965,,9893,45760
+robotz~2.wav=32965,,9893,45760
+robotz~3.wav=32965,,9893,45760
+robotz~4.wav=32965,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_72.CAB=19
+DCE:remaining=0
+tada.wav=32935,,9893,45760
+TestSnd.wav=29800,,9893,45760
+utopiaas.wav=32966,,9893,45760
+utopiacl.wav=32966,,9893,45760
+utopiacr.wav=32966,,9893,45760
+utopiade.wav=32966,,9893,45760
+utopiaer.wav=32966,,9893,45760
+utopiaex.wav=32966,,9893,45760
+utopiama.wav=32966,,9893,45760
+utopiame.wav=32966,,9893,45760
+utopiami.wav=32966,,9893,45760
+utopiaop.wav=32966,,9893,45760
+utopiaqu.wav=32966,,9893,45760
+utopiare.wav=32966,,9893,45760
+utopiawi.wav=32966,,9893,45760
+utopia~1.wav=32966,,9893,45760
+utopia~2.wav=32966,,9893,45760
+utopia~3.wav=32966,,9893,45760
+utopia~4.wav=32966,,9893,45760
+CAB-No volume name for LDID 2, local copy - path C:\WININST0.400
+MSBATCH.INF=10,,9976,22888
+CAB-No volume name for LDID 5, local copy - path C:\WININST0.400
+hidci.dll=10,,10032,23972
+hidci.dll=11,,10032,23972
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_42.CAB=1
+DCE:remaining=0
+wifeman.dll=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_46.CAB=2
+DCE:remaining=0
+imekr98u.hlp=18,,9893,45760
+imekr98u.ime=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_47.CAB=1
+DCE:remaining=0
+imekr98u.lex=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_58.CAB=32
+DCE:remaining=0
+BASEBA~1.ANI=33023,,9893,45760
+BASEBA~2.ANI=33023,,9893,45760
+DANGER~1.ANI=33038,,9893,45760
+DANGER~2.ANI=33038,,9893,45760
+INSIDE~1.ANI=33005,,9893,45760
+INSIDE~2.ANI=33005,,9893,45760
+JUNGLE~1.ANI=33041,,9893,45760
+JUNGLE~2.ANI=33041,,9893,45760
+LEONAR~1.ANI=33032,,9893,45760
+LEONAR~2.ANI=33032,,9893,45760
+MOREWI~1.ANI=32997,,9893,45760
+MOREWI~2.ANI=32997,,9893,45760
+MYSTER~1.ANI=33020,,9893,45760
+MYSTER~2.ANI=33020,,9893,45760
+NATURE~1.ANI=33044,,9893,45760
+NATURE~2.ANI=33044,,9893,45760
+SCIENC~1.ANI=33010,,9893,45760
+SCIENC~2.ANI=33010,,9893,45760
+SPACEB~1.ANI=33015,,9893,45760
+SPACEW~1.ANI=33015,,9893,45760
+SPORTS~1.ANI=33026,,9893,45760
+SPORTS~2.ANI=33026,,9893,45760
+THE60'~1.ANI=33029,,9893,45760
+THE60'~2.ANI=33029,,9893,45760
+THEGOL~1.ANI=33035,,9893,45760
+THEGOL~2.ANI=33035,,9893,45760
+TRAVEL~1.ANI=33047,,9893,45760
+TRAVEL~2.ANI=33047,,9893,45760
+UNDERW~1.ANI=33050,,9893,45760
+UNDERW~2.ANI=33050,,9893,45760
+WINDOW~1.ANI=32992,,9893,45760
+WINDOW~2.ANI=32992,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_59.CAB=202
+DCE:remaining=0
+WPWIZ.CNT=18,,9893,45760
+BASEBA~1.CUR=33023,,9893,45760
+BASEBA~2.CUR=33023,,9893,45760
+BASEBA~3.CUR=33023,,9893,45760
+BASEBA~4.CUR=33023,,9893,45760
+BASEBA~5.CUR=33023,,9893,45760
+BASEBA~6.CUR=33023,,9893,45760
+BASEBA~7.CUR=33023,,9893,45760
+BASEBA~8.CUR=33023,,9893,45760
+BASEBA~9.CUR=33023,,9893,45760
+BASEB~10.CUR=33023,,9893,45760
+BASEB~11.CUR=33023,,9893,45760
+BASEB~12.CUR=33023,,9893,45760
+DANGER~1.CUR=33038,,9893,45760
+DANGER~2.CUR=33038,,9893,45760
+DANGER~3.CUR=33038,,9893,45760
+DANGER~4.CUR=33038,,9893,45760
+DANGER~5.CUR=33038,,9893,45760
+DANGER~6.CUR=33038,,9893,45760
+DANGER~7.CUR=33038,,9893,45760
+DANGER~8.CUR=33038,,9893,45760
+DANGER~9.CUR=33038,,9893,45760
+DANGE~10.CUR=33038,,9893,45760
+DANGE~11.CUR=33038,,9893,45760
+DANGE~12.CUR=33038,,9893,45760
+INSIDE~1.CUR=33005,,9893,45760
+INSIDE~2.CUR=33005,,9893,45760
+INSIDE~3.CUR=33005,,9893,45760
+INSIDE~4.CUR=33005,,9893,45760
+INSIDE~5.CUR=33005,,9893,45760
+INSIDE~6.CUR=33005,,9893,45760
+INSIDE~7.CUR=33005,,9893,45760
+INSIDE~8.CUR=33005,,9893,45760
+INSIDE~9.CUR=33005,,9893,45760
+INSID~10.CUR=33005,,9893,45760
+INSID~11.CUR=33005,,9893,45760
+INSID~12.CUR=33005,,9893,45760
+JUNGLE~1.CUR=33041,,9893,45760
+JUNGLE~2.CUR=33041,,9893,45760
+JUNGLE~3.CUR=33041,,9893,45760
+JUNGLE~4.CUR=33041,,9893,45760
+JUNGLE~5.CUR=33041,,9893,45760
+JUNGLE~6.CUR=33041,,9893,45760
+JUNGLE~7.CUR=33041,,9893,45760
+JUNGLE~8.CUR=33041,,9893,45760
+JUNGLE~9.CUR=33041,,9893,45760
+JUNGL~10.CUR=33041,,9893,45760
+JUNGL~11.CUR=33041,,9893,45760
+JUNGL~12.CUR=33041,,9893,45760
+LEONAR~1.CUR=33032,,9893,45760
+LEONAR~2.CUR=33032,,9893,45760
+LEONAR~3.CUR=33032,,9893,45760
+LEONAR~4.CUR=33032,,9893,45760
+LEONAR~5.CUR=33032,,9893,45760
+LEONAR~6.CUR=33032,,9893,45760
+LEONAR~7.CUR=33032,,9893,45760
+LEONAR~8.CUR=33032,,9893,45760
+LEONAR~9.CUR=33032,,9893,45760
+LEONA~10.CUR=33032,,9893,45760
+LEONA~11.CUR=33032,,9893,45760
+LEONA~12.CUR=33032,,9893,45760
+LEONA~13.CUR=33032,,9893,45760
+LEONA~14.CUR=33032,,9893,45760
+MOREWI~1.CUR=32997,,9893,45760
+MOREWI~2.CUR=32997,,9893,45760
+MOREWI~3.CUR=32997,,9893,45760
+MOREWI~4.CUR=32997,,9893,45760
+MOREWI~5.CUR=32997,,9893,45760
+MOREWI~6.CUR=32997,,9893,45760
+MOREWI~7.CUR=32997,,9893,45760
+MOREWI~8.CUR=32997,,9893,45760
+MOREWI~9.CUR=32997,,9893,45760
+MOREW~10.CUR=32997,,9893,45760
+MOREW~11.CUR=32997,,9893,45760
+MOREW~12.CUR=32997,,9893,45760
+MYSTER~1.CUR=33020,,9893,45760
+MYSTER~2.CUR=33020,,9893,45760
+MYSTER~3.CUR=33020,,9893,45760
+MYSTER~4.CUR=33020,,9893,45760
+MYSTER~5.CUR=33020,,9893,45760
+MYSTER~6.CUR=33020,,9893,45760
+MYSTER~7.CUR=33020,,9893,45760
+MYSTER~8.CUR=33020,,9893,45760
+MYSTER~9.CUR=33020,,9893,45760
+MYSTE~10.CUR=33020,,9893,45760
+MYSTE~11.CUR=33020,,9893,45760
+MYSTE~12.CUR=33020,,9893,45760
+NATURE~1.CUR=33044,,9893,45760
+NATURE~2.CUR=33044,,9893,45760
+NATURE~3.CUR=33044,,9893,45760
+NATURE~4.CUR=33044,,9893,45760
+NATURE~5.CUR=33044,,9893,45760
+NATURE~6.CUR=33044,,9893,45760
+NATURE~7.CUR=33044,,9893,45760
+NATURE~8.CUR=33044,,9893,45760
+NATURE~9.CUR=33044,,9893,45760
+NATUR~10.CUR=33044,,9893,45760
+NATUR~11.CUR=33044,,9893,45760
+NATUR~12.CUR=33044,,9893,45760
+NATUR~13.CUR=33044,,9893,45760
+NATUR~14.CUR=33044,,9893,45760
+SCIENC~1.CUR=33010,,9893,45760
+SCIENC~2.CUR=33010,,9893,45760
+SCIENC~3.CUR=33010,,9893,45760
+SCIENC~4.CUR=33010,,9893,45760
+SCIENC~5.CUR=33010,,9893,45760
+SCIENC~6.CUR=33010,,9893,45760
+SCIENC~7.CUR=33010,,9893,45760
+SCIENC~8.CUR=33010,,9893,45760
+SCIENC~9.CUR=33010,,9893,45760
+SCIEN~10.CUR=33010,,9893,45760
+SCIEN~11.CUR=33010,,9893,45760
+SCIEN~12.CUR=33010,,9893,45760
+SPACEA~1.CUR=33015,,9893,45760
+SPACED~1.CUR=33015,,9893,45760
+SPACED~2.CUR=33015,,9893,45760
+SPACEH~1.CUR=33015,,9893,45760
+SPACEH~2.CUR=33015,,9893,45760
+SPACEH~3.CUR=33015,,9893,45760
+SPACEM~1.CUR=33015,,9893,45760
+SPACEN~1.CUR=33015,,9893,45760
+SPACEP~1.CUR=33015,,9893,45760
+SPACET~1.CUR=33015,,9893,45760
+SPACEU~1.CUR=33015,,9893,45760
+SPACEV~1.CUR=33015,,9893,45760
+SPORTS~1.CUR=33026,,9893,45760
+SPORTS~2.CUR=33026,,9893,45760
+SPORTS~3.CUR=33026,,9893,45760
+SPORTS~4.CUR=33026,,9893,45760
+SPORTS~5.CUR=33026,,9893,45760
+SPORTS~6.CUR=33026,,9893,45760
+SPORTS~7.CUR=33026,,9893,45760
+SPORTS~8.CUR=33026,,9893,45760
+SPORTS~9.CUR=33026,,9893,45760
+SPORT~10.CUR=33026,,9893,45760
+SPORT~11.CUR=33026,,9893,45760
+SPORT~12.CUR=33026,,9893,45760
+THE60'~1.CUR=33029,,9893,45760
+THE60'~2.CUR=33029,,9893,45760
+THE60'~3.CUR=33029,,9893,45760
+THE60'~4.CUR=33029,,9893,45760
+THE60'~5.CUR=33029,,9893,45760
+THE60'~6.CUR=33029,,9893,45760
+THE60'~7.CUR=33029,,9893,45760
+THE60'~8.CUR=33029,,9893,45760
+THE60'~9.CUR=33029,,9893,45760
+THE60~10.CUR=33029,,9893,45760
+THE60~11.CUR=33029,,9893,45760
+THE60~12.CUR=33029,,9893,45760
+THEGOL~1.CUR=33035,,9893,45760
+THEGOL~2.CUR=33035,,9893,45760
+THEGOL~3.CUR=33035,,9893,45760
+THEGOL~4.CUR=33035,,9893,45760
+THEGOL~5.CUR=33035,,9893,45760
+THEGOL~6.CUR=33035,,9893,45760
+THEGOL~7.CUR=33035,,9893,45760
+THEGOL~8.CUR=33035,,9893,45760
+THEGOL~9.CUR=33035,,9893,45760
+THEGO~10.CUR=33035,,9893,45760
+THEGO~11.CUR=33035,,9893,45760
+THEGO~12.CUR=33035,,9893,45760
+TRAVEL~1.CUR=33047,,9893,45760
+TRAVEL~2.CUR=33047,,9893,45760
+TRAVEL~3.CUR=33047,,9893,45760
+TRAVEL~4.CUR=33047,,9893,45760
+TRAVEL~5.CUR=33047,,9893,45760
+TRAVEL~6.CUR=33047,,9893,45760
+TRAVEL~7.CUR=33047,,9893,45760
+TRAVEL~8.CUR=33047,,9893,45760
+TRAVEL~9.CUR=33047,,9893,45760
+TRAVE~10.CUR=33047,,9893,45760
+TRAVE~11.CUR=33047,,9893,45760
+TRAVE~12.CUR=33047,,9893,45760
+UNDERW~1.CUR=33050,,9893,45760
+UNDERW~2.CUR=33050,,9893,45760
+UNDERW~3.CUR=33050,,9893,45760
+UNDERW~4.CUR=33050,,9893,45760
+UNDERW~5.CUR=33050,,9893,45760
+UNDERW~6.CUR=33050,,9893,45760
+UNDERW~7.CUR=33050,,9893,45760
+UNDERW~8.CUR=33050,,9893,45760
+UNDERW~9.CUR=33050,,9893,45760
+UNDER~10.CUR=33050,,9893,45760
+UNDER~11.CUR=33050,,9893,45760
+UNDER~12.CUR=33050,,9893,45760
+WINDOW~1.CUR=32992,,9893,45760
+WINDOW~2.CUR=32992,,9893,45760
+WINDOW~3.CUR=32992,,9893,45760
+WINDOW~4.CUR=32992,,9893,45760
+WINDOW~5.CUR=32992,,9893,45760
+WINDOW~6.CUR=32992,,9893,45760
+WINDOW~7.CUR=32992,,9893,45760
+WINDOW~8.CUR=32992,,9893,45760
+WINDOW~9.CUR=32992,,9893,45760
+WINDO~10.CUR=32992,,9893,45760
+WINDO~11.CUR=32992,,9893,45760
+WINDO~12.CUR=32992,,9893,45760
+BASEBALL.DLL=11,,9893,45760
+CIM16NET.DLL=33053,,9893,45760
+CIM32NET.DLL=33053,,9893,45760
+CIMW32ex.dll=33053,,9893,45760
+CIMWin32.dll=33053,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_60.CAB=7
+DCE:remaining=0
+CRSWPP.DLL=11,,9893,45760
+DANGER~1.DLL=11,,9893,45760
+FASTPROX.dll=33053,,9893,45760
+FPWPP.DLL=11,,9893,45760
+FRAMEDYN.dll=33053,,9893,45760
+FTPWPP.DLL=11,,9893,45760
+INSIDE~1.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_61.CAB=3
+DCE:remaining=0
+JUNGLE.DLL=11,,9893,45760
+LEONAR~1.DLL=11,,9893,45760
+MOFD.DLL=33053,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_62.CAB=4
+DCE:remaining=0
+MYSTERY.DLL=11,,9893,45760
+NATURE.DLL=11,,9893,45760
+PIPARSE.DLL=11,,9893,45760
+POSTWPP.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_63.CAB=6
+DCE:remaining=0
+SPACE.DLL=11,,9893,45760
+SPORTS.DLL=11,,9893,45760
+STDPROV.dll=33053,,9893,45760
+THEGOL~1.DLL=11,,9893,45760
+TRAVEL.DLL=11,,9893,45760
+UNDERW~1.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_64.CAB=11
+DCE:remaining=0
+WBEMCOMN.DLL=33053,,9893,45760
+WBEMCORE.dll=33053,,9893,45760
+WBEMDISP.DLL=33053,,9893,45760
+WBEMESS.dll=33053,,9893,45760
+WBEMPROX.dll=33053,,9893,45760
+WBEMSVC.dll=33053,,9893,45760
+wbemupgd.dll=33053,,9893,45760
+WEBPOST.DLL=11,,9893,45760
+WinMgmtR.dll=33053,,9893,45760
+WMIPROV.dll=33053,,9893,45760
+WPWIZDLL.DLL=11,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_65.CAB=9
+DCE:remaining=0
+MOFCOMP.EXE=33053,,9893,45760
+UNSECAPP.EXE=33053,,9893,45760
+wbemcntl.exe=33053,,9893,45760
+wbemperm.exe=33053,,9893,45760
+wbemstop.exe=33053,,9893,45760
+WBEMTEST.EXE=33053,,9893,45760
+WinMgmt.exe=33053,,9893,45760
+wmimofck.exe=33053,,9893,45760
+WPWIZ.EXE=33057,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_66.CAB=72
+DCE:remaining=0
+FLUPL.HLP=18,,9893,45760
+WPWIZ.HLP=18,,9893,45760
+BASEBA~1.ICO=33023,,9893,45760
+BASEBA~2.ICO=33023,,9893,45760
+BASEBA~3.ICO=33023,,9893,45760
+BASEBA~4.ICO=33023,,9893,45760
+DANGER~1.ICO=33038,,9893,45760
+DANGER~2.ICO=33038,,9893,45760
+DANGER~3.ICO=33038,,9893,45760
+DANGER~4.ICO=33038,,9893,45760
+INSIDE~1.ICO=33005,,9893,45760
+INSIDE~2.ICO=33005,,9893,45760
+INSIDE~3.ICO=33005,,9893,45760
+INSIDE~4.ICO=33005,,9893,45760
+JUNGLE~1.ICO=33041,,9893,45760
+JUNGLE~2.ICO=33041,,9893,45760
+JUNGLE~3.ICO=33041,,9893,45760
+JUNGLE~4.ICO=33041,,9893,45760
+LEONAR~1.ICO=33032,,9893,45760
+LEONAR~2.ICO=33032,,9893,45760
+LEONAR~3.ICO=33032,,9893,45760
+LEONAR~4.ICO=33032,,9893,45760
+MOREWI~1.ICO=32997,,9893,45760
+MOREWI~2.ICO=32997,,9893,45760
+MOREWI~3.ICO=32997,,9893,45760
+MOREWI~4.ICO=32997,,9893,45760
+MYSTER~1.ICO=33020,,9893,45760
+MYSTER~2.ICO=33020,,9893,45760
+MYSTER~3.ICO=33020,,9893,45760
+MYSTER~4.ICO=33020,,9893,45760
+NATURE~1.ICO=33044,,9893,45760
+NATURE~2.ICO=33044,,9893,45760
+NATURE~3.ICO=33044,,9893,45760
+NATURE~4.ICO=33044,,9893,45760
+SCIENC~1.ICO=33010,,9893,45760
+SCIENC~2.ICO=33010,,9893,45760
+SCIENC~3.ICO=33010,,9893,45760
+SCIENC~4.ICO=33010,,9893,45760
+SPACEM~1.ICO=33015,,9893,45760
+SPACEN~1.ICO=33015,,9893,45760
+SPACER~1.ICO=33015,,9893,45760
+SPACER~2.ICO=33015,,9893,45760
+SPORTS~1.ICO=33026,,9893,45760
+SPORTS~2.ICO=33026,,9893,45760
+SPORTS~3.ICO=33026,,9893,45760
+SPORTS~4.ICO=33026,,9893,45760
+THE60'~1.ICO=33029,,9893,45760
+THE60'~2.ICO=33029,,9893,45760
+THE60'~3.ICO=33029,,9893,45760
+THE60'~4.ICO=33029,,9893,45760
+THEGOL~1.ICO=33035,,9893,45760
+THEGOL~2.ICO=33035,,9893,45760
+THEGOL~3.ICO=33035,,9893,45760
+THEGOL~4.ICO=33035,,9893,45760
+TRAVEL~1.ICO=33047,,9893,45760
+TRAVEL~2.ICO=33047,,9893,45760
+TRAVEL~3.ICO=33047,,9893,45760
+TRAVEL~4.ICO=33047,,9893,45760
+UNDERW~1.ICO=33050,,9893,45760
+UNDERW~2.ICO=33050,,9893,45760
+UNDERW~3.ICO=33050,,9893,45760
+UNDERW~4.ICO=33050,,9893,45760
+BASEBA~1.JPG=33023,,9893,45760
+DANGER~1.JPG=33038,,9893,45760
+INSIDE~1.JPG=33005,,9893,45760
+JUNGLE~1.JPG=33041,,9893,45760
+LEONAR~1.JPG=33032,,9893,45760
+MOREWI~1.JPG=32997,,9893,45760
+MYSTER~1.JPG=33020,,9893,45760
+NATURE~1.JPG=33044,,9893,45760
+SCIENC~1.JPG=33010,,9893,45760
+SPACEW~1.JPG=33015,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_67.CAB=54
+DCE:remaining=0
+SPORTS~1.JPG=33026,,9893,45760
+THE60'~1.JPG=33029,,9893,45760
+THEGOL~1.JPG=33035,,9893,45760
+TRAVEL~1.JPG=33047,,9893,45760
+UNDERW~1.JPG=33050,,9893,45760
+chart.js=33059,,9893,45760
+excel.js=33059,,9893,45760
+network.js=33059,,9893,45760
+registry.js=33059,,9893,45760
+shortcut.js=33059,,9893,45760
+CIMWIN32.MOF=33053,,9893,45760
+REGEVENT.MOF=33053,,9893,45760
+WMI.MOF=33053,,9893,45760
+FLUPL.OCX=33057,,9893,45760
+DANGER~1.PAL=33038,,9893,45760
+INSIDE~1.PAL=33005,,9893,45760
+LEONAR~1.PAL=33032,,9893,45760
+MOREWI~1.PAL=32997,,9893,45760
+MYSTER~1.PAL=33020,,9893,45760
+NATURE~1.PAL=33044,,9893,45760
+SCIENC~1.PAL=33010,,9893,45760
+SPORTS~1.PAL=33026,,9893,45760
+THE60'~1.PAL=33029,,9893,45760
+THEGOL~1.PAL=33035,,9893,45760
+TRAVEL~1.PAL=33047,,9893,45760
+BASEBALL.SCR=11,,9893,45760
+DANGER~1.SCR=11,,9893,45760
+INSIDE~1.SCR=11,,9893,45760
+JUNGLE.SCR=11,,9893,45760
+LEONAR~1.SCR=11,,9893,45760
+MYSTERY.SCR=11,,9893,45760
+NATURE.SCR=11,,9893,45760
+SCIENCE.SCR=11,,9893,45760
+SPACE.SCR=11,,9893,45760
+SPORTS.SCR=11,,9893,45760
+THE60'~1.SCR=11,,9893,45760
+THEGOL~1.SCR=11,,9893,45760
+TRAVEL.SCR=11,,9893,45760
+UNDERW~1.SCR=11,,9893,45760
+BASEBA~1.THE=33023,,9893,45760
+DANGER~1.THE=33038,,9893,45760
+INSIDE~1.THE=33005,,9893,45760
+JUNGLE~1.THE=33041,,9893,45760
+LEONAR~1.THE=33032,,9893,45760
+MOREWI~1.THE=32997,,9893,45760
+MYSTER~1.THE=33020,,9893,45760
+NATURE~1.THE=33044,,9893,45760
+SCIENC~1.THE=33010,,9893,45760
+SPACE(~1.THE=33015,,9893,45760
+SPORTS~1.THE=33026,,9893,45760
+THE60'~1.THE=33029,,9893,45760
+THEGOL~1.THE=33035,,9893,45760
+TRAVEL~1.THE=33047,,9893,45760
+UNDERW~1.THE=33050,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_68.CAB=26
+DCE:remaining=0
+WBEMDISP.TLB=33053,,9893,45760
+chart.vbs=33059,,9893,45760
+excel.vbs=33059,,9893,45760
+network.vbs=33059,,9893,45760
+registry.vbs=33059,,9893,45760
+shortcut.vbs=33059,,9893,45760
+showvar.vbs=33059,,9893,45760
+BASEBA~1.WAV=33023,,9893,45760
+BASEBA~2.WAV=33023,,9893,45760
+BASEBA~3.WAV=33023,,9893,45760
+BASEBA~4.WAV=33023,,9893,45760
+BASEBA~5.WAV=33023,,9893,45760
+BASEBA~6.WAV=33023,,9893,45760
+BASEBA~7.WAV=33023,,9893,45760
+BASEBA~8.WAV=33023,,9893,45760
+BASEBA~9.WAV=33023,,9893,45760
+BASEB~10.WAV=33023,,9893,45760
+BASEB~11.WAV=33023,,9893,45760
+BASEB~12.WAV=33023,,9893,45760
+BASEB~13.WAV=33023,,9893,45760
+BASEB~14.WAV=33023,,9893,45760
+BASEB~15.WAV=33023,,9893,45760
+BASEB~16.WAV=33023,,9893,45760
+BASEB~17.WAV=33023,,9893,45760
+BASEB~18.WAV=33023,,9893,45760
+DANGER~1.WAV=33038,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_69.CAB=28
+DCE:remaining=0
+DANGER~2.WAV=33038,,9893,45760
+DANGER~3.WAV=33038,,9893,45760
+DANGER~4.WAV=33038,,9893,45760
+DANGER~5.WAV=33038,,9893,45760
+DANGER~6.WAV=33038,,9893,45760
+DANGER~7.WAV=33038,,9893,45760
+DANGER~8.WAV=33038,,9893,45760
+DANGER~9.WAV=33038,,9893,45760
+DANGE~10.WAV=33038,,9893,45760
+DANGE~11.WAV=33038,,9893,45760
+DANGE~12.WAV=33038,,9893,45760
+DANGE~13.WAV=33038,,9893,45760
+INSIDE~1.WAV=33005,,9893,45760
+INSIDE~2.WAV=33005,,9893,45760
+INSIDE~3.WAV=33005,,9893,45760
+INSIDE~4.WAV=33005,,9893,45760
+INSIDE~5.WAV=33005,,9893,45760
+INSIDE~6.WAV=33005,,9893,45760
+INSIDE~7.WAV=33005,,9893,45760
+INSIDE~8.WAV=33005,,9893,45760
+INSIDE~9.WAV=33005,,9893,45760
+INSID~10.WAV=33005,,9893,45760
+INSID~11.WAV=33005,,9893,45760
+INSID~12.WAV=33005,,9893,45760
+INSID~13.WAV=33005,,9893,45760
+INSID~14.WAV=33005,,9893,45760
+INSID~15.WAV=33005,,9893,45760
+INSID~16.WAV=33005,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_70.CAB=56
+DCE:remaining=0
+JUNGLE~1.WAV=33041,,9893,45760
+JUNGLE~2.WAV=33041,,9893,45760
+JUNGLE~3.WAV=33041,,9893,45760
+JUNGLE~4.WAV=33041,,9893,45760
+JUNGLE~5.WAV=33041,,9893,45760
+JUNGLE~6.WAV=33041,,9893,45760
+JUNGLE~7.WAV=33041,,9893,45760
+JUNGLE~8.WAV=33041,,9893,45760
+JUNGLE~9.WAV=33041,,9893,45760
+JUNGL~10.WAV=33041,,9893,45760
+JUNGL~11.WAV=33041,,9893,45760
+JUNGL~12.WAV=33041,,9893,45760
+JUNGL~13.WAV=33041,,9893,45760
+JUNGL~14.WAV=33041,,9893,45760
+JUNGL~15.WAV=33041,,9893,45760
+JUNGL~16.WAV=33041,,9893,45760
+JUNGL~17.WAV=33041,,9893,45760
+JUNGL~18.WAV=33041,,9893,45760
+LEONAR~1.WAV=33032,,9893,45760
+LEONAR~2.WAV=33032,,9893,45760
+LEONAR~3.WAV=33032,,9893,45760
+LEONAR~4.WAV=33032,,9893,45760
+LEONAR~5.WAV=33032,,9893,45760
+LEONAR~6.WAV=33032,,9893,45760
+LEONAR~7.WAV=33032,,9893,45760
+LEONAR~8.WAV=33032,,9893,45760
+LEONAR~9.WAV=33032,,9893,45760
+LEONA~10.WAV=33032,,9893,45760
+LEONA~11.WAV=33032,,9893,45760
+LEONA~12.WAV=33032,,9893,45760
+LEONA~13.WAV=33032,,9893,45760
+LEONA~14.WAV=33032,,9893,45760
+LEONA~15.WAV=33032,,9893,45760
+MYSTER~1.WAV=33020,,9893,45760
+MYSTER~2.WAV=33020,,9893,45760
+MYSTER~3.WAV=33020,,9893,45760
+MYSTER~4.WAV=33020,,9893,45760
+MYSTER~5.WAV=33020,,9893,45760
+MYSTER~6.WAV=33020,,9893,45760
+MYSTER~7.WAV=33020,,9893,45760
+MYSTER~8.WAV=33020,,9893,45760
+MYSTER~9.WAV=33020,,9893,45760
+MYSTE~10.WAV=33020,,9893,45760
+MYSTE~11.WAV=33020,,9893,45760
+MYSTE~12.WAV=33020,,9893,45760
+MYSTE~13.WAV=33020,,9893,45760
+MYSTE~14.WAV=33020,,9893,45760
+NATURE~1.WAV=33044,,9893,45760
+NATURE~2.WAV=33044,,9893,45760
+NATURE~3.WAV=33044,,9893,45760
+NATURE~4.WAV=33044,,9893,45760
+NATURE~5.WAV=33044,,9893,45760
+NATURE~6.WAV=33044,,9893,45760
+NATURE~7.WAV=33044,,9893,45760
+NATURE~8.WAV=33044,,9893,45760
+NATURE~9.WAV=33044,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_71.CAB=42
+DCE:remaining=0
+NATUR~10.WAV=33044,,9893,45760
+NATUR~11.WAV=33044,,9893,45760
+NATUR~12.WAV=33044,,9893,45760
+NATUR~13.WAV=33044,,9893,45760
+NATUR~14.WAV=33044,,9893,45760
+NATUR~15.WAV=33044,,9893,45760
+NATUR~16.WAV=33044,,9893,45760
+SCIENC~1.WAV=33010,,9893,45760
+SCIENC~2.WAV=33010,,9893,45760
+SCIENC~3.WAV=33010,,9893,45760
+SCIENC~4.WAV=33010,,9893,45760
+SCIENC~5.WAV=33010,,9893,45760
+SCIENC~6.WAV=33010,,9893,45760
+SCIENC~7.WAV=33010,,9893,45760
+SCIENC~8.WAV=33010,,9893,45760
+SCIENC~9.WAV=33010,,9893,45760
+SCIEN~10.WAV=33010,,9893,45760
+SCIEN~11.WAV=33010,,9893,45760
+SCIEN~12.WAV=33010,,9893,45760
+SCIEN~13.WAV=33010,,9893,45760
+SCIEN~14.WAV=33010,,9893,45760
+SCIEN~15.WAV=33010,,9893,45760
+SCIEN~16.WAV=33010,,9893,45760
+SPACEA~1.WAV=33015,,9893,45760
+SPACEB~1.WAV=33015,,9893,45760
+SPACEC~1.WAV=33015,,9893,45760
+SPACEC~2.WAV=33015,,9893,45760
+SPACED~1.WAV=33015,,9893,45760
+SPACEE~1.WAV=33015,,9893,45760
+SPACEE~2.WAV=33015,,9893,45760
+SPACEE~3.WAV=33015,,9893,45760
+SPACEM~1.WAV=33015,,9893,45760
+SPACEM~2.WAV=33015,,9893,45760
+SPACEM~3.WAV=33015,,9893,45760
+SPACEM~4.WAV=33015,,9893,45760
+SPACEO~1.WAV=33015,,9893,45760
+SPACEP~1.WAV=33015,,9893,45760
+SPACEQ~1.WAV=33015,,9893,45760
+SPACER~1.WAV=33015,,9893,45760
+SPACER~2.WAV=33015,,9893,45760
+SPACES~1.WAV=33015,,9893,45760
+SPORTS~1.WAV=33026,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_72.CAB=79
+DCE:remaining=0
+SPORTS~2.WAV=33026,,9893,45760
+SPORTS~3.WAV=33026,,9893,45760
+SPORTS~4.WAV=33026,,9893,45760
+SPORTS~5.WAV=33026,,9893,45760
+SPORTS~6.WAV=33026,,9893,45760
+SPORTS~7.WAV=33026,,9893,45760
+SPORTS~8.WAV=33026,,9893,45760
+SPORTS~9.WAV=33026,,9893,45760
+SPORT~10.WAV=33026,,9893,45760
+SPORT~11.WAV=33026,,9893,45760
+SPORT~12.WAV=33026,,9893,45760
+SPORT~13.WAV=33026,,9893,45760
+SPORT~14.WAV=33026,,9893,45760
+THE60'~1.WAV=33029,,9893,45760
+THE60'~2.WAV=33029,,9893,45760
+THE60'~3.WAV=33029,,9893,45760
+THE60'~4.WAV=33029,,9893,45760
+THE60'~5.WAV=33029,,9893,45760
+THE60'~6.WAV=33029,,9893,45760
+THE60'~7.WAV=33029,,9893,45760
+THE60'~8.WAV=33029,,9893,45760
+THE60'~9.WAV=33029,,9893,45760
+THE60~10.WAV=33029,,9893,45760
+THE60~11.WAV=33029,,9893,45760
+THE60~12.WAV=33029,,9893,45760
+THE60~13.WAV=33029,,9893,45760
+THE60~14.WAV=33029,,9893,45760
+THE60~15.WAV=33029,,9893,45760
+THE60~16.WAV=33029,,9893,45760
+THEGOL~1.WAV=33035,,9893,45760
+THEGOL~2.WAV=33035,,9893,45760
+THEGOL~3.WAV=33035,,9893,45760
+THEGOL~4.WAV=33035,,9893,45760
+THEGOL~5.WAV=33035,,9893,45760
+THEGOL~6.WAV=33035,,9893,45760
+THEGOL~7.WAV=33035,,9893,45760
+THEGOL~8.WAV=33035,,9893,45760
+THEGOL~9.WAV=33035,,9893,45760
+THEGO~10.WAV=33035,,9893,45760
+THEGO~11.WAV=33035,,9893,45760
+THEGO~12.WAV=33035,,9893,45760
+THEGO~13.WAV=33035,,9893,45760
+THEGO~14.WAV=33035,,9893,45760
+TRAVEL~1.WAV=33047,,9893,45760
+TRAVEL~2.WAV=33047,,9893,45760
+TRAVEL~3.WAV=33047,,9893,45760
+TRAVEL~4.WAV=33047,,9893,45760
+TRAVEL~5.WAV=33047,,9893,45760
+TRAVEL~6.WAV=33047,,9893,45760
+TRAVEL~7.WAV=33047,,9893,45760
+TRAVEL~8.WAV=33047,,9893,45760
+TRAVEL~9.WAV=33047,,9893,45760
+TRAVE~10.WAV=33047,,9893,45760
+TRAVE~11.WAV=33047,,9893,45760
+TRAVE~12.WAV=33047,,9893,45760
+TRAVE~13.WAV=33047,,9893,45760
+TRAVE~14.WAV=33047,,9893,45760
+TRAVE~15.WAV=33047,,9893,45760
+TRAVE~16.WAV=33047,,9893,45760
+UNDERW~1.WAV=33050,,9893,45760
+UNDERW~2.WAV=33050,,9893,45760
+UNDERW~3.WAV=33050,,9893,45760
+UNDERW~4.WAV=33050,,9893,45760
+UNDERW~5.WAV=33050,,9893,45760
+UNDERW~6.WAV=33050,,9893,45760
+UNDERW~7.WAV=33050,,9893,45760
+UNDERW~8.WAV=33050,,9893,45760
+UNDERW~9.WAV=33050,,9893,45760
+UNDER~10.WAV=33050,,9893,45760
+UNDER~11.WAV=33050,,9893,45760
+UNDER~12.WAV=33050,,9893,45760
+UNDER~13.WAV=33050,,9893,45760
+UNDER~14.WAV=33050,,9893,45760
+UNDER~15.WAV=33050,,9893,45760
+UNDER~16.WAV=33050,,9893,45760
+UNDER~17.WAV=33050,,9893,45760
+UNDER~18.WAV=33050,,9893,45760
+WINDOW~1.WAV=32992,,9893,45760
+WINDOW~2.WAV=32992,,9893,45760
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\WIN98_73.CAB=13
+DCE:remaining=0
+WINDOW~3.WAV=32992,,9893,45760
+WINDOW~4.WAV=32992,,9893,45760
+WINDOW~5.WAV=32992,,9893,45760
+WINDOW~6.WAV=32992,,9893,45760
+WINDOW~7.WAV=32992,,9893,45760
+WINDOW~8.WAV=32992,,9893,45760
+WINDOW~9.WAV=32992,,9893,45760
+WINDO~10.WAV=32992,,9893,45760
+WINDO~11.WAV=32992,,9893,45760
+WINDO~12.WAV=32992,,9893,45760
+WINDO~13.WAV=32992,,9893,45760
+WINDO~14.WAV=32992,,9893,45760
+WINDO~15.WAV=32992,,9893,45760
+VcpClose:About to End
+VcpClose:About to Terminate
+FileCopy=Passed
+
+[Dummy]
+DS(CheckDiskSpace):D=C:, Bpc=32768, F=7528672, TF=7528672, R=381717828, A=7528672, RP=71118176, AP=16818176, OF=0, SS=0
+
+[Restart]
+loading 'C:\WININST0.400\suexpand.dll' returned 1177149e
+SrcLdid:(30)SYSTEM.NEW
+SrcLdid:(30)COMMAND.NEW
+SrcLdid:(30)COMMAND.NEW
+SrcLdid:(30)COMMAND.NEW
+SRCDUP:COMMAND.NEW
+SrcLdid:(30)COMMAND.NEW
+SrcLdid:(30)WINBOOT.NEW
+SrcLdid:(30)WINBOOT.NEW
+SrcLdid:(26)SETVER.WIN
+SrcLdid:(30)SULOGO.SYS
+SrcLdid:(30)USER.NEW
+VcpClose:About to close
+VcpClose:Delete 101
+VcpClose:Copy 7
+LDID is ffff failed CtlGetLdd 
+CAB-No volume name for LDID ffff, local copy - path Absolute
+Resolve Conflict:C:\command.com ConflictType: 40
+COMMAND.NEW=30,command.com,9893,45760
+COMMAND.NEW=26,command.com,9893,45760
+SULOGO.SYS=31,LOGO.SYS,9893,45760
+SYSTEM.NEW=28,SYSTEM.DAT,10032,24288
+USER.NEW=10,user.dat,10032,24288
+Resolve Conflict:C:\IO.SYS ConflictType: 240
+WINBOOT.NEW=30,IO.SYS,9893,45760
+SETVER.WIN=26,SETVER.EXE,10032,24285
+VcpClose:About to End
+VcpClose:About to Terminate
+RootFilesRenamed=PASSED
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\win.ini: to :c:\windows\win.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\system.ini: to :c:\windows\system.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\wininit.ini: to :c:\windows\wininit.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\win: to :c:\windows\win.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\qtw.ini: to :c:\windows\qtw.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\setup.ini: to :c:\windows\setup.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\control.ini: to :c:\windows\control.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\powerpnt.ini: to :c:\windows\powerpnt.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\msoffice.ini: to :c:\windows\msoffice.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\system.cb: to :c:\windows\system.---:
+TPS_Flush() Informational log: Setup didn't rename old file :c:\windows\INF\setuppp.inf: to :c:\windows\INF\setuppp.---:
+Providers begin (AfterProvider)
+CallDll(C:\WININST0.400\netdi.dll,NDICLEANUPB4REBOOT), hlib=7878, ret=0
+CallDll(C:\WININST0.400\setupx.dll,SURPLSETUP), hlib=4470, ret=0
+Providers End (AfterProvider)
+Restart=Passed
+
+[Dummy]
+
+[First Process Tree]
+[Build Driver Index File]
+Start
+End
+
+[재설치]
+Reg SubKey:Enum\ROOT\NET\0000
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+VcpClose:About to close
+VcpClose:Copy 7
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET7.CAB=2
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET9.CAB=5
+DCE:remaining=0
+VcpClose:Certify Catalog Files7
+VcpClose:Certify 7
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ROOT\PROCESSOR_UPDATE\0000
+VcpClose:About to close
+VcpClose:Copy 1
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files1
+VcpClose:Certify 1
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ROOT\SWENUM\0000
+VcpClose:About to close
+VcpClose:Copy 3
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=3
+DCE:remaining=0
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ROOT\*PNP0C00\0000
+Description:플러그 앤 플레이 바이오스
+VcpClose:About to close
+VcpClose:Copy 1
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files1
+VcpClose:Certify 1
+VcpClose:Delete 1
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C02\00
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C02\01
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C01\02
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0200\03
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0000\04
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0100\05
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0B00\06
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0303\07
+VcpClose:About to close
+VcpClose:Copy 4
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=4
+DCE:remaining=0
+VcpClose:Certify Catalog Files4
+VcpClose:Certify 4
+VcpClose:Delete 4
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C04\08
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0800\09
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0A03\0A
+VcpClose:About to close
+VcpClose:Copy 2
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files2
+VcpClose:Certify 2
+VcpClose:Delete 1
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C02\0B
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C02\0C
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0C02\0E
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7181&SUBSYS_00000000&REV_03\BUS_00&DEV_01&FUNC_00
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7110&SUBSYS_00000000&REV_02\BUS_00&DEV_07&FUNC_00
+VcpClose:About to close
+VcpClose:Copy 1
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files1
+VcpClose:Certify 1
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7113&SUBSYS_00000000&REV_02\BUS_00&DEV_07&FUNC_03
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ISAPNP\READDATAPORT\0
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0501\0F
+VcpClose:About to close
+VcpClose:Copy 2
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files2
+VcpClose:Certify 2
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0700\10
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0F13\14
+VcpClose:About to close
+VcpClose:Copy 2
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files2
+VcpClose:Certify 2
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0501\15
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\BIOS\*PNP0400\18
+VcpClose:About to close
+VcpClose:Copy 1
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files1
+VcpClose:Certify 1
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[사용 안함]
+Reg SubKey:Enum\PCI\IRQHOLDER\60
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[사용 안함]
+Reg SubKey:Enum\PCI\IRQHOLDER\61
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[사용 안함]
+Reg SubKey:Enum\PCI\IRQHOLDER\62
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\IRQHOLDER\63
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7180&SUBSYS_00000000&REV_03\BUS_00&DEV_00&FUNC_00
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7111&SUBSYS_00000000&REV_01\BUS_00&DEV_07&FUNC_01
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+장치 사용(&N)
+Reg SubKey:Enum\PCI\VEN_8086&DEV_7112&SUBSYS_00000000&REV_01\BUS_00&DEV_07&FUNC_02
+VcpClose:About to close
+VcpClose:Copy 4
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=2
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=2
+DCE:remaining=0
+VcpClose:Certify Catalog Files4
+VcpClose:Certify 4
+VcpClose:Delete 14
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\PCI\VEN_5333&DEV_8A13&SUBSYS_8A135333&REV_02\000800
+Display_InstallDevice: GUI SETUP 640, 480, 4, 96
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+Display_InstallDevice: Calling Display_SetMode(lpdi, 16, 800, 600): ret:32769
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ROOT\*PNP0C01\0000
+Description:시스템 보드
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\ROOT\*PNP0C05\0000
+Description:고급 전원 관리 지원 프로그램
+VcpClose:About to close
+VcpClose:Copy 2
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE5.CAB=1
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\BASE6.CAB=1
+DCE:remaining=0
+VcpClose:Certify Catalog Files2
+VcpClose:Certify 2
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[재시작해야 함]
+Reg SubKey:Enum\BIOS\*PNP0700\10
+Description:표준 플로피 디스크 컨트롤러
+COMPLETE
+
+[재시작해야 함]
+Reg SubKey:Enum\PCI\VEN_5333&DEV_8A13&SUBSYS_8A135333&REV_02\000800
+Description:표준 PCI 그래픽 어댑터 (VGA)
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\MF\CHILD0000\PCI&VEN_8086&DEV_7111&SUBSYS_00000000&REV_01&BUS_00&DEV_07&FUNC_01
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\MF\CHILD0001\PCI&VEN_8086&DEV_7111&SUBSYS_00000000&REV_01&BUS_00&DEV_07&FUNC_01
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+[재시작해야 함]
+Reg SubKey:Enum\MF\CHILD0000\PCI&VEN_8086&DEV_7111&SUBSYS_00000000&REV_01&BUS_00&DEV_07&FUNC_01
+Description:기본 IDE 컨트롤러 (이중 FIFO)
+COMPLETE
+
+[재시작해야 함]
+Reg SubKey:Enum\MF\CHILD0001\PCI&VEN_8086&DEV_7111&SUBSYS_00000000&REV_01&BUS_00&DEV_07&FUNC_01
+Description:보조 IDE 컨트롤러 (이중 FIFO)
+COMPLETE
+
+[구성되어 있지 않음]
+Reg SubKey:Enum\USB\ROOT_HUB\PCI&VEN_8086&DEV_7112&SUBSYS_00000000&REV_01&BUS_00&DEV_07&FUNC_02
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+COMPLETE
+
+CL:DEC PATHWORKS Windows 드라이버 디스크 
+CL:PC-NFS Windows 드라이버 디스크 
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+VcpClose:About to close
+VcpClose:Copy 43
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET7.CAB=25
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET8.CAB=16
+DCE:remaining=0
+[Windows 98 Second Edition CD-ROM]
+DCE:C:\WINDOWS\OPTIONS\CABS\\NET9.CAB=2
+DCE:remaining=0
+VcpClose:Certify Catalog Files43
+VcpClose:Certify 43
+VcpClose:About to End
+VcpClose:About to Terminate
+DMSetupDevnode:End FirstProcessTree
+DMSetupDevnode:dwRestartFlags at end of FirstProcessTree:0x180
+
+[DMFirstTimeSetup]
+Sending DIF_FIRSTTIMESETUP to class:Tape
+Sending DIF_FIRSTTIMESETUP to class:TapeController
+Sending DIF_FIRSTTIMESETUP to class:CXP
+Sending DIF_FIRSTTIMESETUP to class:SBP2
+Sending DIF_FIRSTTIMESETUP to class:Storage
+Sending DIF_FIRSTTIMESETUP to class:DBC
+Sending DIF_FIRSTTIMESETUP to class:Unknown
+Sending DIF_FIRSTTIMESETUP to class:USB
+Sending DIF_FIRSTTIMESETUP to class:SCSIAdapter
+Sending DIF_FIRSTTIMESETUP to class:PCMCIA
+Sending DIF_FIRSTTIMESETUP to class:nodriver
+Sending DIF_FIRSTTIMESETUP to class:MTD
+Sending DIF_FIRSTTIMESETUP to class:Ports
+Sending DIF_FIRSTTIMESETUP to class:Mouse
+Sending DIF_FIRSTTIMESETUP to class:hdc
+Sending DIF_FIRSTTIMESETUP to class:fdc
+Sending DIF_FIRSTTIMESETUP to class:3D Accelerators
+Sending DIF_FIRSTTIMESETUP to class:Display
+Sending DIF_FIRSTTIMESETUP to class:CDROM
+Sending DIF_FIRSTTIMESETUP to class:Modem
+Sending DIF_FIRSTTIMESETUP to class:MultiFunction
+Sending DIF_FIRSTTIMESETUP to class:System
+Sending DIF_FIRSTTIMESETUP to class:Keyboard
+Sending DIF_FIRSTTIMESETUP to class:Infrared
+Sending DIF_FIRSTTIMESETUP to class:Image
+Sending DIF_FIRSTTIMESETUP to class:Net
+Sending DIF_FIRSTTIMESETUP to class:HID
+Sending DIF_FIRSTTIMESETUP to class:GPS
+Sending DIF_FIRSTTIMESETUP to class:DiskDrive
+Sending DIF_FIRSTTIMESETUP to class:MEDIA
+Sending DIF_FIRSTTIMESETUP to class:Printer
+Sending DIF_FIRSTTIMESETUP to class:Adapter
+Sending DIF_FIRSTTIMESETUP to class:1394
+Sending DIF_FIRSTTIMESETUP to class:Monitor
+COMPLETE
+

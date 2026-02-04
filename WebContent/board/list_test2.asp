@@ -1,0 +1,557 @@
+<!--#include virtual="/inc/_function.asp" -->
+<!--#include virtual="/board/_BoardSettings.asp" -->
+<%
+	
+	where = request("where")
+	keyword = replace(trim(request("keyword")),"'","&acute;")
+	keyword = replace(keyword,chr(34),"&#34;")
+	
+	select case where
+		case "name"
+			name_check = "selected"
+			whereQuery = "bbs_name"
+		case "subject"
+			subject_check = "selected"
+			whereQuery = "bbs_subject"
+		case "content"
+			content_check = "selected"
+			whereQuery = "bbs_contents"
+		case "category"
+			category_check = "selected"
+			whereQuery = "bbs_category"
+		case ""
+			subject_check = "checked"
+	end select
+	
+	if request("page")="" then   	' PAGE 값가져오기...
+		page=1
+	else 
+		page=request("page")
+	end if
+	
+	nextpage = Cint(page) + 1
+	prevpage = Cint(page) - 1
+
+
+	Set rs = Server.CreateObject("ADODB.Recordset")
+	sql = "select count(*) from "& Bs_TableName &" where bbs_board_code = '"& boardcode &"' "
+
+
+	if keyword <> "" then
+		sql = sql & " and "& whereQuery &" like '%"& keyword &"%'"
+	end If
+	rs.open sql,db,0,1
+	totaltext = rs(0)
+	rs.close
+
+	pagesize = 15
+
+	sql = "select count(*) from "& Bs_TableName &" where bbs_board_code = '"& boardcode &"' and isnull(bbs_notice,0) = '1'"
+	rs.open sql,db,0,1
+	noti_count = rs(0)
+	rs.close
+ 
+	rownum = 0
+	If  totaltext - (page-1) * pagesize >=  pagesize Then
+		rownum = pagesize
+	Else
+		rownum = totaltext - (page-1) * pagesize
+	End if
+' ------------------- 정보공유게시판 자유게시판 통합 체크 ------------------
+
+	if boardcode = 35 or boardcode = 20 Then
+		sql = "select * from (select top "& rownum &" * from ("
+		sql = sql & "select top "& page * pagesize &" bbs_idx, bbs_notice, bbs_m_number, bbs_step, bbs_file_type, bbs_comments_count, bbs_category, bbs_name, bbs_subject, bbs_view, bbs_edit_date_dt, bbs_reg_date_dt, bbs_del_flag, isnull(bbs_recomm,0) bbs_recomm from "& Bs_TableName &" where (bbs_board_code = '35' or bbs_board_code='20') "
+	Else
+		If page = 1 Then
+			sql = "select * from (select top "& rownum &" * from ("
+			sql = sql & "select top "& page * pagesize & " bbs_idx, bbs_notice, bbs_m_number, bbs_step, bbs_file_type, bbs_comments_count, bbs_category, bbs_name, bbs_subject, bbs_view, bbs_edit_date_dt, bbs_reg_date_dt, bbs_del_flag, isnull(bbs_recomm,0) bbs_recomm from "& Bs_TableName &" where bbs_board_code = '"& boardcode &"' "
+		Else
+			sql = "select * from (select top "& rownum &" * from ("
+			sql = sql & "select top "& page * pagesize - noti_count & " bbs_idx, bbs_notice, bbs_m_number, bbs_step, bbs_file_type, bbs_comments_count, bbs_category, bbs_name, bbs_subject, bbs_view, bbs_edit_date_dt, bbs_reg_date_dt, bbs_del_flag, isnull(bbs_recomm,0) bbs_recomm from "& Bs_TableName &" where bbs_board_code = '"& boardcode &"' "
+		End If
+	end if
+'----------------------------------------------------------------------------
+	if keyword <> "" then
+		sql = sql & " and "& whereQuery &" like '%"& keyword &"%'"
+	end If
+
+	If page * pagesize > 15 Then
+		sql = sql & "and isnull(bbs_notice,0) != '1'"
+	End if
+	
+'	sql = sql & " order by bbs_notice desc, bbs_m_number"
+	sql = sql & " order by isnull(bbs_notice,0) desc, bbs_m_number"
+'	sql = sql &" ) a order by bbs_notice , bbs_m_number desc) b order by bbs_notice desc, bbs_m_number"
+	sql = sql &" ) a order by bbs_m_number desc) b order by isnull(bbs_notice,0) desc, bbs_m_number "
+	
+	response.write sql
+	'response.end
+
+	
+	rs.Open SQL,db,0,1
+
+
+
+	totalpage = -int(-totaltext/pagesize)
+
+	if totalpage = 0 then
+		totalpage = 1
+	end if
+
+	SUB pagePrint() 
+		if totalpage > 1 then
+
+			if page mod 10 = 0 then
+				startPage = int(page / 10) * 10 - 9
+			else
+				startPage = int(page / 10) * 10 + 1
+			end if
+
+			prevPagePart = cint(startPage - 10)
+			nextPagePart = cint(startPage + 10)
+
+			if prevPagePart < 1 then
+				prevPagePart = 1
+			end if
+			if nextPagePart > totalpage then
+				nextPagePart = totalpage
+			end if
+			prevPage = page - 1
+			nextPage = page + 1
+			if prevPage < 1 then
+				prevPage = 1
+				'prevDisable = "disabled"
+			end if
+			if nextPage > totalpage then
+				nextPage = totalpage
+				'nextDisable = "disabled"
+			end If
+			
+			PRE=server.urlencode("boardcode="&boardcode&"&where="&where&"&keyword="&keyword&"&page="&prevPagePart)
+			NEX=server.urlencode("boardcode="&boardcode&"&where="&where&"&keyword="&keyword&"&page="&prevPage)
+			%>
+
+		
+		
+		<a href="?boardcode=<%= boardcode %>&where=<%= where %>&keyword=<%= keyword %>&page=<%= prevPagePart %>"><img src="/data/images/prev02.gif" border=0 alt="이전10개" align="absmiddle"></a>
+		<a href="?boardcode=<%= boardcode %>&where=<%= where %>&keyword=<%= keyword %>&page=<%= prevPage %>"><img src="/data/images/prev01.gif" border=0 alt="이전" align="absmiddle"></a>
+
+		<!--	
+		
+				<a href="?<%=PRE%>"><img src="/data/images/prev02.gif" border=0 alt="이전10개" align="absmiddle"></a>
+		<a href="?<%=NEX%>"><img src="/data/images/prev01.gif" border=0 alt="이전" align="absmiddle"></a>-->
+			&nbsp;
+			<%
+
+			for i = startPage to startPage + 9
+				if i > totalpage then
+					i = totalpage
+					exit for
+				end if
+				if i = cint(page) then
+					response.write "&nbsp;<b><font color=#08748A>"& page &"</font></b>&nbsp;"
+				else
+
+				P=  server.urlencode(boardcode&"&where="&where&"&keyword="&keyword&"&page="&i)
+					
+			%>
+				&nbsp;<a class="news1" href="?boardcode=<%= boardcode %>&where=<%= where %>&keyword=<%= keyword %>&page=<%= i %>"><%= i %>&nbsp;</a>
+				<!--<a class="news1" href="?boardcode=<%=P%>"><%= i %>&nbsp;</a>-->
+			<%
+					
+
+				end if
+				response.write " / "
+			next
+			%>
+			&nbsp;	
+			
+			<%
+				PRES=server.urlencode("boardcode="&boardcode&"&where="&where&"&keyword="&keyword&"&page="&nextPage)
+			NEXS=server.urlencode("boardcode="&boardcode&"&where="&where&"&keyword="&keyword&"&page="&nextPagePart)
+	
+			
+			%>
+	<a href="?boardcode=<%= boardcode %>&where=<%= where %>&keyword=<%= keyword %>&page=<%= nextPage %>"><img src="/data/images/next01.gif" border=0 alt="다음" align="absmiddle"></a>
+			<a href="?boardcode=<%= boardcode %>&where=<%= where %>&keyword=<%= keyword %>&page=<%= nextPagePart %>"><img src="/data/images/next02.gif" border=0 alt="다음10개" align="absmiddle"></a>
+	
+					<!--	<a href="?<%= PRES %>"><img src="/data/images/next01.gif" border=0 alt="다음" align="absmiddle"></a>
+			<a href="?<%=NEXS%>"><img src="/data/images/next02.gif" border=0 alt="다음10개" align="absmiddle"></a>
+			-->
+<%
+
+
+		end if 
+
+	END SUB
+	
+%>
+
+<script>
+function kk(){
+	if (!document.frm.se2.value){
+		alert("검색어를 입력하세요");
+		frm.se2.focus();
+		return;
+	} else {
+		document.frm.submit();
+	}
+ }
+</script>
+<!--추카 KSH-->
+<Script Language="javascript">
+	// 모든 리스트 선택, 취소
+	function SelectAll()
+	{	
+		var allselected = false;
+		allselected = !allselected;
+
+		//	리스트가 하나도 없을때
+		if ( document.all['selectlist[]'] == undefined )
+			return;
+		
+		//	리스트가 하나뿐일때와 여러개일때 객체처리가 다르므로
+		//	나누어서 처리해야 한다.
+		if ( document.all['selectlist[]'].length == undefined )
+		{
+			document.all['selectlist[]'].checked = allselected;
+		}else{
+			for ( i = 0; i < document.all['selectlist[]'].length; ++i ){
+				if (document.all['selectlist[]'][i].checked == !allselected){
+					document.all['selectlist[]'][i].checked = allselected;	
+				}else{
+					document.all['selectlist[]'][i].checked = !allselected;
+				}
+			}	
+		}
+	}	
+
+	//체크박스 체크여부 검사
+	function isCheckBlank(theField) 
+	{  
+		var iCnt = 0;
+		if (theField.length)   //CheckBox 가 한개 이상 있는 경우 입니다.
+		{
+			for(var i =0 ; i < theField.length; i++) {
+				if(theField[i].checked) iCnt++;
+			}
+		}
+		else                      //CheckBox 가 한개인 경우
+		{
+			if (theField.checked) iCnt++;		
+		}
+		return(iCnt==0) ? true : false;
+	}
+
+	//ErrMsg
+	function NotSelectNotUse(){
+		alert("선택하실 데이터가 없습니다.");
+		return;
+	}
+
+	function ClearDelete(){
+		var form = document.formnew;
+
+		if (form.all['selectlist[]'] == undefined){
+			alert("선택할 글목록이 없습니다.");
+		}else{
+			 if(isCheckBlank(form.all['selectlist[]'])) {
+					alert("삭제 글목록이 선택되지 않았습니다.\r삭제할 글목록을 체크해 주세요.");
+					return;
+			 }else{
+				 if(confirm("정말 삭제하시겠습니까?")==false ) {
+					  return;	
+				 }else{
+					  form.action = "/board/ChkBoxDel.asp";
+					  form.submit();
+				 }	
+			 }
+		}
+	}
+</Script>
+<!--추가 KSH-->		
+
+
+<table width="583" border="0" cellspacing="0" cellpadding="0" bgcolor="#f3f3f3">
+  <tr>
+	<td width="267" height="59"><img src="/images/data/search_img_01.gif" width="267" height="59"></td>
+	<td width="301" align="right"><br>
+		<table height="20" border="0" cellpadding="0" cellspacing="0">
+		<form name="form1" method="post" action="index.asp" ID="Form1">
+		<tr>
+		  <td width="110" align="right" valign="bottom">
+				<select ID="where" NAME="where" class="form">
+					<option value="subject" <%= subject_check %> >제 목</option>
+					<option value="content" <%= content_check %> >내 용</option>
+					<option value="name" <%= name_check %> >작성자</option>
+
+				<!-- 정보공유 게시판은 구분을 검색조건으로 사용하지 않습니다. -->
+
+					<% If Bs_Category and boardcode <> "20" Then %>
+					<option value="category" <%= category_check %> >구 분</option>
+					<% End If %>
+				</select>
+		  </td>
+		  <td>
+			&nbsp;<input type="text" class="form1" ID="keyword" size="18" NAME="keyword" value="<%= keyword %>">
+		  </td>
+		  <td width="40">
+			&nbsp;<input type="image" src="/images/data/search_btn_002.gif" align="absmiddle" ID="Image1" NAME="Image1">
+		  </td>
+		</tr>
+		<input type="hidden" name="boardcode" value="<%=request("boardcode")%>">
+		</form>
+	</table>
+	</td>
+    <td width="14" align="left"><img src="/images/data/search_img_end.gif" width="14" height="59"></td>
+  </tr>
+</table><br>
+
+
+<table width="583" border="0" cellspacing="0" cellpadding="0">
+<!--추가 S  KSH-->
+<form name="formnew" method="post">
+<input type="hidden" name="boardcode" value="<%= boardcode %>">
+<input type="hidden" name="ListUrl" value="<%= ListUrl %>">
+<!--추가 E  KSH-->
+  <tr align="center" bgcolor="4AB2E7">
+	<td height="2" colspan="7"></td>
+  </tr>
+  <tr align="center" bgcolor="#F7FBFF">
+<!--추가 S  KSH-->
+	<% If UserLevel <= 2 Then %>
+		<td width="10" height="28" class="board_01"><input type="checkbox" name="CheckAll" <% If totaltext = 0 Then %>onClick="NotSelectNotUse();"<% Else %>onClick="SelectAll();"<% End If %>></td>
+	<%	End If %>
+<!--추가 E  KSH-->
+	<td width="50" height="28" class="board_01">번호</td>
+	<% If Bs_Category THEN %>
+	<td width="75" height="28" class="board_01">자료분류</td>
+	<% End If %>
+	<td width="248" class="board_01">제 목</td>
+	<td width="70" class="board_01">작성자</td>
+	<td width="75" class="board_01">등록일</td>
+	<td width="50" class="board_01">조회</td>
+	<% If boardcode = "104" THEN %>
+	<td width="50" height="28" class="board_01">추천수</td>
+	<% End If %>
+  </tr>
+  <tr align="center" bgcolor="CAE6FC">
+	<td height="2" colspan="7"></td>
+  </tr>
+  <% If boardcode=20 then%>
+	  <tr bgcolor="#F9FAEF">
+								<td height="27" colspan="7" align="left" style="padding:0 0 0 52">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="javascript:window.open('http://www.dietitian.or.kr/shape.html','test','width=660,height=500,toolbar=0,location=0,directories=0,status=0,menubar=no,resizable=yes,copyhistory=0,scrollbars=1')"><strong>
+영양사 자격시험 응시자격 관련 안내 </strong></a></td>
+  </tr>
+
+						  <tr>
+								<td height="1" colspan="7" bgcolor="D6D7D6" class="board_02"></td>
+						  </tr>
+	<%End if%>
+
+  <% If boardcode=63 then%>
+	  <tr bgcolor="#F9FAEF">
+								<td height="27" colspan="7" align="left" style="padding:0 0 0 52">식품정보&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://www.kamis.co.kr' target='_newddd'><strong>농수산물 유통정보 바로보기 </strong></a></td>
+  </tr>
+
+						  <tr>
+								<td height="1" colspan="7" bgcolor="D6D7D6" class="board_02"></td>
+						  </tr>
+	<%End if%>
+
+<%
+		if rs.EOF = true then
+			if keyword <> "" then
+		%>
+			<tr><td colspan="7" align="center" height="100">검색결과가 없습니다.</td></tr>
+		<%	else	%>
+			<tr><td colspan="7" align="center" height="100">입력된 글이 없습니다.</td></tr>
+		<%	
+			end if
+		end if
+		
+	
+		do until rs.eof or j > 15
+			
+			ThisNumber = totaltext - (page * 15) - j + 15
+			j = j + 1
+
+			bbs_name = rs("bbs_name")
+			
+			bbs_subject = rs("bbs_subject")
+
+'''''''''''''공지 뿌려주기 추가 S KSH			
+			if rs("bbs_notice") then
+				ThisNumber = "<b><font color=blue>공지</font></b>"
+			end if
+''''''''''''공지 뿌려주기 추가 E KSH			
+			
+			if rs("bbs_step") > 1 then
+				re_width = rs("bbs_step") * 10
+				reply = "<img src='space.gif' width="& re_width &" height='0'><img src='/news/images/reply.gif'>"
+			else
+				reply = ""
+			end If
+			If rs("bbs_notice") Then 
+				if Len(bbs_subject) > 26 then
+					bbs_subject = Left(bbs_subject, 24) &"..."
+				end If
+			Else
+				if Len(bbs_subject) > 29 then
+					bbs_subject = Left(bbs_subject, 27) &"..."
+				end If
+			End If
+			
+			if keyword <> "" then
+				select case where
+					case "name"	
+						bbs_name = replace(bbs_name,keyword,"<font color='red'>"& keyword &"</font>")
+					case "subject"
+						bbs_subject = replace(bbs_subject,keyword,"<font color='red'>"& keyword &"</font>")
+				end select
+			end if
+			
+			
+			if rs("bbs_edit_date_dt") <> "" then
+				tempDate = rs("bbs_edit_date_dt")
+			else
+				tempDate = rs("bbs_reg_date_dt")
+			end if
+			
+			if rs("bbs_comments_count") > 0 then
+				bbs_subject = bbs_subject & "<b>("& rs("bbs_comments_count") &")</b>"
+			end if
+			if datediff("h",tempDate,now) < 48 then
+				news_img = "&nbsp;<i><font color='red'>new</font></i>"
+				bbs_subject = bbs_subject & news_img
+			end if
+			if rs("bbs_del_flag") then
+				bbs_subject = "<font color='gray'><b>[ - - 해당글은 삭제된 글입니다. - - ]</b></font>"
+			end if
+			
+			bbs_reg_date = left(rs("bbs_reg_date_dt"),10)
+			
+			bbs_category = rs("bbs_category")
+
+			if bbs_category = "" then
+				bbs_category = "기타"
+			end if
+				
+
+
+			bbs_view = rs("bbs_view")
+			idx = rs("bbs_idx")
+			bbs_recomm = rs("bbs_recomm")
+			%>
+
+						<tr align="center">
+<!--추가 S  KSH-->
+							<%
+								If UserLevel <= 2 Then 
+							%>
+							<td width="10" height="27" class="board_02"><input type="checkbox" name="selectlist[]" value="<%= idx %>"></td>
+							<%
+								End If 
+							%>
+<!--추가 E  KSH-->
+							<td width="47" height="27" class="board_02"><%= ThisNumber %></td>
+							<% If Bs_Category Then %>
+							<td width="75" height="27" class="board_02"><%= bbs_category %></td>
+							<% End If %>
+							<td width="338" align="left" class="board_03">
+
+									<%= reply %>
+									<% if rs("bbs_del_flag") = false and Bs_View then 
+										C=server.urlencode("boardcode="&boardcode&"&where="&where&"&keyword="&keyword&"&page="&page&"&listUrl="&listUrl)
+									%>
+<%									
+		target_url = "view.asp"
+		
+		if boardcode = "52" Then 
+			target_url = "/edu/eduTalk_03/view.asp"
+		elseif boardcode = "111" Then
+			target_url = "/etc05_05_03.asp"
+		elseif boardcode = "112" Then
+			target_url = "/etc05_08_03.asp"
+		elseif boardcode = "113" Then
+			target_url = "/news/Farm/view_test.asp"
+		End If									
+%>		
+									<a  class="news" href="<%= target_url %>?boardcode=<%= boardcode %>&listUrl=<%=listUrl%>&where=<%= where %>&keyword=<%= keyword %>&page=<%= page %>&idx=<%= idx %>">
+									<!--<a  class="news" href="view.asp?<%=C%>">-->
+
+									<% end if %>
+									<%if rs("bbs_notice") then%>
+									<font color="blue"><b><%= bbs_subject %></b></font>
+									<%else%>
+									<%= bbs_subject %>
+									<%End If%>
+									<% if rs("bbs_del_flag") = false and Bs_View then %>
+									</a>
+									<% end if %>
+							
+							</td>
+
+							<td width="66" class="board_02"><%= bbs_name %></td>
+							<td width="76" class="board_02"><%= bbs_reg_date %></td>
+							<td width="51" class="board_02"><%= bbs_view %></td>
+							<% If boardcode = "104" THEN %>
+							<td width="50" height="28" class="board_01"><%=bbs_recomm%></td>
+							<% End If %>
+						</tr>
+						  <tr>
+								<td height="1" colspan="7" bgcolor="D6D7D6" class="board_02"></td>
+						  </tr>
+						
+		<%
+			rs.movenext
+		loop
+		rs.close
+		set rs = nothing
+		
+		
+		target_url = "input.asp"
+		
+		if boardcode = "52" Then
+			target_url = "/edu/eduTalk_03/input.asp"
+		elseif boardcode = "111" Then
+			target_url = "/etc05_05_02.asp"
+		elseif boardcode = "112" Then
+			target_url = "/etc05_08_02.asp"
+		elseif boardcode = "113" Then
+			target_url = "/news/Farm/input_test.asp"
+		End If
+		%>
+
+  <tr align="center">
+	<td height="40" colspan="7">
+		<% pagePrint() %>
+	</td>
+  </tr>
+  <tr>
+	<td height="1" colspan="6" bgcolor="D6D7D6"></td>
+  </tr>
+  <tr align="center" bgcolor="F7F7F7">
+	<td height="10" colspan="6"></td>
+  </tr>
+</table>     
+<br>
+<table width="583" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td height="20" align="right">
+<!-- 목록에서 구지 목록버튼이 있을필요가 없다고 생각되어 삭제처리함 KSH 12.26
+		<a href="index.asp"><img src="/data/images/list_btn.gif" width="50" height="20"></a> -->
+		<% if Bs_Write then %>
+				<a href="<%= target_url %>?boardcode=<%= boardcode %>&listurl=<%=listurl%>"><img src="/data/images/write_btn.gif" width="58" height="20" border="0"></a>
+		<% end if %>
+<!--추가 S  KSH-->
+		<% If UserLevel <= 2 Then %>
+		<a href="javascript:ClearDelete();"><IMG SRC="/news/images/delete_btn.gif" BORDER="0"></a>
+		<% End If %>
+<!--추가 E  KSH-->
+	</td>
+  </tr>
+</table>
+<br>
+<br>

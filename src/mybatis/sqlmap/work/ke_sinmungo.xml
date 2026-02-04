@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sinmungo">
+	<resultMap type="SIN_PERSON_INFO" id="SIN_PERSON_INFO">
+		<result property="idx"						column="IDX"/>
+		<result property="pers_name"				column="PERS_NAME"/>
+		<result property="pers_id" 					column="PERS_ID"/>
+		<result property="code_sex" 				column="CODE_SEX"/>
+		<result property="lic_no" 					column="LIC_NO"/>
+		<result property="email" 					column="EMAIL"/>
+		<result property="pers_hp" 					column="PERS_HP"/>
+		<result property="company_name" 			column="COMPANY_NAME"/>
+		<result property="code_bran" 				column="CODE_BRAN"/>
+		<result property="code_part" 				column="CODE_PART"/>
+		<result property="code_great" 				column="CODE_GREAT"/>
+		<result property="code_small" 				column="CODE_SMALL"/>
+		<result property="code_user" 				column="CODE_USER"/>
+	</resultMap>
+	
+	<resultMap type="SIN_PAPER_BOARD" id="SIN_PAPER_BOARD">
+		<result property="rnum"					column="RNUM"/>	
+		<result property="idx" 					column="IDX"/>
+		<result property="board_user_id" 		column="BOARD_USER_ID"/>
+		<result property="board_subject" 		column="BOARD_SUBJECT"/>
+		<result property="board_handling"		column="BOARD_HANDLING"/>
+		<result property="board_dept"			column="BOARD_DEPT"/>
+		<result property="board_dept_com"		column="BOARD_DEPT_COM"/>
+		<result property="bbs_contents" 		column="BBS_CONTENTS"/>
+		<result property="board_reg_date" 		column="BOARD_REG_DATE"/>
+		<result property="board_mail" 			column="BOARD_MAIL"/>
+		<result property="board_file1_name" 	column="BOARD_FILE1_NAME"/>
+		<result property="board_file1_url" 		column="BOARD_FILE1_URL"/>
+		<result property="board_file2_name" 	column="BOARD_FILE2_NAME"/>
+		<result property="board_file2_url" 		column="BOARD_FILE2_URL"/>
+		<result property="board_file3_name" 	column="BOARD_FILE3_NAME"/>
+		<result property="board_file3_url" 		column="BOARD_FILE3_URL"/>
+		<result property="board_file4_name" 	column="BOARD_FILE4_NAME"/>
+		<result property="board_file4_url" 		column="BOARD_FILE4_URL"/>
+		<result property="board_file5_name" 	column="BOARD_FILE5_NAME"/>
+		<result property="board_file5_url" 		column="BOARD_FILE5_URL"/>
+		<result property="board_idx" 			column="BOARD_IDX"/>
+		<result property="comment_name" 		column="COMMENT_NAME"/>
+		<result property="comment_content" 		column="COMMENT_CONTENT"/>
+		<result property="comment_reg_date" 	column="COMMENT_REG_DATE"/>
+	</resultMap>	
+
+	<resultMap type="SIN_PAPER_BOARD_COMMENT" id="SIN_PAPER_BOARD_COMMENT">
+		<result property="idx" 					column="IDX"/>
+		<result property="comment_name" 		column="COMMENT_NAME"/>
+		<result property="comment_content" 		column="COMMENT_CONTENT"/>
+		<result property="comment_reg_date" 	column="COMMENT_REG_DATE"/>
+	</resultMap>
+	
+	<insert id="insert_sin_person_info" parameterType="kda.work.archive.data.SIN_PERSON_INFO" >
+		INSERT INTO	SIN_PERSON_INFO (PERS_NAME,PERS_ID,CODE_SEX,LIC_NO,EMAIL,PERS_HP,COMPANY_NAME,CODE_BRAN,CODE_PART,CODE_GREAT,CODE_SMALL,CODE_USER) VALUES (#{pers_name},#{pers_id},#{code_sex},#{lic_no},#{email},#{pers_hp},#{company_name},#{code_bran},#{code_part},#{code_great},#{code_small},#{code_user})
+	</insert>	
+	
+	<select id="select_sin_person_info" parameterType="kda.work.archive.data.SIN_PERSON_INFO" resultType="kda.work.archive.data.SIN_PERSON_INFO">
+		SELECT * FROM SIN_PERSON_INFO WHERE PERS_ID=#{id}
+	</select>
+	
+	<insert id="insert_sin_paper_board" parameterType="kda.work.archive.data.SIN_PAPER_BOARD" >
+		INSERT INTO	SIN_PAPER_BOARD 
+		(
+		BOARD_USER_ID
+		,BOARD_SUBJECT
+		,BOARD_DEPT
+		,BBS_CONTENTS
+		,BOARD_REG_DATE
+		,BOARD_FILE1_NAME
+		,BOARD_FILE1_URL
+		,BOARD_FILE2_NAME
+		,BOARD_FILE2_URL
+		,BOARD_FILE3_NAME
+		,BOARD_FILE3_URL
+		,BOARD_FILE4_NAME
+		,BOARD_FILE4_URL
+		,BOARD_FILE5_NAME
+		,BOARD_FILE5_URL
+		,BOARD_HANDLING
+		)
+		VALUES
+		(
+		#{board_user_id}
+		,#{board_subject}
+		,#{board_dept}
+		,#{bbs_contents}
+		,CONVERT(VARCHAR(10),GETDATE(),111)
+		,#{board_file1_name}
+		,#{board_file1_url}
+		,#{board_file2_name}
+		,#{board_file2_url}
+		,#{board_file3_name}
+		,#{board_file3_url}
+		,#{board_file4_name}
+		,#{board_file4_url}
+		,#{board_file5_name}
+		,#{board_file5_url}
+		,#{board_handling}
+		)
+	</insert>	
+	
+	<update id="update_sin_paper_board" parameterType="kda.work.archive.data.SIN_PAPER_BOARD" >
+		UPDATE SIN_PAPER_BOARD 
+		SET
+		BOARD_USER_ID=#{board_user_id}
+		,BOARD_SUBJECT=#{board_subject}
+		,BOARD_DEPT=#{board_dept}
+		,BBS_CONTENTS=#{bbs_contents}
+		,BOARD_REG_DATE=CONVERT(VARCHAR(10),GETDATE(),111)
+		,BOARD_FILE1_NAME=#{board_file1_name}
+		,BOARD_FILE1_URL=#{board_file1_url}
+		,BOARD_FILE2_NAME=#{board_file2_name}
+		,BOARD_FILE2_URL=#{board_file2_url}
+		,BOARD_FILE3_NAME=#{board_file3_name}
+		,BOARD_FILE3_URL=#{board_file3_url}
+		,BOARD_FILE4_NAME=#{board_file4_name}
+		,BOARD_FILE4_URL=#{board_file4_url}
+		,BOARD_FILE5_NAME=#{board_file5_name}
+		,BOARD_FILE5_URL=#{board_file5_url}
+		,BOARD_HANDLING=#{board_handling}
+		WHERE 
+		IDX=#{idx}
+	</update>
+	
+	<select id="select_sin_paper_board" parameterType="Hashmap" resultType="kda.work.archive.data.SIN_PAPER_BOARD">
+		SELECT 
+		ROW_NUMBER() OVER(ORDER BY IDX ASC) as RNUM, * 
+		FROM SIN_PAPER_BOARD 
+		WHERE 
+		BOARD_USER_ID=#{ID}
+		ORDER BY RNUM DESC
+	</select>
+	
+	<select id="select_all_paper_board" parameterType="Hashmap" resultType="kda.work.archive.data.SIN_PAPER_BOARD">
+		<![CDATA[
+		SELECT * FROM (SELECT
+		ROW_NUMBER() OVER(ORDER BY IDX ASC) as RNUM, * 
+		FROM SIN_PAPER_BOARD) A WHERE A.RNUM>=#{startnum} AND A.RNUM <= #{endnum} ORDER BY RNUM DESC
+		]]>
+	</select>
+	
+	<select id="cnt_select_all_paper_board" parameterType="String" resultType="int">
+		SELECT
+			COUNT(*)
+			FROM
+				(SELECT
+				ROW_NUMBER() OVER(ORDER BY IDX ASC) as RNUM, * 
+				FROM SIN_PAPER_BOARD) A
+	</select>
+	
+	<select id="select_search_all_sin_paper_board" parameterType="Hashmap" resultType="kda.work.archive.data.SIN_PAPER_BOARD">
+	
+		SELECT * FROM (SELECT
+		ROW_NUMBER() OVER(ORDER BY IDX ASC) as RNUM, * 
+		FROM SIN_PAPER_BOARD
+		<where>
+		 	<if test="search != null and search_keyword != null">
+				<choose>
+					<when test="search == 0">
+						AND BOARD_SUBJECT LIKE '%' + #{search_keyword} + '%'
+					</when>
+					<when test="search == 1">
+						AND BBS_CONTENTS LIKE '%' + #{search_keyword} + '%'
+					</when>
+					<when test="search == 2">
+						AND BOARD_USER_ID LIKE '%' + #{search_keyword} + '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+		) A
+		<![CDATA[
+		WHERE A.RNUM>=#{startnum} AND A.RNUM <= #{endnum}
+		]]>
+		ORDER BY RNUM DESC
+	</select>
+	
+	<select id="cnt_select_search_all_sin_paper_board" parameterType="Hashmap" resultType="int">
+		SELECT COUNT(*) FROM (
+		SELECT
+		ROW_NUMBER() OVER(ORDER BY IDX ASC) as RNUM, * 
+	 	FROM SIN_PAPER_BOARD
+	 	WHERE
+		 	<if test="search != null and search_keyword != null">
+				<choose>
+					<when test="search == 0">
+						BOARD_SUBJECT LIKE '%' + #{search_keyword} + '%'
+					</when>
+					<when test="search == 1">
+						BBS_CONTENTS LIKE '%' + #{search_keyword} + '%'
+					</when>
+					<when test="search == 2">
+						BOARD_USER_ID LIKE '%' + #{search_keyword} + '%'
+					</when>
+				</choose>
+			</if>
+		) A
+	</select>
+	
+	<select id="select_paper_board_view" parameterType="kda.work.archive.data.SIN_PAPER_BOARD" resultType="kda.work.archive.data.SIN_PAPER_BOARD">
+		SELECT * FROM SIN_PAPER_BOARD A LEFT OUTER JOIN SIN_PAPER_BOARD_COMMENT B ON A.IDX=B.IDX WHERE A.IDX=#{idx}
+	</select>
+	
+	<insert id="insert_board_comment" parameterType="kda.work.archive.data.SIN_PAPER_BOARD_COMMENT" >
+		INSERT INTO SIN_PAPER_BOARD_COMMENT(IDX,COMMENT_NAME,COMMENT_CONTENT,COMMENT_REG_DATE) VALUES(#{idx},#{comment_name},#{comment_content},CONVERT(VARCHAR(10),GETDATE(),111))
+	</insert>
+		
+	<update id="update_sin_paper_board_handling" parameterType="hashmap">
+		UPDATE SIN_PAPER_BOARD SET BOARD_HANDLING=#{board_handling} WHERE IDX=#{idx}
+	</update>
+	
+	<update id="update_sin_paper_board_After" parameterType="hashmap">
+		UPDATE SIN_PAPER_BOARD SET BOARD_HANDLING=#{board_handling} WHERE IDX=#{idx}
+	</update>
+	
+	<update id="update_sin_paper_board_dept" parameterType="hashmap">
+		UPDATE SIN_PAPER_BOARD SET BOARD_DEPT=#{board_dept} WHERE IDX=#{idx}
+	</update>
+	
+	<update id="update_sin_paper_board_com" parameterType="hashmap">
+		UPDATE SIN_PAPER_BOARD SET BOARD_DEPT_COM=#{board_dept_com} WHERE IDX=#{idx}
+	</update>
+	
+	<delete id="delete_sin_paper_board" parameterType="kda.work.archive.data.SIN_PAPER_BOARD">
+		DELETE FROM SIN_PAPER_BOARD WHERE IDX=#{idx}
+	</delete>
+	
+	<delete id="delete_sin_paper_board_comment" parameterType="kda.work.archive.data.SIN_PAPER_BOARD">
+		DELETE FROM SIN_PAPER_BOARD_COMMENT WHERE IDX=#{idx}
+	</delete>
+	
+	<update id="update_paper_board_mail">
+		UPDATE SIN_PAPER_BOARD SET BOARD_MAIL=SUBSTRING(CONVERT(NVARCHAR, GETDATE(), 121), 0, 17)
+	</update>
+	
+</mapper>

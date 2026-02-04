@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminSurvey">
+
+	<select id="selectMain" parameterType="hashmap" resultType="kda.admin.survey.data.SURVEY_MAIN">
+	SELECT
+		  tms_cnt
+		, tms_title
+	FROM tbl_monitor_main
+	</select>
+
+
+	<select id="selectSubjectCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(Tms_no)
+	FROM tbl_monitor_subject
+	<where>
+		<if test="mainTmsCnt != null and mainTmsCnt > 0">
+		AND tms_cnt = #{mainTmsCnt}
+		</if>
+		<if test='srch != null and srch != ""'>
+		AND tms_title LIKE '%' + #{srch} + '%'
+		</if>
+	</where>
+	</select>
+	
+	
+	
+	<select id="selectSubjectList" parameterType="hashmap" resultType="kda.admin.survey.data.SURVEY_SUBJECT">
+	SELECT 
+		 A.*
+	FROM (
+	SELECT 
+		  ROW_NUMBER() OVER( order by tms_cnt ASC, tms_idx ASC  ) AS num 
+		, tms_cnt
+		, tms_idx
+		, tms_title
+		, tms_rdate
+		, tms_mdate
+		, tms_bigo 
+	FROM tbl_monitor_subject
+	<where>
+		<if test="mainTmsCnt != null and mainTmsCnt > 0">
+		AND tms_cnt = #{mainTmsCnt}
+		</if>
+		<if test='srch != null and srch != ""'>
+		AND tms_title LIKE '%' + #{srch} + '%'
+		</if>
+	</where>
+	) A WHERE num BETWEEN #{startNum} AND #{endNum}
+	ORDER BY num ASC
+	</select>
+	
+	<select id="selectSubject" parameterType="hashmap" resultType="kda.admin.survey.data.SURVEY_SUBJECT">
+	SELECT 
+	      b.tms_title as main_tms_title
+	    , a.tms_cnt
+		, a.tms_idx
+		, a.tms_title
+	FROM tbl_monitor_subject a, tbl_monitor_main b
+	WHERE a.Tms_cnt = b.tms_cnt
+		AND a.tms_idx =  #{tms_idx}
+	</select>
+	
+	<select id="selectResCount" parameterType="hashmap" resultType="int">
+	SELECT
+		count(*) 
+	FROM tbl_monitor_response 
+	WHERE tms_idx = #{tms_idx} 
+	</select>
+	
+	<select id="selectResList" parameterType="hashmap" resultType="kda.admin.survey.data.SURVEY_RESPONSE">
+	SELECT
+		  a.tms_cnt  
+		, a.tms_idx
+		, a.tmc_title
+		, a.tmc_order
+		, count(b.tmc_order) AS cnt 
+	FROM tbl_monitor_choose  a LEFT OUTER JOIN tbl_monitor_response  b
+		on a.tmc_order = b.tmc_order 
+			and a.tms_idx = b.tms_idx
+			and a.tms_cnt = b.tms_cnt
+	GROUP by a.tms_cnt, a.Tmc_order , a.Tmc_title, a.tms_idx
+	HAVING a.tms_idx = #{tms_idx}
+	ORDER BY tmc_order 
+	</select>
+	
+	
+	<select id="selectResEtcList" parameterType="hashmap" resultType="kda.admin.survey.data.SURVEY_RESPONSE">
+	<![CDATA[
+	SELECT 
+	      a.tmc_title
+		, b.tmr_etc
+	FROM tbl_monitor_choose a, tbl_monitor_response b
+	WHERE a.tmc_order = b.tmc_order 
+		and a.tms_idx = b.tms_idx 
+		and a.tmc_order = b.tmc_order 
+		and a.tmc_title like '기타%' 
+		and a.tms_idx= #{tms_idx} 
+		and tmr_etc <> '' 
+	order by b.Tmr_no desc
+	]]>
+	</select>
+	
+	<insert id="insertSubject" parameterType="kda.admin.survey.data.SURVEY_SUBJECT">
+	<selectKey keyProperty="tms_idx" order="BEFORE" resultType="int">
+	SELECT	
+		ISNULL( MAX(tms_idx), 0) + 1
+	FROM tbl_monitor_subject
+	</selectKey>
+	INSERT INTO tbl_monitor_subject (
+		  tms_cnt
+		, tms_idx
+		, tms_title
+		, tms_rdate
+	) VALUES (
+		  #{tms_cnt}
+		, #{tms_idx}
+		, #{tms_title}
+		, #{tms_rdate}
+	)
+	</insert>
+	
+	<insert id="insertChoose" parameterType="kda.admin.survey.data.SURVEY_RESPONSE">
+	INSERT INTO tbl_monitor_choose (
+		  tms_cnt
+		, tms_idx
+		, tmc_order
+		, tmc_title
+		, tms_rdate
+	) VALUES (
+		  #{tms_cnt}
+		, #{tms_idx}
+		, #{tmc_order}
+		, #{tmc_title}
+		, #{tmc_rdate}
+	)
+	</insert>
+	
+	<delete id="deleteChoose" parameterType="kda.admin.survey.data.SURVEY_SUBJECT">
+	DELETE FROM tbl_monitor_choose 
+	WHERE tms_cnt = #{tms_cnt} 
+		AND tms_idx = #{tms_idx}
+	</delete>
+	
+	<delete id="deleteSubject" parameterType="kda.admin.survey.data.SURVEY_SUBJECT">
+	DELETE FROM tbl_monitor_subject 
+	WHERE tms_cnt = #{tms_cnt} 
+		AND tms_idx = #{tms_idx}
+	</delete>
+	
+	<insert id="insertMain" parameterType="kda.admin.survey.data.SURVEY_SUBJECT">
+	INSERT INTO tbl_monitor_main (
+	 	  tms_title
+		, tms_date
+	) VALUES ( 
+		  #{main_tms_title}
+		, GETDATE()
+	)
+	</insert>
+	
+</mapper>

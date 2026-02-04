@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminPurchase">
+
+
+	<sql id="purchaseColumn">
+		bindex
+		,buserId
+		,CONVERT(VARCHAR, bdate, 120) bdate
+		,bpayment
+		,isnull(CONVERT(VARCHAR, bPaymentDate, 23), '') bpaymentDate
+		,bf_PaymentDate
+		,bf_PaymentName
+		,bf_name
+		,bf_ssn
+		,bf_Tel
+		,bf_Mobile
+		,bf_Email
+		,bf_Delivery
+		,bt_name
+		,bt_Post
+		,bt_Address
+		,bt_Tel
+		,bt_Mobile
+		,bt_Paper
+		,bt_Text
+		,pay_Gubun
+		,bf_license
+		,bf_birth
+	</sql>
+	<sql id="purchaseCdColumn">
+		bindex
+		,buserId
+		,CONVERT(VARCHAR, bdate, 120) bdate   
+		,bpayment
+		,isnull(CONVERT(VARCHAR, bPaymentDate, 23), '') bpaymentDate
+		,bf_PaymentDate
+		,bf_PaymentName
+		,bf_name
+		,bf_ssn
+		,bf_Tel
+		,bf_Mobile
+		,bf_Email
+		,bf_Delivery
+		,bt_name
+		,bt_Post
+		,bt_Address
+		,bt_Tel
+		,bt_Mobile
+		,bt_Paper
+		,bt_Text
+		,bt_company
+		,rcompanyTEL
+		,rLicenseNumber
+	</sql>
+	<sql id="purchaseExcel">
+		bindex
+		,buserId
+		,CONVERT(VARCHAR, bdate, 120) bdate		
+		,CASE bpayment WHEN '0' THEN '미납' 
+								WHEN '1' THEN '완납'		END	bpayment
+		,isnull(CONVERT(VARCHAR, bPaymentDate, 23), '') bpaymentDate
+		,bf_PaymentDate
+		,bf_PaymentName
+		,bf_name
+		,bf_ssn
+		,bf_Tel
+		,bf_Mobile
+		,bf_Email
+		,bf_Delivery
+		,bt_name
+		,bt_Post
+		,bt_Address
+		,bt_Post + ' ' + bt_Address bt_Address_Total 
+		,bt_Tel
+		,bt_Mobile
+		,bt_Paper
+		,bt_Text
+		,pay_Gubun
+		,bf_license
+		, (select '|' + oTitle + '|' from pTb_BookGoods where oIndex in (select oIndex from pTb_BuyGoods where bIndex = M.bIndex) for xml path('')) bf_List
+		, (select SUM(ePrice1 * eEa) from pTb_BuyGoods where bIndex = M.bIndex) BF_PRICE1
+		, (select SUM(ePrice2 * eEa) from pTb_BuyGoods where bIndex = M.bIndex) BF_PRICE2
+	</sql>
+	
+	<select id="selectPurchaseCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(bindex)
+	FROM 	pTb_BuyAddress
+	</select>
+	
+	<select id="selectPurchaseListHelper" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYADDRESS">
+  	SELECT 
+		num ,
+		<include refid="purchaseColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  bindex DESC ) AS num , 
+			<include refid="purchaseColumn" />
+		FROM		pTb_BuyAddress
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select> 
+	
+	<select id="getPurchase" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYADDRESS">
+	SELECT
+		<include refid="purchaseColumn" />
+	FROM		pTb_BuyAddress
+	WHERE	bindex=#{bindex}
+	</select>
+	
+	<select id="getPurchaseGoods" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYGOODS">
+	SELECT
+		a.*, b.otitle 
+	FROM		pTb_BuyGoods a RIGHT OUTER JOIN pTb_BookGoods b ON a.oIndex=b.oIndex
+	WHERE	bindex=#{bindex}
+	</select>
+	
+	<select id="selectPurchaseCdCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(bIndex)
+	FROM 	pTbCD_BuyAddress
+	</select>
+	
+	<select id="selectPurchaseCdListHelper" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBCDBUYADDRESS">
+  	SELECT 
+		num ,
+		<include refid="purchaseCdColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  bIndex DESC ) AS num , 
+			<include refid="purchaseCdColumn" />
+		FROM		pTbCD_BuyAddress
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getPurchaseCd" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBCDBUYADDRESS">
+	SELECT
+		<include refid="purchaseCdColumn" />
+	FROM		pTbCD_BuyAddress
+	WHERE	bindex=#{bindex}
+	</select>
+	
+	<select id="getPurchaseCdGoods" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYGOODS">
+	SELECT
+		*
+	FROM		pTbCD_BuyGoods
+	WHERE	bindex=#{bindex}
+	</select>
+	
+	<update id="updatePayment" parameterType="hashmap">
+	UPDATE	pTb_BuyAddress 
+	SET 		bPayment=1
+				, bPaymentDate = CONVERT(DATE, #{bpaymentDate})
+	WHERE	bindex=#{bindex}
+	</update>
+	
+	<update id="updatePaymentCd" parameterType="hashmap">
+	UPDATE	pTbCD_BuyAddress 
+	SET 		bPayment=1
+				, bPaymentDate=getdate() 
+	WHERE	bindex=#{bindex}
+	</update>
+	
+	<delete id="deleteBuyAddr" parameterType="hashmap">
+	DELETE FROM pTb_BuyAddress 
+	WHERE	bindex=#{bindex}
+	</delete>
+	
+	<delete id="deleteBuyAddrCd" parameterType="hashmap">
+	DELETE FROM pTb_BuyAddress 
+	WHERE	bindex=#{bindex}
+	</delete>
+	
+	<delete id="deleteBuyGoods" parameterType="hashmap">
+	DELETE FROM pTb_BuyGoods 
+	WHERE	bindex=#{bindex}
+	</delete>
+	
+	<select id="excelPurchase" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT
+	    *,
+	    case when 50000 > tot_bf_Price then tot_bf_Price + 3000 else tot_bf_Price end bf_Price
+	FROM
+		(SELECT 
+			*,
+			CASE buserId WHEN '' THEN BF_PRICE2 ELSE BF_PRICE1 END tot_bf_Price
+		FROM (
+			SELECT
+				ROW_NUMBER() OVER( ORDER BY  bindex DESC ) AS num , 
+				<include refid="purchaseExcel" />
+			FROM		pTb_BuyAddress M
+			WHERE 1 = 1
+		) A) MAIN
+	ORDER BY num
+	</select>
+	
+	<select id="selectpublishingCnt" parameterType="hashmap" resultType="int">
+     SELECT  count(*)cnt
+      FROM dietitian_ver3.dbo.pTb_BuyAddress
+      WHERE LTRIM(RTRIM(bf_name)) = #{name}
+      AND REPLACE(bf_Mobile, '-', '') = #{phone}
+      AND CONVERT(VARCHAR(8), BF_BIRTH, 112) = #{birth}
+    </select>
+	
+	<select id="selectpublishingLogin" parameterType="hashmap" resultType="kda.admin.purchase.data.PTBBUYADDRESS">
+	SET ARITHABORT ON;
+	SELECT top 1 bindex, bUserId, bDate, bPayment, bPaymentDate, bf_PaymentDate, 
+        bf_PaymentName, bf_name, bf_ssn, bf_Tel, bf_Mobile, bf_Email, bf_Delivery,
+        bt_name, bt_Post, bt_Address, bt_Tel, bt_Mobile, bt_Paper, 
+        bt_Text, pay_Gubun, bf_license, bf_birth,
+        <![CDATA[
+        case when  bf_Price < 50000 then bf_Price + 3000
+        else bf_Price end bf_Price      
+       ,oTitle_combined
+       ,case when  bf_Price < 50000 then dietitian_ver3.dbo.fn_NumToKorAmount(bf_Price + 3000) 
+        else dietitian_ver3.dbo.fn_NumToKorAmount(bf_Price) end bf_Price_kor             
+     from ( select
+        bindex, bUserId, bDate, bPayment, bPaymentDate, bf_PaymentDate, 
+        bf_PaymentName, bf_name, bf_ssn, bf_Tel, bf_Mobile, bf_Email, bf_Delivery,
+        bt_name, bt_Post, bt_Address, bt_Tel, bt_Mobile, bt_Paper, 
+        bt_Text, pay_Gubun, bf_license, bf_birth
+        ,case when bUserId = '' then 
+        (
+        SELECT
+            sum(b3.ePrice2 * b3.eEa )
+        FROM
+            pTb_BuyGoods b3
+        WHERE
+            b3.bIndex = a.bIndex)
+        else 
+        (
+        SELECT
+            sum(b3.ePrice1 * b3.eEa )
+        FROM
+            pTb_BuyGoods b3
+        WHERE
+            b3.bIndex = a.bIndex) end  bf_Price 
+        ,STUFF((
+        SELECT '<br> ' + c2.oTitle + ' 수량:' + CAST(b2.eEa AS VARCHAR) 
+        FROM pTb_BuyGoods b2
+        LEFT JOIN pTb_BookGoods c2 ON b2.oIndex = c2.oIndex
+        WHERE b2.bIndex = a.bIndex
+        FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 5, '') AS oTitle_combined
+      FROM dietitian_ver3.dbo.pTb_BuyAddress a
+      WHERE 1=1 
+     ]]>
+      <if test="bindex != null">
+	       AND bindex = #{bindex} ) t 
+	  </if>
+	  <if test="bindex == null">      
+	      AND LTRIM(RTRIM(bf_name)) = #{name}
+	      AND REPLACE(bf_Mobile, '-', '') = #{phone}
+	      AND CONVERT(VARCHAR(8), BF_BIRTH, 112) = #{birth} ) t 
+      </if>
+            
+    </select>
+     
+	<select id="selectpublishingList" parameterType="hashmap" resultType="java.util.HashMap">
+	 <![CDATA[
+	    SET ARITHABORT ON;
+		SELECT *,
+		case when  price_1 < 50000 then 
+		price_1 + 3000
+        else price_1 end price
+		   FROM ( 
+			SELECT 
+			 ROW_NUMBER() OVER (ORDER BY a.bIndex ASC) AS rn,
+			    a.bIndex 
+			  , CONVERT(VARCHAR(10), a.bDate, 120) AS bDate
+			  , a.bPayment 
+			  , a.bPaymentDate 
+			  , case when a.bPayment =0 then '입금확인중' else '입금완료' end   bPayment_nm , 
+			  STUFF((
+			    SELECT '<br> ' + c2.oTitle
+			    FROM pTb_BuyGoods b2
+			    LEFT JOIN pTb_BookGoods c2 ON b2.oIndex = c2.oIndex
+			    WHERE b2.bIndex = a.bIndex
+			    FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 5, '') AS oTitle_combined
+			   ,case when bUserId = '' then 
+		        (
+		        SELECT
+		            sum(b3.ePrice2 * b3.eEa )
+		        FROM
+		            pTb_BuyGoods b3
+		        WHERE
+		            b3.bIndex = a.bIndex)
+		        else 
+		        (
+		        SELECT
+		            sum(b3.ePrice1 * b3.eEa )
+		        FROM
+		            pTb_BuyGoods b3
+		        WHERE
+		            b3.bIndex = a.bIndex) end  price_1  
+			FROM pTb_BuyAddress a
+			WHERE LTRIM(RTRIM(a.bf_name)) = #{name}
+			  AND REPLACE(a.bf_Mobile, '-', '') = #{phone}
+			  AND CONVERT(VARCHAR(8), a.BF_BIRTH, 112) = #{birth}
+			GROUP BY a.bIndex,a.bDate, a.bPayment, a.bUserId, a.bPaymentDate) as TEMP
+		WHERE  rn BETWEEN #{startRow} AND #{endRow}
+		ORDER BY RN DESC
+	 ]]>
+	</select>
+	
+	<select id="selectpublishingbook" parameterType="hashmap" resultType="hashmap">
+        select c.oTitle ,b.eEa , case when a.bUserId != '' then  b.ePrice1 else b.ePrice2 end ePrice1 , 
+               case when a.bUserId != '' then  b.ePrice1 * b.eEa else b.ePrice2 * b.eEa end ePrice2,c.bs_CategoryType
+               ,c.short_title , c.std_nm   
+          from pTb_BuyAddress a, pTb_BuyGoods b, pTb_BookGoods c
+         where a.bIndex  = b.bIndex 
+           and b.oIndex  = c.oIndex 
+           and  a.bindex = #{bindex}  
+    </select>
+	
+</mapper>
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminSchedule">
+
+
+	<sql id="scheduleColumn">
+		num
+		,id
+		,yy
+		,mm
+		,dd
+		,title
+		,content
+		,s_where
+		,s_time
+		,s_tel
+		,CONVERT(INT,dd) as intdd
+	</sql>
+	
+	<select id="getScheduleList" parameterType="hashmap" resultType="kda.admin.schedule.data.SCHEDULEX">
+  	SELECT 
+		 <include refid="scheduleColumn" />
+	FROM		scheduleX
+	WHERE 	1 = 1
+	AND		id='0'
+	AND		yy=#{yy}
+	AND		mm=#{mm}
+	ORDER BY	dd
+	</select>
+	
+	<select id="getSchedule" parameterType="hashmap" resultType="kda.admin.schedule.data.SCHEDULEX">
+  	SELECT 
+		 <include refid="scheduleColumn" />
+	FROM		scheduleX
+	WHERE 	1 = 1
+	AND		num=#{num}
+	</select>
+	
+	
+	<insert id="insertSchedule" parameterType="kda.admin.schedule.data.SCHEDULEX">
+	INSERT	INTO scheduleX
+	(
+		id
+		,yy
+		,mm
+		,dd
+		,title
+		,content
+		,s_where
+		,s_time
+		,s_tel
+	)VALUES
+	(
+		'0'
+		,#{yy}
+		,#{mm}
+		,#{dd}
+		,#{title}
+		,#{content}
+		,#{s_where}
+		,#{s_time}
+		,#{s_tel}
+	)
+	</insert>
+	
+	<update id="updateSchedule" parameterType="kda.admin.schedule.data.SCHEDULEX">
+	UPDATE	scheduleX
+	SET		title=#{title}
+				,content=#{content}
+				,s_where=#{s_where}
+				,s_time=#{s_time}
+				,s_tel=#{s_tel}
+	WHERE	num=#{num}
+	</update>
+	
+	<delete id="deleteSchedule" parameterType="hashmap">
+	DELETE	FROM scheduleX
+	WHERE	num=#{num}
+	</delete>
+	
+</mapper>
+

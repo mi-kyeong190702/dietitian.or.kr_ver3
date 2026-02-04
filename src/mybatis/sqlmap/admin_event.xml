@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminEvent">
+
+
+	<sql id="plusOneColumn">
+		a.pers_name    
+		,b.detcodename   
+		,a.lic_no       
+		,a.pers_tel      
+		,a.pers_hp       
+		,a.email         
+		,ISNULL(c.company_name,'') AS company_name
+		,a.code_post     
+		,a.pers_add     
+		,a.pers_add_detail
+		,d.new_name      
+		,d.new_tel       
+		,d.new_compname  
+		,convert(char(10),d.reg_date,111) AS reg_date     
+	</sql>
+	<sql id="plusOneExcel">
+		a.pers_name    
+		,b.detcodename   
+		,a.lic_no       
+		,a.pers_tel      
+		,a.pers_hp       
+		,a.email         
+		,ISNULL(c.company_name,'') AS company_name
+		,a.code_post     
+		,a.pers_add   +' ' + a.pers_add_detail AS pers_add
+		,a.pers_add_detail
+		,d.new_name      
+		,d.new_tel       
+		,d.new_compname  
+		,convert(char(10),d.reg_date,111) AS reg_date     
+	</sql>
+	
+	<sql id="snsColumn">
+		,d.sns_domain     
+	</sql>
+	
+	<select id="selectPlusOneCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(a.pers_name)
+	FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event=1
+	</select>
+	
+	<select id="selectPlusOneListHelper" parameterType="hashmap" resultType="kda.admin.event.data.DIETEVENT">
+  	SELECT 
+		A.*
+	FROM (
+		SELECT 
+			ROW_NUMBER() OVER( ORDER BY  d.reg_date desc ) AS num , 
+			<include refid="plusOneColumn" />
+		FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event=1
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="selectSnsCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(a.pers_name)
+	FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event=2
+	</select>
+	
+	<select id="selectSnsListHelper" parameterType="hashmap" resultType="kda.admin.event.data.DIETEVENT">
+  	SELECT 
+		A.*
+	FROM (
+		SELECT 
+			ROW_NUMBER() OVER( ORDER BY  d.reg_date desc ) AS num , 
+			<include refid="plusOneColumn" />
+			<include refid="snsColumn" />
+		FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event in (2, 3)
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	reg_date desc
+	</select>
+	
+	<select id="excelPlusOne" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  d.reg_date desc ) AS num , 
+			<include refid="plusOneExcel" />
+		FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event=1
+	) A  
+	ORDER BY num
+	</select>
+	
+	<select id="excelSns" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  d.reg_date desc ) AS num , 
+			<include refid="plusOneExcel" />
+			<include refid="snsColumn" />
+		FROM Person_M_TBL a
+		LEFT JOIN com_code b 
+		ON b.groupcode='006' AND b.detcode=a.code_member
+		LEFT JOIN pers_company c 
+		ON c.primary_flag=1 AND c.code_pers=a.code_pers, diet_event d
+		WHERE a.code_pers=d.code_pers
+		AND d.code_event=2
+	) A  
+	ORDER BY num
+	</select>
+	
+	
+</mapper>
+

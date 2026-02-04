@@ -1,0 +1,133 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@include file="/pages/common.jsp"%>
+
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">심혈계</mark>질환관리</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="/" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/business/kb_nutrition.do">KDA 영양</a></li>
+				<li><a href="/work/business/kb_clinic.do">영양클리닉</a></li>
+				<li><a href="/work/business/kb_c_heart.do" class="cm">심혈계질환관리</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+		<c:choose>
+			<c:when test="${g_userid == ''}">
+				<div class="h900 w600 ac">
+					<div class="box t2 p20 mt20">
+						<div class="box p50 text big s1 center">
+							<p>회원께서는 <mark class="bold cm">로그인 후 확인</mark>해 주세요.</p>
+							<a href="/login/kl_login_nor.do" class="btn bbig t1 wide mt20">로그인</a>
+						</div>
+					</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<%@ include file="inc/heart.jsp" %>
+				
+				<div class="text s1 mb50">
+						<h4 class="title bold cm t2 i_b_t2 mt50">심장질환 예방을 위한 식생활 지침</h4><br>
+						<p class="middle mt20">미국심장협회에서 2006년에 발표한 심장질환을 예방하기 위한 식생활 권장 사항을 보면 다음과 같다. 우리 나라도 같은 내용을 권장하고 있으므로 권장사항을 숙지하여 준수하도록 하자.</p>
+							<h5 class="title t4 bold i_b_t6 mt40">첫째. 건강을 위한 적절 체중을 유지하기 위해 에너지 섭취와 활동량을 조절해라!</h5>
+								<p class="mt10 pl15">
+								비만은 심장질환의 주 원인이며 체중 조절은 혈청 콜레스테롤과 중성지방을 낮추는 중요한 방법 중의 하나이다.  정상 체중은 체질량 지수와  허리둘레(waist) 
+								혹은 허리둘레와 엉덩이둘레의 비(waist hip ratio)를 통해서도 알 수 있다. 체중이 정상이라도 체지방비율이 과다한 경우는 비만이라 할 수 있으며 특히 복부(허리부분)에 
+								지방이 많을수록 심혈관질환의 위험요인이 되기 때문에 이에 대한 관리도 매우 중요하다. 허리와 엉덩이 둘레 비가 남자의 경우  0.9 이하, 여자의 경우 0.85이하가 권장되며, 
+								허리둘레비율은 남자는 90cm 이하, 여자는 85cm 이하가 권장된다.
+								</p>
+								<center><div class="box t2 w200 mt10 ml15 p20 small">
+									<p class="bold cm">정상 체중 구하는 방법<br>
+										<span class="text ssmall cb mt5">체질량 지수 = 체중(kg) /신장(m2)</span>
+									</p>
+									<ul class="text ssmall cb mt5">
+										저체중 &lt;18
+										정상 18.5~22.9
+										과체중 23~24.9
+										비만 25~29.9
+										심한비만 &gt; 30 
+									</ul>
+								</div></center>
+								<h5 class="title t4 bold i_b_t6 mt40">둘째, 채소와 과일을 충분하게 섭취해라!</h5>
+								<p class="mt10 pl15">
+								칼륨, 비타민, 항산화 영양소 함유량이 높은 채소와 과일 섭취가 필요하다. 채소는 매식사시 2접시 이상 충분하게 섭취하며 과일은 하루 1-2개 섭취 하도록 한다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">셋째, 전곡류와 섬유소 함량이 높은 식품을 선택해라!</h5>
+								<p class="mt10 pl15">
+								섬유소는 식물성 식품에 함유되어 있으며 체내에서 소화 흡수되지 않는다. 섬유소는 물을 빨아들여 부피를 커지게 하고, 젤과 같은 점성을 가지게 하며, 
+								무기질이나 담즙산과 결합하는 능력이 있어 콜레스테롤과 나쁜 콜레스테롤을 낮추어 주고, 섭취시 포만감을 주어 체중조절이나 콜레스테롤 조절에 효과가 있어 
+								하루 20g이상의 섭취가 권장된다. 잡곡, 채소, 해조류 등을 섭취한다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">넷째, 등푸른 생선을 주 2회 이상 섭취해라!</h5>
+								<p class="mt10 pl15">
+								오메가 3가 풍부한 등푸른 생선을 자주 섭취할수록 심장질환예방에 도움이 되는 것으로 알려져 있다. 특히 생선의 오메가 3가 효과가 좋은 만큼 자주 섭취하도록 한다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">다섯째, 총 열량 중 포화지방산은 7% 이하, 트랜스지방산은 1% 이하로 줄이고 콜레스테롤은 하루 200mg 이하로 섭취해라!</h5>
+								<p class="mt10 pl15">
+								과다한 지방 섭취는 총 섭취 열량을 증가시켜 비만을 발생시키며 지방 섭취 증가시 포화지방산 섭취의 증가도 우려되므로 섭취량을 총열량의 25% 이하로 조절한다. 
+								조리시 사용되는 기름을 하루 3-4찻술 정도로 줄이고 튀김이나 전 등 기름진 조리법 대신 구이나 조림, 찜 등을 이용하도록 한다. 
+								식품 선택시 기름기 많은 종류는 기름기를 제거하고 조리하도록 한다. 
+								</p>
+								<div class="box t2 w650 mt10 ml15 p30 small">
+									<p class="bold cm">지방섭취를 조절하는 식사요령</p>
+									<ul class="text ssmall cb mt5">
+										<li class="i_b_t7">지방이 많은 육류나 내장류, 어란, 베이컨, 핫도그, 소시지 등을 피한다.</li>
+										<li class="i_b_t7">모든 고기류는 껍질 및 보이는 기름을 제거하고 살코기만 사용하며 생선류, 해산물도 콜레스테롤이 함유되어 있으므로 
+											하루 200g 이하로 섭취하거나 콜레스테롤이 함유되어 있지 않은 콩이나 두부류로 대체하여 섭취한다. 콜레스테롤이 높은 식품 섭취 횟수는 주 1-2회 이하로 줄인다.</li>
+										<li class="i_b_t7">일반 우유와 치즈 등의 유제품 대신 저지방 우유, 또는 무지방우유와 그를 이용한 식품을 먹는다.</li>
+										<li class="i_b_t7">포화지방산인 동물성 지방과 코코넛기름, 코코아 버터, 팜유와 이들을 이용한 식품인 커피 프림,
+											초콜릿, 튀김음식, 케이크, 파이, 튀긴라면, 냉동식품, 패스트푸드 등의 기름진 인스턴트 및 가공품을 피한다.</li>
+										<li class="i_b_t7">일반우유, 달걀노른자, 마가린이나 버터가 많이 들어간 빵류, 생크림 케이크 등을 피한다.</li>
+										<li class="i_b_t7">마가린, 버터, 마요네즈대신 불포화지방산이 많이 포함된 식물성 기름을 사용한다.</li>
+										<li class="i_b_t7">외식은 동물성 지방을 많이 사용하는 음식을 피하고 담백한 한식이나 일식을 즐긴다.</li>
+									</ul>
+								</div>
+								<div class="box t2 w650 mt10 ml15 p30 small">
+									<p class="bold cm">포화지방산이 많이 포함된 식품</p>
+									<ul class="text ssmall cb mt5">
+										<li class="i_b_t7">돼지고기나 소고기 등의 육류 기름기, 닭껍질, 버터, 마가린, 생크림, 치즈, 소세지, 햄, 베이컨, 초콜릿, 코코넛기름, 기름진 빵이나 과자류</li>
+									</ul>
+									<p class="bold cm mt10">불포화지방산이 많이 포함된 식품</p>
+									<ul class="text ssmall cb mt5">
+										<li class="i_b_t7">등푸른 생선, 옥수수기름, 콩기름, 들기름, 참기름, 올리브기름</li>
+									</ul>
+								</div>
+								<div class="box t2 w650 mt10 ml15 p30 small">
+									<p class="bold cm">콜레스테롤이 많이 포함된 식품</p>
+									<ul class="text ssmall cb mt5">
+										<li class="i_b_t7">소간, 돼지간, 메추리알, 달걀노른자, 오징어, 새우, 장어, 뱀장어, 미꾸라지, 소라, 문어, 생선 알과 내장, 
+										치즈, 쇠고기· 돼지고기· 닭고기 등의 기름, 베이컨· 소시지· 햄 등과 같은 인스턴트식품, 보신탕류
+									</li>
+									</ul>
+								</div>
+							<h5 class="title t4 bold i_b_t6 mt40">여섯째, 단 음료나 설탕이 첨가된 식품 섭취를 줄여라!</h5>
+								<p class="mt10 pl15">
+								설탕 등의 단 음식은 고중성지방혈증을 유발하고 체중 증가를 시키므로 섭취를 줄이는 것이 좋다. 불필요한 단 음료 및 사탕, 초콜렛 등의 단 간식 섭취를 줄인다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">일곱째, 소금을 거의 이용하지 않은 음식을 선택해라!</h5>
+								<p class="mt10 pl15">
+								혈압을 관리 하기 위해 소금 섭취를 하루 5g이하가 권장되므로 이를 위해서는 조리 시에도 소금을 사용을 줄여야 한다. 하루 소금 5g이하로 섭취하려면 소금뿐만 아니라 
+								소금이 들어간 간장, 된장, 고추장의 장류와 화학조미료, 소스의 사용량도 조절한다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">여덟째, 술은 하루 1-2잔 이하로 조절해라!</h5>
+								<p class="mt10 pl15">
+								과음은 혈압상승, 비만, 고지혈증을 유발하므로 음주량 조절도 필요하다. 술은 주종에 따른 잔을 기준으로 여자 하루 1잔, 남자 하루 2잔 이하로 하며, 체중 관리가 필요한 경우에는 
+								금주를 권한다.
+								</p>
+							<h5 class="title t4 bold i_b_t6 mt40">아홉째, 외식을 할 때에도 위 사항을 준수해라!</h5>
+								<p class="mt10 pl15">
+								식생활의 변화로 외식 횟수가 잦아지고 있다. 식생활을 집에서만 조절하는 것이 아니라 평소의 식사 섭취 시에도 모두 적용해야 하므로 위 권장사항을 지속적으로 
+								유지하는 것이 중요하다. 외식 시에도 위 권장사항을 준수하기 위해 과식하지 않도록 하며 육류 보다는 생선이나 두부, 채소를 섭취 할 수 있는 메뉴를 자주 선택하도록 한다.
+								</p>
+					</div>
+			</c:otherwise>
+    	</c:choose>	
+					
+	</div>
+</div>

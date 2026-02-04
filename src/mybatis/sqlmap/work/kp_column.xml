@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kdaColumn">
+	
+	<select id="selectKdaColumnCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM Tbl_KDA_COLUMN
+	WHERE kda_code = 'KDA'
+	  AND idx >= '189'
+	</select>
+	
+	<select id="selectKdaColumnListHelper" parameterType="hashmap" resultType="hashmap">
+    SELECT 
+		  num
+		, idx
+		, imagename
+		, kda_title
+	FROM (
+	SELECT
+	      ROW_NUMBER() OVER( order by idx DESC ) AS num 
+		, idx
+		, imagename
+		, kda_title  
+	FROM Tbl_KDA_COLUMN
+	WHERE kda_code = 'KDA'
+	  AND idx >= '189'
+	)  A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY num
+	</select>
+	
+	<select id="selectKdaColumn" parameterType="int" resultType="kda.work.publication.data.KDA_COLUMN">
+	SELECT 
+		  idx
+		, imagename
+		, kda_title
+		, kda_column
+		, kda_special
+		, kda_nd
+		, kda_we
+		, kda_news
+		, kda_board
+		, kda_picture
+		, regidate
+		, tagchecked
+		, title_contents
+		, kda_practice
+	FROM TBL_KDA_COLUMN
+	WHERE idx = #{idx}
+	</select>
+	
+	<insert id="insertKdaColumn" parameterType="kda.work.publication.data.KDA_COLUMN">
+	INSERT INTO TBL_KDA_COLUMN (
+	      imagename
+		, kda_title
+		, kda_column
+		, kda_special
+		, kda_nd
+		, kda_we
+		, kda_news
+		, kda_board
+		, kda_picture
+		, regidate
+		, tagchecked
+		, title_contents
+		, kda_practice
+		, kda_code
+	) values (
+	      #{imagename}
+		, #{kda_title}
+		, #{kda_column}
+		, #{kda_special}
+		, #{kda_nd}
+		, #{kda_we}
+		, #{kda_news}
+		, #{kda_board}
+		, #{kda_picture}
+		, GETDATE()
+		, #{tagchecked}
+		, #{title_contents}
+		, #{kda_practice}
+		, 'KDA'
+	)
+	</insert>
+	
+	<update id="updateKdaColumn" parameterType="kda.work.publication.data.KDA_COLUMN">
+	UPDATE TBL_KDA_COLUMN SET 
+	      imagename = #{imagename}
+		, kda_title = #{kda_title}
+		, kda_column = #{kda_column}
+		, kda_special = #{kda_special}
+		, kda_nd = #{kda_nd}
+		, kda_we = #{kda_we}
+		, kda_news = #{kda_news}
+		, kda_board = #{kda_board}
+		, kda_picture = #{kda_picture}
+		, tagchecked = #{tagchecked}
+		, title_contents = #{title_contents}
+		, kda_practice = #{kda_practice} 
+	WHERE idx = #{idx}
+	</update>
+	
+	<delete id="deleteKdaColumn" parameterType="int">
+	DELETE FROM TBL_KDA_COLUMN
+	WHERE idx = #{idx}
+	</delete>
+	
+	<select id="selectEbookColumnCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM Tbl_KDA_COLUMN
+	WHERE kda_code = 'EBOOK'
+	</select>
+	
+	<select id="selectEbookColumnListHelper" parameterType="hashmap" resultType="hashmap">
+    SELECT 
+		  num
+		, idx
+		, (SELECT imagename 
+			FROM (select ROW_NUMBER() OVER( order by kda_yyyy DESC, kda_mm  DESC ) AS num , imagename
+					from Tbl_KDA_COLUMN
+				   WHERE kda_code = 'EBOOK'
+					 and kda_yn = 'Y') A
+			WHERE NUM = 1) AS imagename
+		, kda_title
+		, kda_yyyy
+		, kda_mm
+		, kda_url
+		, kda_yn
+	FROM (
+	SELECT
+	      ROW_NUMBER() OVER( order by kda_yyyy desc, kda_mm ) AS num 
+		, idx
+		, kda_title  
+		, kda_yyyy
+		, kda_mm
+		, kda_url
+		, kda_yn
+	FROM Tbl_KDA_COLUMN
+	WHERE kda_code = 'EBOOK'
+	)  A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	</select>
+	
+	<select id="selectEbookColumn" parameterType="int" resultType="kda.work.publication.data.KDA_COLUMN">
+	SELECT 
+		  idx
+		, imagename
+		, kda_title
+		, kda_column
+		, kda_special
+		, kda_nd
+		, kda_we
+		, kda_news
+		, kda_board
+		, kda_picture
+		, regidate
+		, tagchecked
+		, title_contents
+		, kda_practice
+		, kda_yyyy
+		, kda_mm
+		, kda_url
+		, kda_yn
+	FROM TBL_KDA_COLUMN
+	WHERE idx = #{idx}
+	</select>
+	
+	<insert id="insertEbookColumn" parameterType="kda.work.publication.data.KDA_COLUMN">
+	INSERT INTO TBL_KDA_COLUMN (
+	      imagename
+		, kda_title
+		, kda_column
+		, kda_special
+		, kda_nd
+		, kda_we
+		, kda_news
+		, kda_board
+		, kda_picture
+		, regidate
+		, tagchecked
+		, title_contents
+		, kda_practice
+		, kda_code
+		, kda_yyyy
+		, kda_mm
+		, kda_url
+		, kda_yn
+	) values (
+	      #{imagename}
+		, #{kda_title}
+		, #{kda_column}
+		, #{kda_special}
+		, #{kda_nd}
+		, #{kda_we}
+		, #{kda_news}
+		, #{kda_board}
+		, #{kda_picture}
+		, GETDATE()
+		, #{tagchecked}
+		, #{title_contents}
+		, #{kda_practice}
+		, 'EBOOK'
+		, #{kda_yyyy}
+		, #{kda_mm}
+		, #{kda_url}
+		, #{kda_yn}
+	)
+	</insert>
+	
+	<update id="updateEbookColumn" parameterType="kda.work.publication.data.KDA_COLUMN">
+	UPDATE TBL_KDA_COLUMN SET 
+		kda_title = #{kda_title}
+		<if test="imagename != null and imagename != ''">
+	    ,  imagename = #{imagename}
+	    , kda_picture = #{kda_picture}
+	    </if>
+		, tagchecked = #{tagchecked}
+		, kda_mm = #{kda_mm}
+		, kda_url = #{kda_url}
+		, kda_yn = #{kda_yn}
+	WHERE idx = #{idx}
+	</update>
+	
+	<delete id="deleteEbookColumn" parameterType="int">
+	DELETE FROM TBL_KDA_COLUMN
+	WHERE idx = #{idx}
+	</delete>
+	
+</mapper>
+

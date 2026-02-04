@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="kda.utils.KdaStringUtil" %>
+<%
+	String uri = request.getAttribute("javax.servlet.forward.request_uri").toString();
+	uri = KdaStringUtil.uriPage(uri);
+%>
+<div class="kb_menu mt20">
+	<ul>
+		<li class="kb_main"><a href="./kb_nutrition.do" <% if( "kb_nutrition.do|kb_nutrition_2014.do|kb_nutrition_2013.do".contains(uri) ) { %> class="on" <% } %>>2015~2013</a>
+			<div class="kb_year">
+				<div class="ky_list">
+					<ul>
+						<li <% if( "kb_nutrition.do".contains(uri) ) { %> class="on" <% } %> ><a href="./kb_nutrition.do">2015</a></li>
+						<li <% if( "kb_nutrition_2014.do".contains(uri) ) { %> class="on" <% } %> ><a href="./kb_nutrition_2014.do">2014</a></li>
+						<li <% if( "kb_nutrition_2013.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2013.do">2013</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li class="kb_main"><a href="./kb_nutrition_2012.do" <% if( "kb_nutrition_2012.do|kb_nutrition_2011.do|kb_nutrition_2010.do".contains(uri) ) { %> class="on" <% } %>>2012~2010</a>
+			<div class="kb_year">
+				<div class="ky_list">
+					<ul>
+						<li <% if( "kb_nutrition_2012.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2012.do">2012</a></li>
+						<li <% if( "kb_nutrition_2011.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2011.do">2011</a></li>
+						<li <% if( "kb_nutrition_2010.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2010.do">2010</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li class="kb_main"><a href="./kb_nutrition_2009.do" <% if( "kb_nutrition_2009.do|kb_nutrition_2008.do|kb_nutrition_2007.do".contains(uri) ) { %> class="on" <% } %>>2009~2007</a>
+			<div class="kb_year">
+				<div class="ky_list">
+					<ul>
+						<li <% if( "kb_nutrition_2009.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2009.do">2009</a></li>
+						<li <% if( "kb_nutrition_2008.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2008.do">2008</a></li>
+						<li <% if( "kb_nutrition_2007.do".contains(uri) ) { %> class="on" <% } %>><a href="./kb_nutrition_2007.do">2007</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

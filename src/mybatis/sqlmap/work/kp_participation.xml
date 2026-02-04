@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kb_c_habits_diagnosis">
+	
+	<resultMap type="KP_PARTICIPATION" id="KP_PARTICIPATION">
+		<result property="hques_no" 		column="HQUES_NO"/>     
+		<result property="hques_desc" 		column="HQUES_DESC"/>   
+		<result property="hques_rmk" 		column="HQUES_RMK"/>    
+		<result property="hques_caseno" 	column="HQUES_CASENO"/> 
+		<result property="hques_cdesc" 		column="HQUES_CDESC"/>  
+		<result property="hques_comment" 	column="HQUES_COMMENT"/>
+	</resultMap>
+	
+	<!-- nutritionmonitor_proc -->
+	<select id="" parameterType="hashmap" resultMap="KP_PARTICIPATION">
+		Exec Proc_GET_MemCode
+	</select>
+
+</mapper>
+

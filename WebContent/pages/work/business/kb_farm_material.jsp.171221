@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+<script type="text/javascript">
+
+function openMilk() {
+	var win = window.open("/main_popup/popup_banner7.html", "milk", "width=850,height=700,scrollbars=yes");
+	win.focus();
+}
+
+function openFoodEdu() {
+	var win = window.open("/assets/ver2/food_online/html/food_2017.html", "foodedu", "width=880,height=800,scrollbars=yes");
+	win.focus();
+} 
+
+function openHandon() {
+	var win = window.open("/assets/ver2/handon_online/popup_banner_handon2.html", "handon", "width=850,height=800,scrollbars=yes");
+	win.focus();
+}
+
+//function openHandonStory() {
+//	var win = window.open("/main_popup/popup_banner2.html", "handonStory", "width=900,height=700,scrollbars=yes");
+//	win.focus();
+//}
+
+function openHandonStory() {
+	var win = window.open("/assets/ver2/handon_online_2017/popup_banner02_2017.html", "handonStory", "width=900,height=700,scrollbars=yes");
+	win.focus();
+}
+
+function openCookingTime() {
+	var win = window.open("/assets/ver2/etc/kb_farm_material_06.jsp?bbs_board_code=113", "cookingTime", "width=700,height=700,scrollbars=yes");
+	win.focus();
+}
+
+
+function openCookingClass() {
+	var win = window.open("/assets/ver2/kda/KDA4/index.html", "handonClass", "width=900,height=700,scrollbars=yes");
+	win.focus();
+}
+
+function openKda() {
+	var win = window.open("/assets/ver2/kda/KDA4/index.html", "handonKda", "width=900,height=900,scrollbars=yes");
+	win.focus();
+}
+
+function openDoong() {
+	var win = window.open("/assets/ver2/doong/popup_doong.html", "Doong", "width=800,height=600,scrollbars=yes");
+	win.focus();
+}
+
+function openEbook() {
+	var win = window.open("/ebook/KDA/JBook.htm", "ebook",'resizable=yes, scrollbars=no');
+	win.focus();
+	
+}
+
+function openAllLife() {
+	var win = window.open("/assets/ver2/alllifeAllgood/html/201507_page01.html", "AlllifeAllgood","width=900,height=700,scrollbars=yes");
+	win.focus();
+	
+}
+
+function openkfish() {
+	var win = window.open("/assets/ver2/k_fish/html/popup_banner_K-fish2.html", "k_fish","width=900,height=700,scrollbars=yes");
+	win.focus();
+}
+
+function openEbook2016() {
+	var win = window.open("/assets/ver2/Ebook2016/ecatalog.html", "ebook2016",'resizable=yes, scrollbars=no');
+	win.focus();
+
+}
+
+</script>
+
+
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">자</mark>료실</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="#" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/business/kb_nutrition.do">KDA 영양사업</a></li>
+				<li><a href="/work/business/kb_nutrition.do">우리농축산물 소비촉진사업</a></li>
+				<li><a href="/work/business/kb_farm_material.do" class="cm">자료실</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+		<div class="area">
+			<ul>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openFoodEdu()" title="바른 식생활 교육관"><img src="/images/sub/foodlife_bnn05.png" alt="바른 식생활 교육관"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openMilk()" title="2017우유 온라인관"><img src="/images/sub/bn_kb_farm_01_20170627.png" alt="2017우유 온라인관"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openHandon()" title="한돈 온라인 교육관"><img src="/images/sub/online_finbnn.png" alt="한돈 온라인 교육관"></a></li>  
+				<li class="box fl mb7 h48"><a href="javascript:openHandonStory()" title="우리 돼지의 영양이야기 교실"><img src="/images/sub/story_finbnn.png" alt="한돈 영양이야기 교실"></a></li>
+				
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openCookingTime()" title="한돈 쿠킹타임"><img src="/images/sub/bn_kb_farm_04.png" alt="한돈 쿠킹타임"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openAllLife()" title="AlllifeAllgood"><img src="/images/sub/AllLifeAllGood_banner_s.png" alt="AlllifeAllgood"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openCookingClass()" title="KDA 우리 축산물 쿠킹클래스"><img src="/images/sub/bn_kb_farm_05.png" alt="KDA 우리 축산물 쿠킹클래스"></a></li>
+				<li class="box fl mb7 h48"><a href="javascript:openDoong()" title="둥이의 신나는 영양교실"><img src="/images/sub/bn_kb_farm_07.png" alt="둥이의 신나는 영양교실"></a></li>
+
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openEbook()" title="단체급식 쌀요리 레시피" ><img src="/images/sub/bn_kb_farm_08.png" alt="단체급식 쌀요리 레시피"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openkfish()" title="수산업협동조합" ><img src="/images/sub/20150825_banner_s.png" alt="수산업협동조합"></a></li>
+				<li class="box fl mr7 mb7 h48"><a href="javascript:openEbook2016()" title="한돈레시피" ><img src="/images/sub/20160226_banner_s.png" alt="한돈레시피"></a></li>
+			</ul>
+		</div>
+		<!-- 
+		<li class="box fl mr10 mb10 p14"><a href="http://www.dietitian.or.kr/main_popup/popup_banner5.html" title="우리 우유 영양이야기" target="_target"><img src="/images/sub/bn_kb_farm_01.png" alt="우리 우유 영양이야기"></a></li>
+				<li class="box fl mr10 mb10 p14"><a href="http://www.dietitian.or.kr/main_popup/popup_banner4.html" title="한돈 온라인 교육관" target="_target"><img src="/images/sub/bn_kb_farm_02.png" alt="한돈 온라인 교육관"></a></li>
+				<li class="box fl mr10 mb10 p14"><a href="http://www.dietitian.or.kr/main_popup/popup_banner2.html" title="우리 돼지의 영양이야기 교실" target="_target"><img src="/images/sub/bn_kb_farm_03.png" alt="우리 돼지의 영양이야기 교실"></a></li>
+				<li class="box fl mb10 p14"><a href="http://www.dietitian.or.kr/etc06_01_01.asp" title="한돈 쿠킹타임" target="_target"><img src="/images/sub/bn_kb_farm_04.png" alt="한돈 쿠킹타임"></a></li>
+				<li class="box fl mr10 mb20 p14"><a href="http://www.dietitian.or.kr/etc04_04.asp" title="KDA 우리 축산물 쿠킹클래스" target="_target"><img src="/images/sub/bn_kb_farm_05.png" alt="KDA 우리 축산물 쿠킹클래스"></a></li>
+				<li class="box fl mr10 mb20 p14"><a href="http://www.dietitian.or.kr/etc04_04_01.asp" title="KDA 우리 축산물 ABC+ 웹진" target="_target"><img src="/images/sub/bn_kb_farm_06.png" alt="KDA 우리 축산물 ABC+ 웹진"></a></li>
+				<li class="box fl mr10 mb20 p14"><a href="http://www.dietitian.or.kr/banner/doong/popup_doong.html" title="둥이의 신나는 영양교실" target="_target"><img src="/images/sub/bn_kb_farm_07.png" alt="둥이의 신나는 영양교실"></a></li>
+		 -->
+	<%@ include file ="/pages/board/paper_board.jsp"%>
+	</div>
+</div>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna_board">
+
+	
+	<select id="selectQNACount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(bbs_idx)
+	FROM ptb_qnaboard
+	where bbs_del = 0
+		<if test="srchWord != null and srchWord != ''">
+			<choose>
+				<when test="srchKind == 1">
+				AND bbs_subject LIKE '%' + #{srchWord} + '%'
+				</when>
+				<when test="srchKind == 2">
+				AND bbs_contents LIKE '%' + #{srchWord} + '%'
+				</when>
+				<when test="srchKind == 2">
+				AND bbs_name LIKE '%' + #{srchWord} + '%'
+				</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="selectQNAList" parameterType="hashmap" resultType="kda.board.data.QNABOARD">
+	SELECT 
+		num , A.* 
+	FROM (
+		SELECT
+			  ROW_NUMBER() OVER( order by bbs_idx DESC ) AS num
+			, bbs_idx
+			, bbs_name
+			, bbs_subject
+			, bbs_view
+			, CONVERT(CHAR(10), bbs_date, 23) AS bbs_date
+			, bbs_pub
+			, k_isreply
+		FROM ptb_qnaboard
+		where bbs_del = 0
+		<if test="srchWord != null and srchWord != ''">
+			<choose>
+				<when test="srchKind == 1">
+				AND bbs_subject LIKE '%' + #{srchWord} + '%'
+				</when>
+				<when test="srchKind == 2">
+				AND bbs_contents LIKE '%' + #{srchWord} + '%'
+				</when>
+				<when test="srchKind == 2">
+				AND bbs_name LIKE '%' + #{srchWord} + '%'
+				</when>
+			</choose>
+		</if>
+	) A WHERE num BETWEEN #{startNum} AND #{endNum}
+	</select>
+	
+	<select id="selectQNA" parameterType="hashmap" resultType="kda.board.data.QNABOARD">
+	SELECT
+	      bbs_idx
+		, bbs_user_id
+		, bbs_pwd
+		, bbs_subject
+		, bbs_name
+		, bbs_email
+		, bbs_contents
+		, CONVERT(CHAR(10), bbs_date, 23) AS bbs_date
+		, bbs_del
+		, bbs_pub
+		, bbs_view 
+		, k_stature
+		, k_weight
+		, k_sex
+		, k_age
+		, k_activity
+		, k_weightpercent 
+		, k_sportsweek 
+		, k_sportsminute
+		, k_drinkweek 
+		, k_drinkml 
+		, k_weightmonth 
+		, k_etc 
+		, CONVERT(CHAR(10), k_replydate, 23) AS k_replydate
+		, k_reply
+		, k_isreply
+		, client_ip
+	FROM ptb_qnaboard
+	WHERE bbs_idx = #{bbs_idx}
+	</select>
+	
+	<insert id="insertQNA" parameterType="kda.board.data.QNABOARD">
+	INSERT INTO ptb_qnaboard (
+		  bbs_user_id
+		, bbs_pwd
+		, bbs_subject
+		, bbs_name
+		, bbs_email
+		, bbs_contents
+		, bbs_date
+		, bbs_del
+		, bbs_pub
+		, bbs_view 
+		, k_stature
+		, k_weight
+		, k_sex
+		, k_age
+		, k_activity
+		, k_weightpercent 
+		, k_sportsweek 
+		, k_sportsminute
+		, k_drinkweek 
+		, k_drinkml 
+		, k_weightmonth 
+		, k_etc 
+	) VALUES (
+	 	  #{bbs_user_id}
+		, #{bbs_pwd}
+		, #{bbs_subject}
+		, #{bbs_name}
+		, #{bbs_email}
+		, #{bbs_contents}
+		, GETDATE()
+		, #{bbs_del}
+		, #{bbs_pub}
+		, #{bbs_view} 
+		, #{k_stature}
+		, #{k_weight}
+		, #{k_sex}
+		, #{k_age}
+		, #{k_activity}
+		, #{k_weightpercent} 
+		, #{k_sportsweek} 
+		, #{k_sportsminute}
+		, #{k_drinkweek} 
+		, #{k_drinkml} 
+		, #{k_weightmonth} 
+		, #{k_etc} 
+	)
+	</insert>
+	
+	<update id="updateBbsView" parameterType="int">
+	UPDATE ptb_qnaboard SET
+		bbs_view = bbs_view + 1
+	WHERE bbs_idx = #{bbs_idx}
+	</update>
+	
+	<update id="updateDeleteFlag" parameterType="int">
+	UPDATE ptb_qnaboard SET
+		bbs_del = 1
+	WHERE bbs_idx = #{bbs_idx}
+	</update>
+	
+	<update id="updateQNA" parameterType="kda.board.data.QNABOARD">
+	UPDATE ptb_qnaboard SET 
+		  bbs_pwd		= #{bbs_pwd}
+		, bbs_subject 	= #{bbs_subject}
+		, bbs_name		= #{bbs_name}
+		, bbs_email		= #{bbs_email}
+		, bbs_contents	= #{bbs_contents}
+		, bbs_pub		= #{bbs_pub}
+		, bbs_view		= #{bbs_view}
+		, k_stature		= #{k_stature}
+		, k_weight		= #{k_weight}
+		, k_sex			= #{k_sex}
+		, k_age			= #{k_age}
+		, k_activity	= #{k_activity}
+		, k_weightpercent = #{k_weightpercent}
+		, k_sportsweek 	= #{k_sportsweek}
+		, k_sportsminute	= #{k_sportsminute}
+		, k_drinkweek = #{k_drinkweek}
+		, k_drinkml = #{k_drinkml}
+		, k_weightmonth = #{k_weightmonth}
+		, k_etc = #{k_etc}
+	WHERE bbs_idx = #{bbs_idx}
+	</update>
+	
+	<update id="updateReply" parameterType="kda.board.data.QNABOARD">
+	UPDATE ptb_qnaboard SET 
+		  k_replydate = GETDATE()
+		, k_reply = #{k_reply}
+		, k_isreply = '1'
+	WHERE bbs_idx = #{bbs_idx}
+	</update>
+	<!-- 
+  bbs_idx
+, bbs_user_id
+, bbs_pwd
+, bbs_subject
+, bbs_name
+, bbs_email
+, bbs_contents
+, bbs_date
+, bbs_del
+, bbs_pub
+, bbs_view 
+, k_stature
+, k_weight
+, k_sex
+, k_age
+, k_activity
+, k_weightpercent 
+, k_sportsweek 
+, k_sportsminute
+, k_drinkweek 
+, k_drinkml 
+, k_weightmonth 
+, k_etc 
+, k_replydate 
+, k_reply
+, k_isreply
+, client_ip
+ -->	
+</mapper>

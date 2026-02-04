@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="certprint">
+
+	<!-- 아이디 찾기 -->
+	<select id="selectCertPrintview" parameterType="hashmap"   resultType="hashmap" >
+	
+    select row_number()over(order by c.oper_end_dt desc, c.yyyy, c.code_kind) no, c.yyyy, c.operation_cnt, c.operation_place,
+    case when c.code_kind = '5' then '제' + convert(varchar, c.operation_cnt)+'회 ' + convert(varchar, c.season) + '학기 ' + d.edutest_name
+    else d.edutest_name end edutest_name, d.code_seq, b.result_no, d.outside_yn, d.edu_marks, c.oper_start_dt, c.oper_end_dt,
+    isnull(b.result_state, '-1') as result_state, b.up_date, dbo.getcodevalue('023', b.result_state) as result_state_txt,
+    d.print_kind, a.code_kind, a.code_certifi, a.code_seq, a.code_bran, a.bran_seq, a.receipt_no,
+    dbo.getcodevalue('022', a.oper_state) as oper_state_txt, dbo.getcodevalue('007', b.code_bran) as code_bran_txt, c.bran_txt, a.oper_name, a.oper_lic_no, a.oper_comp_name1, (c.code_kind+c.code_certifi+c.code_seq+c.code_bran+c.bran_seq+convert(varchar,isnull(c.operation_cnt,'0'))+convert(varchar,isnull(c.season,'0'))) as detcode
+    from operater a
+    left join oper_result b on a.code_kind = b.code_kind and a.code_certifi = b.code_certifi and a.code_seq = b.code_seq
+    and a.code_bran = b.code_bran and a.bran_seq = b.bran_seq and a.receipt_no = b.receipt_no
+    inner join edu_test c on a.code_kind = c.code_kind and a.code_certifi = c.code_certifi and a.code_seq = c.code_seq
+    and a.code_bran = c.code_bran and a.bran_seq = c.bran_seq
+    inner join edu_test_name d on c.code_kind = d.code_kind and c.code_certifi = d.code_certifi and c.code_seq = d.code_seq
+    where a.code_kind = '4'
+	and a.oper_state=11
+	and a.oper_name=#{pers_name}
+    and A.OPER_BIRTH= #{pers_birth}
+    
+    <if test="pers_license != null and pers_license != ''">
+	and A.oper_lic_no= #{pers_license}
+	</if>
+	
+    ORDER BY C.OPER_END_DT DESC, A.RECEIPT_DT DESC
+	</select>
+
+	<!-- 	<insert id="insertONEPLUSEVENT" parameterType="hashmap" >
+		INSERT INTO DIET_EVENT  			 
+		VALUES (  
+		 #{code_event} 
+		,#{code_pers}  
+		,#{new_name} 
+		,#{new_tel} 
+		,#{new_compname} 
+		,'' 
+		,getdate()  
+		 )
+		
+	</insert>
+	
+	<insert id="insertSNSEVENT" parameterType="hashmap" >
+		INSERT INTO DIET_EVENT  			 
+		VALUES (  
+		 #{code_event} 
+		,#{code_pers}  
+		,'' 
+		,'' 
+		,'' 
+		,#{sns_domain} 
+		,getdate()  
+		 )
+		
+	</insert> -->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

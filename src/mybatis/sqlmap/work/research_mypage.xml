@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="research_mypage">
+	<resultMap type="ACTULPERSON" id="ACTULPERSON">
+		<result property="code_seq" 			column="CODE_SEQ"/>
+		<result property="pers_name" 			column="PERS_NAME"/>
+		<result property="lic_no" 				column="LIC_NO"/>
+		<result property="lic_print_dt" 			column="LIC_PRINT_DT"/>
+		<result property="userpw" 				column="USERPW"/>
+		<result property="code_sex" 			column="CODE_SEX"/>
+		<result property="pers_year" 			column="PERS_YEAR"/>
+		<result property="code_post" 			column="CODE_POST"/>
+		<result property="pers_add" 			column="PERS_ADD"/>
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>
+		<result property="pers_tel" 				column="PERS_TEL"/>
+		<result property="pers_hp" 				column="PERS_HP"/>
+		<result property="email" 					column="EMAIL"/>
+		<result property="pers_state" 			column="PERS_STATE"/>
+		<result property="regi_dt" 				column="REGI_DT"/>
+		<result property="up_date" 				column="UP_DATE"/>
+		<result property="pwchk" 				column="PWCHK"/>
+	</resultMap>
+	
+	<resultMap type="ACTULSTATUS" id="ACTULSTATUS">
+		<result property="pers_name" 		column="PERS_NAME"/>
+		<result property="lic_no" 		column="LIC_NO"/>
+		<result property="lic_print_dt" 		column="LIC_PRINT_DT"/>
+		<result property="code_sex" 		column="CODE_SEX"/>
+		<result property="pers_year" 	column="PERS_YEAR"/>
+		<result property="code_post" 	column="CODE_POST"/>
+		<result property="pers_add" 	column="PERS_ADD"/>
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>
+		<result property="pers_tel" 	column="PERS_TEL"/>
+		<result property="pers_hp" 	column="PERS_HP"/>
+		<result property="email" 	column="EMAIL"/>
+		<result property="yyyy" 		column="YYYY"/>
+		<result property="code_seq" 		column="CODE_SEQ"/>
+		<result property="ar_code_part" 		column="AR_CODE_PART"/>
+		<result property="ar_code_big1" 		column="AR_CODE_BIG1"/>
+		<result property="cs_kitchen_code" 	column="CS_KITCHEN_CODE"/>
+		<result property="cs_kitchen_name1" 	column="CS_KITCHEN_NAME1"/>
+		<result property="code_post1" 	column="CODE_POST1"/>		
+		<result property="cs_kitchen_add11" 	column="CS_KITCHEN_ADD11"/>
+		<result property="cs_kitchen_add12" 	column="CS_KITCHEN_ADD12"/>
+		<result property="code_post2" 	column="CODE_POST2"/>
+		<result property="cs_kitchen_name2" 	column="CS_KITCHEN_NAME2"/>
+		<result property="cs_kitchen_add21" 	column="CS_KITCHEN_ADD21"/>
+		<result property="cs_kitchen_add22" 		column="CS_KITCHEN_ADD22"/>
+		<result property="code_post3" 		column="CODE_POST3"/>		
+		<result property="cs_kitchen_name3" 	column="CS_KITCHEN_NAME3"/>
+		<result property="cs_kitchen_add31" 	column="CS_KITCHEN_ADD31"/>
+		<result property="cs_kitchen_add32" 	column="CS_KITCHEN_ADD32"/>
+		<result property="code_post4" 	column="CODE_POST4"/>
+		<result property="cs_kitchen_name4" 	column="CS_KITCHEN_NAME4"/>
+		<result property="cs_kitchen_add41" 		column="CS_KITCHEN_ADD41"/>
+		<result property="cs_kitchen_add42" 		column="CS_KITCHEN_ADD42"/>		
+		<result property="code_post5" 	column="CODE_POST5"/>
+		<result property="cs_kitchen_name5" 	column="CS_KITCHEN_NAME5"/>
+		<result property="cs_kitchen_add51" 	column="CS_KITCHEN_ADD51"/>
+		<result property="cs_kitchen_add52" 	column="CS_KITCHEN_ADD52"/>
+		<result property="ncs_kitchen_code" 	column="NCS_KITCHEN_CODE"/>
+		<result property="ncs_kitchen_name1" 		column="NCS_KITCHEN_NAME1"/>
+		<result property="code_post6" 		column="CODE_POST6"/>		
+		<result property="ncs_kitchen_add61" 	column="NCS_KITCHEN_ADD61"/>
+		<result property="ncs_kitchen_add62" 	column="NCS_KITCHEN_ADD62"/>
+		<result property="cs_kitchen_act_code" 	column="CS_KITCHEN_ACT_CODE"/>
+		<result property="cs_kitchen_ret_code" 	column="CS_KITCHEN_RET_CODE"/>
+		<result property="cs_con_education" 	column="CS_CON_EDUCATION"/>
+		<result property="ar_finish_point" 		column="AR_FINISH_POINT"/>
+		<result property="ar_marks_point" 		column="AR_MARKS_POINT"/>		
+		<result property="ar_finish_yn" 	column="AR_FINISH_YN"/>
+		<result property="ar_state" 	column="AR_STATE"/>
+		<result property="ar_regi_date" 		column="AR_REGI_DATE"/>
+		<result property="ar_conform_date" 		column="AR_CONFORM_DATE"/>		
+		<result property="ar_add_file_name" 		column="AR_ADD_FILE_NAME"/>		
+		<result property="ar_add_file_url" 		column="AR_ADD_FILE_URL"/>		
+		<result property="ar_add_file_type" 		column="AR_ADD_FILE_TYPE"/>		
+		<result property="ar_add_file_size" 		column="AR_ADD_FILE_SIZE"/>		
+		<result property="ar_conform_year" 		column="AR_CONFORM_YEAR"/>
+		<result property="report_year" 		column="REPORT_YEAR"/>
+		
+	</resultMap>
+
+	<select id="passwdFind" parameterType="hashmap" resultMap="ACTULPERSON">
+		SELECT		PERS_HP
+						,PERS_TEL						
+  		FROM 		ACTUL_PERSON
+  		WHERE	PERS_NAME = #{pers_name}
+  		AND			LIC_NO = #{lic_no}		   
+	</select>
+	
+	<select id="passwdChange" parameterType="hashmap" resultMap="ACTULPERSON">
+		SELECT		CASE WHEN PWDCOMPARE(#{old_pass}, user_pw) = 1 THEN 'Y' ELSE 'N' END AS PWCHK						
+  		FROM 		ACTUL_PERSON
+  		WHERE	PERS_NAME = #{pers_name}
+  		AND			LIC_NO = #{lic_no}		   
+	</select>
+	
+	<update id="passwdInit" parameterType="hashmap" >
+		UPDATE ACTUL_PERSON SET USER_PW = PWDENCRYPT(#{pass_wd})
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</update>
+	
+	<select id="getMyReportCount" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT	COUNT(*) AS CNT
+		FROM		ACTUL_STATUS
+		WHERE	AR_FINISH_YN IS NOT NULL
+		AND		PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}		
+	</select>
+	
+	<select id="getMyReport" parameterType="hashmap" resultMap="ACTULSTATUS">
+  		SELECT	  MAX(PERS_NAME) AS PERS_NAME
+				, substring(convert(char(10),MAX(AR_CONFORM_DATE),112),0,5) AR_CONFORM_YEAR
+				, MAX(LIC_NO) LIC_NO
+				, REPORT_YEAR
+				, CONVERT(CHAR(10), MAX(AR_REGI_DATE), 23) as AR_REGI_DATE
+				, CONVERT(CHAR(10), MAX(AR_CONFORM_DATE), 23) as AR_CONFORM_DATE
+				, MAX(AR_FINISH_YN) AS AR_FINISH_YN
+				, MAX(AR_CODE_PART) AS AR_CODE_PART
+				, CASE MAX(AR_CODE_PART) 
+				  WHEN '1' THEN MAX(CS_KITCHEN_CODE)
+				  WHEN '2' THEN MAX(NCS_KITCHEN_CODE)
+				  WHEN '3' THEN MAX(CS_KITCHEN_ACT_CODE)
+				  ELSE	0
+				  END	AS CS_KITCHEN_CODE		
+		FROM	ACTUL_STATUS
+		WHERE	AR_FINISH_YN IS NOT NULL
+		AND		PERS_NAME = #{pers_name}
+		AND		LIC_NO = #{lic_no}
+		GROUP BY REPORT_YEAR
+		ORDER BY REPORT_YEAR ASC
+	</select>
+	
+	<select id="getMyEduCount" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT	COUNT(*) AS CNT
+		FROM		ACTUL_STATUS
+		WHERE	AR_STATE IS NOT NULL
+		AND		AR_STATE NOT IN('1','3')
+		AND		PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}	
+	</select>		
+	
+	<select id="getMyEdu" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT	PERS_NAME
+					,LIC_NO
+					,CS_CON_EDUCATION
+					,AR_STATE
+		FROM		ACTUL_STATUS
+		WHERE	AR_STATE IS NOT NULL
+		AND		AR_STATE NOT IN('1','3')
+		AND		PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+  		ORDER BY YYYY ASC
+	</select>
+
+</mapper>
+

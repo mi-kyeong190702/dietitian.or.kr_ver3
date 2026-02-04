@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>  
+        <setting name="cacheEnabled"				value="true"/>  
+        <setting name="lazyLoadingEnabled"			value="false"/>  
+        <setting name="multipleResultSetsEnabled"	value="true"/>  
+        <setting name="useColumnLabel"				value="true"/>  
+        <setting name="useGeneratedKeys"			value="false"/>  
+        <setting name="defaultExecutorType"			value="SIMPLE"/>  
+        <setting name="defaultStatementTimeout"		value="25000"/>  
+    </settings>
+
+	<typeAliases>
+		<typeAlias alias="GROUPCODE" 				type="kda.common.data.GROUPCODE"/>
+		<typeAlias alias="BOOKBOARD"				type="kda.board.data.BOOKBOARD"/>
+		<typeAlias alias="CARTBOARD" 				type="kda.board.data.CARTBOARD"/>
+		<typeAlias alias="RESIBOARD" 				type="kda.board.data.RESIBOARD"/>
+		<typeAlias alias="PAPERBOARD" 				type="kda.board.data.PAPERBOARD"/>
+		<typeAlias alias="PAPERBOARDSETTINGS"		type="kda.board.data.PAPERBOARDSETTINGS"/>
+		<typeAlias alias="PAPERBOARDCOMMENTS" 		type="kda.board.data.PAPERBOARDCOMMENTS"/>
+		<typeAlias alias="NOTICE" 					type="kda.main.data.NOTICE"/>
+		<typeAlias alias="LOGININFO" 				type="kda.login.data.LOGININFO"/>		
+		<typeAlias alias="MEMBER" 					type="kda.member.data.MEMBER"/>
+		<typeAlias alias="DUES" 					type="kda.member.data.DUES"/>
+		<typeAlias alias="TRUST_COMPANY" 			type="kda.member.data.TRUST_COMPANY"/>
+		<typeAlias alias="MYEDUINFO" 				type="kda.mypage.data.MYEDUINFO"/>
+		<typeAlias alias="PERS_COMPANY" 			type="kda.member.data.PERS_COMPANY"/>
+		<typeAlias alias="MYMEMBERINFO" 			type="kda.mypage.data.MYMEMBERINFO"/>
+		<typeAlias alias="MYLICENSEINFO" 			type="kda.mypage.data.MYLICENSEINFO"/>		
+		<typeAlias alias="KB_C_HABITS_DIAGNOSIS" 	type="kda.work.business.clinic.data.KB_C_HABITS_DIAGNOSIS"/>		
+		<typeAlias alias="PTB_EDUSCHEDULE" 			type="kda.work.education.data.PTB_EDUSCHEDULE"/>
+		<typeAlias alias="KN_CALENDAR" 				type="kda.work.news.data.KN_CALENDAR"/>
+		<typeAlias alias="TBL_NUTRITIONMONITOR" 	type="kda.work.publication.data.TBL_NUTRITIONMONITOR"/>
+		<typeAlias alias="PTB_BUYADDRESS" 			type="kda.work.publication.payment.data.PTB_BUYADDRESS"/>
+		<typeAlias alias="ACTULPERSON" 				type="kda.work.research.report.data.ACTULPERSON"/>
+		<typeAlias alias="ACTULSTATUS" 				type="kda.work.research.report.data.ACTULSTATUS"/>
+		<typeAlias alias="ACTULPAPERBOARD"			type="kda.work.research.community.data.ACTULPAPERBOARD"/>
+		<!-- //  교육신청 -->
+		<typeAlias alias="KE_EDU_TEST_NAME"			type="kda.work.education.data.KE_EDU_TEST_NAME"/>
+		<typeAlias alias="KE_EDU_OPERATOR"			type="kda.work.education.data.KE_EDU_OPERATOR"/>
+		<typeAlias alias="KE_EDU_CERTIFI" 			type="kda.work.education.data.KE_EDU_CERTIFI"/>
+		<typeAlias alias="KE_EDU_RESULT_PRINT" 		type="kda.work.education.data.KE_EDU_RESULT_PRINT"/>
+		<typeAlias alias="KE_EDU_OPER_ADD_FILE" 	type="kda.work.education.data.KE_EDU_OPER_ADD_FILE"/>
+
+		<!-- // COMMON -->
+		<typeAlias alias="LIST_HELPER" 				type="kda.common.data.LIST_HELPER"/>		
+
+		<typeAlias alias="eventView" 				type="kda.event.data.EventView"/>
+
+		<!-- <typeAlias alias="certprint" 				type="kda.event.data.CertPrint"/> -->
+
+		<!-- //  신문고 -->
+		<typeAlias alias="SIN_PAPER_BOARD_COMMENT" 	type="kda.work.archive.data.SIN_PAPER_BOARD_COMMENT"/>
+		<typeAlias alias="SIN_PAPER_BOARD" 			type="kda.work.archive.data.SIN_PAPER_BOARD"/>
+		<typeAlias alias="SIN_PERSON_INFO" 			type="kda.work.archive.data.SIN_PERSON_INFO"/>
+		
+	</typeAliases>
+	
+	<mappers>	
+		<mapper resource="mybatis/sqlmap/common.xml"/>
+		<mapper resource="mybatis/sqlmap/board.xml"/>		
+		<mapper resource="mybatis/sqlmap/login.xml"/>
+		<mapper resource="mybatis/sqlmap/member.xml"/>
+		<mapper resource="mybatis/sqlmap/mypage.xml"/>
+		<mapper resource="mybatis/sqlmap/main.xml"/>
+		<mapper resource="mybatis/sqlmap/payment.xml"/>		
+		<mapper resource="mybatis/sqlmap/work/kn_calendar.xml"/>
+		<mapper resource="mybatis/sqlmap/work/kb_c_habits_diagnosis.xml"/>
+		<mapper resource="mybatis/sqlmap/work/ke_curriculum.xml"/>
+		<mapper resource="mybatis/sqlmap/work/ke_schedule.xml"/>
+		<mapper resource="mybatis/sqlmap/work/kp_participation_mornitor.xml"/>
+		<mapper resource="mybatis/sqlmap/work/kp_archiveshop_pay.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_community.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_login.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_member.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_mypage.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_report.xml"/>
+		<mapper resource="mybatis/sqlmap/work/research_recipient.xml"/>
+		<!-- //  교육신청 -->
+		<mapper resource="mybatis/sqlmap/work/ke_edu.xml"/>
+		<mapper resource="mybatis/sqlmap/work/kn_employ.xml"/>
+		<!-- // faq -->
+		<mapper resource="mybatis/sqlmap/faq.xml"/>
+		<!-- // 출판 -->
+		<mapper resource="mybatis/sqlmap/work/kp_column.xml"/>
+		<!-- // admin 교육 -->
+		<mapper resource="mybatis/sqlmap/admin_edu.xml"/>
+		<!-- // admin 게시판 -->
+		<mapper resource="mybatis/sqlmap/admin_board.xml"/>
+		<!-- // admin 일정 -->
+		<mapper resource="mybatis/sqlmap/admin_schedule.xml"/>
+		<!-- // admin 학술대회 -->
+		<mapper resource="mybatis/sqlmap/admin_contest.xml"/>
+		<!-- // admin 구매&공동구매 관리-->
+		<mapper resource="mybatis/sqlmap/admin_purchase.xml"/>
+		<!-- // admin 토론장 관리-->
+		<mapper resource="mybatis/sqlmap/admin_discuss.xml"/>
+		<!-- // admin 방통대연대서명-->
+		<mapper resource="mybatis/sqlmap/admin_signature.xml"/>
+		<!-- // admin 회관건립기금&출연금모금-->
+		<mapper resource="mybatis/sqlmap/admin_fund.xml"/>
+		<!-- // admin Q&A 게시판상담원관리-->
+		<mapper resource="mybatis/sqlmap/admin_consult.xml"/>
+		<!-- // admin 취업설명회 예약신청-->
+		<mapper resource="mybatis/sqlmap/admin_job.xml"/>
+		<!-- // admin 포인트 상위 50인,회원포인트 관리-->
+		<mapper resource="mybatis/sqlmap/admin_point.xml"/>
+		<!-- // admin 회원가입1+1 이벤트 관리,SNS 영양사 홍보 이벤트 관리-->
+		<mapper resource="mybatis/sqlmap/admin_event.xml"/>
+		<!-- // admin 한돈 릴레이 캠페인관 댓글 관리-->
+		<mapper resource="mybatis/sqlmap/admin_campaign.xml"/>
+		<!-- // admin 구직 정보 관리,구인 정보 관리-->
+		<mapper resource="mybatis/sqlmap/admin_hunt.xml"/>
+		<!-- // admin 결제 관리-->
+		<mapper resource="mybatis/sqlmap/admin_payment.xml"/>
+
+		<!-- // admin 접속통계 관리-->
+		<mapper resource="mybatis/sqlmap/admin_stat.xml"/>
+
+		<!-- // admin 관리자 -->
+		<mapper resource="mybatis/sqlmap/admin_user.xml"/>
+
+		<!-- // admin 설문조사 -->
+		<mapper resource="mybatis/sqlmap/admin_survey.xml"/>
+
+		<!-- // admin 컨텐츠 관리 -->
+		<mapper resource="mybatis/sqlmap/admin_contents.xml"/>
+
+		<!-- // 영양 상담실 관리 -->
+		<mapper resource="mybatis/sqlmap/qna_board.xml"/>
+
+		<!-- // admin 국민영양 모니터 관리 -->
+		<mapper resource="mybatis/sqlmap/admin_monitor.xml"/>
+
+		<!-- // 1+1 event -->
+		<mapper resource="mybatis/sqlmap/event.xml"/>
+
+		<!-- // 위생교육수료증 출력 -->
+		<mapper resource="mybatis/sqlmap/certprint.xml"/>
+
+		<!-- // 영양사 신문고 -->
+		<mapper resource="mybatis/sqlmap/work/ka_sinmungo.xml"/>
+				
+	</mappers>
+		
+</configuration>

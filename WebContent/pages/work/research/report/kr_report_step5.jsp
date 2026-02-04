@@ -1,0 +1,1133 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
+<script type="text/javascript">
+
+	var firstId = '${reportRow.cs_kitchen_code}';
+
+	$(document).ready(function(){
+		
+		if(firstId != ''){
+			doSubActive(firstId);
+		}
+		
+		var id =$(':radio[name="radio2"]:checked').val();	
+		$(".activeNo").hide();
+		$("#active"+id).show();
+		
+		$("#tel2,#hp1,#hp2,#lic_print_dt").keyup(function(event){
+			$(this).val( $(this).val().replace(/[^0-9:\-]/gi,"") );
+		});
+		$("#tel2,#hp1,#hp2,#lic_print_dt").focusout(function(event){
+			$(this).val( $(this).val().replace(/[^0-9:\-]/gi,"") );
+		});
+		
+	});
+	
+	function selectMail(v){
+		$("#mail2").val(v);
+	}
+	
+	function openJusoPopup(id) 
+	{
+		$("#jusoId").val(id);
+		var url = "/pages/work/research/juso/research_jusoPopup.jsp";
+		var pop = window.open(url,"jusopop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	}
+	
+	function jusoCallBack( roadFullAddr
+			 , roadAddrPart1
+			 , addrDetail
+			 , roadAddrPart2
+			 , engAddr
+			 , jibunAddr
+			 , zipNo
+			 , admCd
+			 , rnMgtSn
+			 , bdMgtSn)
+	{
+		var jusoId =  $("#jusoId").val();
+		if(jusoId=='1'){
+			$("#pers_add_detail").val(addrDetail + " " + roadAddrPart2);		
+			$("#pers_add").val(roadAddrPart1);		
+			$("#code_post").val(zipNo);			
+		}else if(jusoId=='2'){
+			$("#cs_kitchen_add12").val(addrDetail + " " + roadAddrPart2);		
+			$("#cs_kitchen_add11").val(roadAddrPart1);		
+			$("#code_post1").val(zipNo);	
+		}else if(jusoId=='3'){
+			$("#cs_kitchen_add22").val(addrDetail + " " + roadAddrPart2);		
+			$("#cs_kitchen_add21").val(roadAddrPart1);		
+			$("#code_post2").val(zipNo);	
+		}else if(jusoId=='4'){
+			$("#cs_kitchen_add32").val(addrDetail + " " + roadAddrPart2);		
+			$("#cs_kitchen_add31").val(roadAddrPart1);		
+			$("#code_post3").val(zipNo);	
+		}else if(jusoId=='5'){
+			$("#cs_kitchen_add42").val(addrDetail + " " + roadAddrPart2);		
+			$("#cs_kitchen_add41").val(roadAddrPart1);		
+			$("#code_post4").val(zipNo);	
+		}else if(jusoId=='6'){
+			$("#cs_kitchen_add52").val(addrDetail + " " + roadAddrPart2);		
+			$("#cs_kitchen_add51").val(roadAddrPart1);		
+			$("#code_post5").val(zipNo);	
+		}else if(jusoId=='7'){
+			$("#ncs_kitchen_add62").val(addrDetail + " " + roadAddrPart2);		
+			$("#ncs_kitchen_add61").val(roadAddrPart1);		
+			$("#code_post6").val(zipNo);
+		}
+		
+	}
+	
+	function doActive(id){
+		$(".activeNo").hide();
+		$("#active"+id).show();
+	}
+	
+	function doSubActive(id){
+		$("#addrUl1 li").hide();
+		if(id=='03'){
+			$("#addrUl1 li").show();
+		}else if(id=='05' || id=='06'){
+			$("#addrUl1 li").eq(0).show();
+			$("#addrUl1 li").eq(1).show();
+		}else{
+			$("#addrUl1 li").eq(0).show();
+		}
+	}
+	
+	function doCheck(code){
+		
+		
+		if($("#pers_name").val()=="" ){
+			alert("성명을 입력해야 합니다.");
+			$("#pers_name").focus();
+			return false;
+		}
+		
+		if($("#lic_no").val()=="" ){
+			alert("면허번호을 입력해야 합니다.");
+			$("#lic_no").focus();
+			return false;
+		}
+		
+		if($("#lic_print_dt").val()=="" ){
+			alert("면허발급일을 입력해야 합니다.");
+			$("#lic_print_dt").focus();
+			return false;
+		}
+		
+		if($("#lic_print_dt").val().length<8 ){
+			alert("면허발급일 입력 값이 부족합니다.");
+			$("#lic_print_dt").focus();
+			return false;
+		}
+		
+		if($("#mail1").val()=="" ){
+			alert("메일을 입력해야 합니다.");
+			$("#mail1").focus();
+			return false;
+		}
+		if($("#mail2").val()==""){
+			alert("메일을 입력해야 합니다.");
+			$("#mail2").focus();
+			return false;
+		}
+		
+		var ckMail = $("#mail1").val() +"@"+ $("#mail2").val();
+		var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+		if(regex.test(ckMail) === false) {  
+		    alert("잘못된 이메일 형식입니다.");  
+		    return false;  
+		}
+		
+		if($("#code_post").val()=="" || $("#pers_add").val()=="" || $("#pers_add_detail").val()==""){
+			alert("주소를 입력해야 합니다.");
+			return false;
+		}
+		
+		if($("#tel1").val()=="" || $("#tel2").val()==""){
+			alert("일반전화 연락처를 입력해야 합니다.");
+			return false;
+		}else{
+			if($("#tel2").val().length < 7){
+				alert("올바른 형식이 아닙니다");
+				$("#tel2").focus();
+				return false;
+			}
+			
+		}
+		
+		if($("#hp1").val()=="" || $("#hp2").val()==""){
+			alert("휴대폰 연락처를 입력해야 합니다.");
+			return false;
+		}else{
+			if($("#hp2").val().length<7){
+				alert("올바른 형식이 아닙니다");
+				$("#hp2").focus();
+				return false;
+			}
+			
+		}
+		
+		if($("#bbs_file1").val()==""){
+			if($("#bbs_file_url").val()==""){
+				alert("면허증사본을 꼭 첨부해야 합니다.");
+				return false;
+			}
+		}
+		
+		if($("#filecheck").is(":checked")){
+			if($("#bbs_file1").val()==""){
+				alert("파일 삭제 선택시 새로운 파일을 첨부해야 합니다.");
+				return false;
+			}
+		}
+		
+		if($(':radio[name="radio2"]:checked').length < 1 ) {
+			alert("활동여부를 꼭 선택해야 합니다.");
+			return false;
+		}
+		
+		var act =$(':radio[name="radio2"]:checked').val();		
+		if(act=='1'){
+			if($(':radio[name="active1"]:checked').length < 1 ) {
+				alert(" 집단급식소 근무 해당사항을 꼭 선택해야 합니다.");
+				return false;
+			}else{
+				var div1 =$(':radio[name="active1"]:checked').val();
+				if($("#cs_kitchen_name1").val()==""){
+					alert("집단급식소명을 입력하셔야 합니다.");
+					$("#cs_kitchen_name1").focus();
+					return false;
+				}
+				if($("#code_post1").val()=="" || $("#ncs_kitchen_add11").val()=="" || $("#ncs_kitchen_add12").val()==""){
+					alert("근무처 주소를 꼭 입력해야 합니다.");
+					return false;
+				}
+				
+			}
+		}else if(act=='2'){
+			if($(':radio[name="active2"]:checked').length < 1 ) {
+				alert("비집단급식소 근무 해당사항을 꼭 선택해야 합니다.");
+				return false;
+			}else{
+				var div2 =$(':radio[name="active2"]:checked').val();
+				if(div2=='09'){
+					if($("#ncs_kitchen_ret_code").val()==""){
+						alert("기타사항 선택시 상세입력을 해야 합니다.");		
+						$("#ncs_kitchen_ret_code").focus();
+						return false;
+					}
+				}else{
+					$("#ncs_kitchen_ret_code").val("");
+				}
+				if($("#ncs_kitchen_name1").val()==""){
+					alert("비집단급식소 집단급식소명을 입력해야 합니다.");		
+					$("#ncs_kitchen_name1").focus();
+					return false;
+				}
+				if($("#code_post6").val()=="" || $("#ncs_kitchen_add61").val()=="" || $("#ncs_kitchen_add62").val()==""){
+					alert("비집단급식소 근무처 주소를 꼭 입력해야 합니다.");
+					return false;
+				}
+			}
+		}else if(act=='3'){
+			if($(':radio[name="active3"]:checked').length < 1 ) {
+				alert("미활동 해당사항을 꼭 선택해야 합니다.");
+				return false;
+			}else{
+				var div3 =$(':radio[name="active3"]:checked').val();
+				if(div3=='5'){
+					if($("#cs_kitchen_ret_code").val()==""){
+						alert("기타사항 선택시 상세입력을 해야 합니다.");		
+						$("#cs_kitchen_ret_code").focus();
+						return false;
+					}
+				}else{
+					$("#cs_kitchen_ret_code").val("");
+				}
+			}
+		}
+		
+		if(code=='0'){
+			if ( confirm("면허신고서 저장 후에는 마이페이지 면허신고수정에서 수정이\n가능합니다.저장 후 반드시 제출하셔야 면허신고가 접수됩니다.\n저장하시겠습니까?")) {
+				return true;	
+			}else{
+				return false;
+			}				
+		}else if(code=='1'){
+			if ( confirm("면허신고서를 제출한 후에는 수정 또는 삭제가 불가합니다.\n제출하시겠습니까?")) {
+				return true;
+			}else{
+				return false;
+			}
+		}		
+		
+	}
+	
+	function init(){
+		
+		var actCode =$(':radio[name="radio2"]:checked').val();	
+		if(actCode=='1'){
+			$("input:radio[name='active2']").removeAttr("checked");
+			$("input:radio[name='active3']").removeAttr("checked");
+			$("#addrUl2 input").val("");
+			$("#addrUl3 input").val("");
+			$("#ncs_kitchen_ret_code").val("");
+		}else if(actCode=='2'){
+			$("input:radio[name='active1']").removeAttr("checked");
+			$("input:radio[name='active3']").removeAttr("checked");
+			$("#addrUl1 input").val("");
+			$("#addrUl3 input").val("");			
+		}else if(actCode=='3'){
+			$("input:radio[name='active1']").removeAttr("checked");
+			$("input:radio[name='active2']").removeAttr("checked");
+			$("#addrUl1 input").val("");
+			$("#addrUl2 input").val("");
+			$("#ncs_kitchen_ret_code").val("");
+		}
+		
+	}
+	
+		
+	function doWrite(code){
+		
+		if(doCheck(code)){
+			
+			init();
+			
+			//	이메일
+			var mail = $("#mail1").val()+"@"+$("#mail2").val();
+			var input1 = document.createElement("input");
+			input1.type="hidden";
+			input1.name="email";
+			input1.value=mail;
+			
+			//	주소
+			var pers_post= $("#code_post").val();
+			var pers_add = $("#pers_add").val();
+			var pers_add_detail = $("#pers_add_detail").val();
+			var input2 = document.createElement("input");
+			input2.type="hidden";
+			input2.name="code_post";
+			input2.value=pers_post;
+			var input3 = document.createElement("input");
+			input3.type="hidden";
+			input3.name="pers_add";
+			input3.value=pers_add;
+			var input4 = document.createElement("input");
+			input4.type="hidden";
+			input4.name="pers_add_detail";
+			input4.value=pers_add_detail;
+			
+			//	연락처
+			var tel = $("#tel1").val()+$("#tel2").val();
+			var hp = $("#hp1").val()+$("#hp2").val();
+			var input5 = document.createElement("input");
+			input5.type="hidden";
+			input5.name="pers_tel";
+			input5.value=tel;
+			var input6 = document.createElement("input");
+			input6.type="hidden";
+			input6.name="pers_hp";
+			input6.value=hp;
+			
+			//	생년
+			var yy = "";
+			var input7 = document.createElement("input");
+			input7.type="hidden";
+			input7.name="pers_year";
+			input7.value=yy;
+			
+			//	성별
+			var sex = "";		
+			var input8 = document.createElement("input");
+			input8.type="hidden";
+			input8.name="code_sex";
+			input8.value=sex;
+			
+			//	활동여부
+			var part = $(':radio[name="radio2"]:checked').val();		
+			var input9 = document.createElement("input");
+			input9.type="hidden";
+			input9.name="ar_code_part";
+			input9.value=part;
+			
+			//	활동여부 서브
+			var div1 =$(':radio[name="active1"]:checked').val();
+			if($(':radio[name="active1"]:checked').length < 1 ) {
+				div1 = "";
+			}
+			var input10 = document.createElement("input");
+			input10.type="hidden";
+			input10.name="cs_kitchen_code";
+			input10.value=div1;
+			var div2 =$(':radio[name="active2"]:checked').val();	
+			if($(':radio[name="active2"]:checked').length < 1 ) {
+				div2 = "";
+			}
+			var input11 = document.createElement("input");
+			input11.type="hidden";
+			input11.name="ncs_kitchen_code";
+			input11.value=div2;
+			var div3 =$(':radio[name="active3"]:checked').val();
+			if($(':radio[name="active3"]:checked').length < 1 ) {
+				div3 = "";
+			}
+			var input12 = document.createElement("input");
+			input12.type="hidden";
+			input12.name="cs_kitchen_act_code";
+			input12.value=div3;
+			
+			//	집단급식소 집단급식소명
+			var name1 = $("#cs_kitchen_name1").val();
+			var input13 = document.createElement("input");
+			input13.type="hidden";
+			input13.name="cs_kitchen_name1";
+			input13.value=name1;
+			var name2 = $("#cs_kitchen_name2").val();
+			var input14 = document.createElement("input");
+			input14.type="hidden";
+			input14.name="cs_kitchen_name2";
+			input14.value=name2;
+			var name3 = $("#cs_kitchen_name3").val();
+			var input15 = document.createElement("input");
+			input15.type="hidden";
+			input15.name="cs_kitchen_name3";
+			input15.value=name3;
+			var name4 = $("#cs_kitchen_name4").val();
+			var input16 = document.createElement("input");
+			input16.type="hidden";
+			input16.name="cs_kitchen_name4";
+			input16.value=name4;
+			var name5 = $("#cs_kitchen_name5").val();
+			var input17 = document.createElement("input");
+			input17.type="hidden";
+			input17.name="cs_kitchen_name5";
+			input17.value=name5;
+			
+			//	집단급식소 우편번호
+			var post1 = $("#code_post1").val();
+			var input18 = document.createElement("input");
+			input18.type="hidden";
+			input18.name="code_post1";
+			input18.value=post1;
+			var post2 = $("#code_post2").val();
+			var input19 = document.createElement("input");
+			input19.type="hidden";
+			input19.name="code_post2";
+			input19.value=post2;
+			var post3 = $("#code_post3").val();
+			var input20 = document.createElement("input");
+			input20.type="hidden";
+			input20.name="code_post3";
+			input20.value=post3;
+			var post4 = $("#code_post4").val();
+			var input21 = document.createElement("input");
+			input21.type="hidden";
+			input21.name="code_post4";
+			input21.value=post4;
+			var post5 = $("#code_post5").val();
+			var input22 = document.createElement("input");
+			input22.type="hidden";
+			input22.name="code_post5";
+			input22.value=post5;
+			
+			//	집단급식소 주소
+			var addr1_1= $("#cs_kitchen_add11").val();
+			var input23 = document.createElement("input");
+			input23.type="hidden";
+			input23.name="cs_kitchen_add11";
+			input23.value=addr1_1;
+			var addr1_2= $("#cs_kitchen_add12").val();
+			var input24 = document.createElement("input");
+			input24.type="hidden";
+			input24.name="cs_kitchen_add12";
+			input24.value=addr1_2;
+			var addr2_1= $("#cs_kitchen_add21").val();
+			var input25 = document.createElement("input");
+			input25.type="hidden";
+			input25.name="cs_kitchen_add21";
+			input25.value=addr2_1;
+			var addr2_2= $("#cs_kitchen_add22").val();
+			var input26 = document.createElement("input");
+			input26.type="hidden";
+			input26.name="cs_kitchen_add22";
+			input26.value=addr2_2;
+			var addr3_1= $("#cs_kitchen_add31").val();
+			var input27 = document.createElement("input");
+			input27.type="hidden";
+			input27.name="cs_kitchen_add31";
+			input27.value=addr3_1;
+			var ad7r3_2= $("#cs_kitchen_add32").val();
+			var input28 = document.createElement("input");
+			input28.type="hidden";
+			input28.name="cs_kitchen_add32";
+			input28.value=ad7r3_2;
+			var addr4_1= $("#cs_kitchen_add41").val();
+			var input29 = document.createElement("input");
+			input29.type="hidden";
+			input29.name="cs_kitchen_add41";
+			input29.value=addr4_1;
+			var addr4_2= $("#cs_kitchen_add42").val();
+			var input30 = document.createElement("input");
+			input30.type="hidden";
+			input30.name="cs_kitchen_add42";
+			input30.value=addr4_2;
+			var addr5_1= $("#cs_kitchen_add51").val();
+			var input31 = document.createElement("input");
+			input31.type="hidden";
+			input31.name="cs_kitchen_add51";
+			input31.value=addr5_1;
+			var addr5_2= $("#cs_kitchen_add52").val();
+			var input32 = document.createElement("input");
+			input32.type="hidden";
+			input32.name="cs_kitchen_add52";
+			input32.value=addr5_2;
+			
+			//	비집단급식소 집단급식소명
+			var name6 = $("#ncs_kitchen_name1").val();
+			var input33 = document.createElement("input");
+			input33.type="hidden";
+			input33.name="ncs_kitchen_name1";
+			input33.value=name6;
+			
+			//	비집단급식소 우편번호
+			var post6 = $("#code_post6").val();
+			var input34 = document.createElement("input");
+			input34.type="hidden";
+			input34.name="code_post6";
+			input34.value=post6;
+			
+			//	비집단급식소 주소
+			var addr6_1 = $("#ncs_kitchen_add61").val();
+			var input35 = document.createElement("input");
+			input35.type="hidden";
+			input35.name="ncs_kitchen_add61";
+			input35.value=addr6_1;
+			var addr6_2 = $("#ncs_kitchen_add62").val();
+			var input36 = document.createElement("input");
+			input36.type="hidden";
+			input36.name="ncs_kitchen_add62";
+			input36.value=addr6_2;
+			
+			//	미활동 기타
+			var ret_code = $("#cs_kitchen_ret_code").val();
+			var input37 = document.createElement("input");
+			input37.type="hidden";
+			input37.name="cs_kitchen_ret_code";
+			input37.value=ret_code;
+			
+			var input38 = document.createElement("input");
+			input38.type="hidden";
+			input38.name="ar_finish_yn";
+			input38.value=code;
+			
+			var pers_name = $("#pers_name").val();
+			var input39 = document.createElement("input");
+			input39.type="hidden";
+			input39.name="pers_name";
+			input39.value=pers_name;
+			
+			var lic_no = $("#lic_no").val();
+			var input40 = document.createElement("input");
+			input40.type="hidden";
+			input40.name="lic_no";
+			input40.value=lic_no;
+			
+			var lic_print_dt = $("#lic_print_dt").val();
+			var input41 = document.createElement("input");
+			input41.type="hidden";
+			input41.name="lic_print_dt";
+			input41.value=lic_print_dt;
+			
+			var file_url = $("#bbs_file_url").val();
+			var input42 = document.createElement("input");
+			input42.type="hidden";
+			input42.name="bbs_file_url";
+			input42.value=file_url;
+			
+			var file_yn = "N";
+			if($("#filecheck").is(":checked")){
+				file_yn = "Y";
+			}
+			var input43 = document.createElement("input");
+			input43.type="hidden";
+			input43.name="file_yn";
+			input43.value=file_yn;
+			
+			var ncs_ret_code = $("#ncs_kitchen_ret_code").val();
+			var input44 = document.createElement("input");
+			input44.type="hidden";
+			input44.name="ncs_kitchen_ret_code";
+			input44.value=ncs_ret_code;
+
+			var ar_add_file_name = $("#ar_add_file_name").val();
+			var input45 = document.createElement("input");
+			input45.type="hidden";
+			input45.name="ar_add_file_name";
+			input45.value=ar_add_file_name;
+			
+			var ar_add_file_url = $("#ar_add_file_url").val();
+			var input46 = document.createElement("input");
+			input46.type="hidden";
+			input46.name="ar_add_file_url";
+			input46.value=ar_add_file_url;
+			
+			var ar_add_file_type = $("#ar_add_file_type").val();
+			var input47 = document.createElement("input");
+			input47.type="hidden";
+			input47.name="ar_add_file_type";
+			input47.value=ar_add_file_type;
+			
+			var ar_add_file_size = $("#ar_add_file_size").val();
+			var input48 = document.createElement("input");
+			input48.type="hidden";
+			input48.name="ar_add_file_size";
+			input48.value=ar_add_file_size;
+			
+			
+			var f = document.forms["write"];	
+			f.insertBefore(input1,null);f.insertBefore(input2,null);f.insertBefore(input3,null);f.insertBefore(input4,null);f.insertBefore(input5,null);
+			f.insertBefore(input6,null);f.insertBefore(input7,null);f.insertBefore(input8,null);f.insertBefore(input9,null);f.insertBefore(input10,null);
+			f.insertBefore(input11,null);f.insertBefore(input12,null);f.insertBefore(input13,null);f.insertBefore(input14,null);f.insertBefore(input15,null);
+			f.insertBefore(input16,null);f.insertBefore(input17,null);f.insertBefore(input18,null);f.insertBefore(input19,null);f.insertBefore(input20,null);
+			f.insertBefore(input21,null);f.insertBefore(input22,null);f.insertBefore(input23,null);f.insertBefore(input24,null);f.insertBefore(input25,null);
+			f.insertBefore(input26,null);f.insertBefore(input27,null);f.insertBefore(input28,null);f.insertBefore(input29,null);f.insertBefore(input30,null);
+			f.insertBefore(input31,null);f.insertBefore(input32,null);f.insertBefore(input33,null);f.insertBefore(input34,null);f.insertBefore(input35,null);
+			f.insertBefore(input36,null);f.insertBefore(input37,null);f.insertBefore(input38,null);f.insertBefore(input39,null);f.insertBefore(input40,null);
+			f.insertBefore(input41,null);f.insertBefore(input42,null);f.insertBefore(input43,null);f.insertBefore(input44,null);
+			
+			if($("#ar_add_file_size").val() != null){
+				f.insertBefore(input45,null);f.insertBefore(input46,null);f.insertBefore(input47,null);f.insertBefore(input48,null);			
+			}
+			
+			f.step.value= "step6";
+			f.method = "POST";
+			f.submit();
+			
+		}
+		
+		
+	}
+	
+	function doCancel(){
+		if ( confirm("취소시 비밀번호가 저장되지 않으며, 등록부터 다시 해야 합니다.\n취소하시겠습니까?")) {
+			
+			var f = document.forms["report"];
+			f.step.value= "step7";
+			f.method = "POST";
+			f.submit();
+		}
+	}
+	
+</script>
+
+					<div class="box t1 bgs mt5 p10 pl15 text ssmall">
+						<div class="area">
+							국민영양관리법 시행규칙 [별지 제8호의2서식] &lt;신설 2015.5.19&gt;
+						</div>
+					</div>
+					<div class="box t2 bgs mt10 p20 text">
+						<div class="area">
+							<h5 class="title i_b_t6 bold s1">영양사<mark class="cm">면허신고서</mark></h5>
+							<div class="box t1 r5 mt10 p10">
+								<h6 class="title s1 i_b_t3"><mark class="bold">기본 인적사항</mark> <span class="ssmall">( <span class="i_b_t5"> 표시는 필수항목입니다.</span> )</span></h6>
+								<div class="form mt10 line bt bcm">
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<label for="pers_name" class="ff_title i_b"><strong>성명</strong></label>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<input type="text" class="input t1 w200" id="pers_name" value="${loginVo.pers_name }" readonly />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8">
+										<div class="f_field div2">
+											<label for="lic_no" class="ff_title i_b"><strong>면허번호</strong></label>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<input type="text" class="input t1 fl w200" id="lic_no" value="${loginVo.lic_no }" readonly />
+												</div>
+											</div>
+										</div>
+										<div class="f_field div2" style="display:none;">
+											<label for="lic_print_dt" class="ff_title i_b"><strong>면허발급일</strong></label>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<input type="text" class="input t1 fl w100" id="lic_print_dt" value="${personRow.lic_print_dt }"  maxlength="8"/>
+													<p class="fl text cp s1 ml10">예) 20150101</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<c:set var="mail" value="${fn:split(personRow.email,'@') }"/>
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<label for="mail1" class="ff_title i_b"><strong>이메일</strong></label>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<input type="text" class="input t1 fl w150" id="mail1" value="${mail[0] }" />
+													<label for="mail2" class="fl text ml10 mr10">@</label>
+													<input type="text" class="input t1 fl w150" id="mail2" value="${mail[1] }"/>
+													<label for="inputid6" class="ti">이메일 입력</label>
+													<select class="select t2 fl w150 ml5" id="inputid6" onchange="selectMail(this.value);">
+														<option value="" >직접입력</option>
+													 	<c:forEach var="result" items="${getEmail}" varStatus="status">
+														<option value="<c:out value="${result.detcodename}"/>" <c:if test="${result.detcodename==mail[1]}"> selected="selected"</c:if>  ><c:out value="${result.detcodename}"/></option>														
+														</c:forEach>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<label for="code_post" class="ff_title i_b"><strong>자택주소</strong></label>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<input type="text" class="input t1 fl w200" id="code_post" value="${personRow.code_post }" readonly />
+													<a href="javascript:openJusoPopup('1');" class="btn form t1 fl ml5">주소검색</a>
+													<p class="fl text cp">주소검색(우편번호) :  - 없이 한 칸으로 만들어주세요. </p>
+												</div>
+												<div class="area mt5">
+													<label for="pers_add" class="ti">기본주소</label>
+													<input type="text" class="input t1 fl w200" id="pers_add" value="${personRow.pers_add }"  readonly /> 
+													<label for="pers_add_detail" class="ti">상세주소</label> 
+													<input type="text" class="input t1 fl w300 ml5" id="pers_add_detail" value="${personRow.pers_add_detail }" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<div class="ff_title i_b"><strong>연락처</strong></div>
+											<div class="ff_wrap ml130">
+												<ul>
+													<li>
+														<div class="area">
+														<c:set var="tel0" value="${fn:substring(personRow.pers_tel,0,2) }"/>
+														<c:set var="telLength" value="${fn:length(personRow.pers_tel)}"/>
+														<c:choose>
+															<c:when test="${tel0=='02' }">
+																<c:set var="tel1" value="${fn:substring(personRow.pers_tel,0,2) }"/>
+																<c:set var="tel2" value="${fn:substring(personRow.pers_tel,2,telLength) }"/>	
+																	
+															</c:when>
+															<c:otherwise>
+																<c:set var="tel1" value="${fn:substring(personRow.pers_tel,0,3) }"/>	
+																<c:set var="tel2" value="${fn:substring(personRow.pers_tel,3,telLength) }"/>	
+															</c:otherwise>
+														</c:choose>
+															<label for="tel1" class="fl w100 text bold cm">일반전화</label>
+															<select class="select t2 fl w100" id="tel1">
+																<option value="" >선택</option>
+																<option value="02" <c:if test="${tel1 == '02'}"><c:out value="selected"/></c:if> >02</option>
+																<option value="031" <c:if test="${tel1 == '031'}"><c:out value="selected"/></c:if> >031</option>
+																<option value="032" <c:if test="${tel1 == '032'}"><c:out value="selected"/></c:if> >032</option>
+																<option value="033" <c:if test="${tel1 == '033'}"><c:out value="selected"/></c:if> >033</option>
+																<option value="041" <c:if test="${tel1 == '041'}"><c:out value="selected"/></c:if> >041</option>
+																<option value="042" <c:if test="${tel1 == '042'}"><c:out value="selected"/></c:if> >042</option>
+																<option value="043" <c:if test="${tel1 == '043'}"><c:out value="selected"/></c:if> >043</option>
+																<option value="044" <c:if test="${tel1 == '044'}"><c:out value="selected"/></c:if> >044</option>
+																<option value="051" <c:if test="${tel1 == '051'}"><c:out value="selected"/></c:if> >051</option>
+																<option value="052" <c:if test="${tel1 == '052'}"><c:out value="selected"/></c:if> >052</option>
+																<option value="053" <c:if test="${tel1 == '053'}"><c:out value="selected"/></c:if> >053</option>
+																<option value="054" <c:if test="${tel1 == '054'}"><c:out value="selected"/></c:if> >054</option>
+																<option value="055" <c:if test="${tel1 == '055'}"><c:out value="selected"/></c:if> >055</option>
+																<option value="061" <c:if test="${tel1 == '061'}"><c:out value="selected"/></c:if> >061</option>
+																<option value="062" <c:if test="${tel1 == '062'}"><c:out value="selected"/></c:if> >062</option>
+																<option value="063" <c:if test="${tel1 == '063'}"><c:out value="selected"/></c:if> >063</option>
+																<option value="064" <c:if test="${tel1 == '064'}"><c:out value="selected"/></c:if> >064</option>
+																<option value="070" <c:if test="${tel1 == '070'}"><c:out value="selected"/></c:if> >070</option>
+																<option value="010" <c:if test="${tel1 == '010'}"><c:out value="selected"/></c:if> >010</option>
+															</select>
+															<label for="tel2" class="fl text ml10 mr10">-</label>
+															<input type="text" class="input t1 fl w100" id="tel2" value="${tel2 }" maxlength="8"/>
+														</div>
+													</li>
+													<li class="mt5">
+														<div class="area">
+															<c:set var="hp0" value="${fn:length(personRow.pers_hp) }"/>
+															<c:choose>
+															<c:when test="${hp0==10 }">
+																<c:set var="hp1" value="${fn:substring(personRow.pers_hp,0,3) }"/>
+																<c:set var="hp2" value="${fn:substring(personRow.pers_hp,3,10) }"/>	
+															</c:when>
+															<c:when test="${hp0==11 }">
+																<c:set var="hp1" value="${fn:substring(personRow.pers_hp,0,3) }"/>	
+																<c:set var="hp2" value="${fn:substring(personRow.pers_hp,3,11) }"/>	
+															</c:when>
+														</c:choose>
+															<label for="hp1" class="fl w100 text bold cm">휴대폰</label>
+															<select class="select t2 fl w100" id="hp1">
+																<option value="" >선택</option>
+																<option value="010" <c:if test="${hp1 == '010'}"><c:out value="selected"/></c:if> >010</option>
+																<option value="011" <c:if test="${hp1 == '011'}"><c:out value="selected"/></c:if> >011</option>
+																<option value="016" <c:if test="${hp1 == '016'}"><c:out value="selected"/></c:if> >016</option>
+																<option value="017" <c:if test="${hp1 == '017'}"><c:out value="selected"/></c:if> >017</option>
+																<option value="018" <c:if test="${hp1 == '018'}"><c:out value="selected"/></c:if> >018</option>
+																<option value="019" <c:if test="${hp1 == '019'}"><c:out value="selected"/></c:if> >019</option>
+															</select>
+															<label for="hp2" class="fl text ml10 mr10">-</label>
+															<input type="text" class="input t1 fl w100" id="hp2" value="${hp2 }" maxlength="8"/>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<h6 class="title s1 i_b_t3 mt40"><mark class="bold">취업상황</mark> <span class="ssmall">( <span class="i_b_t5"> 표시는 필수항목입니다.</span> )</span></h6>
+								<div class="form mt10 line bt bcm">
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<div class="ff_title i_b"><strong>활동여부</strong></div>
+											<div class="ff_wrap ml130 text">
+												<div class="area">
+													<input type="radio" class="mr5" name="radio2" id="radio2_1" onclick="doActive(this.value);" value="1" />
+													<label for="radio2_1" class="mr20">집단급식소 근무</label>
+													<input type="radio" class="mr5" name="radio2" id="radio2_2" onclick="doActive(this.value);" value="2" />
+													<label for="radio2_2" class="mr20">비집단급식소 근무</label>
+													<input type="radio" class="mr5" name="radio2" id="radio2_3" onclick="doActive(this.value);" value="3" />
+													<label for="radio2_3" class="mr20">미활동(미취업)</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8 activeNo" id="active1" style="display:none;">
+										<div class="f_field div1">
+											<div class="ff_title i_b"><strong>집단급식소근무자</strong></div>
+											<div class="ff_wrap ml130 text">
+												<div class="area">
+													<ul>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_1" value="01"  onclick="doSubActive(this.value);" /><label for="radio3_1">산업체</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_2" value="02"  onclick="doSubActive(this.value);" /><label for="radio3_2">병원</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_3" value="03"  onclick="doSubActive(this.value);" /><label for="radio3_3">학교</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_4" value="04"  onclick="doSubActive(this.value);" /><label for="radio3_4">사회복지시설</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_5" value="05"  onclick="doSubActive(this.value);" /><label for="radio3_5">어린이집</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_6" value="06"  onclick="doSubActive(this.value);" /><label for="radio3_6">유치원</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_7" value="07"  onclick="doSubActive(this.value);" /><label for="radio3_7">교정</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_8" value="08"  onclick="doSubActive(this.value);" /><label for="radio3_8">군대</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_9" value="09"  onclick="doSubActive(this.value);" /><label for="radio3_9">경찰서</label></li>
+														<li class="fl w170"><input type="radio" class="mr5" name="active1" id="radio3_11" value="11"  onclick="doSubActive(this.value);" /><label for="radio3_11">소방서</label></li>
+													</ul>
+													<p class="area text cp">※ 근무 집단급식명 / 주소(공동관리의 경우 모두기재)</p>
+												</div>
+											</div>
+											<div class="ff_wrap ml130">
+												<ul id="addrUl1">
+													<li>
+														<div class="area">
+															<label for="cs_kitchen_name1" class="fl w100 text bold cm">집단급식소명</label>
+															<input type="text" class="input t1 fl w200" id="cs_kitchen_name1"/>
+														</div>
+														<div class="area mt5">
+															<label for="code_post1" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post1" readonly/>
+																	<a href="javascript:openJusoPopup('2');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="cs_kitchen_add11" class="ti">기본주소</label>
+																	<input type="text" class="input t1 fl w150" id="cs_kitchen_add11" readonly />
+																	<label for="cs_kitchen_add12" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="cs_kitchen_add12" />
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="mt5 pt5 line bt">
+														<div class="area">
+															<label for="cs_kitchen_name2" class="fl w100 text bold cm">집단급식소명</label>
+															<input type="text" class="input t1 fl w200" id="cs_kitchen_name2" />
+														</div>
+														<div class="area mt5">
+															<label for="code_post2" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post2" readonly/>
+																	<a href="javascript:openJusoPopup('3');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="cs_kitchen_add21" class="ti">기본주소</label>
+																	<input type="text" class="input t1 fl w150" id="cs_kitchen_add21" readonly/>
+																	<label for="cs_kitchen_add22" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="cs_kitchen_add22" />
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="mt5 pt5 line bt">
+														<div class="area">
+															<label for="cs_kitchen_name3" class="fl w100 text bold cm">집단급식소명</label>
+															<input type="text" class="input t1 fl w200" id="cs_kitchen_name3" />
+														</div>
+														<div class="area mt5">
+															<label for="code_post3" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post3" readonly/>
+																	<a href="javascript:openJusoPopup('4');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="cs_kitchen_add31" class="ti">기본주소</label>
+																	<input type="text" class="input t1 fl w150" id="cs_kitchen_add31" readonly/>
+																	<label for="cs_kitchen_add32" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="cs_kitchen_add32" />
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="mt5 pt5 line bt">
+														<div class="area">
+															<label for="cs_kitchen_name4" class="fl w100 text bold cm">집단급식소명</label>
+															<input type="text" class="input t1 fl w200" id="cs_kitchen_name4" />
+														</div>
+														<div class="area mt5">
+															<label for="code_post4" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post4" readonly/>
+																	<a href="javascript:openJusoPopup('5');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="cs_kitchen_add41" class="ti">기본주소</label>
+																	<input type="text" class="input t1 fl w150" id="cs_kitchen_add41" readonly/>
+																	<label for="cs_kitchen_add42" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="cs_kitchen_add42" />
+																</div>
+															</div>
+														</div>
+													</li>
+													<li class="mt5 pt5 line bt">
+														<div class="area">
+															<label for="cs_kitchen_name5" class="fl w100 text bold cm">집단급식소명</label>
+															<input type="text" class="input t1 fl w200" id="cs_kitchen_name5" />
+														</div>
+														<div class="area mt5">
+															<label for="code_post5" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post5" readonly/>
+																	<a href="javascript:openJusoPopup('6');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="cs_kitchen_add51" class="ti">기본주소</label>
+																	<input type="text" class="input t1 fl w150" id="cs_kitchen_add51" readonly/>
+																	<label for="cs_kitchen_add52" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="cs_kitchen_add52" />
+																</div>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8 activeNo" id="active2" style="display:none;">
+										<div class="f_field div1">
+											<div class="ff_title i_b"><strong>집단급식소외근무자</strong></div>
+											<div class="ff_wrap ml130 text">
+												<div class="area">
+													<ul>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_1" value="01" /><label for="radio4_1">건강기능식품 판매업소</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_2" value="02" /><label for="radio4_2">교육 및 연구기관</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_3" value="03" /><label for="radio4_3">어린이급식관리지원센터</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_4" value="04" /><label for="radio4_4">위탁급식전문업체(행정업무)</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_5" value="05" /><label for="radio4_5">보건소</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_6" value="06" /><label for="radio4_6">행정직 공무원</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_7" value="07" /><label for="radio4_7">육아종합지원센터</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active2" id="radio4_8" value="08" /><label for="radio4_8">식품제조 가공업소</label></li>
+														<li class="fl w240"><input type="radio" class="fl mr5" name="active2" id="radio4_9" value="09" /><label for="radio4_9" class="fl">기타</label><input type="text" class="input t1 fl w100 ml10" id="ncs_kitchen_ret_code"  maxlength="40"/></li>
+													</ul>
+												</div>
+											</div>
+											<div class="ff_wrap ml130">
+												<ul id="addrUl2">
+													<li>
+														<div class="area">
+															<label for="ncs_kitchen_name1" class="fl w100 text bold cm">근무처명</label>
+															<input type="text" class="input t1 fl w200" id="ncs_kitchen_name1" />
+														</div>
+														<div class="area mt5">
+															<label for="code_post6" class="fl w100 text bold cm">주소</label>
+															<div class="ml100">
+																<div class="area">
+																	<input type="text" class="input t1 fl w200" id="code_post6" readonly/>
+																	<a href="javascript:openJusoPopup('7');" class="btn form t1 fl ml5">주소검색</a>
+																</div>
+																<div class="area mt5">
+																	<label for="ncs_kitchen_add61" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w150" id="ncs_kitchen_add61" readonly/>
+																	<label for="ncs_kitchen_add62" class="ti">상세주소</label>
+																	<input type="text" class="input t1 fl w200 ml5" id="ncs_kitchen_add62" />
+																</div>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8 activeNo" id="active3" style="display:none;">
+										<div class="f_field div1">
+											<div class="ff_title i_b"><strong>미활동(미취업)</strong></div>
+											<div class="ff_wrap ml130 text">
+												<div class="area">
+													<ul id="addrUl3">
+														<li class="fl w240"><input type="radio" class="mr5" name="active3" id="radio5_1" value="1" /><label for="radio5_1">임신,출산,육아</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active3" id="radio5_2" value="2" /><label for="radio5_2">일시적 폐업, 실직</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active3" id="radio5_3" value="3" /><label for="radio5_3">질병, 사고 등</label></li>
+														<li class="fl w240"><input type="radio" class="mr5" name="active3" id="radio5_4" value="4" /><label for="radio5_4">해외체류</label></li>
+														<li class="fl w240"><input type="radio" class="fl mr5" name="active3" id="radio5_5" value="5" /><label for="radio5_5" class="fl">기타</label><input type="text" class="input t1 fl w100 ml10" id="cs_kitchen_ret_code" maxlength="40"/></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<h6 class="title s1 i_b_t3 mt40"><mark class="bold">보수교육 및 신고관련</mark> <span class="ssmall">( 자동확인 항목입니다. )</span></h6>
+								<div class="form mt10 line bt bcm">
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<div class="ff_title"><strong>최근신고연도</strong></div>
+											<div class="ff_wrap ml130">
+												<div class="area">
+													<ul>
+													<c:set var="length" value="${fn:length(recentYearRow)}"/>
+													<c:if test="${length<1 }"><li class="fl w150"><strong class="bold cm">신고 이력이 없습니다.</strong></li></c:if>
+													<c:forEach var="list" items="${recentYearRow}">
+														<li class="fl w150"><input type="text" class="input t1 w100" id="inputid36" value="<c:out value="${list.report_year }"/>" readonly /><label for="inputid36" class="ml5">년</label></li>
+													</c:forEach>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<div class="ff_title"><strong>보수교육 이수사항</strong></div>
+											<div class="ff_wrap ml130">
+												<div class="area text">
+													<ul>
+														<li>
+														<c:choose>
+															<c:when test="{length<1 }">
+																<strong class="bold cm">이수사항이 없습니다.</strong>
+															</c:when>
+															<c:otherwise>
+																총 (
+																<c:set var="comma" value="0"></c:set>																
+																<c:forEach var="list2" items="${recentRow}" varStatus="status">
+																	<c:if test="${comma !=0 }">,</c:if>
+																	<c:if test="${comma ==0 }"><c:set var="comma" value="1"/></c:if>
+																	<strong class="bold cm">${list2.cs_con_education }</strong> 년 ${list2.ar_finish_point }
+																</c:forEach>
+																) 시간 이수의무 중
+																(
+																<c:set var="comma" value="0"></c:set>																
+																<c:forEach var="list3" items="${recentRow}" varStatus="status">
+																	<c:if test="${comma !=0 }">,</c:if>
+																	<c:if test="${comma ==0 }"><c:set var="comma" value="1"/></c:if>
+																	<strong class="bold cm">${list3.cs_con_education }</strong> 년 ${list3.ar_state_kr} ${list3.ar_marks_point }
+																</c:forEach>
+																) 시간 이수
+															</c:otherwise>
+														</c:choose>
+														</li>
+														<%-- <c:if test="${length<1 }"><li><strong class="bold cm">이수사항이 없습니다.</strong></li></c:if>
+														<c:forEach var="list2" items="${recentRow}" varStatus="status">
+														<li><strong class="bold cm"><c:out value="${list2.yyyy }"/></strong>년
+														 총 <strong class="bold cm"><c:out value="${list2.ar_finish_point }"/></strong>
+														 시간 이수의무 중 <strong class="bold cm"><c:out value="${list2.ar_marks_point }"/></strong>시간
+														 <c:if test="${list2.ar_state=='0'}">이수</c:if>
+														 <c:if test="${list2.ar_state=='2'}">보수교육면제</c:if> 
+														 <c:if test="${list2.ar_state=='4'}">보수교육 대상 아님</c:if> 
+														 </li>
+														</c:forEach> --%>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box t1 r5 mt10 p20 text small">
+								<div class="area">
+									<p>『국민영양관리법』 제20조의2제 1항, 같은 법 시행령 제4조의2제1항 및 같은 법 시행규칙 제17조의2제1항에 따라 위와 같이 신고합니다.</p>
+									<p class="right">${yy }년 ${mm }월 ${dd }일</p>
+									<p class="right">신고인 <strong class="bold cm">${loginVo.pers_name }</strong></p>
+									<p><strong class="big s1 bold cm">대한영양사협회장</strong> 귀하</p>
+								</div>
+							</div>
+							
+							<div class="box t1 r5 mt10 p20 text small">
+								<div class="area">
+									<p><h6 class="title s1 i_b_t3 ">첨부서류</h6></p>
+									<p class="ff_title i_b"><span class="ml15"></span>· 교육 이수증(이수자는 자동 확인됩니다.)</p>
+									<p class="ff_title i_b"><span class="ml15"></span>· 교육면제 확인서(해당자는 자동 확인됩니다.)</p>
+								</div>
+							</div>
+							<div class="box t1 r5 mt10 p10" <c:if test="${null ne reportRow.ar_add_file_name}"> style="display:none;"</c:if>>
+								<h6 class="title s1 i_b_t3 mt40"><mark class="bold">첨부서류</mark><span class="ssmall">( <span class="i_b_t5"> 필수첨부</span> )</span></h6>
+								<div class="form mt10 line bt bcm">
+									<div class="f_wrap p8">
+										<div class="f_field div1">
+											<label for="bbs_file1" class="ff_title i_b"><strong>영양사 면허증 사본</strong></label>
+											<div class="ff_wrap ml180">
+												<form name="write" enctype="multipart/form-data" method="post">
+												<input type="hidden" name="step" value="step6">
+												<div class="area">
+													<input type="file" class="file t1"  id="bbs_file1" name="bbs_file1" />
+												</div>
+												<c:choose>
+												<c:when test="${null ne reportRow.ar_add_file_name}">
+												<div class="area text mt5">
+													파일명 ( ${reportRow.ar_add_file_name} <input type="checkbox" name="filecheck" id="filecheck" /> <label for="filecheck">삭제</label> )
+													<input type="hidden" id="bbs_file_url" value="${reportRow.ar_add_file_url}" />
+													<input type="hidden" id="file_yn" value="" />
+													<input type="hidden" id="ar_add_file_name" value="${reportRow.ar_add_file_name}" />
+													<input type="hidden" id="ar_add_file_url"  value="${reportRow.ar_add_file_url}" />
+													<input type="hidden" id="ar_add_file_type" value="${reportRow.ar_add_file_type}" />
+													<input type="hidden" id="ar_add_file_size" value="${reportRow.ar_add_file_size}" />
+												</div>
+												</c:when>
+												<c:otherwise>
+												<input type="hidden" id="bbs_file_url" value="" />
+												</c:otherwise>
+												</c:choose>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="btn_wrap mt30">
+						<ul>
+							<!-- 면허신고 년도 변경시 수정 : 면허신고 CLOSE - 링크삭제 Y - start  -->
+<!-- 							<li><a href="#" class="btn big t1">임시저장</a></li> -->
+<!-- 							<li><a href="#" class="btn big t2">제출</a></li> -->
+<!-- 							<li><a href="#" class="btn big">취소</a></li> -->
+							<!-- 면허신고 년도 변경시 수정 : 면허신고 CLOSE - 링크삭제 Y - end  -->
+							
+							<!-- 면허신고 년도 변경시 수정 : 면허신고 OPEN - 링크삭제 N - start  -->
+							<li><a href="javascript:doWrite('0');" class="btn big t1">임시저장</a></li>
+							<li><a href="javascript:doWrite('1');" class="btn big t2">제출</a></li>
+							<li><a href="javascript:doCancel();" class="btn big">취소</a></li>
+							<!-- 면허신고 년도 변경시 수정 : 면허신고 OPEN - 링크삭제 N - end  -->
+							
+						</ul>
+						<input type="hidden" id="jusoId" />
+					</div>
+

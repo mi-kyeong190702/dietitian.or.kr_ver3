@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+  <description>KDA functions library</description>
+  <display-name>KDA functions</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>kdaFn</short-name>
+ 
+  <function>
+    	<description>formatDayKo</description>
+    	<name>formatDayKo</name>
+    	<function-class>kda.utils.KdaStringUtil</function-class>
+    	<function-signature>java.lang.String getFormatDayKo(java.lang.String)</function-signature>
+    	<example>
+      			kdaFn:formatDayKo("20140101")
+    	</example>
+  </function>
+  <function>
+    	<description>getTodayString</description>
+    	<name>getTodayString</name>
+    	<function-class>kda.utils.KdaStringUtil</function-class>
+    	<function-signature>java.lang.String getTodayString()</function-signature>
+    	<example>
+      			kdaFn:getTodayString()
+    	</example>
+  </function>
+  
+	<function>
+    	<description>formatDay</description>
+    	<name>formatDay</name>
+    	<function-class>kda.utils.KdaStringUtil</function-class>
+    	<function-signature>java.lang.String convDate(java.lang.String)</function-signature>
+    	<example>
+      			kdaFn:formatDay("20140101")
+    	</example>
+  	</function>
+  	
+  	<function>
+  		<description>formatDay2</description>
+  		<name>formatDay2</name>
+  		<function-class>kda.utils.KdaStringUtil</function-class>
+    	<function-signature>java.lang.String convDate2(java.lang.String)</function-signature>
+    	<example>
+      			kdaFn:formatDay2("20140101")
+    	</example>
+  	</function>
+  
+  	<function>
+    	<description>cleanHtml</description>
+    	<name>cleanHtml</name>
+    	<function-class>kda.utils.KdaHtmlUtil</function-class>
+    	<function-signature>java.lang.String clean(java.lang.String)</function-signature>
+    	<example>
+      			kdaFn:clean("20140101")
+    	</example>
+  	</function>
+  	
+  	<function>
+  			<description>convHTML</description>
+    	<name>convHTML</name>
+    	<function-class>kda.utils.KdaHtmlUtil</function-class>
+    	<function-signature>java.lang.String convHTML(java.lang.String)</function-signature>
+    	<example>
+      			kdaFn:convHTML("text\ntext")
+    	</example>
+  	
+  	</function>
+
+  
+</taglib>
+  
+ 

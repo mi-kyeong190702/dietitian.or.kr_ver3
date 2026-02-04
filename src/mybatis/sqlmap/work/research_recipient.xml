@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="researchRecipient">
+
+
+	<sql id="recipientColumn">
+		code_seq
+		,cs_secter
+		,cs_secter_organ
+		,pers_hp
+		,email
+		,code_post
+		,pers_add
+		,pers_add_detail
+		,cs_non_target
+		,cs_non_target_detail
+		,cs_attachments
+		,ar_regi_date
+		,ar_conform_date
+		,up_date
+		,cs_attachments_url
+		,cs_attachments_type
+		,cs_attachments_size
+		,pers_name
+		,lic_no
+		,pers_year
+		,authority_premises
+		,ar_state
+		,code_sex
+		,cs_con_education
+	</sql>
+	
+	<select id="personCheck" parameterType="hashmap" resultType="int">
+	SELECT	
+		COUNT(code_seq)
+	FROM 	ACTUL_PERSON
+	WHERE 	pers_name=#{pers_name}
+	AND 		lic_no=#{lic_no}
+	</select>
+	
+	<select id="recipientCheck" parameterType="hashmap" resultType="int">
+	SELECT	
+		COUNT(code_seq)
+	FROM		actul_subjects 
+	WHERE 	pers_name=#{pers_name}
+	AND 		lic_no=#{lic_no}
+	AND   cs_con_education=#{cs_con_education} <!-- 20160118 보숙교육미대상자 조건 추가 -->
+	</select>
+	
+	<select id="recipientCheck1" parameterType="hashmap" resultType="int">
+	SELECT	
+		COUNT(code_seq)
+	FROM		actul_status
+	WHERE 	pers_name=#{pers_name}
+	AND 		lic_no=#{lic_no}
+	AND   cs_con_education=#{cs_con_education}
+	AND  ar_state in('0','1','2','4','5') <!-- 20160118 보숙교육미대상자 조건 추가 -->
+	</select>
+	
+	
+	<insert id="insertRecipient">
+	<selectKey keyProperty="code_seq" resultType="int" order="BEFORE">
+	SELECT
+		ISNULL(MAX(code_seq), 0) + 1
+	FROM actul_subjects
+	</selectKey>
+	INSERT INTO actul_subjects
+	(
+		code_seq
+		,cs_secter
+		,cs_secter_organ
+		,pers_hp
+		,email
+		,code_post
+		,pers_add
+		,pers_add_detail
+		,cs_non_target
+		,cs_non_target_detail
+		,cs_attachments
+		,ar_regi_date
+		,cs_attachments_url
+		,cs_attachments_type
+		,cs_attachments_size
+		,pers_name
+		,lic_no
+		,pers_year
+		,authority_premises
+		,code_sex
+		,cs_con_education
+		,ar_state
+		,cs_attachments2
+		,cs_attachments_url2
+		,cs_attachments_type2
+		,cs_attachments_size2
+		,cs_attachments3
+		,cs_attachments_url3
+		,cs_attachments_type3
+		,cs_attachments_size3
+	)
+	VALUES
+	(
+		#{code_seq}
+		,#{cs_secter}
+		,#{cs_secter_organ}
+		,#{pers_hp}
+		,#{email}
+		,#{code_post}
+		,#{pers_add}
+		,#{pers_add_detail}
+		,#{cs_non_target}
+		,#{cs_non_target_detail}
+		,#{cs_attachments}
+		,GETDATE()
+		,#{cs_attachments_url}
+		,#{cs_attachments_type}
+		,#{cs_attachments_size}
+		,#{pers_name}
+		,#{lic_no}
+		,#{pers_year}
+		,#{authority_premises}
+		,#{code_sex}
+		,#{cs_con_education}
+		,'0'
+		,#{cs_attachments2}
+		,#{cs_attachments_url2}
+		,#{cs_attachments_type2}
+		,#{cs_attachments_size2}
+		,#{cs_attachments3}
+		,#{cs_attachments_url3}
+		,#{cs_attachments_type3}
+		,#{cs_attachments_size3}
+	)
+	</insert>
+	
+	<select id="getRecipientEduList" parameterType="hashmap" resultType="hashmap">
+	SELECT cs_con_education as edu
+	  FROM actul_subjects 
+	 WHERE pers_name=#{pers_name}
+	   AND lic_no=#{lic_no}
+	   AND ar_state = '3'
+	</select>
+	
+	<update id="updateRecipient">
+	UPDATE actul_subjects
+	SET   ar_state = '3'
+		, cs_attachments = #{cs_attachments}
+		, cs_attachments_url = #{cs_attachments_url}
+		, cs_attachments_type = #{cs_attachments_type}
+		, cs_attachments_size = #{cs_attachments_size}
+	WHERE pers_name=#{pers_name}
+	  AND lic_no=#{lic_no}
+	  AND ar_state = '3'
+	</update>
+	
+	<update id="updateRecipientDetail">
+	UPDATE actul_subjects
+	SET   ar_state = '0'
+		, cs_attachments = #{cs_attachments}
+		, cs_attachments_url = #{cs_attachments_url}
+		, cs_attachments_type = #{cs_attachments_type}
+		, cs_attachments_size = #{cs_attachments_size}
+		, cs_attachments2 = #{cs_attachments2}
+		, cs_attachments_url2 = #{cs_attachments_url2}
+		, cs_attachments_type2 = #{cs_attachments_type2}
+		, cs_attachments_size2 = #{cs_attachments_size2}
+		, cs_attachments3 = #{cs_attachments3}
+		, cs_attachments_url3 = #{cs_attachments_url3}
+		, cs_attachments_type3 = #{cs_attachments_type3}
+		, cs_attachments_size3 = #{cs_attachments_size3}
+		, cs_non_target = #{cs_non_target}
+		, cs_non_target_detail = #{cs_non_target_detail}
+		, up_date = GETDATE()
+	WHERE pers_name=#{pers_name}
+	  AND lic_no=#{lic_no}
+	  AND cs_con_education = #{cs_con_education}
+	  AND ar_state = '3'
+	</update>
+	
+	<select id="personInfoCheck" parameterType="hashmap" resultType="hashmap">
+	SELECT case when #{pers_hp} = (select max(pers_hp)
+										 from actul_subjects
+										where 1=1
+										  and ar_state = '3'
+										  and pers_name = #{pers_name}
+										  and lic_no = #{lic_no})
+		   then COUNT(code_seq)
+		   else -1
+	  	   end hpCnt
+	  	   , COUNT(code_seq) pCnt
+	  	   , (select COUNT(code_seq)
+				from actul_subjects
+			   where 1=1
+				 and ar_state = '3'
+				 and pers_name = #{pers_name}
+				 and lic_no = #{lic_no}) rCnt
+	 FROM ACTUL_PERSON
+	WHERE pers_name=#{pers_name}
+	  AND lic_no=#{lic_no}
+	</select>
+</mapper>
+

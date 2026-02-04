@@ -1,0 +1,109 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="3"/>
+ </o:shapelayout><v:background id="_x0000_s3073" o:bwmode="white" fillcolor="white [0]">
+  <v:fill color2="#c0504d [5]"/>
+ </v:background><p:shaperange id="Picture_x0020_3">
+  <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+   o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_3" o:spid="_x0000_s3074" type="#_x0000_t75"
+   style='position:absolute;left:3.125pt;top:40.375pt;width:773.75pt;height:459.25pt;
+   visibility:visible;mso-wrap-style:square' o:userdrawn="t">
+   <v:imagedata src="master24_image002.png" o:title=""/>
+  </v:shape></p:shaperange>
+ <p:shaperange id="_x0000_m3075">
+  <v:shapetype id="_x0000_m3075" style='position:absolute;left:27.125pt;top:8.375pt;
+   width:413.875pt;height:38.625pt;visibility:visible;mso-wrap-style:none;
+   v-text-anchor:middle' coordsize="21600,21600" o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe"
+   filled="f" stroked="f" strokeweight="1pt">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" endcap="round" o:forcedash="t"/>
+   <v:shadow on="t" type="perspective" color="#eeece1 [2]" opacity=".5"
+    origin=".5,.5" offset="0,0" matrix=",-92680f,,,,-95367431641e-17"/>
+   <v:path arrowok="t" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox style='mso-rotate-with-shape:t' inset="0,1mm,0,1mm"/>
+   <p:placeholder type="title"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_m3076">
+  <v:shapetype id="_x0000_m3076" style='position:absolute;left:27.125pt;top:65.875pt;
+   width:702pt;height:68pt;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:top' coordsize="21600,21600" o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe"
+   filled="f" stroked="f" strokeweight="1pt">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" endcap="round" o:forcedash="t"/>
+   <v:shadow on="t" type="perspective" color="#eeece1 [2]" opacity=".5"
+    origin=".5,.5" offset="0,0" matrix=",-92680f,,,,-95367431641e-17"/>
+   <v:path arrowok="t" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox style='mso-rotate-with-shape:t' inset="0,0,0,1.2695mm"/>
+   <p:placeholder type="body" position="1"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s3077">
+  <v:shapetype id="_x0000_s3077" style='position:absolute;left:299pt;top:525.125pt;
+   width:182pt;height:14.875pt;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:middle' coordsize="21600,21600" o:master="" o:spt="1"
+   o:gfxdata="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
+" path="m,l,21600r21600,l21600,xe" filled="f" stroked="f">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path arrowok="t" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox style='mso-rotate-with-shape:t'/>
+   <p:placeholder type="slideNumber" position="4" size="quarter"/>
+  </v:shapetype></p:shaperange>
+</xml>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminBoard">
+
+
+	<sql id="boardColumn">
+		bs_idx
+		,bs_code
+		,bs_name
+		,bs_admin
+		,bs_tableName
+		,bs_tableNameComments
+		,bs_Comments
+		,bs_pds
+		,bs_Category
+		,bs_CategoryType
+		,bs_ViewLevel
+		,bs_WriteLevel
+		,bs_ListLevel
+		,bs_sTagLevel
+		,bs_cTagLevel
+		,bs_SubMenuIndex
+		,bs_TopHtml
+		,bs_bottomHtml
+		,bs_topadd
+		,bs_toplink
+		,bs_toptype
+	</sql>
+	
+	<select id="selectBoardCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(bs_idx)
+	FROM 	Paper_Board_Settings
+	WHERE 	1 = 1
+	</select>
+	
+	<select id="selectBoardListHelper" parameterType="hashmap" resultType="kda.admin.board.data.ADMINPAPERBOARDSETTINGS">
+	SELECT 
+		num ,
+		<include refid="boardColumn" /> 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by bs_idx desc ) AS num ,
+			 <include refid="boardColumn" />
+		FROM		Paper_Board_Settings
+		WHERE 	1 = 1
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getBoard" parameterType="hashmap" resultType="kda.admin.board.data.ADMINPAPERBOARDSETTINGS">
+	SELECT
+		<include refid="boardColumn" />
+	FROM		Paper_Board_Settings
+	WHERE	bs_code=#{bs_code}
+	</select>
+	
+	<insert id="insertBoard" parameterType="kda.admin.board.data.ADMINPAPERBOARDSETTINGS">
+	<selectKey keyProperty="bs_code" resultType="int" order="BEFORE">
+	SELECT
+		ISNULL(MAX(bs_idx), 0) + 1
+	FROM Paper_Board_Settings
+	</selectKey>
+	INSERT	INTO Paper_Board_Settings
+	(
+		bs_code
+		,bs_name
+		,bs_admin
+		,bs_Comments
+		,bs_pds
+		,bs_Category
+		,bs_CategoryType
+		,bs_ViewLevel
+		,bs_WriteLevel
+		,bs_ListLevel
+		,bs_sTagLevel
+		,bs_cTagLevel
+		,bs_SubMenuIndex
+		,bs_TopHtml
+		,bs_bottomHtml
+	)VALUES
+	(
+		#{bs_code}
+		,#{bs_name}
+		,#{bs_admin}
+		,#{bs_Comments}
+		,#{bs_pds}
+		,#{bs_Category}
+		,#{bs_CategoryType}
+		,#{bs_ViewLevel}
+		,#{bs_WriteLevel}
+		,#{bs_ListLevel}
+		,#{bs_sTagLevel}
+		,#{bs_cTagLevel}
+		,#{bs_SubMenuIndex}
+		,#{bs_TopHtml}
+		,#{bs_bottomHtml}
+	)
+	</insert>
+	
+	<update id="updateBoard" parameterType="kda.admin.board.data.ADMINPAPERBOARDSETTINGS">
+	UPDATE	Paper_Board_Settings
+	SET		bs_name=#{bs_name}
+				,bs_admin=#{bs_admin}
+				,bs_Comments=#{bs_Comments}
+				,bs_pds=#{bs_pds}
+				,bs_Category=#{bs_Category}
+				,bs_CategoryType=#{bs_CategoryType}
+				,bs_ViewLevel=#{bs_ViewLevel}
+				,bs_WriteLevel=#{bs_WriteLevel}
+				,bs_ListLevel=#{bs_ListLevel}
+				,bs_sTagLevel=#{bs_sTagLevel}
+				,bs_cTagLevel=#{bs_cTagLevel}
+				,bs_SubMenuIndex=#{bs_SubMenuIndex}
+				,bs_TopHtml=#{bs_TopHtml}
+				,bs_bottomHtml=#{bs_bottomHtml}
+	WHERE	bs_code=#{bs_code}
+	</update>
+	
+</mapper>
+

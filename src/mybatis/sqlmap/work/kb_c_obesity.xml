@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kb_c_obesity_adult">
+	
+	<resultMap type="KB_C_OBESITY_ADULT" id="KB_C_OBESITY_ADULT">
+		<result property="division_sex"        column="DIVISION_SEX"/>      
+		<result property="age"                 column="AGE"/>               
+		<result property="exhort_kcal"         column="EXHORT_KCAL"/>       
+		<result property="general_fr_high"     column="GENERAL_FR_HIGH"/>   
+		<result property="general_to_high"     column="GENERAL_TO_HIGH"/>   
+		<result property="standard_wt"         column="STANDARD_WT"/>       
+		<result property="standard_fr_high"    column="STANDARD_FR_HIGH"/>  
+		<result property="standard_to_high"    column="STANDARD_TO_HIGH"/>  
+		<result property="kg_exhort_kacl"      column="KG_EXHORT_KACL"/>    
+		<result property="obe_seqno"           column="OBE_SEQNO"/>         
+		<result property="obe_adult"           column="OBE_ADULT"/>         
+		<result property="obe_from"            column="OBE_FROM"/>          
+		<result property="obe_to"              column="OBE_TO"/>            
+		<result property="obe_desc"            column="OBE_DESC"/>          
+		<result property="to_max_value"        column="TO_MAX_VALUE"/>      
+		<result property="fr_min_value"        column="FR_MIN_VALUE"/>      
+		<result property="whr_check"           column="WHR_CHECK"/>         
+		<result property="comment"             column="COMMENT"/>           
+		<result property="gre_adult"           column="GRE_ADULT"/>         
+		<result property="gre_fr"              column="GRE_FR"/>            
+		<result property="gre_to"              column="GRE_TO"/>            
+		<result property="gre_desc"            column="GRE_DESC"/>          
+		<result property="gre_sex"             column="GRE_SEX"/>           
+		<result property="blp_adult"           column="BLP_ADULT"/>         
+		<result property="fr_age"              column="FR_AGE"/>            
+		<result property="to_age"              column="TO_AGE"/>            
+		<result property="check_value"         column="CHECK_VALUE"/>       
+		<result property="fr_blp_s"            column="FR_BLP_S"/>          
+		<result property="to_blp_s"            column="TO_BLP_S"/>          
+		<result property="fr_blp_e"            column="FR_BLP_E"/>          
+		<result property="to_blp_e"            column="TO_BLP_E"/>          
+		<result property="division"            column="DIVISION"/>          
+		<result property="fr_before_bls"       column="FR_BEFORE_BLS"/>     
+		<result property="to_before_bls"       column="TO_BEFORE_BLS"/>     
+		<result property="fr_after_bls"        column="FR_AFTER_BLS"/>      
+		<result property="to_after_bls"        column="TO_AFTER_BLS"/>      
+		<result property="act_seqno"           column="ACT_SEQNO"/>         
+		<result property="act_desc"            column="ACT_DESC"/>          
+		<result property="act_index"           column="ACT_INDEX"/>         
+		<result property="rda_sex"             column="RDA_SEX"/>           
+		<result property="rda_from"            column="RDA_FROM"/>          
+		<result property="rda_to"              column="RDA_TO"/>            
+		<result property="rda_energy"          column="RDA_ENERGY"/>  
+	</resultMap>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT STANDARD_WT
+		FROM HWA_TBL
+		WHERE DIVISION_SEX = #{ls_sex}
+		AND STANDARD_FR_HIGH <= #{ll_fhit}
+		AND STANDARD_TO_HIGH >= #{ll_fhit}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT OBE_SEQNO,OBE_DESC FROM OBE_M
+		WHERE OBE_ADULT = #{l_gubun}
+		AND OBE_FROM <= #{ll_weight}
+		AND OBE_TO >= #{ll_weight}
+	]]>		
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT COMMENT FROM WHR_M
+		WHERE WHR_CHECK = '2'
+		AND FR_MIN_VALUE <= #{ll_waist} 
+		AND TO_MAX_VALUE >= #{ll_waist}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT COMMENT FROM WHR_M
+		WHERE WHR_CHECK = '2'
+		AND FR_MIN_VALUE <= #{ll_waist}
+		AND TO_MAX_VALUE > #{ll_waist}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT COMMENT FROM WHR_M
+		WHERE WHR_CHECK = '1'
+		AND FR_MIN_VALUE <= #{ll_whr} 
+		AND TO_MAX_VALUE > #{ll_whr}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT GRE_DESC FROM GRE_M 
+		WHERE GRE_ADULT = #{l_fatgbn}
+		AND GRE_SEX = #{CINT(ls_sex) 
+		AND GRE_FR <= #{ll_fat}
+		AND GRE_TO > #{ll_fat}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT COMMENT, CHECK_VALUE FROM BLP_M 
+		WHERE BLP_ADULT = #{l_bloodgbn}
+		AND FR_BLP_S <= #{ll_bloodph}
+		AND TO_BLP_S >= #{ll_bloodph}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT COMMENT, CHECK_VALUE FROM BLP_M 
+		WHERE BLP_ADULT = #{l_bloodgbn}
+		AND FR_BLP_E <= #{ll_bloodpl}
+		AND TO_BLP_E >= #{ll_bloodpl}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT COMMENT, CHECK_VALUE FROM BLP_M 
+		WHERE BLP_ADULT = #{l_bloodgbn}
+		AND FR_AGE <= #{ll_age} 
+		AND TO_AGE >= #{ll_age}
+		AND FR_BLP_S <= #{ll_bloodph} 
+		AND TO_BLP_S >= #{ll_bloodph}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT COMMENT, CHECK_VALUE FROM BLP_M 
+		WHERE BLP_ADULT = #{l_bloodgbn}
+		AND FR_AGE <= #{ll_age}
+		AND TO_AGE >= #{ll_age}
+		AND FR_BLP_E <= #{ll_bloodpl}
+		AND TO_BLP_E >= #{ll_bloodpl}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT COMMENT FROM BLS_M2 WHERE DIVISION = #{l_bloodgbn}
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT COMMENT FROM BLS_M2 WHERE DIVISION = #{l_bloodgbn}
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT DIVISION FROM BLS_M 
+		WHERE FR_BEFORE_BLS <= #{ll_bloodsb}
+		AND TO_BEFORE_BLS >= #{ll_bloodsb}
+		AND FR_AFTER_BLS <= #{ll_bloodsa}
+		AND TO_AFTER_BLS >= #{ll_bloodsa}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT COMMENT FROM BLS_M2 WHERE DIVISION = #{TRIM(L_TEMP(division))}
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT ACT_INDEX FROM ACT_M WHERE ACT_SEQNO = #{ll_action}
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT RDA_ENERGY FROM RDA_M
+		WHERE RDA_SEX = #{ls_sex}
+		A = A &	 AND RDA_FROM <= #{ll_age}
+		AND RDA_TO >= #{ll_age}
+	]]>
+	</select>
+		
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT STANDARD_WT, GENERAL_FR_HIGH, GENERAL_TO_HIGH, EXHORT_KCAL
+		FROM HWA_TBL
+		WHERE DIVISION_SEX = #{sex}
+		AND STANDARD_FR_HIGH <= #{fhit}
+		AND STANDARD_TO_HIGH >= #{fhit}
+	]]>
+	</select>
+
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[
+		SELECT COUNT(*) FROM HWA_TBL
+			WHERE DIVISION_SEX = #{sex}
+			AND AGE = #{fage}
+			AND GENERAL_FR_HIGH <= #{fhit} 
+			AND GENERAL_TO_HIGH >= #{fhit}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+	<![CDATA[	
+		SELECT EXHORT_KCAL FROM HWA_TBL
+			WHERE DIVISION_SEX = #{Sex}
+			AND AGE = #{fage}
+			AND GENERAL_FR_HIGH <=#{fhit} 
+			AND GENERAL_TO_HIGH >=#{fhit}
+	]]>
+	</select>
+	
+	<select id=""  parameterType="hashmap" resultMap="KB_C_HABITS_DIAGNOSIS">
+		SELECT OBE_DESC FROM OBE_TBL WHERE OBE_SEQNO =#{fatcode}
+	</select>
+</mapper>
+

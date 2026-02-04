@@ -1,0 +1,102 @@
+<%
+	if boardcode = "" then
+		boardcode = trim(request("boardcode"))
+	end if
+	
+	if boardcode = "" then
+		response.Redirect("/")
+		response.End
+	end if
+
+	sql = "select * from Paper_Board_Settings where bs_code = '" & boardcode & "'"
+
+	set bsrs = server.CreateObject("adodb.recordset")
+	bsrs.open sql,db,0
+	
+	if bsrs.EOF then
+		Error("게시판 코드가 잘못되었습니다.")
+	end if
+
+
+	' 테이블 이름
+	Bs_TableName = bsrs("bs_tableName")
+	
+	' 의견글 테이블 이름
+	Bs_TableNameComments = bsrs("bs_tableNameComments")
+	
+	' 의견글 출력 유무
+	if bsrs("bs_Comments") then
+		Bs_Comments = true
+	else
+		Bs_Comments = false
+	end if
+	
+	' 파일 업로드 유무
+	if bsrs("bs_pds") then
+		Bs_Pds = true
+	else
+		Bs_Pds = false
+	end if
+	
+	if bsrs("bs_category") then
+		bs_category = true
+	else
+		bs_category = false
+	end if
+	
+	
+	
+	Bs_CategoryType	= split(bsrs("bs_CategoryType"),chr(13) & chr(10))
+	Bs_Admin				= split(bsrs("bs_Admin"),chr(13) & chr(10))
+
+	for each boardadmin in Bs_Admin 
+		if user_id  = boardadmin and user_id <> "" then
+			UserLevel = 2
+			exit for
+		end if
+	next
+
+
+	'if UserLevel > cint(bsrs("bs_WriteLevel")) then
+	'	Bs_Write = false
+	'else
+		Bs_Write = true
+	'end if
+	
+	'if UserLevel > cint(bsrs("bs_ViewLevel")) then
+	'	Bs_View = false
+	'else
+		Bs_View = true
+	'end if
+	
+	'if UserLevel > cint(bsrs("bs_ListLevel")) then
+	'	Bs_List = false
+	'else
+		Bs_List = true
+	'end if
+	
+	'if UserLevel > cint(bsrs("bs_sTagLevel")) then
+	'	Bs_sTag = false
+	'else
+		Bs_sTag = true
+	'end if
+	
+	'if UserLevel > cint(bsrs("bs_cTagLevel")) then
+	'	Bs_cTag = false
+	'else
+		Bs_cTag = true
+	'end if
+	
+	
+	
+	
+	
+	
+	Bs_SubMenuIndex	= bsrs("bs_SubMenuIndex")
+	Bs_TopHtml			= bsrs("bs_TopHtml")
+	Bs_BottomHtml		= bsrs("bs_bottomHtml")
+	
+	bsrs.close
+	set bsrs = nothing
+
+%>

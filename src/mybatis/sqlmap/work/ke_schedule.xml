@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ke_schedule">
+	<resultMap type="PTB_EDUSCHEDULE" id="PTB_EDUSCHEDULE">
+		<result property="ilindex" 				column="ILINDEX"/>
+		<result property="ilsponsor" 		column="ILSPONSOR"/>
+		<result property="ileduname" 		column="ILEDUNAME"/>
+		<result property="ilname" 			column="ILNAME"/>
+		<result property="ilsubject" 		column="ILSUBJECT"/>
+		<result property="ilcontents" 		column="ILCONTENTS"/>
+		<result property="illocation" 		column="ILLOCATION"/>		
+		<result property="iltime" 			column="ILTIME"/>
+		<result property="iltel" 			column="ILTEL"/>
+		<result property="ilrecognition" 	column="ILRECOGNITION"/>
+		<result property="ilrecognition_sub" 	column="ILRECOGNITION_SUB"/>
+		<result property="iltype" 			column="ILTYPE"/>
+		<result property="ilpoint" 			column="ILPOINT"/>
+		<result property="ilyear" 			column="ILYEAR"/>
+		<result property="ilmonth" 			column="ILMONTH"/>
+		<result property="ilday" 			column="ILDAY"/>
+		<result property="ilurl" 			column="ILURL"/>
+	</resultMap>
+	
+
+	
+	
+	
+	<select id="get_eduschedule_list" parameterType="hashmap" resultMap="PTB_EDUSCHEDULE">
+	  	SELECT ILINDEX
+		  	, ILSPONSOR
+		  	, ILEDUNAME
+		  	, ILNAME
+		  	, ILSUBJECT
+		  	, ILCONTENTS
+		  	, ILLOCATION
+		  	, ILTIME
+		  	, ILTEL
+		  	, ILRECOGNITION
+		  	, ILTYPE
+		  	, ILPOINT
+		  	, ILYEAR
+		  	, ILMONTH
+		  	, ILDAY
+		  	, ILURL 
+	  	FROM PTB_EDUSCHEDULE WHERE ILYEAR = #{ilyear} AND ILMONTH = #{ilmonth}
+	</select>
+	
+	
+	
+	<select id="get_eduschedule_detail" parameterType="hashmap" resultMap="PTB_EDUSCHEDULE">
+	  	SELECT ILINDEX
+		  	, ILSPONSOR
+		  	, ILEDUNAME
+		  	, ILNAME
+		  	, ILSUBJECT
+		  	, ILCONTENTS
+		  	, ILLOCATION
+		  	, ILTIME
+		  	, ILTEL
+		  	, ILRECOGNITION
+		  	, ILRECOGNITION_SUB
+		  	, ILTYPE
+		  	, ILPOINT
+		  	, ILYEAR
+		  	, ILMONTH
+		  	, ILDAY
+		  	, ILURL 
+	  	FROM PTB_EDUSCHEDULE WHERE ILINDEX = #{ilindex}
+	</select>
+	
+		<insert id="insert_eduschedule" parameterType="hashmap">
+		INSERT INTO PTB_EDUSCHEDULE(
+			ILSPONSOR,
+			ILEDUNAME,
+			ILNAME,
+			ILSUBJECT,
+			ILCONTENTS,
+			ILLOCATION,
+			ILTIME,
+			ILTEL,
+			ILRECOGNITION,
+			ILTYPE,
+			ILPOINT,
+			ILYEAR,
+			ILMONTH,
+			ILDAY,			
+			ILRECOGNITION_SUB,
+			ILURL
+		) VALUES(
+			#{ilsponsor},
+			#{ileduname},
+			#{ilname},
+			#{ilsubject},
+			#{ilcontents},
+			#{illocation},
+			#{iltime},
+			#{iltel},
+			#{ilrecognition},
+			#{iltype},
+			#{ilpoint},
+			#{ilyear},
+			#{ilmonth},
+			#{ilday},
+			#{ilrecognition_sub},
+			#{ilurl}
+		)
+	</insert>
+	
+	<update id="update_eduschedule"  parameterType="hashmap" >
+		UPDATE PTB_EDUSCHEDULE SET
+			ILSPONSOR = #{ilsponsor},
+			ILEDUNAME = #{ileduname},
+			ILNAME = #{ilname},
+			ILSUBJECT = #{ilsubject},
+			ILCONTENTS = #{ilcontents},
+			ILLOCATION = #{illocation},
+			ILTIME = #{iltime},
+			ILTEL = #{iltel},
+			ILRECOGNITION = #{ilrecognition},
+			ILTYPE = #{iltype},
+			ILPOINT = #{ilpoint},
+			ILYEAR = #{ilyear},
+			ILMONTH = #{ilmonth},
+			ILDAY = #{ilday},
+			ILRECOGNITION_SUB = #{ilrecognition_sub},
+			ILURL = #{ilurl}
+		WHERE ILINDEX = #{ilindex}
+	</update>
+	
+	<delete id="delete_eduschedule" parameterType="hashmap">
+		DELETE FROM PTB_EDUSCHEDULE WHERE ILINDEX= #{ilindex}
+	</delete>
+</mapper>
+

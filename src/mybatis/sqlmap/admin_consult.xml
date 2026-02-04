@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminConsult">
+
+
+	<sql id="consultColumn">
+		cuserId           
+		,cuserName     
+	</sql>
+	
+	<select id="selectConsultCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(cuserId)
+	FROM 	pTb_ConsultUserId
+	</select>
+	
+	<select id="selectConsultListHelper" parameterType="hashmap" resultType="kda.admin.consult.data.PTBCONSULTUSERID">
+  	SELECT 
+		num ,
+		<include refid="consultColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  cuserId DESC ) AS num , 
+			<include refid="consultColumn" />
+		FROM		pTb_ConsultUserId
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getConsultCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(cuserId)
+	FROM 	pTb_ConsultUserId
+	WHERE 	cuserId=#{cuserId}	
+	</select>
+	
+	<insert id="insertConsult" parameterType="hashmap" >
+	INSERT INTO pTb_ConsultUserId
+	(
+	<include refid="consultColumn" /> 
+	)
+	VALUES 
+	(
+		#{cuserId}           
+		,#{cuserName}
+	)
+	</insert>
+	
+	<delete id="deleteConsult" parameterType="hashmap" >
+	DELETE FROM	pTb_ConsultUserId
+	WHERE 	cuserId=#{cuserId}	
+	</delete>
+	
+</mapper>
+

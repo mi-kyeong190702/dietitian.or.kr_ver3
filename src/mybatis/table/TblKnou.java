@@ -1,0 +1,19 @@
+package mybatis.table;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data public class TblKnou //방�?��?��????�??��??
+{
+	private int Kn_Code;   //??�?
+	private String Kn_Name;   //?��?
+	private String pers_birth;   //???????? - ??�?
+	private String Kn_Home_Post;   //?��?��???
+	private String Kn_Home_Addr;   //주�??
+	private String Kn_Home_Tel;   //????
+	private String Kn_Contents;   //?��??
+	private String Kn_join_Date;   //??�?
+	private String Kn_Home_pcs;   //?��??�??��????
+}

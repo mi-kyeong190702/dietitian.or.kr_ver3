@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="research_report">
+	<resultMap type="ACTULPERSON" id="ACTULPERSON">
+		<result property="pers_name" 		column="PERS_NAME"/>
+		<result property="lic_no" 		column="LIC_NO"/>
+		<result property="lic_print_dt" 		column="LIC_PRINT_DT"/>
+		<result property="code_sex" 		column="CODE_SEX"/>
+		<result property="pers_year" 	column="PERS_YEAR"/>
+		<result property="code_post" 	column="CODE_POST"/>
+		<result property="pers_add" 	column="PERS_ADD"/>
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>
+		<result property="pers_tel" 	column="PERS_TEL"/>
+		<result property="pers_hp" 	column="PERS_HP"/>
+		<result property="email" 	column="EMAIL"/>
+		<result property="pers_state" 	column="PERS_STATE"/>
+		<result property="pwchk" 		column="PWCHK"/>
+		<result property="ar_state" 		column="AR_STATE"/>
+	</resultMap>
+	
+	<resultMap type="ACTULSTATUS" id="ACTULSTATUS">
+		<result property="pers_name" 		column="PERS_NAME"/>
+		<result property="lic_no" 		column="LIC_NO"/>
+		<result property="lic_print_dt" 		column="LIC_PRINT_DT"/>
+		<result property="code_sex" 		column="CODE_SEX"/>
+		<result property="pers_year" 	column="PERS_YEAR"/>
+		<result property="code_post" 	column="CODE_POST"/>
+		<result property="pers_add" 	column="PERS_ADD"/>
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>
+		<result property="pers_tel" 	column="PERS_TEL"/>
+		<result property="pers_hp" 	column="PERS_HP"/>
+		<result property="email" 	column="EMAIL"/>
+		<result property="yyyy" 		column="YYYY"/>
+		<result property="code_seq" 		column="CODE_SEQ"/>
+		<result property="ar_code_part" 		column="AR_CODE_PART"/>
+		<result property="ar_code_big1" 		column="AR_CODE_BIG1"/>
+		<result property="cs_kitchen_code" 	column="CS_KITCHEN_CODE"/>
+		<result property="cs_kitchen_name1" 	column="CS_KITCHEN_NAME1"/>
+		<result property="code_post1" 	column="CODE_POST1"/>		
+		<result property="cs_kitchen_add11" 	column="CS_KITCHEN_ADD11"/>
+		<result property="cs_kitchen_add12" 	column="CS_KITCHEN_ADD12"/>
+		<result property="code_post2" 	column="CODE_POST2"/>
+		<result property="cs_kitchen_name2" 	column="CS_KITCHEN_NAME2"/>
+		<result property="cs_kitchen_add21" 	column="CS_KITCHEN_ADD21"/>
+		<result property="cs_kitchen_add22" 		column="CS_KITCHEN_ADD22"/>
+		<result property="code_post3" 		column="CODE_POST3"/>		
+		<result property="cs_kitchen_name3" 	column="CS_KITCHEN_NAME3"/>
+		<result property="cs_kitchen_add31" 	column="CS_KITCHEN_ADD31"/>
+		<result property="cs_kitchen_add32" 	column="CS_KITCHEN_ADD32"/>
+		<result property="code_post4" 	column="CODE_POST4"/>
+		<result property="cs_kitchen_name4" 	column="CS_KITCHEN_NAME4"/>
+		<result property="cs_kitchen_add41" 		column="CS_KITCHEN_ADD41"/>
+		<result property="cs_kitchen_add42" 		column="CS_KITCHEN_ADD42"/>		
+		<result property="code_post5" 	column="CODE_POST5"/>
+		<result property="cs_kitchen_name5" 	column="CS_KITCHEN_NAME5"/>
+		<result property="cs_kitchen_add51" 	column="CS_KITCHEN_ADD51"/>
+		<result property="cs_kitchen_add52" 	column="CS_KITCHEN_ADD52"/>
+		<result property="ncs_kitchen_code" 	column="NCS_KITCHEN_CODE"/>
+		<result property="ncs_kitchen_name1" 		column="NCS_KITCHEN_NAME1"/>
+		<result property="code_post6" 		column="CODE_POST6"/>		
+		<result property="ncs_kitchen_add61" 	column="NCS_KITCHEN_ADD61"/>
+		<result property="ncs_kitchen_add62" 	column="NCS_KITCHEN_ADD62"/>
+		<result property="cs_kitchen_act_code" 	column="CS_KITCHEN_ACT_CODE"/>
+		<result property="cs_kitchen_ret_code" 	column="CS_KITCHEN_RET_CODE"/>
+		<result property="cs_con_education" 	column="CS_CON_EDUCATION"/>
+		<result property="ar_finish_point" 		column="AR_FINISH_POINT"/>
+		<result property="ar_marks_point" 		column="AR_MARKS_POINT"/>		
+		<result property="ar_finish_yn" 	column="AR_FINISH_YN"/>
+		<result property="ar_state" 	column="AR_STATE"/>
+		<result property="ar_state_kr" 	column="AR_STATE_KR"/>
+		<result property="ar_regi_date" 		column="AR_REGI_DATE"/>
+		<result property="ar_conform_date" 		column="AR_CONFORM_DATE"/>		
+		<result property="ar_add_file_name" 		column="AR_ADD_FILE_NAME"/>		
+		<result property="ar_add_file_url" 		column="AR_ADD_FILE_URL"/>		
+		<result property="ar_add_file_type" 		column="AR_ADD_FILE_TYPE"/>		
+		<result property="ar_add_file_size" 		column="AR_ADD_FILE_SIZE"/>		
+		<result property="report_year" 		column="REPORT_YEAR"/>		
+		<result property="groupcode" 		column="GROUPCODE"/>		
+		<result property="detcode" 		column="DETCODE"/>		
+		<result property="detcodename" 		column="DETCODENAME"/>		
+		<result property="tempcd1" 		column="TEMPCD1"/>		
+		<result property="tempcd2" 		column="TEMPCD2"/>		
+		<result property="tempcd3" 		column="TEMPCD3"/>		
+		<result property="cdseq" 		column="CDSEQ"/>		
+		<result property="use_yn" 		column="USE_YN"/>
+		<result property="ncs_kitchen_ret_code" 	column="NCS_KITCHEN_RET_CODE"/>		
+	</resultMap>
+
+	<select id="getReportUser" parameterType="hashmap" resultMap="ACTULPERSON">
+		SELECT	PERS_NAME
+					,LIC_NO
+		FROM 	ACTUL_PERSON
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 		LIC_NO=#{lic_no}
+	</select>
+	
+	<select id="getReportState" parameterType="hashmap" resultMap="ACTULSTATUS">
+	SELECT TOP 1 AR_STATE, AR_FINISH_YN, REPORT_YEAR
+	 FROM  ACTUL_STATUS
+	WHERE  PERS_NAME=#{pers_name}
+	  AND LIC_NO=#{lic_no}
+	  <![CDATA[
+	  AND (REPORT_YEAR >= YEAR(GETDATE()) - 2 and REPORT_YEAR <= YEAR(GETDATE()))
+	  ]]>
+	</select>
+	
+	<select id="getReportState2013" parameterType="hashmap" resultMap="ACTULSTATUS">
+ 		SELECT	AR_STATE
+					,AR_FINISH_YN , REPORT_YEAR
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 		LIC_NO=#{lic_no}
+		AND		CS_CON_EDUCATION = '2013'
+	
+	</select>
+	
+	
+	<select id="getReportState2015" parameterType="hashmap" resultMap="ACTULSTATUS">
+ 		SELECT	ISNULL(AR_STATE,'') AR_STATE
+ 		,ISNULL(AR_FINISH_YN,'') AR_FINISH_YN
+ 		,ISNULL(REPORT_YEAR,'') REPORT_YEAR
+					 
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 		LIC_NO=#{lic_no}
+		AND		CS_CON_EDUCATION = '2015'
+	
+	</select>
+	
+	<select id="getReportEdu" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT	AR_STATE
+					,AR_FINISH_YN
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 		LIC_NO=#{lic_no}
+		AND		cs_con_education IN ( 
+		<if test="year%2==0">
+		 #{year}-1,#{year}-3
+		</if>
+		<if test="year%2!=0">
+		#{year}-2, #{year}-4
+		</if>
+<!-- 		<if test="year == 2015">
+		'2013'	
+		</if>
+		<if test="year == 2016">
+		'2013','2015'	
+		</if>
+		<if test="year == 2018">
+		'2015','2017'	
+		</if>
+		<if test="year == 2019">
+		'2017'	
+		</if> -->
+		)
+		order by  cs_con_education 
+	</select>
+	
+	<select id="getReportHistory" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT	TOP 1 *
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 	LIC_NO=#{lic_no}
+		ORDER BY cs_con_education DESC, report_year DESC	
+	</select>
+	
+	<select id="getReportHistory2" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT	TOP 1 *
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME=#{pers_name}
+		AND 	LIC_NO=#{lic_no}
+		AND 	REPORT_YEAR IS NOT NULL
+		ORDER BY cs_con_education DESC	
+	</select>
+	
+	<update id="passwdInsert" parameterType="hashmap" >
+		UPDATE ACTUL_PERSON SET USER_PW = PWDENCRYPT(#{user_pw})
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</update>
+	
+	<select id="getInfo" parameterType="hashmap" resultMap="ACTULPERSON">
+		SELECT		CASE WHEN PWDCOMPARE(#{user_pw}, user_pw) = 1 THEN 'Y' ELSE 'N' END AS PWCHK
+						, PERS_NAME
+						, LIC_NO
+						, LIC_PRINT_DT
+						, CODE_SEX
+						, PERS_YEAR
+						, CODE_POST
+						, PERS_ADD
+						, PERS_ADD_DETAIL
+						, PERS_TEL
+						, PERS_HP
+						, EMAIL
+						, PERS_STATE
+  		  FROM 		ACTUL_PERSON
+  		  WHERE	PERS_NAME = #{pers_name}
+  		  AND			LIC_NO = #{lic_no}		   
+	</select>
+	
+	<select id="getDate" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT	TOP 1 *
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		AND	  	YYYY != #{year}
+		AND 		AR_FINISH_YN = '2'
+		ORDER BY YYYY DESC
+	</select>
+	
+	<select id="getRecentYear" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT 	TOP 1 YYYY
+					,AR_FINISH_POINT
+					,AR_MARKS_POINT
+					,AR_STATE
+					,(SELECT DETCODENAME FROM COM_CODE WHERE GROUPCODE ='057' AND DETCODE=AR_STATE) AS AR_STATE_KR
+					,REPORT_YEAR
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		AND 	AR_FINISH_YN = '2'
+		ORDER BY REPORT_YEAR DESC 
+	</select>
+	
+	<select id="getRecent" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT 	YYYY
+					,AR_FINISH_POINT
+					,AR_MARKS_POINT
+					,AR_STATE
+					,(SELECT DETCODENAME FROM COM_CODE WHERE GROUPCODE ='057' AND DETCODE=AR_STATE) AS AR_STATE_KR
+					,REPORT_YEAR
+					,cs_con_education
+		FROM 	ACTUL_STATUS
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		AND     ISNULL(AR_FINISH_YN, '') NOT IN ('1','2','3')
+		AND 	CAST(cs_con_education AS INT) <![CDATA[<]]> YEAR(GETDATE())
+		ORDER BY YYYY 
+	</select>
+	
+	<update id="personUpt" parameterType="ACTULSTATUS"><!--  20180509 CODE_SEX, PERS_YEAR 컬럼 제외 20200424 다시 추가 -->
+		UPDATE ACTUL_PERSON
+		   SET CODE_POST    = #{code_post}
+		     , PERS_ADD     = #{pers_add}
+		     , PERS_ADD_DETAIL = #{pers_add_detail}
+		     , PERS_TEL     = #{pers_tel}
+		     , PERS_HP      = #{pers_hp}
+		     , EMAIL        = #{email}
+		     , LIC_PRINT_DT = #{lic_print_dt}
+		     , pers_year    = #{pers_year}
+		     , code_sex     = #{code_sex}
+		     , UP_DATE      = GETDATE()
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</update>
+	
+	<update id="statusUpt" parameterType="ACTULSTATUS">
+		UPDATE ACTUL_STATUS
+		SET		AR_CODE_PART=#{ar_code_part}
+					,CS_KITCHEN_CODE=#{cs_kitchen_code}
+					,CS_KITCHEN_NAME1=#{cs_kitchen_name1}
+					,CODE_POST1=#{code_post1}
+					,CS_KITCHEN_ADD11=#{cs_kitchen_add11}
+					,CS_KITCHEN_ADD12=#{cs_kitchen_add12}
+					,CS_KITCHEN_NAME2=#{cs_kitchen_name2}
+					,CODE_POST2=#{code_post2}
+					,CS_KITCHEN_ADD21=#{cs_kitchen_add21}
+					,CS_KITCHEN_ADD22=#{cs_kitchen_add22}
+					,CS_KITCHEN_NAME3=#{cs_kitchen_name3}
+					,CODE_POST3=#{code_post3}
+					,CS_KITCHEN_ADD31=#{cs_kitchen_add31}
+					,CS_KITCHEN_ADD32=#{cs_kitchen_add32}
+					,CS_KITCHEN_NAME4=#{cs_kitchen_name4}
+					,CODE_POST4=#{code_post4}
+					,CS_KITCHEN_ADD41=#{cs_kitchen_add41}
+					,CS_KITCHEN_ADD42=#{cs_kitchen_add42}
+					,CS_KITCHEN_NAME5=#{cs_kitchen_name5}
+					,CODE_POST5=#{code_post5}
+					,CS_KITCHEN_ADD51=#{cs_kitchen_add51}
+					,CS_KITCHEN_ADD52=#{cs_kitchen_add52}
+					,NCS_KITCHEN_CODE=#{ncs_kitchen_code}
+					,NCS_KITCHEN_RET_CODE=#{ncs_kitchen_ret_code}	
+					,NCS_KITCHEN_NAME1=#{ncs_kitchen_name1}
+					,CODE_POST6=#{code_post6}
+					,NCS_KITCHEN_ADD61=#{ncs_kitchen_add61}
+					,NCS_KITCHEN_ADD62=#{ncs_kitchen_add62}
+					,CS_KITCHEN_ACT_CODE=#{cs_kitchen_act_code}
+					,CS_KITCHEN_RET_CODE=#{cs_kitchen_ret_code}
+					,AR_ADD_FILE_NAME=#{ar_add_file_name}
+					,AR_ADD_FILE_URL=#{ar_add_file_url}
+					,AR_ADD_FILE_TYPE=#{ar_add_file_type}
+					,AR_ADD_FILE_SIZE=#{ar_add_file_size}
+					,AR_FINISH_YN=#{ar_finish_yn}
+					,LIC_PRINT_DT =#{lic_print_dt}
+					,AR_REGI_DATE=GETDATE()
+					,REPORT_YEAR=#{report_year}
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		<![CDATA[
+		AND	CS_CON_EDUCATION < #{year}
+		]]>
+		AND	ISNULL(AR_FINISH_YN, '') NOT IN ('2','3')
+
+	</update>
+	
+	
+	<update id="statusUpt1" parameterType="ACTULSTATUS">    <!--  20160120 2016년실태신고를 위한 수정  -->
+		UPDATE ACTUL_STATUS
+		SET		AR_FINISH_YN=#{ar_finish_yn}
+					,LIC_PRINT_DT =#{lic_print_dt}
+					,AR_REGI_DATE=GETDATE()
+					,REPORT_YEAR=#{report_year}
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		
+		<if test="year%2==0">
+		AND		CS_CON_EDUCATION = #{year}-3
+		</if>
+		
+		<if test="year%2!=0">
+		AND		CS_CON_EDUCATION = #{year}-4
+		</if>
+			
+	</update>
+	
+	
+	<update id="fileUpt" parameterType="ACTULSTATUS">
+		UPDATE ACTUL_STATUS
+		SET		AR_ADD_FILE_NAME=#{ar_add_file_name}
+					,AR_ADD_FILE_URL=#{ar_add_file_url}
+					,AR_ADD_FILE_TYPE=#{ar_add_file_type}
+					,AR_ADD_FILE_SIZE=#{ar_add_file_size}
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		<![CDATA[
+		AND	CS_CON_EDUCATION < #{year}
+		]]>
+		AND	ISNULL(AR_FINISH_YN, '') NOT IN ('2','3')
+	</update>
+	
+	<update id="personCancel" parameterType="ACTULSTATUS">
+		UPDATE ACTUL_PERSON
+		SET		CODE_SEX=null
+					,PERS_YEAR=null
+					,CODE_POST=null
+					,PERS_ADD=null
+					,PERS_ADD_DETAIL=null
+					,PERS_TEL=null
+					,PERS_HP=null
+					,EMAIL=null
+					,USER_PW=null
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}	 
+	</update>
+	
+	<update id="statusCancel" parameterType="ACTULSTATUS">
+		UPDATE ACTUL_STATUS
+		SET		AR_CODE_PART=null
+					,CS_KITCHEN_CODE=null
+					,CS_KITCHEN_NAME1=null
+					,CODE_POST1=null
+					,CS_KITCHEN_ADD11=null
+					,CS_KITCHEN_ADD12=null
+					,CS_KITCHEN_NAME2=null
+					,CODE_POST2=null
+					,CS_KITCHEN_ADD21=null
+					,CS_KITCHEN_ADD22=null
+					,CS_KITCHEN_NAME3=null
+					,CODE_POST3=null
+					,CS_KITCHEN_ADD31=null
+					,CS_KITCHEN_ADD32=null
+					,CS_KITCHEN_NAME4=null
+					,CODE_POST4=null
+					,CS_KITCHEN_ADD41=null
+					,CS_KITCHEN_ADD42=null
+					,CS_KITCHEN_NAME5=null
+					,CODE_POST5=null
+					,CS_KITCHEN_ADD51=null
+					,CS_KITCHEN_ADD52=null
+					,NCS_KITCHEN_CODE=null
+					,NCS_KITCHEN_RET_CODE=null	
+					,NCS_KITCHEN_NAME1=null
+					,CODE_POST6=null
+					,NCS_KITCHEN_ADD61=null
+					,NCS_KITCHEN_ADD62=null
+					,CS_KITCHEN_ACT_CODE=null
+					,CS_KITCHEN_RET_CODE=null
+					,AR_FINISH_YN=null
+					,AR_ADD_FILE_NAME=null
+					,AR_ADD_FILE_URL=null
+					,AR_ADD_FILE_TYPE=null
+					,AR_ADD_FILE_SIZE=0
+					,LIC_PRINT_DT =null
+					,AR_REGI_DATE=null
+		WHERE 	PERS_NAME = #{pers_name}
+		AND   	LIC_NO = #{lic_no}	
+		AND	 	REPORT_YEAR = #{year}	
+	</update>
+	
+	<select id="getEmail" parameterType="hashmap" resultMap="ACTULSTATUS">
+		SELECT 	DETCODENAME
+					,DETCODE
+		FROM 	COM_CODE
+		WHERE 	GROUPCODE ='025'
+		AND		DETCODE !='01'
+	</select>
+	
+	<parameterMap id="rnc" type="java.util.Map" >
+		<parameter property="PersName"			jdbcType="VARCHAR"	javaType="java.lang.String"		mode="IN" />
+		<parameter property="LicNo"				jdbcType="VARCHAR"	javaType="java.lang.String"		mode="IN" />
+		<parameter property="ReturnState"		jdbcType="NUMERIC"	javaType="java.lang.Integer"	mode="OUT" />
+		<parameter property="ReturnStateStr"	jdbcType="VARCHAR"	javaType="java.lang.String"		mode="OUT" />
+		<parameter property="ReturnFinishYN"	jdbcType="VARCHAR"	javaType="java.lang.String"		mode="OUT" />
+	</parameterMap>
+	
+	<select id="ReportState_chk" statementType="CALLABLE" parameterMap="rnc">
+        {CALL ReportState_chk(?,?,?,?,?)}
+	</select>
+	
+	<update id="personInfoUpt" parameterType="ACTULSTATUS">
+		UPDATE ACTUL_PERSON
+		SET		LIC_PRINT_DT=#{lic_print_dt}
+			   ,UP_DATE=GETDATE()
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}	 
+	</update>
+
+</mapper>
+

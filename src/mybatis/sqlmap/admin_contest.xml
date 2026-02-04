@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminContest">
+
+
+	<sql id="contestColumn">
+		idx           
+		,name          
+		,birth       
+		,lic_no        
+		,member_flag   
+		,office_name   
+		,zip           
+		,addr          
+		,tel           
+		,tel_hp        
+		,email         
+		,lic_clinic_flag
+		,lic_supply_flag
+		,join_flag     
+		,pay_date      
+		,pay_amount    
+		,reg_date      
+		,pay_flag      
+		,diet_License01
+		,diet_License02
+		,diet_License03
+		,diet_License04
+		,branch_name   
+		,big_name   
+		,gtype         
+		,card_Status 
+		,inx_key 
+		,baccname
+		,agree_yn 
+		,online_yn
+		,online_yn2
+		,sect_name
+		,ebook_yn
+	</sql>
+	
+	<sql id="contestCancelColumn">
+		idx           
+		,name         
+		,office_name  
+		,tel_hp       
+		,in_Date      
+		,in_payDate
+		,in_payPrice  
+		,bank_name    
+		,bank_num  
+		,bank_userName
+		,dbindate     
+		,c_Flag       
+		,lic_no       
+		,ipgum_bambup 
+		,del_date     
+		,del_price    
+		,online_yn
+	</sql>
+	
+	<sql id="contestCancelExcel">
+		idx           
+		,name         
+		,office_name  
+		,tel_hp       
+		,in_Date      
+		,in_payDate
+		,in_payPrice  
+		,bank_name    
+		,bank_num  
+		,bank_userName
+		,dbindate     
+		,CASE c_Flag WHEN 'Y' THEN '환불완료' ELSE '신청상태' END c_Flag       
+		,lic_no       
+		,ipgum_bambup 
+		,del_date     
+		,del_price    
+		,CASE online_yn WHEN 'Y' THEN '온라인' WHEN 'N' THEN '오프라인' ELSE '' END online_ynn
+	</sql>
+	
+	<select id="selectContestCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM 	science_meeting_Active
+	</select>
+	
+	<select id="selectContestListHelper" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGACTIVE">
+  	SELECT 
+		num ,
+		<include refid="contestColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  inx_key DESC ) AS num , 
+			<include refid="contestColumn" />
+		FROM		science_meeting_Active
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getContest" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGACTIVE">
+  	SELECT 
+		<include refid="contestColumn" />
+	FROM		science_meeting_Active
+	WHERE 	idx=#{idx}
+	</select>
+	
+	<delete id="deleteContest" parameterType="hashmap">
+	DELETE	FROM science_meeting_Active
+	WHERE	idx IN 
+		<foreach item="item" index="index" collection="idxList" open="(" separator="," close=")">
+	        #{item}
+	  	</foreach>
+	</delete>
+	
+	<select id="selectContestCancelCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM 	SCIENCE_MEETING_DELLIST
+	</select>
+	
+	<select id="selectContestCancelListHelper" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGDELLIST">
+  	SELECT 
+		num ,
+		<include refid="contestCancelColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  idx DESC ) AS num , 
+			<include refid="contestCancelColumn" />
+		FROM		SCIENCE_MEETING_DELLIST
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getContestCancel" parameterType="hashmap" resultType="kda.admin.contest.data.SCIENCEMEETINGDELLIST">
+  	SELECT 
+		<include refid="contestCancelColumn" />
+	FROM		SCIENCE_MEETING_DELLIST
+	WHERE 	idx=#{idx}
+	</select>
+	
+	<delete id="deleteContestCancel" parameterType="hashmap">
+	DELETE	FROM SCIENCE_MEETING_DELLIST
+	WHERE	idx IN 
+		<foreach item="item" index="index" collection="idxList" open="(" separator="," close=")">
+	        #{item}
+	  	</foreach>
+	</delete>
+	
+	<update id="updateContestCancel" parameterType="hashmap">
+	UPDATE  SCIENCE_MEETING_DELLIST  SET c_Flag = 'Y'
+	WHERE 	idx=#{idx}
+	</update>
+	
+	<select id="excelContest" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  a.inx_key DESC ) AS num
+			, a.idx           
+			, a.name          
+			, a.birth       
+			, a.lic_no        
+			, CASE a.member_flag WHEN '1' THEN '회원' ELSE '비회원' END member_flag   
+			, a.office_name   
+			, a.zip           
+			, a.addr          
+			, ISNULL(b.tel, a.tel) tel   
+			, ISNULL(b.tel_hp, a.tel_hp) tel_hp        
+			, ISNULL(b.email, a.email) email       
+			, a.lic_clinic_flag
+			, a.lic_supply_flag
+			, CASE a.join_flag WHEN '1' THEN code.tempcd1 WHEN '2' THEN code.tempcd2 WHEN '3' THEN code.tempcd1 + ' , ' + code.tempcd2 END join_flag
+			, a.pay_date      
+			, a.pay_amount    
+			, a.reg_date      
+			, CASE a.pay_flag WHEN 'B' THEN '무통장' WHEN 'G' THEN '지로입금' WHEN 'C' THEN '카드결제' ELSE '선택안함' END pay_flag            
+			, a.diet_License01
+			, a.diet_License02
+			, a.diet_License03
+			, a.diet_License04
+			, a.branch_name   
+			, a.big_name
+			, a.sect_name      
+			, CASE a.gtype WHEN 'a' THEN '직영' ELSE '위탁' END gtype
+			, CASE a.card_Status WHEN 'N' THEN '결제미결' ELSE '결제완결' END card_Status 
+			, a.inx_key 
+			, a.baccname
+			, a.agree_yn 
+			, a.nice_agree_yn
+			, a.nice_no
+			, a.trainingName_no
+			, CASE a.online_yn WHEN 'Y' THEN '온라인' WHEN 'N' THEN '오프라인' ELSE '' END online_yn
+			, CASE a.online_yn2 WHEN 'Y' THEN '온라인' WHEN 'N' THEN '오프라인' ELSE '' END online_yn2
+			, CASE a.ebook_yn WHEN 'Y' THEN 'e-Book 자료집' WHEN 'N' THEN '책자 자료집' ELSE '' END ebook_yn
+		FROM  science_meeting_Active a
+		left join science_meeting_temp b
+		on a.idx = b.idx
+		left outer join com_code code
+		  on code.groupcode = '061' and substring(a.reg_date,1,4) = code.detcode and code.use_yn = 'Y'
+		WHERE 1 = 1
+	) A  
+	ORDER BY num
+	</select>
+	
+	<select id="excelContestCancel" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  idx DESC ) AS num , 
+			<include refid="contestCancelExcel" />
+		FROM		SCIENCE_MEETING_DELLIST
+		WHERE 1 = 1
+	) A  
+	ORDER BY num
+	</select>
+	
+</mapper>
+

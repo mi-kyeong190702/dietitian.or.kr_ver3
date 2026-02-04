@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminContents">
+
+	<select id="selectContentsCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(idx)
+	FROM tbl_contents
+		<where>
+			<if test="kind != null and kind == 1">
+			AND contents_name LIKE '%' + #{srch} + '%'
+			</if>
+			
+			<if test="kind != null and kind ==2">
+			AND path LIKE '%' + #{srch} + '%'
+			</if>
+		</where>
+	</select>
+	
+
+	<select id="selectContentsList" parameterType="hashmap" resultType="kda.admin.contents.data.CONTENTS">
+	SELECT 
+		 A.*
+	FROM (
+		SELECT 
+		      ROW_NUMBER() OVER( order by idx DESC  ) AS num
+			, idx
+			, contents_name
+			, depth1
+			, path
+			, regi_date
+			, edit_date	
+		FROM tbl_contents
+		<where>
+			<if test="kind != null and kind == 1">
+			AND contents_name LIKE '%' + #{srch} + '%'
+			</if>
+			
+			<if test="kind != null and kind ==2">
+			AND path LIKE '%' + #{srch} + '%'
+			</if>
+		</where>
+	) A WHERE num BETWEEN #{startNum} AND #{endNum}
+	ORDER BY num ASC
+	</select>
+	
+	<select id="selectContents" parameterType="hashmap" resultType="kda.admin.contents.data.CONTENTS">
+	SELECT
+		  idx
+		, contents_name
+		, depth1
+		, path
+		, regi_date
+		, edit_date	
+	FROM tbl_contents
+	WHERE idx = #{idx}
+	</select>
+	
+	<insert id="insertContents" parameterType="kda.admin.contents.data.CONTENTS">
+	INSERT INTO tbl_contents ( 	  
+		  contents_name
+		, depth1
+		, path
+		, regi_date
+		, edit_date
+	) VALUES (
+		  #{contents_name}
+		, #{depth1}
+		, #{path}
+		, GETDATE()
+		, GETDATE()
+	)
+	</insert>
+	
+	<update id="updateContents" parameterType="kda.admin.contents.data.CONTENTS">
+	UPDATE tbl_contents SET
+		  depth1 = #{depth1}
+		, contents_name = #{contents_name}
+		, edit_date = GETDATE()
+	WHERE idx = #{idx}
+	</update>
+</mapper>
+

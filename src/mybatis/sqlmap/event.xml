@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="event">	
+
+	<!-- 아이디 찾기 -->
+	<select id="selectMyEventview" parameterType="java.lang.String"   resultType="eventView" >
+	
+			SELECT  A.PERS_NAME	
+				    , B.DETCODENAME
+					, A.LIC_NO
+				    , A.PERS_TEL
+				    , A.PERS_HP
+				    , A.EMAIL   
+				    , ISNULL(C.COMPANY_NAME,'') COMPANY_NAME
+				    , A.CODE_POST
+				    , A.PERS_ADD+' '+A.PERS_ADD_DETAIL PERS_ADD
+				    , A.CODE_PERS
+		     FROM PERSON_M_TBL A
+		     LEFT JOIN COM_CODE B ON B.GROUPCODE='006' AND B.DETCODE=A.CODE_MEMBER
+		     LEFT JOIN PERS_COMPANY C ON C.PRIMARY_FLAG=1 AND C.CODE_PERS=A.CODE_PERS
+		     WHERE A.CODE_PERS=  #{value}
+	
+
+	</select>		
+	
+	<insert id="insertONEPLUSEVENT" parameterType="hashmap" >
+		INSERT INTO DIET_EVENT  			 
+		([code_event]
+           ,[code_pers]
+           ,[new_name]
+           ,[new_tel]
+           ,[new_compname]
+           ,[sns_domain]
+           ,[reg_date]
+           ,[new_licno]
+           )           
+		VALUES (  
+		 #{code_event} 
+		,#{code_pers}  
+		,#{new_name} 
+		,#{new_tel} 
+		,#{new_compname} 
+		,'' 
+		,getdate()
+		,#{new_licno}
+		 )
+		
+	</insert>
+	
+	<insert id="insertSNSEVENT" parameterType="hashmap" >
+		INSERT INTO DIET_EVENT  			 
+		VALUES (  
+		 #{code_event} 
+		,#{code_pers}  
+		,#{pers_name} 
+		,#{pers_hp}
+		,#{company_name}
+		,#{sns_domain} 
+		,getdate()
+		,''  
+		 )
+		
+	</insert>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="research_community">
+	<resultMap type="ACTULPAPERBOARD" id="ACTULPAPERBOARD">
+		<result property="board_rownum" 		column="BOARD_ROWNUM"/>
+		<result property="atc_sno" 		column="ATC_SNO"/>
+		<result property="bbs_cd" 		column="BBS_CD"/>
+		<result property="atc_no" 		column="ATC_NO"/>
+		<result property="rlt_atc_sno" 	column="RLT_ATC_SNO"/>
+		<result property="atc_dsp_ord" 	column="ATC_DSP_ORD"/>
+		<result property="atc_impatc_yn" 	column="ATC_IMPATC_YN"/>
+		<result property="atc_impatc_dsp_ord" 	column="ATC_IMPATC_DSP_ORD"/>
+		<result property="atc_scratc_yn" 	column="ATC_SCRATC_YN"/>
+		<result property="atc_rgt_se" 	column="ATC_RGT_SE"/>
+		<result property="atc_sbj" 	column="ATC_SBJ"/>
+		<result property="atc_ctg_nm" 	column="ATC_CTG_NM"/>
+		<result property="atc_hdr_nm" 		column="ATC_HDR_NM"/>
+		<result property="atc_wrtr_mbr_sno" 		column="ATC_WRTR_MBR_SNO"/>
+		<result property="atc_wrtr_nm" 		column="ATC_WRTR_NM"/>
+		<result property="atc_wrtr_eml" 		column="ATC_WRTR_EML"/>
+		<result property="atc_wrtr_eml2" 		column="ATC_WRTR_EML2"/>
+		<result property="atc_wrtr_cttno" 		column="ATC_WRTR_CTTNO"/>
+		<result property="atc_wrtr_dpt_nm" 		column="ATC_WRTR_DPT_NM"/>
+		<result property="atc_wrtr_ip" 	column="ATC_WRTR_IP"/>
+		<result property="atc_inqr_cnt" 	column="ATC_INQR_CNT"/>
+		<result property="atc_cn" 	column="ATC_CN"/>		
+		<result property="atc_smry" 	column="ATC_SMRY"/>
+		<result property="atc_ans_eml_ntc_yn" 	column="ATC_ANS_EML_NTC_YN"/>
+		<result property="atc_ans_stt_se" 	column="ATC_ANS_STT_SE"/>
+		<result property="atc_pst_bgn_dttm" 	column="ATC_PST_BGN_DTTM"/>
+		<result property="atc_pst_end_dttm" 	column="ATC_PST_END_DTTM"/>
+		<result property="atc_pst_rprs_dt" 		column="ATC_PST_RPRS_DT"/>
+		<result property="atc_pst_yn" 		column="ATC_PST_YN"/>		
+		<result property="atc_impatc_bgn_dttm" 	column="ATC_IMPATC_BGN_DTTM"/>
+		<result property="atc_impatc_end_dttm" 	column="ATC_IMPATC_END_DTTM"/>
+		<result property="atc_pwd" 	column="ATC_PWD"/>
+		<result property="use_yn" 	column="USE_YN"/>
+		<result property="dlt_yn" 	column="DLT_YN"/>
+		<result property="frst_rgtr_mbr_sno" 		column="FRST_RGTR_MBR_SNO"/>
+		<result property="frst_rgt_dttm" 		column="FRST_RGT_DTTM"/>		
+		<result property="last_chngr_mbr_sno" 	column="LAST_CHNGR_MBR_SNO"/>
+		<result property="last_chng_dttm" 	column="LAST_CHNG_DTTM"/>
+		<result property="last_chng_trnst_sno" 	column="LAST_CHNG_TRNST_SNO"/>
+		<result property="lic_no" 	column="LIC_NO"/>
+		<result property="lic_print_dt" 	column="LIC_PRINT_DT"/>
+		<result property="bbs_file_name" 		column="BBS_FILE_NAME"/>
+		<result property="bbs_file_url" 		column="BBS_FILE_URL"/>		
+		<result property="bbs_file_type" 	column="BBS_FILE_TYPE"/>
+		<result property="bbs_file_size" 	column="BBS_FILE_SIZE"/>
+		<result property="bbs_new"				column="BBS_NEW"/>
+		<result property="pers_name"				column="PERS_NAME"/>
+		<result property="atc_passwd"				column="ATC_PASSWD"/>
+		<result property="pwchk" 				column="PWCHK"/>
+		<result property="ar_state" 				column="AR_STATE"/>
+	</resultMap>
+
+	<select id="createNum" parameterType="hashmap" resultType="java.lang.Float" >
+		SELECT ISNULL (MIN(ATC_NO) , 0 ) -1 AS ATC_NO FROM ACTUL_PAPER_BOARD
+	</select>
+	
+	<select id="getImptCount" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT COUNT(ATC_SNO) AS CNT
+		  FROM ACTUL_PAPER_BOARD
+		<where>
+			<if test="bbs_cd != null">
+						BBS_CD = #{bbs_cd}
+			</if>
+			AND DLT_YN = 'N'
+			AND ATC_PST_YN = 'Y'
+			AND ATC_RGT_SE = 'OR'
+			AND ATC_IMPATC_YN='Y'
+			AND CONVERT(CHAR(10),GETDATE(),23)
+			BETWEEN CONVERT(CHAR(10),atc_impatc_bgn_dttm,23) AND CONVERT(CHAR(10),atc_impatc_end_dttm,23)
+		</where>
+	</select>
+	
+	<select id="imptList" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+			SELECT	ATC_SNO
+						, ATC_SBJ
+						, BBS_FILE_NAME
+				 		, BBS_FILE_URL	
+				 		, BBS_FILE_SIZE
+				 		, BBS_FILE_TYPE
+				 		, ATC_WRTR_NM			
+				 		, CONVERT(CHAR(10), FRST_RGT_DTTM, 23) as FRST_RGT_DTTM	 
+				 		, ATC_INQR_CNT		
+		  	FROM 	ACTUL_PAPER_BOARD
+		<where>
+			<if test="bbs_cd != null">
+						BBS_CD = #{bbs_cd}
+			</if>
+			AND DLT_YN = 'N'
+			AND ATC_PST_YN = 'Y'
+			AND ATC_RGT_SE = 'OR'
+			AND ATC_IMPATC_YN='Y'
+			AND CONVERT(CHAR(10),GETDATE(),23)
+			BETWEEN CONVERT(CHAR(10),atc_impatc_bgn_dttm,23) AND CONVERT(CHAR(10),atc_impatc_end_dttm,23)
+		</where>
+	</select>
+	
+	<select id="getBoardCount" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT COUNT(ATC_SNO) AS CNT
+		  FROM ACTUL_PAPER_BOARD
+		<where>
+			<if test="bbs_cd != null">
+						BBS_CD = #{bbs_cd}
+			</if>
+			<if test="board_search != null and board_keyword != null">
+				<choose>
+					<when test="board_search == 0">
+						AND ATC_SBJ LIKE '%' + #{board_keyword} + '%'
+					</when>
+					<when test="board_search == 1">
+						AND ATC_CN LIKE '%' + #{board_keyword} + '%'
+					</when>
+				</choose>
+			</if>
+			AND DLT_YN = 'N'
+			AND ATC_PST_YN = 'Y'
+			AND ATC_RGT_SE = 'OR'
+		</where>
+	</select>
+	
+	<select id="boardList" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+		SELECT *
+		  FROM ( 
+		  	SELECT 
+		  		 ROW_NUMBER() OVER(ORDER BY ATC_SNO DESC) AS BOARD_ROWNUM
+			   	 , ATC_SNO
+			   	 , ATC_NO
+			   	 , ATC_SCRATC_YN
+			   	 , ATC_IMPATC_YN			   	
+		  		 , ATC_SBJ
+		  		 , ATC_CN
+		  		 , PERS_NAME
+		  		 , ATC_WRTR_NM
+		  		 , ATC_INQR_CNT
+		  		 , CASE ATC_ANS_STT_SE 
+		  		 WHEN 'NA' THEN '관계없음'
+		  		 WHEN 'QD' THEN '접수'
+		  		 WHEN 'AN' THEN '답변중'
+		  		 WHEN 'AD' THEN '답변완료' 
+		  		 ELSE ''	END AS ATC_ANS_STT_SE
+		  		 , CONVERT(CHAR(10), FRST_RGT_DTTM, 23) as FRST_RGT_DTTM
+		  		 , CASE DATEDIFF(DD, FRST_RGT_DTTM, GETDATE()) 
+		  		   WHEN 0 THEN 'Y'
+				   WHEN 1 THEN 'Y'
+				   ELSE 'N'
+				   END AS BBS_NEW
+				 , BBS_FILE_NAME
+				 , BBS_FILE_URL	
+				 , BBS_FILE_SIZE
+				 , BBS_FILE_TYPE
+				 , ATC_PST_BGN_DTTM
+				 , ATC_PST_END_DTTM
+				 , ATC_PST_YN
+				 , ATC_IMPATC_BGN_DTTM
+				 , ATC_IMPATC_END_DTTM
+				 , USE_YN
+			  FROM ACTUL_PAPER_BOARD
+			<where>				
+				<if test="bbs_cd != null">
+						BBS_CD = #{bbs_cd}
+				</if>
+				<if test="board_search != null and board_keyword != null">
+				<choose>
+					<when test="board_search == 0">
+						AND ATC_SBJ LIKE '%' + #{board_keyword} + '%'
+					</when>
+					<when test="board_search == 1">
+						AND ATC_CN LIKE '%' + #{board_keyword} + '%' 
+					</when>
+					<when test="board_search == 4">
+						AND ATC_WRTR_NM LIKE '%' + #{board_keyword} + '%' 
+					</when>
+				</choose>
+				</if>
+				AND DLT_YN = 'N'
+				AND ATC_PST_YN = 'Y'
+				AND ATC_RGT_SE = 'OR'								
+			</where>
+			) A
+		 WHERE BOARD_ROWNUM BETWEEN ((#{board_page}-1) * #{board_cnt}) + 1 AND #{board_page} * #{board_cnt}
+	</select>
+	
+	<select id="replyList" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+		SELECT 	ATC_SNO
+					, ATC_SBJ
+					, ATC_WRTR_DPT_NM
+					, ATC_WRTR_NM
+					, ATC_ANS_EML_NTC_YN
+					, ATC_ANS_STT_SE
+					, ATC_CN
+					, BBS_FILE_NAME
+					, BBS_FILE_URL	
+					, BBS_FILE_SIZE
+					, BBS_FILE_TYPE
+					, FRST_RGT_DTTM
+		FROM		ACTUL_PAPER_BOARD
+		WHERE 	RLT_ATC_SNO = #{atc_sno}
+		AND 		DLT_YN = 'N'
+		AND 		ATC_RGT_SE = 'RP'
+	</select>
+	
+	<update id="viewCount" parameterType="hashmap">
+		UPDATE ACTUL_PAPER_BOARD SET ATC_INQR_CNT = ATC_INQR_CNT + 1 WHERE ATC_SNO = #{atc_sno}
+	</update>	
+	
+	<select id="boardSelect" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+	<![CDATA[
+		SELECT * 
+		FROM		(SELECT TOP 1 * 
+					FROM ACTUL_PAPER_BOARD  
+					WHERE BBS_CD = ${bbs_cd}
+					AND DLT_YN = 'N'
+					AND ATC_PST_YN = 'Y'
+					AND ATC_RGT_SE = 'OR'	 
+					AND ATC_SNO < ${atc_sno}
+					ORDER BY ATC_SNO DESC ) PREV
+		UNION ALL
+				SELECT TOP 1 * 
+		  		FROM ACTUL_PAPER_BOARD 
+		 		WHERE BBS_CD = ${bbs_cd}
+		 		AND ATC_SNO = ${atc_sno}
+		UNION ALL
+		SELECT * 
+		FROM 	(SELECT TOP 1 * 
+				  	FROM ACTUL_PAPER_BOARD 
+				 	WHERE BBS_CD = ${bbs_cd}
+				 	AND DLT_YN = 'N'
+					AND ATC_PST_YN = 'Y'
+					AND ATC_RGT_SE = 'OR'
+				 	AND ATC_SNO > ${atc_sno}
+				 	ORDER BY ATC_SNO ASC ) NEXT
+	]]>  
+	</select>
+	
+	<select id="boardModify" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+		SELECT 		ATC_SNO
+					  , BBS_CD
+					  , ATC_NO
+					  , RLT_ATC_SNO
+					  , ATC_DSP_ORD
+					  , ATC_IMPATC_YN
+					  , ATC_IMPATC_DSP_ORD
+					  , ATC_SCRATC_YN
+			 		  , ATC_RGT_SE
+			 		  , ATC_SBJ
+			 		  , PERS_NAME
+			 		  , ATC_CTG_NM
+			 		  , ATC_HDR_NM
+			 		  , ATC_WRTR_MBR_SNO
+			 		  , ATC_WRTR_NM
+			 		  , DBO.GETPERSNODECORD(ATC_WRTR_EML, '1') as ATC_WRTR_EML
+			 		  , ATC_WRTR_EML2
+			 		  , DBO.GETPERSNODECORD(ATC_WRTR_CTTNO, '1') as ATC_WRTR_CTTNO
+			 		  , ATC_WRTR_DPT_NM
+			 		  , ATC_WRTR_IP
+			 		  , ATC_INQR_CNT
+			 		  , ATC_CN
+			 		  , ATC_SMRY
+			 		  , ATC_ANS_EML_NTC_YN
+			 		  , ATC_ANS_STT_SE
+			 		  , ATC_PST_BGN_DTTM
+			 		  , ATC_PST_END_DTTM
+			 		  , ATC_PST_RPRS_DT
+			 		  , ATC_PST_YN
+			 		  , ATC_IMPATC_BGN_DTTM
+			 		  , ATC_IMPATC_END_DTTM
+			 		  , USE_YN 		  
+			 		  , DLT_YN
+			 		  , FRST_RGTR_MBR_SNO
+			 		  , FRST_RGT_DTTM
+			 		  , LAST_CHNGR_MBR_SNO
+			 		  , LAST_CHNG_DTTM 		  
+			 		  , LAST_CHNG_TRNST_SNO
+			 		  , LIC_NO
+			 		  , LIC_PRINT_DT
+			 		  , BBS_FILE_NAME
+			 		  , BBS_FILE_URL
+			 		  , BBS_FILE_TYPE
+			 		  , BBS_FILE_SIZE 
+  		FROM ACTUL_PAPER_BOARD 
+ 		WHERE BBS_CD = ${bbs_cd}
+ 		AND ATC_SNO = ${atc_sno}
+	</select>
+	
+	<insert id="boardInsert" parameterType="ACTULPAPERBOARD">
+		INSERT INTO ACTUL_PAPER_BOARD
+		(
+			ATC_SNO
+		  , BBS_CD
+		  , ATC_NO
+		  , RLT_ATC_SNO
+		  , ATC_DSP_ORD
+		  , ATC_IMPATC_YN
+		  , ATC_IMPATC_DSP_ORD
+		  , ATC_SCRATC_YN
+ 		  , ATC_RGT_SE
+ 		  , ATC_SBJ
+ 		  , PERS_NAME
+ 		  , ATC_CTG_NM
+ 		  , ATC_HDR_NM
+ 		  , ATC_WRTR_MBR_SNO
+ 		  , ATC_WRTR_NM
+ 		  , ATC_WRTR_EML
+ 		  , ATC_WRTR_EML2
+ 		  , ATC_WRTR_CTTNO
+ 		  , ATC_WRTR_DPT_NM
+ 		  , ATC_WRTR_IP
+ 		  , ATC_INQR_CNT
+ 		  , ATC_CN
+ 		  , ATC_SMRY
+ 		  , ATC_ANS_EML_NTC_YN
+ 		  , ATC_ANS_STT_SE
+ 		  , ATC_PST_BGN_DTTM
+ 		  , ATC_PST_END_DTTM
+ 		  , ATC_PST_RPRS_DT
+ 		  , ATC_PST_YN
+ 		  , ATC_IMPATC_BGN_DTTM
+ 		  , ATC_IMPATC_END_DTTM
+ 		  , USE_YN 		  
+ 		  , DLT_YN
+ 		  , FRST_RGTR_MBR_SNO
+ 		  , FRST_RGT_DTTM
+ 		  , LAST_CHNGR_MBR_SNO
+ 		  , LAST_CHNG_DTTM 		  
+ 		  , LAST_CHNG_TRNST_SNO
+ 		  , LIC_NO
+ 		  , LIC_PRINT_DT
+ 		  , BBS_FILE_NAME
+ 		  , BBS_FILE_URL
+ 		  , BBS_FILE_TYPE
+ 		  , BBS_FILE_SIZE
+ 		  <if test="atc_passwd != null">
+ 		  , ATC_PASSWD
+ 		  </if>
+ 		  
+		) VALUES ( 
+		 	(SELECT ISNULL ( MAX ( ATC_SNO) , 0 ) +1 FROM ACTUL_PAPER_BOARD)
+		  , #{bbs_cd}
+		  , #{atc_no}
+		  , #{rlt_atc_sno}
+		  , #{atc_dsp_ord}
+		  , #{atc_impatc_yn}
+		  , #{atc_impatc_dsp_ord}
+		  , #{atc_scratc_yn}
+ 		  , #{atc_rgt_se}
+ 		  , #{atc_sbj}
+ 		  , #{atc_wrtr_nm}
+ 		  , #{atc_ctg_nm}
+ 		  , #{atc_hdr_nm}
+ 		  , #{atc_wrtr_mbr_sno}
+ 		  , #{atc_wrtr_nm}
+ 		  , DBO.GETPERSNOENCORD(#{atc_wrtr_eml})
+ 		  , #{atc_wrtr_eml2}
+ 		  , DBO.GETPERSNOENCORD(#{atc_wrtr_cttno})
+ 		  , #{atc_wrtr_dpt_nm}
+ 		  , #{atc_wrtr_ip}
+ 		  , #{atc_inqr_cnt}
+ 		  , #{atc_cn}
+ 		  , #{atc_smry}
+ 		  , #{atc_ans_eml_ntc_yn}
+ 		  , #{atc_ans_stt_se}
+ 		  , #{atc_pst_bgn_dttm}
+ 		  , #{atc_pst_end_dttm}
+ 		  , #{atc_pst_rprs_dt}
+ 		  , #{atc_pst_yn}
+ 		  , #{atc_impatc_bgn_dttm}
+ 		  , #{atc_impatc_end_dttm}
+ 		  , #{use_yn} 		  
+ 		  , 'N'
+ 		  , #{frst_rgtr_mbr_sno}
+ 		  , GETDATE()
+ 		  , #{last_chngr_mbr_sno}
+ 		  , #{last_chng_dttm} 		  
+ 		  , #{last_chng_trnst_sno}
+ 		  , #{lic_no}
+ 		  , #{lic_print_dt} 
+ 		  , #{bbs_file_name}
+ 		  , #{bbs_file_url}
+ 		  , #{bbs_file_type}
+ 		  , #{bbs_file_size}
+ 		  <if test="atc_passwd != null">
+ 		  , PWDENCRYPT(#{atc_passwd})
+ 		  </if>	  
+		)
+	</insert>
+	
+	<update id="boardDelete" parameterType="hashmap">
+		UPDATE ACTUL_PAPER_BOARD 
+		SET 		DLT_YN = 'Y' WHERE ATC_SNO = #{atc_sno}
+	</update>
+	
+	<update id="boardUpdate" parameterType="ACTULPAPERBOARD">
+		UPDATE ACTUL_PAPER_BOARD 
+		SET		ATC_SBJ = #{atc_sbj}
+					, ATC_WRTR_NM = #{atc_wrtr_nm}
+					, PERS_NAME = #{atc_wrtr_nm}
+					, ATC_PST_YN = #{atc_pst_yn}
+					, ATC_IMPATC_BGN_DTTM = #{atc_impatc_bgn_dttm}
+					, ATC_IMPATC_END_DTTM = #{atc_impatc_end_dttm}
+					, ATC_CN = #{atc_cn}
+			 		, LAST_CHNG_DTTM = GETDATE()
+			 		, ATC_WRTR_EML = DBO.GETPERSNOENCORD(#{atc_wrtr_eml})
+			 		, ATC_WRTR_EML2 = #{atc_wrtr_eml2}
+			 		, ATC_WRTR_CTTNO = DBO.GETPERSNOENCORD(#{atc_wrtr_cttno})
+			 		, ATC_WRTR_DPT_NM = #{atc_wrtr_dpt_nm}
+		<if test="bbs_cd == 004 or bbs_cd == 005">
+			 		, LIC_NO = #{lic_no}
+			 		, LIC_PRINT_DT = #{lic_print_dt}
+		</if>
+		WHERE	ATC_SNO = #{atc_sno}
+	</update>
+	
+	<update id="fileUpdate" parameterType="ACTULPAPERBOARD">
+		UPDATE ACTUL_PAPER_BOARD 
+		SET 		BBS_FILE_NAME = #{bbs_file_name} 
+					,BBS_FILE_URL = #{bbs_file_url}
+					,BBS_FILE_TYPE = #{bbs_file_type}
+					,BBS_FILE_SIZE = #{bbs_file_size}
+		WHERE ATC_SNO = #{atc_sno}
+	</update>
+	
+	<update id="ansUpdate" parameterType="ACTULPAPERBOARD">
+		UPDATE ACTUL_PAPER_BOARD 
+		SET 		ATC_ANS_STT_SE = 'AD' WHERE ATC_SNO = #{rlt_atc_sno}
+	</update>
+	
+	<select id="getMail" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+		SELECT	DBO.GETPERSNODECORD(ATC_WRTR_EML, '1') as ATC_WRTR_EML
+					,ATC_WRTR_EML2
+					, ATC_WRTR_NM
+		FROM 	ACTUL_PAPER_BOARD
+		WHERE 	ATC_SNO = #{atc_sno}
+	</select>
+	
+	<select id="authCheck" parameterType="hashmap" resultMap="ACTULPAPERBOARD">
+		SELECT	CASE WHEN PWDCOMPARE(#{pass}, atc_passwd) = 1 THEN 'Y' ELSE 'N' END AS PWCHK
+		FROM		ACTUL_PAPER_BOARD
+		WHERE	ATC_SNO = #{atc_sno}
+	</select>		
+	
+	<select id="mainBoard" resultMap="ACTULPAPERBOARD">
+		SELECT *
+		FROM (SELECT TOP 7 ATC_SNO
+			      , BBS_CD
+			      , ATC_SBJ			      
+			   FROM ACTUL_PAPER_BOARD 
+			  WHERE BBS_CD= '001' AND DLT_YN = 'N'
+			  AND ATC_RGT_SE = 'OR' AND ATC_PST_YN = 'Y'
+			  ORDER BY ATC_SNO DESC ) A
+		UNION ALL
+		SELECT *
+		FROM (SELECT TOP 7  ATC_SNO
+			      , BBS_CD
+			      , ATC_SBJ
+			   FROM ACTUL_PAPER_BOARD 
+			  WHERE BBS_CD = '002' AND DLT_YN = 'N'
+			  AND ATC_RGT_SE = 'OR' AND ATC_PST_YN = 'Y'
+			    ORDER BY ATC_SNO DESC ) B 
+		UNION ALL
+		SELECT *
+		FROM (SELECT TOP 7 ATC_SNO
+			      , BBS_CD
+			      , ATC_SBJ
+			   FROM ACTUL_PAPER_BOARD 
+			  WHERE BBS_CD= '003' AND DLT_YN = 'N'
+			  AND ATC_RGT_SE = 'OR' AND ATC_PST_YN = 'Y'
+			  ORDER BY ATC_SNO DESC ) C	
+	</select>
+	
+	<select id="getBoardSelect" resultMap="ACTULPAPERBOARD">
+		SELECT *
+		FROM ACTUL_PAPER_BOARD
+		WHERE BBS_CD = ${bbs_cd}
+		AND ATC_SNO = ${atc_sno} 
+	</select>
+
+</mapper>
+

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminStat">
+
+	<select id="selectSumLog" parameterType="hashmap" resultType="int">
+	SELECT
+		sum(hit) as total
+	FROM log
+	WHERE 1 = 1
+		<choose>
+			<when test='kind == "1"'>
+			AND date = #{stDate}
+			GROUP BY date
+			</when>
+			<when test='kind == "2"'>
+			AND date BETWEEN #{stDate} AND #{endDate}
+			</when>
+			<when test='kind == "3"'>
+			AND LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+			</when>
+		</choose>
+	</select>
+
+
+
+	<select id="selectLogList" parameterType="hashmap" resultType="hashmap">
+		<choose>
+		<when test='kind == "1"'>
+		SELECT
+			  date 
+			, time
+			, hit
+		FROM log
+		WHERE date = #{stDate}
+		ORDER BY time asc
+		</when>
+		<when test='kind == "2"'>
+		SELECT
+			  date
+			, sum(hit) AS hit
+		FROM log
+		WHERE date BETWEEN #{stDate} AND #{endDate}
+		GROUP BY date
+		ORDER BY date DESC
+		</when>
+		<when test='kind == "3"'>
+		SELECT
+			  LEFT(date, 7) AS date
+			, SUM( hit ) AS hit
+		FROM log 
+		WHERE LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+		GROUP BY LEFT(date, 7)
+		ORDER BY date
+		</when>
+		</choose>
+	</select>
+	
+	<select id="selectSumBannerLog" parameterType="hashmap" resultType="int">
+	SELECT
+		sum(hit) as total
+	FROM log_banner
+	WHERE 1 = 1
+		<if test="srch != null and srch != '' ">
+		AND banner_name like '%' + #{srch} + '%'
+		</if>
+		<choose>
+			<when test='kind == "1"'>
+			AND date = #{stDate}
+			GROUP BY date
+			</when>
+			<when test='kind == "2"'>
+			AND date BETWEEN #{stDate} AND #{endDate}
+			</when>
+			<when test='kind == "3"'>
+			AND LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+			</when>
+		</choose>
+	</select>
+	
+	<select id="selectBannerLogList" parameterType="hashmap" resultType="hashmap">
+		<choose>
+		<when test='kind == "1"'>
+		SELECT
+			  date 
+			, time
+			, banner_name
+			, hit
+		FROM log_banner
+		WHERE date = #{stDate}
+			<if test="srch != null and srch != '' ">
+			AND banner_name like '%' + #{srch} + '%'
+			</if>
+		ORDER BY time asc
+		</when>
+		<when test='kind == "2"'>
+		SELECT
+			  date
+			, banner_name
+			, sum(hit) AS hit
+		FROM log_banner
+		WHERE date BETWEEN #{stDate} AND #{endDate}
+			<if test="srch != null and srch != '' ">
+			AND banner_name like '%' + #{srch} + '%'
+			</if>
+		GROUP BY date, banner_name
+		ORDER BY date DESC
+		</when>
+		<when test='kind == "3"'>
+		SELECT
+			  LEFT(date, 7) AS date
+			, banner_name
+			, SUM( hit ) AS hit
+		FROM log_banner 
+		WHERE LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+			<if test="srch != null and srch != '' ">
+			AND banner_name like '%' + #{srch} + '%'
+			</if>
+		GROUP BY LEFT(date, 7), banner_name
+		ORDER BY date
+		</when>
+		</choose>
+	</select>
+	
+	<select id="selectSumMemberLog" parameterType="hashmap" resultType="int">
+	SELECT
+		sum(hit) as total
+	FROM log_member
+	WHERE 1 = 1
+		<if test="srch != null and srch != '' ">
+		AND code_pers = #{srch}
+		</if>
+		<choose>
+			<when test='kind == "1"'>
+			AND date = #{stDate}
+			GROUP BY date
+			</when>
+			<when test='kind == "2"'>
+			AND date BETWEEN #{stDate} AND #{endDate}
+			</when>
+			<when test='kind == "3"'>
+			AND LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+			</when>
+		</choose>
+	</select>
+	
+	<select id="selectMemberLogList" parameterType="hashmap" resultType="hashmap">
+		<choose>
+		<when test='kind == "1"'>
+		SELECT
+			  date 
+			, time
+			, page_title
+			, hit
+		FROM log_member
+		WHERE date = #{stDate}
+			<if test="srch != null and srch != '' ">
+			AND code_pers = #{srch}
+			</if>
+		ORDER BY time asc
+		</when>
+		<when test='kind == "2"'>
+		SELECT
+			  date
+			, page_title
+			, sum(hit) AS hit
+		FROM log_member
+		WHERE date BETWEEN #{stDate} AND #{endDate}
+			<if test="srch != null and srch != '' ">
+			AND code_pers = #{srch}
+			</if>
+		GROUP BY date, page_title
+		ORDER BY date DESC
+		</when>
+		<when test='kind == "3"'>
+		SELECT
+			  LEFT(date, 7) AS date
+			, page_title
+			, SUM( hit ) AS hit
+		FROM log_member 
+		WHERE LEFT(date, 7) BETWEEN  LEFT( #{stDate}, 7 ) AND  LEFT( #{endDate}, 7 )
+			<if test="srch != null and srch != '' ">
+			AND code_pers = #{srch}
+			</if>
+		GROUP BY LEFT(date, 7), page_title
+		ORDER BY date
+		</when>
+		</choose>
+	</select>
+	
+	<select id="selectSearchMember" parameterType="hashmap" resultType="hashmap">
+	SELECT
+		TOP(1) pers_name, a.code_pers, id 
+	FROM person_m_tbl a, id_tbl b 
+	WHERE a.code_pers = b.code_pers	
+		and id = #{id}
+	</select>
+	
+	<select id="selectSumSinmungoLog" parameterType="hashmap" resultType="int">
+		<choose>
+			<when test='kind == "1"'>
+			select COUNT(IDX) AS TOTAL
+			from SIN_PAPER_BOARD
+			where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+			</when>
+			<when test='kind == "2"'>
+			select COUNT(BOARD_DEPT_COM) AS TOTAL
+			from SIN_PAPER_BOARD
+			where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+			AND BOARD_DEPT_COM IS NOT NULL
+			</when>
+			<when test='kind == "3"'>
+			SELECT COUNT(B.IDX) AS TOTAL
+			FROM (SELECT * 
+				  FROM COM_CODE
+				 WHERE GROUPCODE = '007'
+				   AND USE_YN = 'Y'
+				 ) A
+				 LEFT JOIN (SELECT BB.*
+							FROM SIN_PAPER_BOARD AA
+							   , SIN_PERSON_INFO BB
+							WHERE AA.BOARD_USER_ID = BB.PERS_ID
+							  AND  CONVERT(DATE, AA.board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})) B
+			        ON (A.tempcd1 = B.CODE_BRAN)
+			</when>
+			<when test='kind == "4"'>
+			SELECT COUNT(B.IDX) AS TOTAL
+			FROM (SELECT * 
+				  FROM COM_CODE
+				 WHERE GROUPCODE = '004'
+				   AND USE_YN = 'Y'
+				   AND TEMPCD2 IN (1,2)) A
+				 LEFT JOIN (SELECT BB.*
+							FROM SIN_PAPER_BOARD AA
+							   , SIN_PERSON_INFO BB
+							WHERE AA.BOARD_USER_ID = BB.PERS_ID
+							  AND  CONVERT(DATE, AA.board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})) B
+			        ON (A.DETCODE = B.CODE_GREAT)
+			</when>
+			<when test='kind == "5"'>
+			select COUNT(board_dept) AS TOTAL
+			from SIN_PAPER_BOARD
+			where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+			</when>
+		</choose>
+	</select>
+	
+	<select id="selectSinmungoLogList" parameterType="hashmap" resultType="hashmap">
+		<choose>
+		<when test='kind == "1"'>
+		select board_reg_date AS page_title
+			 , COUNT(*) AS hit
+		from SIN_PAPER_BOARD
+		where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+		GROUP BY board_reg_date
+		</when>
+		<when test='kind == "2"'>
+		select BOARD_DEPT_COM AS page_title
+			 , COUNT(BOARD_DEPT_COM) AS hit
+		from SIN_PAPER_BOARD
+		where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+		AND BOARD_DEPT_COM IS NOT NULL
+		GROUP BY BOARD_DEPT_COM
+		ORDER BY BOARD_DEPT_COM 
+		</when>
+		<when test='kind == "3"'>
+		SELECT A.DETCODENAME AS page_title
+		     , COUNT(B.IDX) AS hit
+		FROM (SELECT * 
+			  FROM COM_CODE
+			 WHERE GROUPCODE = '007'
+			   AND USE_YN = 'Y'
+			 ) A
+			 LEFT JOIN (SELECT BB.*
+						FROM SIN_PAPER_BOARD AA
+						   , SIN_PERSON_INFO BB
+						WHERE AA.BOARD_USER_ID = BB.PERS_ID
+						  AND  CONVERT(DATE, AA.board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})) B
+		        ON (A.tempcd1 = B.CODE_BRAN)
+		GROUP BY A.DETCODE, A.DETCODENAME
+		</when>
+		<when test='kind == "4"'>
+		SELECT A.DETCODENAME AS page_title
+		     , COUNT(B.IDX) AS hit
+		FROM (SELECT DETCODE
+		           , CASE WHEN TEMPCD2 = '2' 
+						  THEN TEMPCD1+'_'+DETCODENAME
+						  ELSE DETCODENAME
+				      END DETCODENAME
+			  FROM COM_CODE
+			 WHERE GROUPCODE = '004'
+			   AND USE_YN = 'Y'
+			   AND TEMPCD2 IN (1,2)) A
+			 LEFT JOIN (SELECT BB.*
+						FROM SIN_PAPER_BOARD AA
+						   , SIN_PERSON_INFO BB
+						WHERE AA.BOARD_USER_ID = BB.PERS_ID
+						  AND  CONVERT(DATE, AA.board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})) B
+		        ON (A.DETCODE = B.CODE_GREAT)
+		GROUP BY A.DETCODE, A.DETCODENAME
+		</when>
+		<when test='kind == "5"'>
+		select board_dept AS page_title
+			 , COUNT(board_dept) AS hit
+		from SIN_PAPER_BOARD
+		where CONVERT(DATE, board_reg_date) between CONVERT(DATE, #{stDate}) and CONVERT(DATE, #{endDate})
+		GROUP BY board_dept
+		ORDER BY board_dept DESC
+		</when>
+		</choose>
+	</select>
+	
+	<select id="excelSinmungo" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT *
+		  FROM (
+				SELECT   ROW_NUMBER() OVER( order by A.IDX desc) AS num
+						, A.board_reg_date
+						, A.board_dept_com
+						, B.code_bran
+						, B.company_name
+						, C.detcodename
+						, A.board_dept
+						, A.board_handling
+				  FROM SIN_PAPER_BOARD A
+					 , SIN_PERSON_INFO B
+					 , (SELECT * 
+						  FROM COM_CODE
+						 WHERE GROUPCODE = '004'
+						   AND USE_YN = 'Y'
+						   AND TEMPCD2 IN (1,2)) C
+				  WHERE A.BOARD_USER_ID = B.PERS_ID
+				    AND B.CODE_GREAT = C.DETCODE
+				) AA
+		ORDER BY num
+	</select>
+	
+</mapper>
+

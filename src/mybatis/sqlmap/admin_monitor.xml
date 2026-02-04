@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminMonitor">
+
+
+	<sql id="monitorColumn">
+		m_inx
+		,m_name
+		,m_post
+		,m_addr
+		,m_tel
+		,indate
+		,m_element
+		,mcode
+		,mid
+	</sql>
+	<sql id="monitorColumn2">
+		,s_gubun01_01
+		,s_text01_01
+		,s_gubun01_02
+		,s_text01_02
+		,s_gubun01_03
+		,s_text01_03
+		,s_gubun02_01
+		,s_text02_01
+		,s_gubun02_02
+		,s_text02_02
+		,s_gubun02_03
+		,s_text02_03
+		,s_text03_01
+	</sql>
+	
+	<select id="selectMonitorCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(m_inx)
+	FROM 	tbl_nutritionmonitor
+	WHERE 	1 = 1
+	</select>
+	
+	<select id="selectMonitorListHelper" parameterType="hashmap" resultType="kda.admin.monitor.data.TBLNUTRITIONMONITOR">
+	SELECT 
+		num ,
+		* 
+	FROM (
+	  	SELECT 
+		  	  ROW_NUMBER() OVER( order by m_inx desc ) AS num ,
+			 <include refid="monitorColumn" />
+		FROM		tbl_nutritionmonitor
+		WHERE 	1 = 1
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<select id="getMonitor" parameterType="hashmap" resultType="kda.admin.monitor.data.TBLNUTRITIONMONITOR">
+	SELECT 
+		* 
+	FROM (
+			SELECT
+						a.m_name
+						,a.m_post
+						,a.m_addr
+						,a.m_tel
+						,a.indate
+						,a.mcode
+						,b.s_gubun01_01
+						,b.s_text01_01
+						,b.s_gubun01_02
+						,b.s_text01_02
+						,b.s_gubun01_03
+						,b.s_text01_03
+						,b.s_gubun02_01
+						,b.s_text02_01
+						,b.s_gubun02_02
+						,b.s_text02_02
+						,b.s_gubun02_03
+						,b.s_text02_03
+						,b.s_text03_01
+			FROM tbl_nutritionmonitor a
+			INNER JOIN tbl_nutritionmonitor_detail b
+			ON a.mcode=b.mcode
+	) A WHERE mcode=#{mcode} 
+	</select>
+	
+	<select id="excelMonitor" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		* 
+	FROM (
+			SELECT
+						a.m_name
+						,a.m_post
+						,a.m_addr
+						,a.m_tel
+						,CONVERT(CHAR(8),a.indate,23) as indate
+						,a.mcode
+						,b.s_gubun01_01
+						,b.s_text01_01
+						,b.s_gubun01_02
+						,b.s_text01_02
+						,b.s_gubun01_03
+						,b.s_text01_03
+						,b.s_gubun02_01
+						,b.s_text02_01
+						,b.s_gubun02_02
+						,b.s_text02_02
+						,b.s_gubun02_03
+						,b.s_text02_03
+						,b.s_text03_01
+			FROM tbl_nutritionmonitor a
+			INNER JOIN tbl_nutritionmonitor_detail b
+			ON a.mcode=b.mcode
+	) A WHERE mcode=#{mcode} 
+	</select>
+	
+	
+</mapper>
+

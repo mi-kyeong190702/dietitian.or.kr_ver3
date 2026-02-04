@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ke_curriculum">
+
+	<!-- 교육지역 가져오기 -->
+	<select id="selectEDU_TEST_NAME">	
+		SELECT ET.CODE_BRAN
+			, (SELECT CC.DETCODENAME FROM COM_CODE CC WHERE CC.GROUPCODE='034' AND CC.DETCODE = ET.CODE_BRAN) AS INSTRUMENT
+		FROM EDU_TEST_NAME ETN INNER JOIN EDU_TEST ET ON ETN.CODE_KIND = ET.CODE_KIND AND ETN.CODE_CERTIFI = ET.CODE_CERTIFI AND ETN.CODE_SEQ = ET.CODE_SEQ
+		<![CDATA[WHERE CONVERT (INT, #{REGI_DATE}) >= ET.START_DT 
+				  AND  CONVERT (INT, #{REGI_DATE}) <= ET.END_DT  AND ET.USE_YN ='Y'	]]>		
+		<if test="edu_type1 != null">
+			<choose>
+				<when test="edu_type1 == 'edu1'">
+					AND ETN.CODE_KIND = '1'
+				</when>
+				<when test="edu_type1 == 'edu2'">
+					AND ETN.CODE_KIND IN ('2', '3','4','6','7')
+				</when>
+			</choose>
+		</if>		
+			GROUP BY ET.CODE_BRAN
+	</select>
+
+	<!-- 교육과목 DB 가져오기 -->
+	<select id="edu_test_list">
+		SELECT ET.YYYY
+		, ET.CODE_KIND
+		, ET.CODE_CERTIFI
+		, ET.CODE_SEQ
+		, ET.CODE_BRAN 
+		, ET.CODE_BRAN 
+		, ET.BRAN_SEQ 
+		, ETN.EDUTEST_NAME
+		, ET.OPERATION_CNT
+		, ET.SEASON
+		, ET.RECEIPT_PERS_CNT
+		, (SELECT CC.DETCODENAME FROM COM_CODE CC WHERE CC.GROUPCODE='034' AND CC.DETCODE = ET.CODE_BRAN) AS INSTRUMENT,
+			(SELECT CC.CERTIFI_NAME FROM CERTIFI CC WHERE CC.CODE_CERTIFI = ET.CODE_CERTIFI) AS CERTIFI_NAME, ET.BRAN_TXT AS BTEXT
+			FROM EDU_TEST_NAME ETN INNER JOIN EDU_TEST ET ON ETN.CODE_KIND = ET.CODE_KIND AND ETN.CODE_CERTIFI = ET.CODE_CERTIFI AND ETN.CODE_SEQ = ET.CODE_SEQ
+			<![CDATA[WHERE CONVERT (INT, #{regi_date}) >= ET.START_DT AND  CONVERT (INT, #{regi_date}) <= ET.END_DT  AND ET.USE_YN ='Y']]>
+			<if test="edu_type1 != null">
+				<choose>
+					<when test="edu_type1 == 'edu1'">
+						AND ETN.CODE_KIND = '1'
+					</when>
+					<when test="edu_type1 == 'edu2'">
+						AND ETN.CODE_KIND IN ('2', '3', '6','7')
+					</when>
+				</choose>
+			</if>
+			AND  ET.CODE_BRAN = #{code_area}  ORDER BY ET.OPER_START_DT
+	</select>
+
+	<!-- ?? -->
+	<select id="receipt_no_count">
+		SELECT COUNT(RECEIPT_NO) AS CT 
+		FROM OPERATER 
+		WHERE CODE_KIND+CODE_CERTIFI+CODE_SEQ+CODE_BRAN+BRAN_SEQ = #{code_kind} || #{code_certifi} || #{code_seq} || #{code_bran} || #{bran_seq}
+		AND OPER_STATE IN ('01', '11')
+	</select>
+
+	<!-- 교육과목 세부사항 가져오기 -->
+	<select id="edu_test_detail">
+		SELECT
+	    	A.SEASON
+	    	, A.YYYY
+	    	, A.OPERATION_CNT
+	    	, B.EDU_GROUP
+	    	, A.CODE_BRAN
+	    	, B.EDUTEST_NAME
+	    	, B.OUTSIDE_YN
+	    	, B.EDU_MARKS
+	    	, B.NEW_COST
+	    	, A.OPER_START_DT
+	    	, A.START_DT
+	    	, A.END_DT
+	    	, A.OPER_END_DT
+	    	, B.FINISH_DATE
+	    	, ACCOUNT_WAY
+	    	, A.OPERATION_PLACE
+	    	, A.CODE_KIND
+	    	, B.FINISH_POINT
+	    	, B.CODE_KIND
+	    	, B.CODE_SEQ
+	    	, A.CODE_CERTIFI
+	    	, A.BRAN_SEQ
+	    	, A.START_DT
+	    	, A.ACCOUNT_END_DT
+	    	, A.BRAN_TXT AS BTEXT2
+	    	, B.POINT_MANAGE
+	    	, DBO.GETCODEVALUE('034', A.CODE_BRAN)AS INSTRUMENT
+	    	, A.REMARK
+	    	, B.REMARK AS B_REMARK
+	    	, (SELECT C.CERTIFI_NAME FROM CERTIFI C WHERE A.CODE_CERTIFI = C.CODE_CERTIFI) AS CERTIFI_NAME
+	    FROM EDU_TEST A
+	    	INNER JOIN EDU_TEST_NAME B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
+	    WHERE (A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ = #{edu_id})
+    </select>
+	<!-- ================================================== -->
+	<!-- 교육 신청  -->
+    <select id="edu_pers_no">
+    	<choose>
+		    <when test="edu_type != null and edu_type == '1'">
+		      	SELECT PERS_NO
+				FROM STD_LIC_B_TBL
+				WHERE EDU_LIC_ID = #{edu_id} 
+				AND PERS_NO = #{mem_ssn}		
+		    </when>
+		   <otherwise>
+		      	SELECT PERS_NO
+				FROM STD_B_TBL
+				WHERE EDU_ID = #{edu_id} 
+				AND PERS_NO = #{mem_ssn}
+		    </otherwise>
+		 </choose>
+	</select>
+
+	<!--  -->
+	<select id="selectSTD_LIC_H_TBL">
+		SELECT STD_LIC_H_ID, CSR_FLAG, HAKKI_1_ID, HAKKI_2_ID
+	    FROM STD_LIC_H_TBL
+	    WHERE PERS_NO = #{mem_ssn}
+	    AND EDU_ID = #{edu_id}
+	</select>
+
+	<!--  -->
+	<insert id="insertSTD_LIC_B_TBL">
+		INSERT INTO STD_LIC_B_TBL(
+		    EDU_ID,
+		    EDU_LIC_ID,
+		    PERS_NO,
+		    CODE_SESSION,
+		    CODE_SEASON,
+		    CENTER_FLAG,
+		    EDU_NAME,
+		    EDU_DAY, 
+		    EDU_DAY_DATE, 
+		    EDU_EXAM, 
+		    EDU_EXAM_DATE, 
+		    CSR_FLAG,
+		    SUBMIT_DAY,
+		    PAYMENT,
+		    HYUHAK,
+		    FAIL_REASON
+		) VALUES (
+		     #{lic_edu_id},
+		     #{edu_id},
+		     #{mem_ssn},
+		     #{code_session},
+		     #{code_season},
+		     #{center_flag},
+		     #{edu_name},
+		    0,
+		    '', 
+		    0,
+		    '', 
+		    #{csr_flag},
+		   #{submit_day},
+		    '', --payment
+		    '', --hyuhak
+		    ''  --fail_reason
+		    )
+	</insert>
+
+	<!--  -->
+	<select id="selectSTD_LIC_B_TBL">
+		SELECT STD_LIC_B_ID
+		FROM STD_LIC_B_TBL
+		ORDER BY STD_LIC_B_ID DESC
+	</select>
+
+	<!--  -->
+	<insert id="insertSTD_LIC_H_TBL">
+		INSERT INTO STD_LIC_H_TBL ( 
+	        EDU_ID, 
+	        PERS_NO, 
+	        CSR_FLAG, 
+	        HAKKI_1_ID, 
+	        HAKKI_2_ID, 
+	        DIPLOMA_NO1, 
+	        DIPLOMA_NO2, 
+	        DIPLOMA_DATE, 
+	        LIC_PASS_DATE 
+	    ) VALUES ( 
+	        #{lic_edu_id}
+	        , #{mem_ssn}
+	        , #{csr_flag}	        
+	     <choose>
+		    <when test="code_season != null and code_season == '1'">
+		      	, #{std_lic_b_id}
+	            , 0	
+		    </when>
+		   <otherwise>
+		      	, 0 
+	        	, #{std_lic_b_id}
+		    </otherwise>
+		 </choose>
+	        , ''
+	        , 0
+	        , ''
+	        , ''
+		)
+	</insert>
+
+	<!--  -->
+	<update id="updateSTD_LIC_H_TBL">
+		UPDATE STD_LIC_H_TBL SET
+		<choose>
+		    <when test="code_season != null and code_season == '1'">
+		      	HAKKI_1_ID = #{std_lic_b_id}
+		    </when>
+		   <otherwise>
+		      	 HAKKI_2_ID = #{std_lic_b_id}
+		    </otherwise>
+		</choose>			    
+		WHERE STD_LIC_H_ID = #{std_lic_h_id}
+	</update>
+	
+	<select id="selectSTD_H_TBL">
+		SELECT STD_ID, CSR_FLAG 
+        FROM STD_H_TBL
+        WHERE (PERS_NO = #{mem_ssn})
+        <if test="csr_flag != null">
+	        <choose>
+			    <when test="csr_flag == '0'">
+			      	AND (CSR_FLAG = '1' OR CSR_FLAG = '2'  OR CSR_FLAG = '3')
+			    </when>
+			   <when test="((csr_flag == '1') Or (csr_flag == '2') Or (csr_flag == '3'))">
+			      	 AND (CSR_FLAG = #{csr_flag})
+			    </when>
+			</choose>
+		</if>	
+		AND #{edu_close} BETWEEN S_DATE AND E_DATE
+	</select>
+	
+	<insert id="insertSTD_B_TBL">
+		INSERT INTO STD_B_TBL(
+			PERS_NO,
+			STD_ID,
+			EDU_ID,
+			CENTER_FLAG,
+		    CSR_COM_FLAG,				
+			EDU_NAME,
+			END_DAY,
+			EDU_DAY,
+			CODE_PRIVATE,
+			APP_AVG,
+			CSR_FLAG,
+			SUBMIT_DAY
+		) VALUES (
+			#{mem_ssn},
+			#{std_id},
+			#{edu_id}, 
+			#{center_flag},
+			'0',
+			#{edu_name},
+			#{edu_close},
+			0,
+			'',
+			0,
+			#{temp_csr_flag},
+			#{submit_day
+		)
+	</insert>
+</mapper>

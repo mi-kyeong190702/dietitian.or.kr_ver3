@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminJob">
+
+
+	<sql id="jobColumn">
+		tb_idx
+		,tb_name
+		,tb_birth    
+		,tb_zip     
+		,tb_addr    
+		,tb_hp      
+		,tb_email   
+		,tb_date    
+		,member_flag
+		,school     
+		,major     
+	</sql>
+	<sql id="jobExcel">
+		tb_idx
+		,tb_name
+		,tb_birth    
+		,tb_zip     
+		,tb_addr    
+		,tb_hp      
+		,tb_email   
+		,tb_date    
+		,CASE member_flag WHEN '1' THEN '회원' ELSE '비회원' END member_flag
+		,school     
+		,major     
+	</sql>
+	
+	<select id="selectJobCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(tb_idx)
+	FROM 	tbl_job
+	</select>
+	
+	<select id="selectJobListHelper" parameterType="hashmap" resultType="kda.admin.job.data.TBLJOB">
+  	SELECT 
+		num ,
+		<include refid="jobColumn" /> 
+	FROM (
+	  	SELECT
+	  		ROW_NUMBER() OVER( ORDER BY  tb_idx DESC ) AS num , 
+			<include refid="jobColumn" />
+		FROM		tbl_job
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<delete id="deleteJob" parameterType="hashmap" >
+	DELETE FROM	tbl_job
+	WHERE 	tb_idx=#{tb_idx}	
+	</delete>
+	
+	<select id="excelJob" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT 
+		*
+	FROM (
+		SELECT
+			ROW_NUMBER() OVER( ORDER BY  tb_idx DESC ) AS num ,
+			<include refid="jobExcel" />
+		FROM		tbl_job
+		WHERE 1 = 1
+	) A  
+	ORDER BY num
+	</select>
+	
+	<insert id="insertTblJob" parameterType="hashmap">
+	INSERT INTO  tbl_job (
+		  tb_name
+		, tb_birth
+		, tb_zip
+		, tb_addr
+		, tb_hp
+		, member_flag
+		, school
+		, major
+		, tb_email
+		, tb_date
+	) VALUES ( 
+		  #{name}
+		, #{pers_no}
+		, #{code_post}
+		, #{pers_add}
+		, #{tel}
+		, '0'
+		, #{school}
+		, #{major}
+		, #{email}
+		, #{today}
+	) 
+	</insert>
+	
+</mapper>
+

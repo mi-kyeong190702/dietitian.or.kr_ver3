@@ -1,0 +1,13 @@
+package mybatis.table;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data public class ChkRecomm //????ï¿?? ??????ï¿?? 
+{
+	private String regdate; //??????ï¿?? datetime
+	private String id; //???ï¿½ï¿½??
+
+}

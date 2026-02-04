@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="research_login">
+	<resultMap type="ACTULPERSON" id="ACTULPERSON">
+		<result property="code_seq" 			column="CODE_SEQ"/>
+		<result property="pers_name" 			column="PERS_NAME"/>
+		<result property="lic_no" 				column="LIC_NO"/>
+		<result property="lic_print_dt" 			column="LIC_PRINT_DT"/>
+		<result property="userpw" 				column="USERPW"/>
+		<result property="code_sex" 			column="CODE_SEX"/>
+		<result property="pers_year" 			column="PERS_YEAR"/>
+		<result property="code_post" 			column="CODE_POST"/>
+		<result property="pers_add" 			column="PERS_ADD"/>
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>
+		<result property="pers_tel" 				column="PERS_TEL"/>
+		<result property="pers_hp" 				column="PERS_HP"/>
+		<result property="email" 					column="EMAIL"/>
+		<result property="pers_state" 			column="PERS_STATE"/>
+		<result property="regi_dt" 				column="REGI_DT"/>
+		<result property="up_date" 				column="UP_DATE"/>
+		<result property="pwchk" 				column="PWCHK"/>
+		<result property="pers_ip" 				column="PERS_IP"/>
+		<result property="regi_start" 				column="REGI_START"/>
+		<result property="regi_end" 				column="REGI_END"/>
+	</resultMap>
+
+	<select id="passwdCk" parameterType="hashmap" resultMap="ACTULPERSON">
+		SELECT		CASE WHEN PWDCOMPARE(#{user_pw}, user_pw) = 1 THEN 'Y' ELSE 'N' END AS PWCHK
+						, PERS_NAME
+						, LIC_NO
+						, LIC_PRINT_DT
+						, CODE_SEX
+						, PERS_YEAR
+						, CODE_POST
+						, PERS_ADD
+						, PERS_ADD_DETAIL
+						, PERS_TEL
+						, PERS_HP
+						, EMAIL
+						, PERS_STATE
+  		  FROM 		ACTUL_PERSON
+  		  WHERE	PERS_NAME = #{pers_name}
+  		  AND			LIC_NO = #{lic_no}		   
+	</select>		
+	
+	<insert id="insertHistory" parameterType="hashmap">
+		<selectKey resultType="int" keyProperty="code_seq" order="BEFORE">
+			SELECT ISNULL ( MAX ( CODE_SEQ) , 0 ) +1 FROM ACTUL_PERSON_LOGIN_HISTORY
+		</selectKey>
+		INSERT INTO	ACTUL_PERSON_LOGIN_HISTORY
+		(
+			CODE_SEQ
+			,PERS_NAME
+			,LIC_NO
+			,PERS_IP
+			,REGI_START			
+		) VALUES
+		(
+			#{code_seq}
+			,#{pers_name}
+			,#{lic_no}
+			,#{pers_ip}
+			,GETDATE()
+		)		
+	</insert>
+	
+	<update id="loginHistory" parameterType="ACTULPERSON" >
+		UPDATE 	ACTUL_PERSON_LOGIN_HISTORY 
+		SET 		REGI_START=GETDATE(), PERS_IP=#{pers_ip},REGI_END=null
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</update>
+	
+	<update id="logoutHistory" parameterType="ACTULPERSON" >
+		UPDATE 	ACTUL_PERSON_LOGIN_HISTORY 
+		SET 		REGI_END=GETDATE()
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</update>
+	
+	<select id="isUser" parameterType="hashmap" resultType="java.lang.Integer" >
+		SELECT	COUNT(*) as CNT
+		FROM		ACTUL_PERSON_LOGIN_HISTORY
+		WHERE	PERS_NAME = #{pers_name}
+  		AND		LIC_NO = #{lic_no}
+	</select>
+
+</mapper>
+

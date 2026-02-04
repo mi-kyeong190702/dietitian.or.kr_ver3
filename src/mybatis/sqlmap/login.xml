@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login">
+
+	<resultMap type="LOGININFO" id="LOGININFO">
+		<result property="pers_name" 	column="PERS_NAME"/>			
+		<result property="conform_yn" 	column="CONFORM_YN"/>
+		<result property="pers_tel"		column="PERS_TEL"/>
+		<result property="pers_hp" 		column="PERS_HP"/>
+		<result property="code_member" 	column="CODE_MEMBER"/>
+		<result property="email" 		column="EMAIL"/>
+		<result property="dues_gubun" 	column="DUES_GUBUN"/>
+		<result property="pers_state" 	column="PERS_STATE"/>
+		<result property="auth_start" 	column="AUTH_START"/>
+		<result property="auth_end" 	column="AUTH_END"/>
+		<result property="pwchk" 		column="PWCHK"/>
+		<result property="code_pers" 	column="CODE_PERS"/>
+		<result property="pers_birth" 	column="PERS_BIRTH"/>		
+		<result property="code_bran" 	column="CODE_BRAN"/>
+		<result property="code_post" 	column="CODE_POST"/>
+		<result property="pers_add" 	column="PERS_ADD"/>		
+		<result property="pers_add_detail" 	column="PERS_ADD_DETAIL"/>	
+		<result property="lic_no" 		column="LIC_NO"/>	
+		<result property="pers_point" 		column="PERS_POINT"/>
+		<result property="code_big" 	column="CODE_BIG"/>	
+	</resultMap>
+	
+	<select id="userPassword" parameterType="hashmap" resultMap="LOGININFO">
+		SELECT CODE_PERS
+     		 , CASE WHEN PWDCOMPARE(#{pass}, PASSWD) = 1 THEN 'Y' ELSE 'N' END AS PWCHK
+  		  FROM ID_TBL  
+		<where>
+			<if test="id != null">
+				ID = #{id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="userInfo" parameterType="hashmap" resultMap="LOGININFO">
+		SELECT 
+		       TOP 1
+			   PERS_NAME
+		     , CONFORM_YN
+		     , PERS_TEL
+		     , PERS_HP
+		     , CODE_MEMBER
+		     , EMAIL
+		     , DUES_GUBUN
+		     , PERS_STATE
+		     , AUTH_START
+		     , AUTH_END
+		     , 'Y' AS PWCHK
+		     , A.CODE_PERS
+		     , PERS_BIRTH		     
+		     , CODE_BRAN
+		     , CODE_POST
+			 , PERS_ADD	
+		     , PERS_ADD_DETAIL
+		     , LIC_NO
+		     , (SELECT POINT FROM ID_TBL B WHERE B.code_pers = A.code_pers) AS PERS_POINT
+		     , CODE_BIG
+		  FROM PERSON_M_TBL A LEFT JOIN ( 
+		    SELECT C.CODE_PERS 
+	 		     , ISNULL(C.AUTH_END,'') AUTH_END
+	 		     , ISNULL(C.AUTH_START,'') AUTH_START
+	 		     , ISNULL(C.DUES_GUBUN,'') DUES_GUBUN 
+		         , ISNULL(W.CONFORM_YN,'') CONFORM_YN      
+		      FROM DUES_H_TBL C, DUES_B_TBL W 
+		     WHERE C.INCOM_FLAG != 'D' 
+		       AND W.CONFORM_YN = '3' 
+		       AND W.CODE_PERS = C.CODE_PERS 
+		       AND W.DUES_GUBUN = C.DUES_GUBUN 
+		       AND W.DUES_H_SEQ = C.DUES_H_SEQ 
+		       AND C.AUTH_END = (  SELECT TOP 1 ISNULL(A.AUTH_END,'') AUTH_END 
+		                             FROM DUES_H_TBL A, DUES_B_TBL B 
+		                            WHERE A.INCOM_FLAG != 'D' 
+		                              AND A.CODE_PERS = B.CODE_PERS 
+		                              AND A.DUES_GUBUN = B.DUES_GUBUN  
+		                              AND A.DUES_H_SEQ = B.DUES_H_SEQ 
+		                              AND A.CODE_PERS = C.CODE_PERS  
+		                              AND B.CONFORM_YN = '3' 
+		                            ORDER BY AUTH_END DESC) 
+		     ) C ON C.CODE_PERS = A.CODE_PERS
+		 WHERE A.CODE_PERS = #{code_pers}
+	</select>
+</mapper>
+

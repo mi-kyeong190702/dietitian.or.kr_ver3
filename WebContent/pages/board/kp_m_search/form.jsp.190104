@@ -1,0 +1,160 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 		uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" 		uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" 	uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" 	uri="http://www.springframework.org/tags/form" %>
+<script type="text/javascript">
+function doWrite() {
+	
+	if($("#bbs_subject").val() == "" ) {
+		alert("제목을 꼭 써주셔야 합니다.");
+		$("#bbs_subject").focus();
+		return;
+	}
+	if($("#bbs_name").val() == "") {
+		alert("원고자를 꼭 써주셔야 합니다.");
+		$("#bbs_name").focus();
+		return ;
+	}
+	document.frmPaper.action = "./${kind}_action.do";
+	document.frmPaper.submit();
+}
+
+function doDelete() {
+	if( confirm("정말 삭제하시겠습니까?") ) {
+		$("#board_form").val("delete");	
+		document.frmPaper.submit();
+	}
+	
+}
+
+</script>
+<div class="s_page">
+	<div class="sp_head">
+		<div class="sp_title">
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">국민영양</mark>검색</h3>
+		</div>
+		<div class="sp_navi">
+			<ul>
+				<li class="start"><a href="#" class="icon_home"><span class="ti">HOME</span></a></li>
+				<li><a href="/work/publication/kp_magazine.do">KDA 출판</a></li>
+				<li><a href="/work/publication/kp_magazine.do">국민영양</a></li>
+				<li><a href="/work/publication/kp_m_list.do" class="cm">국민영양검색</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div class="sp_body">
+	
+<!-- //  Content start -->
+<div class="form line bt bcm bw2">
+	<form:form name="frmPaper" modelAttribute="paper" method="post"  action="./${kind}_action.do" enctype="multipart/form-data">	
+	<form:hidden path="board_form" />
+	<form:hidden path="bbs_board_code" />
+	<form:hidden path="bbs_idx" />
+	<form:hidden path="bbs_user_id" />
+	<form:hidden path="bbs_html" value="on"/>
+	
+	
+	<div class="f_wrap line bb p8">
+		<div class="f_field div3">
+			<label for="inputid1" class="ff_title i_b"><strong>년 - 월</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<form:input path="bbs_option"  class="input t1" /> 예) 2015-04										
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="f_wrap line bb p8">
+		<div class="f_field div2">
+			<label for="inputid2" class="ff_title i_b"><strong>컬럼명</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<form:input path="bbs_category" class="input t1 w400"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="f_wrap line bb p8">
+		<div class="f_field div1">
+			<label for="inputid3" class="ff_title i_b"><strong>제목</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<form:input path="bbs_subject" class="input t1 w400"  />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="f_wrap line bb p8">
+		<div class="f_field div2">
+			<label for="inputid4" class="ff_title i_b"><strong>원고자</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<form:input path="bbs_name" class="input t1 w400" />
+				</div>
+			 </div>
+		  </div>
+		</div>
+	<div class="f_wrap line bb p8">
+		<div class="f_field div2">
+			<label for="inputid5" class="ff_title i_b"><strong>이메일</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<form:input path="bbs_email" class="input t1 w400" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="f_wrap line bb p8">
+		<div class="f_field div1">
+			<label for="inputid9" class="ff_title"><strong>첨부파일1</strong></label>
+			<div class="ff_wrap ml120">
+				<div class="area">
+					<label for="inputid9" class="ti">기본주소</label>
+					<form:hidden path="bbs_file_url" />
+					
+					<input type="file" name="bbs_file1" class="file t1" >
+					<!-- File1 -->
+					<c:if test="${paper.bbs_file_name != ''}">
+						<ul>
+							<li class="p10 pl15 link bold line dot bb">			
+								<span class="i_file ${paper.bbs_file_type} mr10"></span>				
+								<a href="javascript:doFileDownLoad(0)">${paper.bbs_file_name}</a>
+							</li>
+						</ul>
+					</c:if>			
+					</div>
+					<div style="display:none">
+						<input type="file" name="bbs_file2" class="file t1" >
+						<input type="file" name="bbs_file3" class="file t1" >
+						<input type="file" name="bbs_file4" class="file t1" >
+						<input type="file" name="bbs_file5" class="file t1" >
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="btnZone" class="btn_wrap mt40">
+		<ul>
+			<li>
+				<a href="javascript:doWrite();" class="btn big t1">
+					<c:if test='${paper.board_form eq "write"}'>입력</c:if>
+					<c:if test='${paper.board_form eq "update"}'>수정</c:if>
+				</a>
+				<c:if test="${paper.board_form eq 'update'}">
+				<a href="javascript:doDelete();" class="btn big t2">삭제</a>
+				</c:if>
+			</li>
+			<li><a href="javascript:window.history.back();" class="btn big">취소</a></li>
+		</ul>
+	</div>
+	</form:form>
+			
+</div>
+
+	 <!-- // Contents End -->
+	</div>
+</div>

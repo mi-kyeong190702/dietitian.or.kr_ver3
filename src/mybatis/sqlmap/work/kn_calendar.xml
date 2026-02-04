@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kn_calendar">
+	<resultMap type="KN_CALENDAR" id="KN_CALENDAR">
+		<result property="num" 		column="NUM"/>
+		<result property="yy" 		column="YY"/>
+		<result property="mm" 		column="MM"/>
+		<result property="dd" 		column="DD"/>
+		<result property="title" 	column="TITLE"/>
+		<result property="content" 	column="CONTENT"/>
+		<result property="s_where" 	column="S_WHERE"/>
+		<result property="s_time" 	column="S_TIME"/>
+		<result property="s_tel" 	column="S_TEL"/>
+	</resultMap>
+
+	<select id="get_schedulex_list" parameterType="hashmap" resultMap="KN_CALENDAR">
+	  	SELECT NUM
+	  		 , YY
+	  		 , MM
+	  		 , DD
+	  		 , TITLE
+	  		 , CONTENT
+	  		 , S_WHERE
+	  		 , S_TIME
+	  		 , S_TEL
+		  FROM SCHEDULEX
+		 WHERE id='0' 
+		   AND YY >= '2021'
+		   AND YY=#{yy}
+		   AND MM=#{mm}
+		 ORDER BY YY, MM
+	</select>	
+</mapper>
+

@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>아이디 / 비밀번호 찾기</title>
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+
+<div id="popup">
+	<div class="p_head">
+		<h2 class="title t3 cw bold s1 i_b_t6">아이디 / 비밀번호 찾기</h2>
+	</div>
+	<div class="p_body text ca small">
+		<div class="p30">
+			<mark class="cb">정성희님</mark>의 아이디는 <strong class="bold cm">gle*****</strong> 입니다.<br />
+			회원님의 정보 보안을 위해 아이디 3자리만 표기 하였습니다.
+		</div>
+	</div>
+	<div class="p_foot line bt">
+		<div class="btn_wrap mt20">
+			<a href="#" class="btn big">이전으로</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

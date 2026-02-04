@@ -1,0 +1,50 @@
+FirstRunScreens:Start
+ProcessInfInstall:File:C:\WINDOWS\OPTIONS\OEMAUDIT.INF: Section=:OneTime:
+CL:System 
+CL:Windows Directory 
+CL:Root Directory 
+CL:System files backup Directory 
+CL:Cabs Directory 
+CL:OOBE Source Directory 
+SrcLdid:(11)oeminfo.oem
+SrcLdid:(11)oemlogo.oem
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:CustomInstall: reRet=0
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:GI_PreinstallApp: reRet=0
+ProcessInfInstall:Section not found:II_INSTHWOC: reRet=:112:.
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:OEMStartLogo: reRet=0
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:RemoveNet: reRet=0
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:DelMsDetInf: reRet=0
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:DelPTPClean: reRet=0
+ProcessInfInstall:Failed to open:0: reRet=105
+ProcessInfInstall:Geninstall of File :c:\windows\options\oemaudit.inf: on section:RegisterOOBE: reRet=0
+VcpClose:About to close
+VcpClose:Delete 2
+VcpClose:Rename 2
+VcpClose:Copy 8
+CAB-No volume name for LDID 8005, local copy - path c:\windows\options\cabs
+[Cabs Directory]
+CAB-No volume name for LDID 8006, local copy - path c:\windows\options\oobe
+[OOBE Source Directory]
+VcpClose:About to End
+VcpClose:About to Terminate
+SpezialGeninstalls:Start
+SpezialGeninstalls:Looking for :C:\WINDOWS\OPTIONS\PREDUP.TAG:
+DoPreInstallWork:Auditmode :1:
+PrepareRunonce:RUNONCE Section:RO_PREINSTALLAPP:
+PrepareRunonce:Process :제어판: :1
+PrepareRunonce:Process :시작 메뉴의 프로그램: :1
+PrepareRunonce:Process :Windows 도움말: :1
+PrepareRunonce:Process :MS-DOS 프로그램: :1
+PrepareRunonce:Process :표준 시간대: :2
+ProcessInfInstall:Deleted Runonce :표준 시간대:
+PrepareRunonce:Process :튠업 응용 프로그램 시작: :1
+PrepareRunonce:RUNONCE Section:RO_MSOTHER:
+PrepareRunonce:RUNONCE Section:RO_OEM:
+IsKeyEmpty:Start
+IsKeyEmpty:1) Have :제어판:  :RUNDLL32.EXE SHELL32.DLL,Control_FillCache_RunDLL:
+ProcessInfInstall:File:C:\WINDOWS\OPTIONS\OEMAUDIT.INF: Section=:Options:
+ProcessInfInstall:Geninstall of File :C:\WINDOWS\OPTIONS\OEMAUDIT.INF: on section:CLEANUP: reRet=0
+VcpClose:About to close
+VcpClose:About to End
+VcpClose:About to Terminate
+IsKeyEmpty:Start

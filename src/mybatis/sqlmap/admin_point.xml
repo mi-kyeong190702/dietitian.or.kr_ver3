@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminPoint">
+
+
+	<sql id="pointColumn">
+		A.code_pers
+		,id      
+		,point   
+		,pers_name
+	</sql>
+	
+	<sql id="pointWhere">
+		<if test="srchName != null and srchName != ''">
+			AND ${srchTy} LIKE '%' + #{srchName} + '%'
+			AND id !=''
+		</if>
+	</sql>
+	
+	<select id="selectTopPoint" parameterType="hashmap" resultType="kda.admin.point.data.IDTBL">
+  	SELECT TOP 50 
+			<include refid="pointColumn" />  
+	FROM person_m_tbl A RIGHT OUTER JOIN id_tbl B 
+	ON A.code_pers=B.code_pers
+	WHERE point IS NOT NULL 
+	ORDER BY b.point DESC
+	</select>
+	
+	<select id="selectPointCount" parameterType="hashmap" resultType="int">
+	SELECT
+		COUNT(B.id)
+	FROM person_m_tbl A RIGHT OUTER JOIN id_tbl B
+	ON A.code_pers=B.code_pers 
+	WHERE 1=1
+		<include refid="pointWhere" />
+	</select>
+	
+	<select id="selectPointListHelper" parameterType="hashmap" resultType="kda.admin.point.data.IDTBL">
+  	SELECT 
+		num ,
+		<include refid="pointColumn" /> 
+	FROM (
+	
+		SELECT 
+			ROW_NUMBER() OVER( ORDER BY  B.id ) AS num , 
+			<include refid="pointColumn" />
+		FROM person_m_tbl A RIGHT OUTER JOIN id_tbl B
+		ON A.code_pers=B.code_pers 
+		WHERE 1=1
+			<include refid="pointWhere" />
+		
+	) A WHERE num BETWEEN #{startNum} AND #{endNum} 
+	ORDER BY 	num
+	</select>
+	
+	<update id="updatePoint" parameterType="hashmap">
+	UPDATE id_tbl 
+	SET point=#{point} 
+	WHERE id=#{id}
+	</update>
+	
+	<select id="excelTopPoint" parameterType="hashmap" resultType="java.util.HashMap">
+	SELECT TOP 50 
+			<include refid="pointColumn" />  
+	FROM person_m_tbl A RIGHT OUTER JOIN id_tbl B 
+	ON A.code_pers=B.code_pers
+	WHERE point IS NOT NULL 
+	ORDER BY b.point DESC
+	</select>
+	
+</mapper>
+
