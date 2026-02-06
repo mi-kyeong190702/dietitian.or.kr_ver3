@@ -51,6 +51,11 @@ function f_Action() {
 								<option value="2023" <c:if test="${ column.kda_yyyy == '2023' }">selected</c:if>>2023</option>
 								<option value="2024" <c:if test="${ column.kda_yyyy == '2024' }">selected</c:if>>2024</option>
 								<option value="2025" <c:if test="${ column.kda_yyyy == '2025' }">selected</c:if>>2025</option>
+								<option value="2026" <c:if test="${ column.kda_yyyy == '2026' }">selected</c:if>>2026</option>
+								<option value="2027" <c:if test="${ column.kda_yyyy == '2027' }">selected</c:if>>2027</option>
+								<option value="2028" <c:if test="${ column.kda_yyyy == '2028' }">selected</c:if>>2028</option>
+								<option value="2029" <c:if test="${ column.kda_yyyy == '2029' }">selected</c:if>>2029</option>
+								<option value="2030" <c:if test="${ column.kda_yyyy == '2030' }">selected</c:if>>2030</option>
 							</select>
 						</div>
 						
