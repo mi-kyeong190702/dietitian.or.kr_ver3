@@ -113,8 +113,10 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 			<div class="area">
 				<table class="table t1 text s1 ssmall ca center mt50">
 					<colgroup>
-						<col width="300">
 						<col width="*">
+						<col width="80">
+						<col width="130">
+						<col width="130">
 					</colgroup>
 					<thead>
 					<tr>
@@ -127,13 +129,14 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 					<tbody>
 					<tr>
 						<td scope="row" id="title_${oper.operkey}${oper.receipt_no}">
-							${oper.edutest_name} <c:if test="${not empty oper.btext }">( ${oper.btext} )</c:if>
+							${oper.edutest_name}
+							<%-- <c:if test="${not empty oper.btext }">( ${oper.btext} )</c:if> --%>
 						</td>
 						<td scope="row">${kdaFunc:formatDay2(oper.oper_start_dt)}</td>
 						<td scope="row">
 						<c:choose>
 							<c:when test="${isMember}">
-								회원 :<fmt:formatNumber value="${oper.new_cost}" type="number"/> 원
+								회원 : <fmt:formatNumber value="${oper.new_cost}" type="number"/> 원
 								<c:set var="cost" value="${oper.new_cost}" />
 							</c:when>
 							<c:otherwise>
@@ -146,18 +149,18 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 					</tr>
 					<tr>
 						<td scope="col" class="bold cm bgs">입금 계좌번호</td>
-						<td colspan="2" scope="col" class="bold cm bgs">결제 및 결제방법 변경</td>
+						<td colspan="2" scope="col" class="bold cm bgs">결제방법</td>
 						<td scope="col" class="bold cm bgs">신청취소</td>
 					</tr>
 					<tr>
 						<td scope="row">${oper.test_bank_name} ${oper.test_bank_acc} ${oper.test_bank_acc_owner }</td>
-						<td scope="row">
-						<c:choose>
+						<td scope="row" colspan="2">${oper.payname}
+						<%-- <c:choose>
 							<c:when test="${oper.payname eq '' }">-</c:when>
 							<c:otherwise>${oper.payname}</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 						</td>
-						<td scope="row">
+						<%-- <td scope="row">
 						<c:choose>
 							<c:when test="${ oper.oper_start_dt > today  }">
 							<c:choose>
@@ -169,7 +172,7 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 							</c:when>
 							<c:otherwise>-</c:otherwise>
 						</c:choose>
-						</td>
+						</td> --%>
 						<td scope="row">
 						<c:choose>
 							<c:when test="${ oper.oper_start_dt > today  }">
@@ -188,17 +191,17 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 					<!--입금내역 확인 부분 -->
 					
 					<tr>
-						<td colspan="2" scope="col" class="bold cm bgs">입금 확인</td>
-						<td colspan="2" scope="col" class="bold cm bgs">영수증 출력</td>
+						<td scope="col" class="bold cm bgs">입금 확인</td>
+						<td colspan="3" scope="col" class="bold cm bgs">영수증 출력</td>
 					</tr>
 					<tr>
-						<td scope="row" colspan="2">
+						<td scope="row">
 						<c:choose>
 							<c:when test="${oper.oper_state eq '11' }">입금완료</c:when>
 							<c:otherwise>-</c:otherwise>
 						</c:choose>
 						</td>
-						<td scope="row" colspan="2">
+						<td scope="row" colspan="3">
 						<c:choose>
 							<c:when test="${oper.oper_state eq '11' }"><input type="button" class="btn t2" value="출력" onclick="rcp_doc_print('0109', '9', '교육결제영수증','${oper.person_yn}','${oper.operkey}${oper.receipt_no}', '${isMember}')"/></c:when>
 							<c:otherwise>-</c:otherwise>

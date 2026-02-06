@@ -13,7 +13,7 @@
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
-				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do">등록민간자격</a></li>
 				<li><a href="/work/education/ke_exam_situation.do" class="cm">자격증 신청(신규&middot;갱신)</a></li>
 			</ul>
 		</div>
@@ -22,8 +22,8 @@
 	<div class="sp_body">
 		<div class="tab t2 div3 mb30">
 			<ul>
-				<li><a href="/work/education/ke_license.do">자격증 발급안내</a></li>
-				<li><a href="/work/education/ke_application.do">자격증 신청하기</a></li>
+				<li><a href="/work/education/ke_license.do">등록민간자격증 발급 안내</a></li>
+				<li><a href="/work/education/ke_application.do">등록민간자격증 발급 신청</a></li>
 				<li><a href="/work/education/ke_verification.do" class="on">자격증 신청확인</a></li>
 			</ul>
 		</div>				

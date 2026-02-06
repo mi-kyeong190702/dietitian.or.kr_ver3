@@ -100,24 +100,25 @@
 								<%	} %>	
 							</ul>
 						</li>
-						<%-- <li <% if(file_path.equals("ke_about") 			|| file_path.equals("ke_specialty_01")
+						<!-- 등록민간자격 관련 부분 -->
+						<li <% if(file_path.equals("ke_about") 			|| file_path.equals("ke_specialty_01")
 								|| file_path.equals("ke_specialty_02") 	|| file_path.equals("ke_schedule")
 								|| file_path.equals("ke_exam") 			|| file_path.equals("ke_exam_situation")
 								 || file_path.equals("ke_license") 		|| file_path.equals("ke_application")
 								 || file_path.equals("ke_verification") || file_path.equals("ke_formboard")
-								 || file_path.equals("ke_schedule_detail") || file_path.equals("ke_schedule_form")) {%> class="on" <%}%>><a href="/work/education/ke_about.do">전문영양사 코너</a>
+								 || file_path.equals("ke_schedule_detail") || file_path.equals("ke_schedule_form")) {%> class="on" <%}%>><a href="/work/education/ke_about.do">등록민간자격</a>
 							<ul class="sm_depth2">
 								<li><a href="/work/education/ke_about.do" <% if(file_path.equals("ke_about") || file_path.equals("ke_specialty_01")
-										|| file_path.equals("ke_specialty_02")) {%> class="on" <%}%>>전문영양사란?</a></li>
+										|| file_path.equals("ke_specialty_02")) {%> class="on" <%}%>>등록민간자격 안내</a></li>
 								<li><a href="/work/education/ke_schedule.do" <% if(file_path.equals("ke_schedule") 
-										|| file_path.equals("ke_schedule_detail") || file_path.equals("ke_schedule_form")) {%> class="on" <%}%>>평점인정 교육일정</a></li>
+										|| file_path.equals("ke_schedule_detail") || file_path.equals("ke_schedule_form")) {%> class="on" <%}%>>평점인정교육 안내</a></li>
 								<li><a href="/work/education/ke_exam.do" <% if(file_path.equals("ke_exam")) {%> class="on" <%}%>>자격시험 신청</a></li>
 								<li><a href="/work/education/ke_exam_situation.do" <% if(file_path.equals("ke_exam_situation")) {%> class="on" <%}%>>자격시험 신청현황</a></li>
 								<li><a href="/work/education/ke_license.do" <% if(file_path.equals("ke_license") || file_path.equals("ke_application")
 										|| file_path.equals("ke_verification")) {%> class="on" <%}%>>자격증 신청(신규·갱신)</a></li>
-								<li><a href="/work/education/ke_formboard.do?bbs_board_code=83" <% if(file_path.equals("ke_formboard")) {%> class="on" <%}%>>관련서식 다운로드</a></li>
+								<%-- <li><a href="/work/education/ke_formboard.do?bbs_board_code=83" <% if(file_path.equals("ke_formboard")) {%> class="on" <%}%>>관련서식 다운로드</a></li> --%>
 							</ul>
-						</li> --%>
+						</li>
 						<!-- 학술대회 관련 부분 -->
 						<li <% if(file_path.equals("ke_contest_info") 			|| file_path.equals("ke_program") 
 								|| file_path.equals("ke_program_01") 			|| file_path.equals("ke_document") 

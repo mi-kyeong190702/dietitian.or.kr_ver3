@@ -65,7 +65,7 @@ function f_Send(){
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
-				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do">등록민간자격</a></li>
 				<li><a href="/work/education/ke_exam_situation.do" class="cm">자격시험 신청현황</a></li>
 			</ul>
 		</div>
@@ -76,16 +76,16 @@ function f_Send(){
 		<div class="area">
 			<table class="table t1 text s1 ssmall ca center mt30 mb50">
 				<colgroup>
-					<col width="300">
+					<col width="*">
 					<col width="90">
 					<col width="90">
-					<col width="80">
+					<col width="90">
 				</colgroup>
 				<thead>
 				<tr>
 					<th scope="col" class="bold cm">시험명</th>
 					<th scope="col" class="bold cm">시행일</th>
-					<th scope="col" class="bold cm">상태</th>
+					<th scope="col" class="bold cm">신청 현황</th>
 					<th scope="col" class="bold cm">등록취소</th>
 				</tr>
 				</thead>
@@ -98,17 +98,18 @@ function f_Send(){
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${operList}" var="oper">
-				<c:if test="${(  oper.oper_state == '01' || oper.oper_state == '09' )  }">
+				<c:if test="${(  oper.oper_state == '01' || oper.oper_state == '09' || oper.oper_state == '11' )  }">
 				<tr>
 					<td>${oper.edutest_name}</td>
 					<td>${kdaFunc:formatDay2(oper.oper_start_dt)}</td>
 					<td>
-					<c:if test="${ empty oper.result_state or oper.result_state == '' }">
+					${oper.oper_state_txt }
+					<%-- <c:if test="${ empty oper.result_state or oper.result_state == '' }">
 						${oper.oper_state_txt }
 					</c:if>
 					<c:if test="${ oper.result_state != '' }">
 						${oper.result_state_txt}
-					</c:if>
+					</c:if> --%>
 			 		</td>
 			 		<td>
 			 		<c:if test="${(  oper.oper_state == '01' || oper.oper_state == '02' || oper.oper_state == '03'  || oper.oper_state == '04') and today <= oper.oper_start_dt  }">

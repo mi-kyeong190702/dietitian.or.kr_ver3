@@ -62,14 +62,14 @@ function openPopup()
 <div class="s_page">
 	<div class="sp_head">
 		<div class="sp_title">
-			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">시니어자격유지</mark> 교육</h3>
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">자격유지</mark> 교육</h3>
 		</div>
 		<div class="sp_navi">
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/mypage/kmp_member_info.do">마이페이지</a></li>
 				<li><a href="/mypage/kmp_education.do">MY 교육정보</a></li>
-				<li><a href="/mypage/kmp_elderly.do" class="cm">시니어자격유지 교육</a></li>
+				<li><a href="/mypage/kmp_elderly.do" class="cm">자격유지 교육</a></li>
 			</ul>
 		</div>
 	</div>
@@ -179,7 +179,7 @@ function openPopup()
 				</c:when>
 				<c:otherwise>
 					<tr>
-						<td colspan="7">시니어자격유지 교육 목록이 없습니다.</td>
+						<td colspan="7">자격 유지 교육 목록이 없습니다.</td>
 					</tr>
 				</c:otherwise>
 			</c:choose>	
@@ -188,7 +188,7 @@ function openPopup()
 		<br>
 		<div class="box p20">
 		   <p class="text middle cb s1">
-	           ■ 전문연수교육 : 시니어푸드코디네이터 민간자격 유지를 위해서는 3년에 20평점을 이수해야 함<br>
+	           ■ 전문연수교육 : 등록민간자격 유지를 위해서는 3년에 20평점을 이수해야 함<br>
 	           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⊙ 전문연수교육 평점을 인정받고자 하는 자는 다음의 서류를 첨부하여 제출하여야 함<br>
 	           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 전문연수교육 평점 인정 신청서<br>
 	           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 전문연수교육 참석 현황<br>

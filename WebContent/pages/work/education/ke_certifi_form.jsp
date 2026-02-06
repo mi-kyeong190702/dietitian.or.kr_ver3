@@ -6,30 +6,22 @@
 <%@ taglib prefix="kdaFunc" uri="/WEB-INF/tld/kda-func.tld" %>
 <script>
 function f_Send() {
-	<c:if test="${addFile1 == null }">
-	if($("#add_file1").val() == "") {
+		if($("#upload_picture").val() == "") {
 		alert("사진이미지를 첨부하여 주십시요.");
 		return;
 	}
-	</c:if>
 	
-	<c:if test="${addFile2 == null }">
-	if($("#add_file2").val() == "") {
-		alert("첨부파일을 선택하여 주십시요.");
-		return;
+	//다이어트운동컨설턴트 아니면 체크
+	if($("#code_certifi").val() != "8") {
+		if($("#add_file2").val() == "") {
+			alert("경력증명서를 선택하여 주십시요.");
+			return;
+		}
 	}
-	</c:if>
 	
-	<c:choose>
-		<c:when test="${addFile1 == null or addFile2 == null }">
-		document.frmCertifi.action = "ke_certifi_form_action.do";
-		document.frmCertifi.target = "";
-		document.frmCertifi.submit();
-		</c:when>
-		<c:otherwise>
-		alert("자격증 신청 처리 중 입니다.")
-		</c:otherwise>
-	</c:choose>
+	document.frmCertifi.action = "ke_certifi_form_action.do";
+    document.frmCertifi.target = "";
+    document.frmCertifi.submit();
 }
 
 $(document).ready(function(){
@@ -74,7 +66,7 @@ function imgUploadCallbak(imgUrl) {
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
-				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do">등록민간자격증</a></li>
 				<li><a href="/work/education/ke_exam_situation.do" class="cm">자격증 신청(신규&middot;갱신)</a></li>
 			</ul>
 		</div>
@@ -83,15 +75,15 @@ function imgUploadCallbak(imgUrl) {
 	<div class="sp_body">
 		<div class="tab t2 div3 mb30">
 			<ul>
-				<li><a href="/work/education/ke_license.do">자격증 발급안내</a></li>
-				<li><a href="/work/education/ke_application.do" class="on">자격증 신청하기</a></li>
+				<li><a href="/work/education/ke_license.do">등록민간자격증 발급 안내</a></li>
+				<li><a href="/work/education/ke_application.do" class="on">등록민간자격증 발급 신청</a></li>
 				<li><a href="/work/education/ke_verification.do">자격증 신청확인</a></li>
 			</ul>
 		</div>									
 
 		
 		<!-- // Contents Start -->
-		<h4 class="title bold t2 cm s1 i_b_t2 mt30">자격증 신청하기</h4>
+		<h4 class="title bold t2 cm s1 i_b_t2 mt30">등록민간자격증 신규 발급 신청</h4>
 		<form:form name="frmCertifi" modelAttribute="certifi" method="post"  enctype="multipart/form-data">
 			<form:hidden path="classify_code" />
 			<form:hidden path="code_certifi" />
@@ -107,9 +99,8 @@ function imgUploadCallbak(imgUrl) {
 			<legend><span class="ti">자격증 신청하기 입력</span></legend>
 			<div class="box t2 bgs mt20 p20 text">
 					<div class="area">
-						<h5 class="title i_b_t6 bold s1"> 자격증 신청하기</h5>
 						<div class="box t1 r5 mt10 p10">
-							<h6 class="title s1 i_b_t3"><mark class="bold">신청인</mark></h6>
+							<h6 class="title s1 i_b_t3"><mark class="bold">신청서</mark></h6>
 							<div class="form mt10 line bt bcm">
 								<div class="f_wrap line bb p8">
 									<div class="f_field div1">
@@ -142,7 +133,7 @@ function imgUploadCallbak(imgUrl) {
 												
 												<form:hidden path="add_file1" />
 												<div class="mt5 ml5 text ca s1">
-													gif, png 이미지 사용을 권장합니다. jpg는 화질이 저하될 수 있습니다.(불필요한 내용일 시 삭제)</p>
+													gif, png 이미지 사용을 권장합니다. jpg는 화질이 저하될 수 있습니다.<br>(불필요한 내용일 시 삭제)</p>
 												</div>
 											</div>
 										</div>
@@ -284,23 +275,25 @@ function imgUploadCallbak(imgUrl) {
 								</div>
 								</c:if>
 								
-								<c:if test="${addFile2 == null && certifi.classify_code == '1'}"> <!-- 신규신청일때만 첨부파일 보임20160725 -->
-								<div class="f_wrap line bb p8">
-									<div class="f_field div1">
-										<label for="inputid27" class="ff_title i_b"><strong>첨부파일</strong></label>
-										<div class="ff_wrap ml120 text ca s1">
-											<div class="area">
-												<label for="inputid27" class="ti">기본주소</label>
-												<form:input type="file" path="add_file2" class="file t1" />
+								<c:if test="${ certifi.code_certifi != '8'}">   <!-- 다이어트운동컨설턴트 제외 --> 
+									<c:if test="${addFile2 == null && certifi.classify_code == '1'}"> <!-- 신규신청일때만 첨부파일 보임20160725 -->
+									<div class="f_wrap line bb p8">
+										<div class="f_field div1">
+											<label for="inputid27" class="ff_title i_b"><strong>경력증명서</strong></label>
+											<div class="ff_wrap ml120 text ca s1">
+												<div class="area">
+													<label for="inputid27" class="ti">기본주소</label>
+													<form:input type="file" path="add_file2" class="file t1" />
+												</div>
+												※ 1년 이상 영양사 경력 기재, 직무 또는 직책에 ‘영양사’ 기재 시에만 인정됨(용량 : 50MB까지)
 											</div>
-											※ 영양사면허증 사본, 경력(재직)증명서를 압축하여 첨부 요망(용량:   50MB까지)
 										</div>
 									</div>
-								</div>
+									</c:if>
 								</c:if>
 								
 								<div class="pt30 center">
-									위와 같이 전문영양사 자격증을 신청합니다.
+									위와 같이 등록민간자격증 발급을 신청합니다.
 									<div class="cm">
 										${kdaFunc:formatDayKo(kdaFunc:getTodayString()) }
 									</div>

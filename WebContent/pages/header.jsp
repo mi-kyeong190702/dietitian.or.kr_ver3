@@ -177,6 +177,15 @@ function ck(){
                           <li><a href="/work/education/ke_situation.do">교육과정 신청현황</a></li>
                         </ul>
                       </li>
+                      <li><a href="/work/education/ke_about.do">등록민간자격</a>
+                        <ul class="ns_depth2">
+                          <li><a href="/work/education/ke_about.do">등록민간자격 안내</a></li>
+                          <li><a href="/work/education/ke_schedule.do">평점인정교육 안내</a></li>
+                          <li><a href="/work/education/ke_exam.do">자격시험 신청</a></li>
+                          <li><a href="/work/education/ke_exam_situation.do">자격시험 신청 현황</a></li>
+                          <li><a href="/work/education/ke_license.do">자격증 신청(신규·갱신)</a></li>
+                        </ul>
+                      </li>
                       <li><a href="/work/education/ke_contest_info.do">전국영양사 학술대회</a>
                         <ul class="ns_depth2">
                           <li><a href="/work/education/ke_contest_info.do">학술대회 안내</a></li>

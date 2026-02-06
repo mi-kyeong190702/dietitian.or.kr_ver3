@@ -20,7 +20,7 @@
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
-				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do">등록민간자격</a></li>
 				<li><a href="/work/education/ke_exam_situation.do" class="cm">자격증 신청(신규&middot;갱신)</a></li>
 			</ul>
 		</div>
@@ -29,14 +29,14 @@
 	<div class="sp_body">
 		<div class="tab t2 div3 mb30">
 			<ul>
-				<li><a href="/work/education/ke_license.do">자격증 발급안내</a></li>
-				<li><a href="/work/education/ke_application.do" class="on">자격증 신청하기</a></li>
+				<li><a href="/work/education/ke_license.do">등록민간자격증 발급 안내</a></li>
+				<li><a href="/work/education/ke_application.do" class="on">등록민간자격증 발급 신청</a></li>
 				<li><a href="/work/education/ke_verification.do">자격증 신청확인</a></li>
 			</ul>
 		</div>	
 		
 		<!-- // Contents Start -->
-		<h4 class="title bold t2 cm s1 i_b_t2 mt30">자격증 신청하기</h4><br />
+		<h4 class="title bold t2 cm s1 i_b_t2 mt30">등록민간자격증 발급 신청</h4><br />
 			
 			<c:if test="${param.classifyCode == '1' }">
 				<c:set var="f_title" value="신규 발급" />				
@@ -61,22 +61,33 @@
 				<div class="box t2 bgs w300 mt30 p20 text ac">
 					<div class="area">
 						<h5 class="title i_b_t6 bold s1">
-							<mark class="cm">${f_title}</mark>신청하기</h5>
+							<mark class="cm">${f_title}</mark> 신청하기</h5>
 						<div class="box t1 r5 mt10 p10">
 							<div class="form">
 								<div class="f_wrap p8">
 									<div class="f_field div1">
 										<div class="ff_wrap ml20 text">
-
 											<c:forEach items="${certifiCodes}" var="certifiCode" varStatus="status">
-											<c:if test="${certifiCode.code_certifi !='2' }">
-											<div class="area">
-												<form:radiobutton path="code_certifi" id="code_certifi${certifiCode.code_certifi}" value="${certifiCode.code_certifi}"  class="mr5" label="" onclick="onValidCertifi(this)"/>
-												<label for="code_certifi${certifiCode.code_certifi}" class="mr20">
-													${certifiCode.certifi_name} <span id="certifi_${certifiCode.code_certifi}_txt"></span>
-												</label>
-											</div>
-											</c:if>								
+											    <c:if test="${param.classifyCode == '1' }">
+													<c:if test="${certifiCode.code_certifi =='6' or certifiCode.code_certifi =='7' or certifiCode.code_certifi =='8' }">
+													<div class="area">
+														<form:radiobutton path="code_certifi" id="code_certifi${certifiCode.code_certifi}" value="${certifiCode.code_certifi}"  class="mr5" label="" onclick="onValidCertifi(this)"/>
+														<label for="code_certifi${certifiCode.code_certifi}" class="mr20">
+															${certifiCode.certifi_name} <span id="certifi_${certifiCode.code_certifi}_txt"></span>
+														</label>
+													</div>
+													</c:if>
+												</c:if>
+												<c:if test="${param.classifyCode == '2' }">
+                                                    <c:if test="${certifiCode.code_certifi =='5' or certifiCode.code_certifi =='6' or certifiCode.code_certifi =='7' or certifiCode.code_certifi =='8' }">
+                                                    <div class="area">
+                                                        <form:radiobutton path="code_certifi" id="code_certifi${certifiCode.code_certifi}" value="${certifiCode.code_certifi}"  class="mr5" label="" onclick="onValidCertifi(this)"/>
+                                                        <label for="code_certifi${certifiCode.code_certifi}" class="mr20">
+                                                            ${certifiCode.certifi_name} <span id="certifi_${certifiCode.code_certifi}_txt"></span>
+                                                        </label>
+                                                    </div>
+                                                    </c:if>
+                                                </c:if> 					
 											</c:forEach>
 											
 										</div>

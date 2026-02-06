@@ -5,16 +5,17 @@
 <%@ taglib prefix="form" 	uri="http://www.springframework.org/tags/form" %>
 
 <script type="text/javascript">
+
 function f_Send(){
-<c:choose>
-	<c:when test="${ in_total_marks >= 8 and total_marks >= 20 } ">
-	    document.frmCertifi.submit();
-	</c:when>
-	<c:otherwise>
-	    alert("갱신 대상은 20평점 이수자(단, 본회 평점 8평점 이상 이수) 및 \n자격기간동안 대한영양사협회 회원자격을 유지한 자입니다.");
-	    document.frmCertifi.submit();
-	</c:otherwise>
-</c:choose>
+	<c:choose>
+		<c:when test="${ in_total_marks ge 8 and total_marks ge 20 } ">
+		    document.frmCertifi.submit();
+		</c:when>
+		<c:otherwise>
+		    alert("갱신 대상은 20평점 이수자(단, 본회 평점 8평점 이상 이수) 및 \n자격기간동안 대한영양사협회 회원자격을 유지한 자입니다.");
+		    document.frmCertifi.submit();
+		</c:otherwise>
+	</c:choose>
 };
 </script>
 
@@ -28,7 +29,7 @@ function f_Send(){
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/work/education/ke_menu.do">KDA 교육</a></li>
-				<li><a href="/work/education/ke_about.do">전문영양사 코너</a></li>
+				<li><a href="/work/education/ke_about.do">등록민간자격증</a></li>
 				<li><a href="/work/education/ke_exam_situation.do" class="cm">자격증 신청(신규&middot;갱신)</a></li>
 			</ul>
 		</div>
@@ -37,14 +38,14 @@ function f_Send(){
 	<div class="sp_body">
 		<div class="tab t2 div3 mb30">
 			<ul>
-				<li><a href="/work/education/ke_license.do">자격증 발급안내</a></li>
-				<li><a href="/work/education/ke_application.do" class="on">자격증 신청하기</a></li>
+				<li><a href="/work/education/ke_license.do">등록민간자격증 발급 안내</a></li>
+				<li><a href="/work/education/ke_application.do" class="on">등록민간자격증 발급 신청</a></li>
 				<li><a href="/work/education/ke_verification.do">자격증 신청확인</a></li>
 			</ul>
 		</div>	
 		
 		<!-- // Contents Start -->
-		<h4 class="title bold t2 cm s1 i_b_t2 mt30">자격증 신청하기</h4><br />
+		<h4 class="title bold t2 cm s1 i_b_t2 mt30">등록민간자격증 갱신 발급 신청</h4><br />
 			
 			<c:if test="${certifi.classify_code == '1' }">
 				<c:set var="f_title" value="신규 발급" />				

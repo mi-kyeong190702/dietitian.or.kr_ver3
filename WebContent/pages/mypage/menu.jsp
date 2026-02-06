@@ -30,7 +30,7 @@
 							<ul class="sm_depth2">
 								<li><a href="/kmp_situation.do" <% if(file_path.equals("kmp_situation")){%> class="on" <%}%>>직무교육 현황</a></li>
 								<li><a href="/kmp_license.do" <% if(file_path.equals("kmp_license")){%> class="on" <%}%>>전문교육과정 현황</a></li>
-								<li><a href="/kmp_elderly.do" <% if(file_path.equals("kmp_elderly")){%> class="on" <%}%>>시니어자격유지 교육</a></li>
+								<li><a href="/kmp_elderly.do" <% if(file_path.equals("kmp_elderly")){%> class="on" <%}%>>자격유지 교육</a></li>
 								<%-- <li><a href="/kmp_sport.do" <% if(file_path.equals("kmp_sport")){%> class="on" <%}%>>스포츠유지 교육</a></li>
 								<li><a href="/kmp_feed.do" <% if(file_path.equals("kmp_feed")){%> class="on" <%}%>>급식경영유지 교육</a></li>
 								<li><a href="/kmp_health.do" <% if(file_path.equals("kmp_health")){%> class="on" <%}%>>산업보건유지 교육</a></li> --%>
@@ -38,7 +38,7 @@
 								<li><a href="/kmp_repair.do" <% if(file_path.equals("kmp_repair")){%> class="on" <%}%>>보수교육</a></li>
 							</ul>
 						</li>
-						<li <% if(file_path.equals("kmp_my_licence")){%> class="on" <%}%>><a href="/kmp_my_licence.do">MY 수료증정보</a></li>
+						<li <% if(file_path.equals("kmp_my_licence")){%> class="on" <%}%>><a href="/kmp_my_licence.do">MY자격증 정보</a></li>
 						<li <% if(file_path.equals("kmp_benefit")){%> class="on" <%}%>><a href="/kmp_benefit.do">회원혜택</a></li>
 						<li <% if(file_path.equals("kmp_payment")){%> class="on" <%}%>><a href="/kmp_payment.do?doc_code=0105">회비 납입내역</a></li>
 						<li <% if(file_path.equals("kmp_magazine")){%> class="on" <%}%>><a href="/mypage/kmp_magazine.do">국민영양을 받지 못한 경우</a></li>

@@ -8,33 +8,28 @@
 <div class="s_page">
 	<div class="sp_head">
 		<div class="sp_title">
-			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">MY</mark> 수료증정보</h3>
+			<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">MY 자격증</mark>정보</h3>
 		</div>
 		<div class="sp_navi">
 			<ul>
 				<li class="start"><a href="/index.jsp" class="icon_home"><span class="ti">HOME</span></a></li>
 				<li><a href="/kmp_member_info.do">마이페이지</a></li>
-				<li><a href="/kmp_my_licence.do" class="cm">MY 수료증정보</a></li>
+				<li><a href="/kmp_my_licence.do" class="cm">MY 자격증정보</a></li>
 			</ul>
 		</div>
 	</div>
 	<hr />
 	<div class="sp_body">
-		<div class="box p20">
-			<div class="title s1 i_b_t6">
-				보유수료증
-			</div>
-		</div>
 		<table class="table t1 text s1 ca center mt20">
 			<colgroup>
-				<col width="100">
-				<col width="100">
 				<col width="*">
+				<col width="100">
+				<col width="150">
 				<col width="200">
 			</colgroup>
 			<thead>
 			<tr>
-				<th scope="col" class="bold cm">수료증명</th>
+				<th scope="col" class="bold cm">자격증명</th>
 				<th scope="col" class="bold cm">발급번호</th>
 				<th scope="col" class="bold cm">발급 및 갱신일자</th>
 				<th scope="col" class="bold cm">유효기간</th>
@@ -60,7 +55,7 @@
 				</c:when>
 				<c:otherwise>
 					<tr>
-						<td colspan="5">회원님께서는 보유하신 수료증이 없습니다.</td>
+						<td colspan="5">회원님께서는 보유하신 자격증이 없습니다.</td>
 					</tr>
 				</c:otherwise>
 			</c:choose>

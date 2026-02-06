@@ -165,10 +165,10 @@
 											<!-- <li class="text_b link i_box_t1"><a href="/work/education/ke_mySituation.do" target="_self">교육현황</a></li> -->
 										</ul>	
 									</li>
-									<!-- <li class="mt20 mr20"><a href="/work/education/ke_about.do" target="_self"><div class="i_b_t2"><span class="small bold cb pl10">전문영양사 코너</span></div></a>
+									<!-- <li class="mt20 mr20"><a href="/work/education/ke_about.do" target="_self"><div class="i_b_t2"><span class="small bold cb pl10">등록민간자격</span></div></a>
 										<ul class="p10 ssmall">
-											<li class="text_b link i_box_t1"><a href="/work/education/ke_about.do" target="_self">전문영양사란?</a></li>
-											<li class="text_b link i_box_t1"><a href="/work/education/ke_schedule.do" target="_self">평점인정 교육일정</a></li>
+											<li class="text_b link i_box_t1"><a href="/work/education/ke_about.do" target="_self">등록민간자격 안내</a></li>
+											<li class="text_b link i_box_t1"><a href="/work/education/ke_schedule.do" target="_self">평점인정교육 안내</a></li>
 											<li class="text_b link i_box_t1"><a href="/work/education/ke_exam.do" target="_self">자격시험 신청</a></li>
 											<li class="text_b link i_box_t1"><a href="/work/education/ke_exam_situation.do" target="_self">자격시험 신청현황</a></li>
 											<li class="text_b link i_box_t1"><a href="/work/education/ke_license.do" target="_self">자격증 신청(신규&middot;갱신)</a></li>
@@ -351,7 +351,7 @@
 										<ul class="p10 ssmall">
 											<li class="text_b link i_box_t1"><a href="/kmp_situation.do" target="_self">직무교육 현황</a></li>
 											<li class="text_b link i_box_t1"><a href="/kmp_license.do" target="_self">전문교육과정 현황</a></li>
-											<li class="text_b link i_box_t1"><a href="/kmp_elderly.do" target="_self">시니어자격유지 교육</a></li>
+											<li class="text_b link i_box_t1"><a href="/kmp_elderly.do" target="_self">자격유지 교육</a></li>
 											<!-- <li class="text_b link i_box_t1"><a href="/kmp_sport.do" target="_self">스포츠유지 교육</a></li>
 											<li class="text_b link i_box_t1"><a href="/kmp_feed.do" target="_self">급식경영유지 교육 </a></li>
 											<li class="text_b link i_box_t1"><a href="/kmp_health.do" target="_self">산업보건유지 교육</a></li> -->
@@ -359,7 +359,7 @@
 											<li class="text_b link i_box_t1"><a href="/kmp_repair.do" target="_self">보수교육</a></li>
 										</ul>	
 									</li>
-									<li class="mt20 mr20"><a href="/kmp_my_licence.do" target="_self"><div class="i_b_t2_3"><span class="small bold cb pl10">MY 수료증정보</span></div></a></li>
+									<li class="mt20 mr20"><a href="/kmp_my_licence.do" target="_self"><div class="i_b_t2_3"><span class="small bold cb pl10">MY 자격증정보</span></div></a></li>
 									<li class="mt20 mr20"><a href="/kmp_benefit.do" target="_self"><div class="i_b_t2_3"><span class="small bold cb pl10">회원혜택</span></div></a></li>
 									<li class="mt20 mr20"><a href="/kmp_payment.do?doc_code=0105" target="_self"><div class="i_b_t2_3"><span class="small bold cb pl10">회비 납입내역</span></div></a></li>
 									<li class="mt20 mr20"><a href="/mypage/kmp_magazine.do" target="_self"><div class=i_b_t2_3><span class="small bold cb pl10">국민영양을 받지 못한 경우</span></div></a></li>

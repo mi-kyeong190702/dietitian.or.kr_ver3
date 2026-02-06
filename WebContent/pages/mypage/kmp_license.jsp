@@ -144,7 +144,7 @@
 	</div>
 	<hr />
 	<div class="sp_body" style="min-height:800px;">
-	    <h4 class="title bold t2 cm s1 mt50">■ 교육 현황</h3>
+	    <h4 class="title bold t2 cm s1 mt50">■ 교육 이수 현황</h3>
 		<table class="table t1 text s1 ca center mt20">
 			<colgroup>
 				<col width="190">
@@ -224,25 +224,23 @@
 			</tbody>
 		</table>
 		
-		<h4 class="title bold t2 cm s1 mt50">■ 자격증 취득 현황</h3>
+		<%-- <h4 class="title bold t2 cm s1 mt50">■ 자격증 취득 현황</h3>
 		<table class="table t1 text s1 ca center mt20">
             <colgroup>
                 <col width="*">
                 <col width="120">
-                <col width="100">
                 <col width="190">
             </colgroup>
             <thead>
             <tr>
                 <th scope="col" class="bold cm">자격명</th>
                 <th scope="col" class="bold cm">자격증 번호</th>
-                <th scope="col" class="bold cm">자격증 발급일</th>
                 <th scope="col" class="bold cm">유효기간</th>
             </tr>
             </thead>
             <tbody>
-                <td colspan="4">자격증 취득 현황 목록이 없습니다.</td>
-                <%-- <c:choose>
+                <td colspan="3">자격증 취득 현황 목록이 없습니다.</td>
+                <c:choose>
                     <c:when test="${fn:length(myList) > 0 }">
                         <c:forEach items="${myList}" var="edu">
                             <tr>
@@ -273,9 +271,9 @@
                             <td colspan="4">자격증 취득 현황 목록이 없습니다.</td>
                         </tr>
                     </c:otherwise>
-                </c:choose> --%>
+                </c:choose>
             </tbody>
-        </table>
+        </table> --%>
 		
 		<div class="btn_wrap mt20">
 			<ul class="fr">

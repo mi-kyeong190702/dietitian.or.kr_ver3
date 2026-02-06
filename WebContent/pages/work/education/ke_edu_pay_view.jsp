@@ -24,7 +24,7 @@
 				<div class="sp_body">
 				<!-- // Contents start -->
 				<c:if test="${operator.code_pay_flag == '10' }">
-				<h5 class="title i_b_t6 s1 mt30">무통장 입금을 선택 하셨습니다. 교육비 입금 은행 정보는 아래와 같습니다.</h5>
+				<h5 class="title i_b_t6 s1 mt30">무통장 입금을 선택 하셨습니다. 교육비 입금 정보는 아래와 같습니다.</h5>
 				</c:if>
 				
 				<div class="area">
@@ -56,7 +56,7 @@
 						</tr>
 						<tr>
 							<td scope="row" class="bold cm bgs">문의처</td>
-							<td colspan="2" class="left">${localAcc.tel} / ${localAcc.fax }</td>
+							<td colspan="2" class="left">Tel. 02-823-5680(내선513,514)</td>
 						</tr>
 						</tbody>
 					</table>

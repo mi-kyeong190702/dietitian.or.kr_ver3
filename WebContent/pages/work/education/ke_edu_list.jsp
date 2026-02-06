@@ -65,11 +65,11 @@ function f_DoNoOperetor() {
 					<div class="area">
 						<table class="table t1 text s1 ssmall ca center mt20 mb50">
 							<colgroup>
-								<col width="70">
+								<col width="50">
 								<col width="*">
-								<col width="170">
-								<col width="110">
-								<col width="120">
+								<col width="80">
+								<col width="90">
+								<col width="130">
 								<col width="80">
 							</colgroup>
 							<thead>
@@ -87,7 +87,7 @@ function f_DoNoOperetor() {
 							<tr>
 								<td>${edu.instrument}</td>
 								<td class="left">${edu.edutest_name}
-								<c:if test="${not empty edu.btext }">( ${edu.btext} )</c:if>
+								<%-- <c:if test="${not empty edu.btext }">( ${edu.btext} )</c:if> --%>
 								</td>
 								<td>${kdaFunc:formatDay2(edu.oper_start_dt)} ~ ${kdaFunc:formatDay2(edu.oper_end_dt)}</td>
 								<td>${edu.operation_place}</td>
@@ -99,12 +99,19 @@ function f_DoNoOperetor() {
 									</c:if>
 								</td>
 								<td>
-									<c:choose>
-										<c:when test="${ edu.code_target == '1'  and isStudent  }">
-										<a href="javascript:f_DoNoOperetor()" class="btn small t3">신청하기</a>
-										</c:when>
-										<c:otherwise>
-										<a href="javascript:f_DoOperator('${edu.edutest_name}', '${edu.code_kind}', '${edu.code_certifi}', '${edu.code_seq}', '${edu.code_bran}', '${edu.bran_seq}');" class="btn small t3">신청하기</a>
+								    <c:choose>
+								        <c:when test="${ edu.btext == 'Y' }">
+								            <a href="#" class="btn small t2">신청완료</a>
+								        </c:when>
+								        <c:otherwise>
+											<c:choose>
+												<c:when test="${ edu.code_target == '1'  and isStudent  }">
+												<a href="javascript:f_DoNoOperetor()" class="btn small t3">신청하기</a>
+												</c:when>
+												<c:otherwise>
+												<a href="javascript:f_DoOperator('${edu.edutest_name}', '${edu.code_kind}', '${edu.code_certifi}', '${edu.code_seq}', '${edu.code_bran}', '${edu.bran_seq}');" class="btn small t3">신청하기</a>
+												</c:otherwise>
+											</c:choose>
 										</c:otherwise>
 									</c:choose>
 								</td>
