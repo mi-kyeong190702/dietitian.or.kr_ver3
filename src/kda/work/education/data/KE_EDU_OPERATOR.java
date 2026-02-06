@@ -62,6 +62,7 @@ public class KE_EDU_OPERATOR {
 	private int pers_career_y = 0;
 	private int pers_career_m = 0;
 	private MultipartFile oper_add_file = null;
+	private MultipartFile oper_add_file2 = null;
 	
 	private String oper_key ="";
 	private String update_kind = "";

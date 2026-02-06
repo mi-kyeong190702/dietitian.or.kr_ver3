@@ -213,7 +213,7 @@ public class EducationExamController extends KdaAbstractController {
 		
 		// edu_test_key 확인
 		if( !operator.convertEduTestKey() ) {
-			return getHistoryBackView("올바르지 않은 접근입니다.");
+			return getHistoryGoView("올바르지 않은 접근입니다.");
 		}
 		
 		// code_operation 구분별 Valid 체크
@@ -221,40 +221,68 @@ public class EducationExamController extends KdaAbstractController {
 		if( "2".equals(codeOpertion) ) { // 재시험 대상
 			boolean isReTest = educationService.isExamValidReTest(operator);
 			if( !isReTest ) {
-				return getHistoryBackView("재시험 대상이 아닙니다.");
+				return getHistoryGoView("재시험 대상이 아닙니다.");
 			}	
 		}
 		
 		if( "4".equals(codeOpertion)) { // 말소자
 			int rtnVal = educationService.isExamValidExpire(operator);
 			if( rtnVal == 1 ) 
-				return getHistoryBackView("회원님은 말소자로 응시하실 수 없습니다.");
+				return getHistoryGoView("회원님은 말소자로 응시하실 수 없습니다.");
 			
 			if( rtnVal == 2 ) 
-				return getHistoryBackView("선택 학기의 시험은 이미 합격하셨습니다.");
+				return getHistoryGoView("선택 학기의 시험은 이미 합격하셨습니다.");
 		}
 		
 		if( !"2".equals(codeOpertion) && !"4".equals(codeOpertion)  ) {
 			String passFlag = educationService.isExamPassFlag(operator);
 			if( !KdaStringUtil.isEmpty(passFlag) && "Y".equals(passFlag) ) 
-				return getHistoryBackView("선택 학기의 시험은 이미 합격하셨습니다.");	
+				return getHistoryGoView("선택 학기의 시험은 이미 합격하셨습니다.");	
 		}
 
+		//중복 신청 여부 체크
+		String today = KdaStringUtil.getTodayString();
+		String year = today.substring(0,4);
+		Map dupParamMap = new HashMap();
+		dupParamMap.put("codePers", code_pers);
+		dupParamMap.put("curYear", year);
+		dupParamMap.put("today", today);
+		dupParamMap.put("codeKind", operator.getCode_kind());
+		dupParamMap.put("codeCertifi", operator.getCode_certifi());
+		dupParamMap.put("codeSeq", operator.getCode_seq());
+		dupParamMap.put("season", operator.getSeason());
+		int dupCount = educationService.getExamOperatorCount(dupParamMap);
+		if( dupCount > 0 ) {
+			return getHistoryGoView("해당 자격시험은 이미 신청하였습니다.");
+		}
+		
 		// 자격시험 신청정보 저장
 		operator.setDB();
 		MultipartFile addFile = operator.getOper_add_file();
 		String ext = ""; 
 		if( !operator.getCode_operation().equals("2") ) {
 			if( addFile == null ) {
-				return getHistoryBackView("첨부 파일이 존재하지 않습니다.\\n다시 시도하여 주십시요.");
+				return getHistoryGoView("첨부 파일이 존재하지 않습니다.\\n다시 시도하여 주십시요.");
 			} 
 			
-			if( !KdaStringUtil.isZipFile(addFile.getOriginalFilename()) ) {
-				return getHistoryBackView("허용되지 않은 확장자입니다.(압축파일로 업로드 하십시요.)");
-			}
+			/*if( !KdaStringUtil.isZipFile(addFile.getOriginalFilename()) ) {
+				return getHistoryGoView("허용되지 않은 확장자입니다.(압축파일로 업로드 하십시요.)");
+			}*/
 			ext =  KdaStringUtil.getExtension(addFile.getOriginalFilename());
 		}
 		
+		MultipartFile addFile2 = operator.getOper_add_file2();
+		String ext2 = ""; 
+		if( !operator.getCode_operation().equals("2") ) {
+			if( addFile2 == null ) {
+				return getHistoryGoView("첨부 파일이 존재하지 않습니다.\\n다시 시도하여 주십시요.");
+			} 
+			
+			/*if( !KdaStringUtil.isZipFile(addFile.getOriginalFilename()) ) {
+				return getHistoryGoView("허용되지 않은 확장자입니다.(압축파일로 업로드 하십시요.)");
+			}*/
+			ext2 =  KdaStringUtil.getExtension(addFile.getOriginalFilename());
+		}
 		
 		String receiptNo = educationService.insertExamOperator(operator);
 		String operKey = operator.makeEduTestKey() + receiptNo;
@@ -262,6 +290,7 @@ public class EducationExamController extends KdaAbstractController {
 		
 		if( !operator.getCode_operation().equals("2" )) {
 			// 재시험이 아닐경우 무조건 첨부파일 저장 
+			//반명함판 증명사진
 			String addFileNo = KdaUtil.getOperAttachNo(operator.getCode_operation());
 			
 			addFile = operator.getOper_add_file();
@@ -272,13 +301,23 @@ public class EducationExamController extends KdaAbstractController {
 			
 			KE_EDU_OPER_ADD_FILE operAddFile = new KE_EDU_OPER_ADD_FILE( operKey, addFileNo, operFileName, addFile.getSize() );
 			educationService.insertOperAddFile(operAddFile);
+			
+			//영양사면허증
+			addFile = operator.getOper_add_file2();
+			operFileName = operKey + "_" +  addFileNo + "." + ext2;
+			
+			uploadFullPathName = servletContext.getRealPath(WorkData.UPLODAD_LICENSE) + File.separator + operFileName;
+			uploadService.upload(addFile, uploadFullPathName);
+			
+			operAddFile = new KE_EDU_OPER_ADD_FILE( operKey, addFileNo, operFileName, addFile.getSize() );
+			educationService.insertOperAddFile(operAddFile);
 		} else {
 			// 재시험일 경우 이전 파일을 신규 시험 파일로 이관처리
 			educationService.moveOperPrevAddFile(operator);
 		}
 		
 		JavaScript javaScript = new JavaScript();
-		javaScript.setMessage("전문영양사 자격시험이 신청되었습니다.\\n전문영양사 자격시험 전형료를 입금해 주십시오.\\n");
+		javaScript.setMessage("전문교육과정 자격시험이 신청되었습니다.\\n재시험인 경우 자격시험 응시료를 입금해 주시기 바랍니다.\\n\\n※ 전문교육과정별 자격시험 재시험 응시료\\n    반려동물영양관리사 총 40,000원, 시니어푸드코디네이터 과목별 40,000원, 다이어트운동컨설턴트 총 50,000원)\\n※ 문의처: 대한영양사협회 교육국 02-823-5680(내선 513,514)\\n");
 		javaScript.setLocation("ke_exam_view.do?idx="+ operKey + "&code_operation=" + operator.getCode_operation());
 		return new JavaScriptView(javaScript);
 	}

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ke_curriculum">
 
-	<!-- 교육지역 가져오기 -->
+<!-- 교육지역 가져오기 -->
 	<select id="selectEDU_TEST_NAME">	
 		SELECT ET.CODE_BRAN
 			, (SELECT CC.DETCODENAME FROM COM_CODE CC WHERE CC.GROUPCODE='034' AND CC.DETCODE = ET.CODE_BRAN) AS INSTRUMENT
@@ -22,7 +22,7 @@
 		</if>		
 			GROUP BY ET.CODE_BRAN
 	</select>
-
+	
 	<!-- 교육과목 DB 가져오기 -->
 	<select id="edu_test_list">
 		SELECT ET.YYYY
@@ -52,7 +52,7 @@
 			</if>
 			AND  ET.CODE_BRAN = #{code_area}  ORDER BY ET.OPER_START_DT
 	</select>
-
+	
 	<!-- ?? -->
 	<select id="receipt_no_count">
 		SELECT COUNT(RECEIPT_NO) AS CT 
@@ -60,7 +60,7 @@
 		WHERE CODE_KIND+CODE_CERTIFI+CODE_SEQ+CODE_BRAN+BRAN_SEQ = #{code_kind} || #{code_certifi} || #{code_seq} || #{code_bran} || #{bran_seq}
 		AND OPER_STATE IN ('01', '11')
 	</select>
-
+	
 	<!-- 교육과목 세부사항 가져오기 -->
 	<select id="edu_test_detail">
 		SELECT
@@ -98,8 +98,8 @@
 	    	INNER JOIN EDU_TEST_NAME B ON A.CODE_KIND = B.CODE_KIND AND A.CODE_CERTIFI = B.CODE_CERTIFI AND A.CODE_SEQ = B.CODE_SEQ
 	    WHERE (A.CODE_KIND + A.CODE_CERTIFI + A.CODE_SEQ + A.CODE_BRAN + A.BRAN_SEQ = #{edu_id})
     </select>
-	<!-- ================================================== -->
-	<!-- 교육 신청  -->
+	 <!-- ================================================== -->
+    <!-- 교육 신청  -->
     <select id="edu_pers_no">
     	<choose>
 		    <when test="edu_type != null and edu_type == '1'">
@@ -116,7 +116,7 @@
 		    </otherwise>
 		 </choose>
 	</select>
-
+	
 	<!--  -->
 	<select id="selectSTD_LIC_H_TBL">
 		SELECT STD_LIC_H_ID, CSR_FLAG, HAKKI_1_ID, HAKKI_2_ID
@@ -124,7 +124,7 @@
 	    WHERE PERS_NO = #{mem_ssn}
 	    AND EDU_ID = #{edu_id}
 	</select>
-
+	
 	<!--  -->
 	<insert id="insertSTD_LIC_B_TBL">
 		INSERT INTO STD_LIC_B_TBL(
@@ -163,14 +163,14 @@
 		    ''  --fail_reason
 		    )
 	</insert>
-
+	
 	<!--  -->
 	<select id="selectSTD_LIC_B_TBL">
 		SELECT STD_LIC_B_ID
 		FROM STD_LIC_B_TBL
 		ORDER BY STD_LIC_B_ID DESC
 	</select>
-
+	
 	<!--  -->
 	<insert id="insertSTD_LIC_H_TBL">
 		INSERT INTO STD_LIC_H_TBL ( 
@@ -203,7 +203,7 @@
 	        , ''
 		)
 	</insert>
-
+	
 	<!--  -->
 	<update id="updateSTD_LIC_H_TBL">
 		UPDATE STD_LIC_H_TBL SET

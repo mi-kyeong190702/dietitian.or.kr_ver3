@@ -104,13 +104,69 @@
 		, ET.CODE_SEQ
 		, ET.CODE_BRAN
 		, ET.BRAN_SEQ 
-		, ETN.EDUTEST_NAME
+		<!-- , ETN.EDUTEST_NAME -->
+		, case
+	          when ETN.code_kind = '1' then
+	           convert(varchar, ET.yyyy) + '년도 ' + '제' +
+	           CONVERT(varchar, ET.operation_cnt) + '회 ' + (case
+	          when ET.season in (1, 2) then
+	           convert(varchar, ET.season) + '학기 '
+	          when ET.season = 3 then
+	           '집합교육 '
+	          when ET.season = 4 then
+	           '온라인교육 '
+	          else
+	           convert(varchar, ET.season) + ' '
+	        end) + ETN.edutest_name + '-' + k.detcodename when ETN.code_kind = '2' then convert(varchar, ET.yyyy) + '년도 ' + ETN.edutest_name + '-' + k.detcodename + (case
+	         when isnull(ET.bran_txt,
+	                     '') = '' then
+	          '-' +
+	          convert(varchar,
+	                  isnull(ET.edu_marks,
+	                         0)) + '평점'
+	         else
+	          '(' +
+	          isnull(ET.bran_txt,
+	                 '') + ')' + '-' +
+	          convert(varchar,
+	                  isnull(ET.edu_marks,
+	                         0)) + '평점'
+	       end) when ETN.code_kind = '3' then convert(varchar, ET.yyyy) + '년도 ' + ETN.edutest_name + '-' + k.detcodename + (case
+	         when isnull(ET.bran_txt,
+	                     '') = '' then
+	          ''
+	         else
+	          '(' +
+	          isnull(ET.bran_txt,
+	                 '') + ')'
+	       end) when ETN.code_kind = '4' or ETN.code_kind = '8' then convert(varchar, ET.yyyy) + '년도 ' + ETN.edutest_name + '-' + k.detcodename + '-' + CONVERT(varchar, ET.operation_cnt) + '차' when ETN.code_kind = '5' then convert(varchar, ET.yyyy) + '년도 ' + '제' + CONVERT(varchar, ET.operation_cnt) + '회 ' + (case
+	         when ET.season in
+	              (1, 2) then
+	          convert(varchar,
+	                  ET.season) +
+	          '학기 '
+	         when ET.season = 3 then
+	          '집합교육 '
+	         when ET.season = 4 then
+	          '온라인교육 '
+	         else
+	          convert(varchar,
+	                  ET.season) + ' '
+	       end) + ETN.edutest_name + '-' + k.detcodename when ETN.code_kind = '6' then '제' + CONVERT(varchar, ET.operation_cnt) + '회 ' + ETN.edutest_name when ETN.code_kind = '7' then convert(varchar, ET.yyyy) + '년도 ' + ETN.edutest_name + '-' + k.detcodename + (case
+	         when isnull(ET.bran_txt,
+	                     '') = '' then
+	          ''
+	         else
+	          '(' +
+	          isnull(ET.bran_txt,
+	                 '') + ')'
+	       end) else ETN.edutest_name + '-' + isnull(ET.bran_txt, '') + '-(' + k.detcodename + ')' end EDUTEST_NAME
 		, ET.OPERATION_CNT
 		, ET.SEASON
 		, ET.RECEIPT_PERS_CNT
 		, (SELECT CC.TEMPCD1 FROM COM_CODE CC WHERE CC.GROUPCODE='034' AND CC.DETCODE = ET.CODE_BRAN) AS INSTRUMENT
 		, (SELECT CC.CERTIFI_NAME FROM CERTIFI CC WHERE CC.CODE_CERTIFI = ET.CODE_CERTIFI) AS CERTIFI_NAME
-		, ET.BRAN_TXT AS BTEXT
+		<!-- , ET.BRAN_TXT AS BTEXT -->
 		, ET.operation_place
 		, ET.start_dt
 		, ET.end_dt
@@ -131,11 +187,25 @@
 				AND ET.bran_seq = OPER.bran_seq 
 		) as oper_cnt
 		</if>
+		, ( 
+            SELECT
+                MAX ('Y') 
+            FROM OPERATER OPER
+            WHERE ET.code_kind = OPER.code_kind 
+                AND ET.code_certifi = OPER.code_certifi
+                AND ET.code_seq = OPER.code_seq
+                AND ET.code_bran = OPER.code_bran
+                AND ET.bran_seq = OPER.bran_seq
+                <!-- 취소건 제외 -->
+                AND OPER.OPER_STATE != '09'
+                AND OPER.PERSON_YN = #{ personYn }
+        ) as BTEXT
 	FROM EDU_TEST_NAME ETN INNER JOIN EDU_TEST ET 
 	ON 
 		ETN.CODE_KIND = ET.CODE_KIND  
 		AND ETN.CODE_CERTIFI = ET.CODE_CERTIFI 
 		AND ETN.CODE_SEQ = ET.CODE_SEQ 
+    left join com_code k on k.groupcode = '034' and k.detcode = ET.code_bran
 	WHERE CONVERT(int, #{today}) BETWEEN ET.START_DT AND ET.END_DT
 		AND ET.use_yn = 'y'
 		<choose>
@@ -341,7 +411,63 @@
 	
 	<select id="selectOperatorList" parameterType="hashmap" resultMap="operatorMap">
 	SELECT
-    	C.EDUTEST_NAME, 
+    	<!-- C.EDUTEST_NAME, -->
+    	case
+              when C.code_kind = '1' then
+               convert(varchar, B.yyyy) + '년도 ' + '제' +
+               CONVERT(varchar, B.operation_cnt) + '회 ' + (case
+              when B.season in (1, 2) then
+               convert(varchar, B.season) + '학기 '
+              when B.season = 3 then
+               '집합교육 '
+              when B.season = 4 then
+               '온라인교육 '
+              else
+               convert(varchar, B.season) + ' '
+            end) + C.edutest_name + '-' + k.detcodename when C.code_kind = '2' then convert(varchar, B.yyyy) + '년도 ' + C.edutest_name + '-' + k.detcodename + (case
+             when isnull(B.bran_txt,
+                         '') = '' then
+              '-' +
+              convert(varchar,
+                      isnull(B.edu_marks,
+                             0)) + '평점'
+             else
+              '(' +
+              isnull(B.bran_txt,
+                     '') + ')' + '-' +
+              convert(varchar,
+                      isnull(B.edu_marks,
+                             0)) + '평점'
+           end) when C.code_kind = '3' then convert(varchar, B.yyyy) + '년도 ' + C.edutest_name + '-' + k.detcodename + (case
+             when isnull(B.bran_txt,
+                         '') = '' then
+              ''
+             else
+              '(' +
+              isnull(B.bran_txt,
+                     '') + ')'
+           end) when C.code_kind = '4' or C.code_kind = '8' then convert(varchar, B.yyyy) + '년도 ' + C.edutest_name + '-' + k.detcodename + '-' + CONVERT(varchar, B.operation_cnt) + '차' when C.code_kind = '5' then convert(varchar, B.yyyy) + '년도 ' + '제' + CONVERT(varchar, B.operation_cnt) + '회 ' + (case
+             when B.season in
+                  (1, 2) then
+              convert(varchar,
+                      B.season) +
+              '학기 '
+             when B.season = 3 then
+              '집합교육 '
+             when B.season = 4 then
+              '온라인교육 '
+             else
+              convert(varchar,
+                      B.season) + ' '
+           end) + C.edutest_name + '-' + k.detcodename when C.code_kind = '6' then '제' + CONVERT(varchar, B.operation_cnt) + '회 ' + C.edutest_name when C.code_kind = '7' then convert(varchar, B.yyyy) + '년도 ' + C.edutest_name + '-' + k.detcodename + (case
+             when isnull(B.bran_txt,
+                         '') = '' then
+              ''
+             else
+              '(' +
+              isnull(B.bran_txt,
+                     '') + ')'
+           end) else C.edutest_name + '-' + isnull(B.bran_txt, '') + '-(' + k.detcodename + ')' end EDUTEST_NAME,
     	C.OUTSIDE_YN, 
     	B.NEW_COST, 
     	B.NEW_COST_NOMEM ,
@@ -387,6 +513,7 @@
   		INNER JOIN EDU_TEST_NAME C 
   		ON B.CODE_KIND = C.CODE_KIND AND B.CODE_CERTIFI = C.CODE_CERTIFI
     		AND B.CODE_SEQ = C.CODE_SEQ
+        left join com_code k on k.groupcode = '034' and k.detcode = B.code_bran
    	WHERE A.person_yn = #{person_yn}
    	  AND CONVERT(VARCHAR(8), GETDATE(), 112) <![CDATA[ <=]]> B.OPER_END_DT
 	    <choose>

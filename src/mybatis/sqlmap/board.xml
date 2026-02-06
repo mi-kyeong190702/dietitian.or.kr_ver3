@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="board">
@@ -145,7 +145,7 @@
 	<select id="paper_board_create_number" parameterType="hashmap" resultType="java.lang.Float" >
 		SELECT MIN(BBS_M_NUMBER)-1 AS BBS_M_NUMBER FROM PAPER_BOARD
 	</select>
-
+	
 	<!-- // PAPER_BOARD 검색 조건 -->
 	<sql id="paperWhereQuery">
 		<if test="board_search != null and board_keyword != null">
@@ -706,7 +706,7 @@ FROM (
 		WHERE BBS_IDX = #{bbs_idx}
 
 	</update>
-
+	
 	<!-- top 순번 조정 -->
     <update id="paper_board_top_update" parameterType="hashmap">
         UPDATE dbo.Paper_Board
@@ -1132,13 +1132,13 @@ FROM (
 	<delete id="resi_board_delete" parameterType="java.lang.Integer">
 		DELETE FROM RESI_BOARD WHERE RESI_SERIAL_NO = #{resi_serial_no}
 	</delete>
-
+	
 	<!-- 20160411 식단레시피 조회수 update 추가 -->
 	<update id="update_resi_read_no_count" parameterType="java.lang.Integer"> 
 		UPDATE RESI_BOARD SET RESI_READ_NO = RESI_READ_NO + 1 WHERE RESI_SERIAL_NO = #{resi_serial_no}
-	</update>
-
-
+	</update>	
+	
+	
 	<!-- // 검색 결과 -->
 	
 	<sql id="searchWhere">

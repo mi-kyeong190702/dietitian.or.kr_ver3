@@ -4,14 +4,9 @@ import org.springframework.stereotype.Component;
 
 import kda.spring.abstr.KdaAbstractDto;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Component
-@Getter
-@Setter
-@Data
-public class ADMINPAPERBOARDSETTINGS extends KdaAbstractDto{
+@Data public class ADMINPAPERBOARDSETTINGS extends KdaAbstractDto{
 
 	private int bs_idx =0;
 	private int bs_code =0;

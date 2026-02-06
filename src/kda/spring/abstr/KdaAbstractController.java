@@ -135,6 +135,14 @@ public abstract class KdaAbstractController {
 		return new JavaScriptView(javaScript);
 	}
 	
+	public JavaScriptView getHistoryGoView(String msg) {
+		JavaScript javaScript = new JavaScript();
+		if(!KdaStringUtil.isEmpty(msg))
+			javaScript.setMessage(msg);
+		javaScript.setMethod("window.history.go(-2)");
+		return new JavaScriptView(javaScript);
+	}
+	
 	public String getHistoryBackPage(String msg, Model model) {
 		model.addAttribute("msg", msg);
 		model.addAttribute("script", "window.history.back();");

@@ -85,6 +85,7 @@ public class EducationController extends KdaAbstractController {
 		}
 		
 		String today = KdaStringUtil.getTodayString();
+		String codePers = (String)session.getAttribute(SessionInfo.CODE_PERS);
 		
 		List<GROUPCODE> departList = commonService.getGroupCodeList("034", null);
 		
@@ -94,6 +95,7 @@ public class EducationController extends KdaAbstractController {
 		paramMap.put("today", today);
 		paramMap.put("memberYn","Y");
 		paramMap.put("codeBran", detcode);
+		paramMap.put("personYn", codePers);
 		List eduList = educationService.getEduTestNameList(paramMap);
 		
 		KE_EDU_OPERATOR operator = new KE_EDU_OPERATOR();
@@ -263,8 +265,8 @@ public class EducationController extends KdaAbstractController {
 		
 		String msg = "신청한 교육이 최소되었습니다. \\n" +
 			 	 	 "교육비를 결제하신 분께서는 \\n" +
-			 	 	 "해당 교육의 문의처로 연락주시기 바랍니다. \\n\\n" +
-			 	 	 "※ 대한영양사협회 교육국 : 02-823-5680 (교 514)";
+			 	 	 "아래의 문의처로 연락주시기 바랍니다. \\n\\n" +
+			 	 	 "[문의처] 대한영양사협회 교육국 Tel. 02-823-5680 (내선 514, 513)";
 		JavaScript javaScript = new JavaScript();
 		javaScript.setMessage(msg);
 		javaScript.setLocation("/work/education/ke_situation.do");
@@ -422,9 +424,11 @@ public class EducationController extends KdaAbstractController {
 		
 		model.addAttribute("company_name", person.getCompany_name());
 		if ( edu_name.equals("elderly") ) {
-			tmp = "시니어푸드코디네이터(민간자격 발급과정)";
+			tmp = "시니어푸드코디네이터(등록민간자격 발급과정)";
 		} else if ( edu_name.equals("sport") ) {
-			tmp = "다이어트운동컨설턴트(민간자격 발급과정)";
+			tmp = "다이어트운동컨설턴트(등록민간자격 발급과정)";
+		} else if ( edu_name.equals("pet") ) {
+			tmp = "반려동물영양관리사(등록민간자격 발급과정)";
 		} else if ( edu_name.equals("health") ) {
 			tmp = "의료기관 인증조사 준비 비법노트";
 		} else if ( edu_name.equals("coach") ) {

@@ -62,7 +62,7 @@ public class AdminBoardController extends KdaAbstractController{
 			board = adminBoardService.getBoard(bs_code);
 			board.setCrud(CRUDValue.U);
 		}
-				
+		
 		model.addAttribute("board", board);
 		
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();

@@ -5,8 +5,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component
-@Data 
-public class PAPERBOARD
+@Data public class PAPERBOARD
 {
 	private int		board_rownum; 
 	private int		bbs_idx;		
@@ -17,7 +16,7 @@ public class PAPERBOARD
 	private float 	bbs_m_number;
 	private int		bbs_step		= 1;          
 	private String	bbs_file_name 	= "";     
-	private String  bbs_file_url      = "";   
+	private String	bbs_file_url  	= "";      
 	private String	bbs_file_type 	= "";     
 	private long	bbs_file_size;
 	private int		bbs_file_down;
