@@ -15,6 +15,10 @@ $(document).ready(function(){
 function goPay()  {
 	var ipgumg = C_getCheckVal("ipgumg");
 	
+	if( ipgumg == "" ) {
+		alert("결제방법을 선택하세요.");
+	}
+	
 	if( ipgumg == "10" ) {
 		$('#popup_ipgumg_1').bPopup();
 	}

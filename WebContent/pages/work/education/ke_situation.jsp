@@ -149,43 +149,43 @@ function rcp_doc_print(str1, str2, doc_name, person_yn, operkey, isMember)
 					</tr>
 					<tr>
 						<td scope="col" class="bold cm bgs">입금 계좌번호</td>
-						<td colspan="2" scope="col" class="bold cm bgs">결제방법</td>
+						<td colspan="2" scope="col" class="bold cm bgs">결제 및 결제방법 변경</td>
 						<td scope="col" class="bold cm bgs">신청취소</td>
 					</tr>
 					<tr>
 						<td scope="row">${oper.test_bank_name} ${oper.test_bank_acc} ${oper.test_bank_acc_owner }</td>
-						<td scope="row" colspan="2">${oper.payname}
-						<%-- <c:choose>
-							<c:when test="${oper.payname eq '' }">-</c:when>
-							<c:otherwise>${oper.payname}</c:otherwise>
-						</c:choose> --%>
-						</td>
-						<%-- <td scope="row">
-						<c:choose>
-							<c:when test="${ oper.oper_start_dt > today  }">
-							<c:choose>
-								<c:when test="${oper.oper_state ne '11' }">
-									<a href="./ke_edu_pay_select.do?pay_appid=${oper.operkey}${oper.receipt_no}" class="btn t2">확인</a>
-								</c:when>
-								<c:otherwise>-</c:otherwise>
-							</c:choose>
-							</c:when>
-							<c:otherwise>-</c:otherwise>
-						</c:choose>
-						</td> --%>
-						<td scope="row">
-						<c:choose>
-							<c:when test="${ oper.oper_start_dt > today  }">
-							<c:choose>
-								<c:when test="${oper.oper_state ne '11' }">
-									<a href="javascript:f_CancelOper('${oper.operkey}${oper.receipt_no}')" class="btn t3">취소</a>
-								</c:when>
-								<c:otherwise>-</c:otherwise>
-							</c:choose>
-							</c:when>
-							<c:otherwise>-</c:otherwise>
-						</c:choose>
-						</td>
+                        <td scope="row">
+                        <c:choose>
+                            <c:when test="${oper.payname eq '' }">-</c:when>
+                            <c:otherwise>${oper.payname}</c:otherwise>
+                        </c:choose>
+                        </td>
+                        <td scope="row">
+                        <c:choose>
+                            <c:when test="${ oper.oper_start_dt > today  }">
+                            <c:choose>
+                                <c:when test="${oper.oper_state ne '11' }">
+                                    <a href="./ke_edu_pay_select.do?pay_appid=${oper.operkey}${oper.receipt_no}" class="btn t2">확인</a>
+                                </c:when>
+                                <c:otherwise>-</c:otherwise>
+                            </c:choose>
+                            </c:when>
+                            <c:otherwise>-</c:otherwise>
+                        </c:choose>
+                        </td>
+                        <td scope="row">
+                        <c:choose>
+                            <c:when test="${ oper.oper_start_dt > today  }">
+                            <c:choose>
+                                <c:when test="${oper.oper_state ne '11' }">
+                                    <a href="javascript:f_CancelOper('${oper.operkey}${oper.receipt_no}')" class="btn t3">취소</a>
+                                </c:when>
+                                <c:otherwise>-</c:otherwise>
+                            </c:choose>
+                            </c:when>
+                            <c:otherwise>-</c:otherwise>
+                        </c:choose>
+                        </td>
 					</tr>
 					
 					<!--입금내역 확인 부분 -->
