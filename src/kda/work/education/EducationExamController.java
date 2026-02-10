@@ -123,6 +123,7 @@ public class EducationExamController extends KdaAbstractController {
 		paramMap.put("today", KdaStringUtil.getTodayString());
 		paramMap.put("examYn", "Y");
 		paramMap.put("codeBran", codeBran);
+		paramMap.put("personYn", codePers);
 		List<KE_EDU_TEST_NAME>  testNameList = educationService.getEduTestNameList(paramMap);
 		List returnList = new ArrayList();
 		
@@ -146,6 +147,9 @@ public class EducationExamController extends KdaAbstractController {
 			log.debug("========= 종료 여부 확인 =============");
 			if( testName.getOper_cnt() >= testName.getReceipt_pers_cnt() ){		
 				val = "-1";
+				log.debug("========= 2026.02 동일종류 자격증교육 이수여부 확인 =============");
+			} else if ( !testName.getTest_remark().equals("10") ) {
+				val = "-4";
 			} else {
 				String eduTestKey =  testName.getCode_kind() + testName.getCode_certifi() + testName.getCode_seq()
 									+ testName.getCode_bran() + testName.getBran_seq();
@@ -435,6 +439,8 @@ public class EducationExamController extends KdaAbstractController {
 		String examName = "";
 		if( val.equals("-1") ) {
 			examName = "[ 종료 - " + testName.getCertifi_name() + " ] ";
+		} else if( val.equals("-4") ) {
+			examName = "[ 미이수 - " + testName.getCertifi_name() + " ] "; 
 		} else if( val.equals("-3") ) {
 			examName = "[ 자격증 기보유 - " + testName.getCertifi_name() + " ] "; 
 		} else {

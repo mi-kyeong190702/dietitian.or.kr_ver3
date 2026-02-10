@@ -492,8 +492,7 @@
 			            A.SEASON)+ '학기 '
 			            WHEN A.SEASON = 3 THEN '집합교육 '
 			            WHEN A.SEASON = 4 THEN '온라인교육 '
-			            ELSE CONVERT(VARCHAR,
-			            A.SEASON)+ ' '
+			            ELSE ' '
 			        END) + B.EDUTEST_NAME + '-' + K.DETCODENAME
 			        WHEN B.CODE_KIND = '2' THEN CONVERT(VARCHAR,
 			        A.YYYY)+ '년도 ' + B.EDUTEST_NAME + '-' + K.DETCODENAME + (CASE
@@ -524,8 +523,7 @@
 			            A.SEASON)+ '학기 '
 			            WHEN A.SEASON = 3 THEN '집합교육 '
 			            WHEN A.SEASON = 4 THEN '온라인교육 '
-			            ELSE CONVERT(VARCHAR,
-			            A.SEASON)+ ' '
+			            ELSE ' '
 			        END) + B.EDUTEST_NAME + '-' + K.DETCODENAME
 			        WHEN B.CODE_KIND = '6' THEN '제' + CONVERT(VARCHAR,
 			        A.OPERATION_CNT)+ '회 ' + B.EDUTEST_NAME

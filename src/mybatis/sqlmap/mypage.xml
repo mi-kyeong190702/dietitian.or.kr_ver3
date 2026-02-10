@@ -230,7 +230,9 @@
 			   WHEN C.SEASON = 3 THEN
 			      ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 집합교육 ' + D.EDUTEST_NAME) 
 			   WHEN C.SEASON = 4 THEN
-			   	 ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 온라인교육 ' + D.EDUTEST_NAME) 
+			   	 ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 온라인교육 ' + D.EDUTEST_NAME)
+			   ELSE
+			     ('제' + CONVERT(VARCHAR, C.OPERATION_CNT)+'회 ' + D.EDUTEST_NAME )
 			   END
 			   AS EDUTEST_FULL_NAME
 			  ]]>
@@ -1158,7 +1160,7 @@
 		                WHEN f.season IN (1, 2) THEN CONVERT(VARCHAR, f.season) + '학기 '
 		                WHEN f.season = 3 THEN '집합교육 '
 		                WHEN f.season = 4 THEN '온라인교육 '
-		                ELSE CONVERT(VARCHAR, f.season) + ' '
+		                ELSE ' '
 		            END +
 		            c.edutest_name + '-' + l.detcodename		
 		        WHEN '2' THEN 
@@ -1189,7 +1191,7 @@
 		                WHEN f.season IN (1, 2) THEN CONVERT(VARCHAR, f.season) + '학기 '
 		                WHEN f.season = 3 THEN '집합교육 '
 		                WHEN f.season = 4 THEN '온라인교육 '
-		                ELSE CONVERT(VARCHAR, f.season) + ' '
+		                ELSE ' '
 		            END +
 		            c.edutest_name + '-' + l.detcodename		
 		        WHEN '6' THEN 
@@ -1337,7 +1339,7 @@
 		          when f.season = 4 then
 		           '온라인교육 '
 		          else
-		           convert(varchar, f.season) + ' '
+		           ' '
 		        end) + g.edutest_name + '-' + l.detcodename when g.code_kind = '2' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + (case
 		         when isnull(f.bran_txt,
 		                     '') = '' then		                     
@@ -1378,8 +1380,7 @@
 		         when f.season = 4 then
 		          '온라인교육 '
 		         else
-		          convert(varchar,
-		                  f.season) + ' '
+		          ' '
 		       end) + g.edutest_name + '-' + l.detcodename when g.code_kind = '6' then '제' + CONVERT(varchar, f.operation_cnt) + '회 ' + g.edutest_name when g.code_kind = '7' then convert(varchar, f.yyyy) + '년도 ' + g.edutest_name + '-' + l.detcodename + (case
 		         when isnull(f.bran_txt,
 		                     '') = '' then

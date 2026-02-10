@@ -114,7 +114,11 @@
 	            alert("이미 해당 자격증을 보유하고 있습니다.");
 	            $(obj).find("option:eq(0)").attr("selected", true);
 	            return;
-	        }
+	        } else if(target.val() == '-4') {
+                alert("자격증 교육을 미이수 하였습니다.");
+                $(obj).find("option:eq(0)").attr("selected", true);
+                return;
+            } 
 		 }
 
 	        
@@ -234,6 +238,12 @@
 	            f.edu_test_key.focus();
 	            return;
 	        }
+	        
+	        if($("select[name='edu_test_key'] option:selected").val() == "-4") {
+                alert("자격증 교육을 미이수 하였습니다.");
+                f.edu_test_key.focus();
+                return;
+            }
 	        
 	        //시행대상 구분 : 재시험 인 경우
 	        if($("select[name='code_operation'] option:selected").val() == "2") {
