@@ -235,13 +235,13 @@ public class EducationExamController extends KdaAbstractController {
 				return getHistoryGoView("회원님은 말소자로 응시하실 수 없습니다.");
 			
 			if( rtnVal == 2 ) 
-				return getHistoryGoView("선택 학기의 시험은 이미 합격하셨습니다.");
+				return getHistoryGoView("해당 자격시험은 이미 합격하셨습니다.");
 		}
 		
 		if( !"2".equals(codeOpertion) && !"4".equals(codeOpertion)  ) {
 			String passFlag = educationService.isExamPassFlag(operator);
 			if( !KdaStringUtil.isEmpty(passFlag) && "Y".equals(passFlag) ) 
-				return getHistoryGoView("선택 학기의 시험은 이미 합격하셨습니다.");	
+				return getHistoryGoView("해당 자격시험은 이미 합격하셨습니다.");	
 		}
 
 		//중복 신청 여부 체크
@@ -292,10 +292,12 @@ public class EducationExamController extends KdaAbstractController {
 		String operKey = operator.makeEduTestKey() + receiptNo;
 		operator.setReceipt_no(receiptNo);
 		
+		String addFileNo = "";
 		if( !operator.getCode_operation().equals("2" )) {
 			// 재시험이 아닐경우 무조건 첨부파일 저장 
-			//반명함판 증명사진
-			String addFileNo = KdaUtil.getOperAttachNo(operator.getCode_operation());
+			//반명함판 증명사진 : 10
+			addFileNo = "22";
+			//String addFileNo = KdaUtil.getOperAttachNo(operator.getCode_operation());
 			
 			addFile = operator.getOper_add_file();
 			String operFileName = operKey + "_" +  addFileNo + "." + ext;
@@ -306,7 +308,8 @@ public class EducationExamController extends KdaAbstractController {
 			KE_EDU_OPER_ADD_FILE operAddFile = new KE_EDU_OPER_ADD_FILE( operKey, addFileNo, operFileName, addFile.getSize() );
 			educationService.insertOperAddFile(operAddFile);
 			
-			//영양사면허증
+			//영양사면허증 : 23
+			addFileNo = "23";
 			addFile = operator.getOper_add_file2();
 			operFileName = operKey + "_" +  addFileNo + "." + ext2;
 			

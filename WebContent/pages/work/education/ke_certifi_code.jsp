@@ -100,7 +100,7 @@
 				<div class="btn_wrap mt30 mb50">
 					<ul>
 						<li><a href="javascript:f_Send()" class="btn big t1">확인</a></li>
-						<li><a href="./ke_license.do" class="btn big t4">취소</a></li>
+						<li><a href="./ke_application.do" class="btn big t4">취소</a></li>
 					</ul>
 				</div>
 			</fieldset>
