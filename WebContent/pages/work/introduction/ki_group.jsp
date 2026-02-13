@@ -26,13 +26,13 @@
 		</div>
 		
 		
-			<h4 class="title bold t3 s1 i_b_t6 mt50">제 27대 중앙회 임원명단</h4>
+			<h4 class="title bold t3 s1 i_b_t6 mt50">제 28대 중앙회 임원명단</h4>
 				<table class="table t1 text small s1 ca center mt20">
 					<colgroup>
-						<col width="150">
-						<col width="150">
+						<col width="230">
+						<col width="110">
 						<col width="*">
-						<col width="150">
+						<col width="140">
 					</colgroup>
 					<thead>
 						<tr>
@@ -63,11 +63,38 @@
 						
 						<tr>
 							<td rowspan="6" scope="row" class="bgf7">부회장</td>
-							<td>송주헌</td>
-							<td>고대중학교</td>
+							<td>김은지</td>
+							<td>서울영등포초등학교</td>
+							<td>영양교사</td>
+						</tr>
+						<tr>
+							<td>이기아</td>
+							<td>청주서원중학교</td>
 							<td>영양사</td>
 						</tr>
 						<tr>
+							<td>이정주</td>
+							<td>용인세브란스병원</td>
+							<td>영양팀장</td>
+						</tr>
+						<tr>
+							<td>김은미</td>
+							<td>삼성서울병원</td>
+							<td>영양팀장</td>
+						</tr>
+						<tr>
+							<td>박은주</td>
+							<td>경남대학교 식품영양학과</td>
+							<td>교수</td>
+						</tr>
+						<tr>
+							<td>박유경</td>
+							<td>경희대학교 동서의학대학원 의학영양학과</td>
+							<td>교수</td>
+						</tr>
+						
+						<tr>
+							<td rowspan="13" scope="row" class="bgf7">선거직 이사</td>
 							<td>임정현</td>
 							<td>서울대학교병원</td>
 							<td>급식영양과장</td>
@@ -78,45 +105,13 @@
 							<td>영양사</td>
 						</tr>
 						<tr>
+							<td>송태희</td>
+							<td>배화여자대학교 식품영양학과</td>
+							<td>교수</td>
+						</tr>
+						<tr>
 							<td>김우정</td>
 							<td>세브란스병원</td>
-							<td>영양팀장</td>
-						</tr>
-						<tr>
-							<td>이승민</td>
-							<td>성신여자대학교 식품영양학과</td>
-							<td>교수</td>
-						</tr>
-						<tr>
-							<td>권수현</td>
-							<td>서울면일초등학교</td>
-							<td>영양교사</td>
-						</tr>
-						
-						<tr>
-							<td rowspan="13" scope="row" class="bgf7">선거직 이사</td>
-							<td>이영우</td>
-							<td>한양여자대학교 식품영양과</td>
-							<td>교수</td>
-						</tr>
-						<tr>
-							<td>금명희</td>
-							<td>보광초등학교</td>
-							<td>영양교사</td>
-						</tr>
-						<tr>
-							<td>김은지</td>
-							<td>서울영등포초등학교</td>
-							<td>영양교사</td>
-						</tr>
-						<tr>
-							<td>이정주</td>
-							<td>용인세브란스병원</td>
-							<td>영양팀장</td>
-						</tr>
-						<tr>
-							<td>김지연</td>
-							<td>가톨릭대학교 은평성모병원</td>
 							<td>영양팀장</td>
 						</tr>
 						<tr>
@@ -125,14 +120,9 @@
 							<td>교수</td>
 						</tr>
 						<tr>
-							<td>박주현</td>
-							<td>상당구청 행정지원과</td>
-							<td>영양사</td>
-						</tr>
-						<tr>
-							<td>박연우</td>
-							<td>영남대학교병원</td>
-							<td>영양팀장</td>
+							<td>권수현</td>
+							<td>서울면일초등학교</td>
+							<td>영양교사</td>
 						</tr>
 						<tr>
 							<td>박정미</td>
@@ -140,73 +130,83 @@
 							<td>영양교사</td>
 						</tr>
 						<tr>
-							<td>김은미</td>
-							<td>삼성서울병원</td>
-							<td>영양팀장</td>
-						</tr>
-						<tr>
 							<td>이지현</td>
 							<td>아주대학교병원</td>
 							<td>영양팀장</td>
 						</tr>
 						<tr>
-							<td>박은주</td>
-							<td>경남대학교 식품영양학과</td>
-							<td>교수</td>
+							<td>박란희</td>
+							<td>청대초등학교</td>
+							<td>영양교사</td>
 						</tr>
 						<tr>
 							<td>이호선</td>
 							<td>강남세브란스병원</td>
 							<td>영양팀장</td>
 						</tr>
-						
 						<tr>
-							<td rowspan="7" scope="row" class="bgf7">분과비례 이사</td>
-							<td>이기아</td>
-							<td>청주 서원중학교</td>
+							<td>양미희</td>
+							<td>청주시3어린이·사회복지급식관리지원센터</td>
+							<td>팀장</td>
+						</tr>
+						<tr>
+							<td>유현진</td>
+							<td>서대문구청</td>
 							<td>영양사</td>
 						</tr>
 						<tr>
-							<td>한상진</td>
-							<td>풀무원푸드앤컬처 정부과천청사</td>
-							<td>책임매니저</td>
-						</tr>
+                            <td>김주이</td>
+                            <td>국민건강보험공단 파주지사 자격징수부</td>
+                            <td>과장</td>
+                        </tr>
+                        
 						<tr>
-							<td>전현옥</td>
-							<td>장흥중학교</td>
-							<td>영양사</td>
-						</tr>
-						<tr>
-							<td>박란희</td>
-							<td>소야초등학교</td>
-							<td>영양교사</td>
-						</tr>
-						<tr>
-							<td>신현미</td>
-							<td>속초교동초등학교</td>
-							<td>영양교사</td>
-						</tr>
-						<tr>
-							<td>강신숙</td>
-							<td>서울아산병원</td>
+							<td rowspan="7" scope="row" class="bgf7">분과비례 대표이사</td>
+							<td>김지연</td>
+							<td>가톨릭대학교 은평성모병원</td>
 							<td>영양팀장</td>
 						</tr>
 						<tr>
-							<td>유지은</td>
-							<td>괴산목도초등학교</td>
+							<td>전현옥</td>
+							<td>화순제일중학교</td>
+							<td>영양사</td>
+						</tr>
+						<tr>
+							<td>신현미</td>
+							<td>교동초등학교</td>
 							<td>영양교사</td>
+						</tr>
+						<tr>
+							<td>배윤주</td>
+							<td>인천광역시교육청 체육건강교육과</td>
+							<td>장학사</td>
+						</tr>
+						<tr>
+							<td>이은영</td>
+							<td>서울성내초등학교</td>
+							<td>영양교사</td>
+						</tr>
+						<tr>
+							<td>이정태</td>
+							<td>진천문상초등학교</td>
+							<td>영양교사</td>
+						</tr>
+						<tr>
+							<td>이승민</td>
+							<td>감계초등학교</td>
+							<td>영양사</td>
 						</tr>
 
 						<tr>
 							<td rowspan="2" scope="row" class="bgf7">임명직 이사</td>
-							<td>송태희</td>
-							<td>배화여자대학교 식품영양학과</td>
-							<td>교수</td>
+							<td>금명희</td>
+							<td>보광초등학교</td>
+							<td>영양교사</td>
 						</tr>
 						<tr>
-							<td>박유경</td>
-							<td>경희대학교 동서의학대학원 의학영양학과</td>
-							<td>교수</td>
+							<td>김상희</td>
+							<td>은평구청</td>
+							<td>영양사</td>
 						</tr>
 					</tbody>
 				</table>
@@ -215,10 +215,10 @@
 
 				<table class="table t1 text small s1 ca center mt20">
 					<colgroup>
-						<col width="200">
-						<col width="150">
+						<col width="230">
+						<col width="110">
 						<col width="*">
-						<col width="150">
+						<col width="140">
 					</colgroup>
 					<thead>
 						<tr>
@@ -313,10 +313,10 @@
 
 				<table class="table t1 text small s1 ca center mt20">
 					<colgroup>
-						<col width="200">
-						<col width="150">
+						<col width="230">
+						<col width="110">
 						<col width="*">
-						<col width="150">
+						<col width="140">
 					</colgroup>
 					<thead>
 						<tr>
@@ -334,8 +334,8 @@
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">전국병원영양사회장</td>
-							<td>이정주</td>
-							<td>용인세브란스병원</td>
+							<td>김은미</td>
+							<td>삼성서울병원</td>
 							<td>영양팀장</td>
 						</tr>
 						<tr>
@@ -346,24 +346,24 @@
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">전국학교영양사회장</td>
-							<td>전현옥</td>
-							<td>장흥중학교</td>
+							<td>이승민</td>
+							<td>감계초등학교</td>
 							<td>영양사</td>
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">전국보건복지시설영양사회장</td>
-							<td>금명희</td>
-							<td>보광초등학교</td>
+							<td>김은지</td>
+							<td>서울영등포초등학교</td>
 							<td>영양교사</td>
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">건강상담영양사회장</td>
-							<td>이영우</td>
-							<td>한양여자대학교 식품영양과</td>
+							<td>이해영</td>
+							<td>상지대학교 식품영양학과</td>
 							<td>교수</td>
 						</tr>
 						<tr>
-							<td scope="row" class="bgf7">전국어린이급식관리지원센터</br>영양사회장</td>
+							<td scope="row" class="bgf7">전국어린이·사회복지급식관리지원센터</br>영양사회장</td>
 							<td>김우정</td>
 							<td>세브란스병원</td>
 							<td>영양팀장</td>
