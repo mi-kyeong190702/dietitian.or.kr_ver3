@@ -273,7 +273,7 @@ public class EducationCertifiController extends KdaAbstractController {
 		PERSON_M_TBL person = memberService.getPersonMTblByCode(codePers, true);
 		int classifyCode = certifi.getClassify_code();
 		if( classifyCode == 1 ) {
-			List chkSeason2List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "1", "3" }  );
+			List chkSeason2List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "5", "6" }  );
 			KE_EDU_OPERATOR operator = (KE_EDU_OPERATOR)chkSeason2List.get(0);
 			String operKey = operator.makeOperKey();	
 			List<KE_EDU_OPER_ADD_FILE> addFileList = educationService.getOperAddFileList(operKey);
@@ -327,8 +327,8 @@ public class EducationCertifiController extends KdaAbstractController {
 		String codePers = getCodePers(session);
 		switch(certifi.getClassify_code()) {
 		case 1: // 신규 신청일 경우(해당 첨부파일만 입력하여 주고 관리자에서 승인처리)
-			List chkSeason1List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "2", "4" } );
-			List chkSeason2List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "1", "3" }  );
+			List chkSeason1List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "5" } );
+			List chkSeason2List = educationService.getPassExamListByCertifi(certifi.getCode_certifi(), codePers, null,  new String[]{ "6" }  );
 			if( chkSeason1List != null && chkSeason2List != null ) {
 				
 				KE_EDU_OPERATOR operator = (KE_EDU_OPERATOR)chkSeason2List.get(0);
