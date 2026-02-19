@@ -276,7 +276,8 @@
  		     , SUM(ISNULL(COL2,0)) COL2
  		     , SUM(ISNULL(COL3,0)) COL3  
  		     , Sum(Isnull(col1, 0)) + Sum(Isnull(col2, 0)) + Sum(Isnull(col3, 0)) TOTAL 
- 		     , E.RESULT_NO 
+ 		     , E.RESULT_NO
+ 		     , E.CODE_CERTIFI
  		FROM RESULT_PRINT E 
  		LEFT JOIN ( 
  		    SELECT CASE WHEN D.OUTSIDE_YN = 'N' THEN ISNULL(B.EDU_MARKS,0) + ISNULL(B.SERVICE_MARKS,0) END COL1, 
@@ -290,52 +291,82 @@
  		    AND A.CODE_BRAN = C.CODE_BRAN AND A.BRAN_SEQ = C.BRAN_SEQ 
  		    INNER JOIN EDU_TEST_NAME D ON C.CODE_KIND = D.CODE_KIND AND C.CODE_CERTIFI = D.CODE_CERTIFI AND C.CODE_SEQ = D.CODE_SEQ 
  		    INNER JOIN PERSON_M_TBL E ON A.PERSON_YN = E.CODE_PERS
-	 		WHERE A.CODE_KIND = '2' AND
-	 		      A.CODE_CERTIFI IN ('0', #{code_certifi}) AND
-	 		      (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', #{code_certifi})) AND
+	 		WHERE 1 = 1 AND
+	 		      <!-- 전문/전문영양사 평점인정교육/본회 직무교육,직무교육,기타 1~6평점,아동요리지도자교육과정,식습관코치교육과정,요퍼먼스지도사교육과정,쿠키클레이지도사교육과정,영양관리과정(NCP) -->
+	 		      ((A.CODE_CERTIFI = '0' AND A.CODE_KIND = '2' AND A.CODE_SEQ IN ('0996', '0984', '0974', '0975', '0976', '0977', '1002', '0999', '0220', '0982', '0992', '0993', '0990')) OR
+	 		      <!-- 자격증교육 -->
+	 		      A.CODE_KIND = '1') AND
+	 		      <!-- A.CODE_CERTIFI IN ('0', #{code_certifi}) AND -->
+	 		      <!-- (B.POINT_MANAGE IS NULL OR B.POINT_MANAGE IN ('0', #{code_certifi})) AND -->
 	 		      <!-- 2026.02 점수반영:11 / 이수:10 -->
-	 		      B.RESULT_STATE >= '11' AND
-	 		      SUBSTRING(D.POINT_MANAGE, #{code_certifi}, 1) = '1' AND
+	 		      B.RESULT_STATE >= '10' AND
+	 		      <!-- SUBSTRING(D.POINT_MANAGE, #{code_certifi}, 1) = '1' AND -->
 	 		      E.CODE_PERS = #{code_pers} 
-	        ) F ON E.CODE_PERS = F.CODE_PERS and F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
-	        WHERE E.code_certifi=#{code_certifi} and
-	              E.CODE_PERS = #{code_pers}
-			GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO
+	        ) F ON E.CODE_PERS = F.CODE_PERS and
+	               <!-- 자격증 CERTIFI 에해당되는구분제외 -->
+	               E.CODE_CERTIFI != F.CODE_CERTIFI AND
+	               F.OPER_END_DT BETWEEN E.RESULT_START_DT AND E.RESULT_END_DT
+	        WHERE E.CODE_PERS = #{code_pers}
+	              <!-- and E.code_certifi=#{code_certifi} -->
+			GROUP BY E.RESULT_START_DT, E.RESULT_END_DT, E.RESULT_NO, E.CODE_CERTIFI
 	        ORDER BY RESULT_END_DT DESC
 	</select>
 	
 	<select id="getMyEduOlderly2" parameterType="hashmap" resultType="MYEDUINFO" >
-		SELECT CASE WHEN F.CODE_KIND = '5' THEN '제'+CONVERT(VARCHAR,F.OPERATION_CNT)+'회 ' + CONVERT(VARCHAR,F.SEASON) + '학기 ' + G.EDUTEST_NAME
-		ELSE G.EDUTEST_NAME END  EDUTEST_NAME , CASE WHEN G.OUTSIDE_YN <![CDATA[<>]]>'N' THEN '기타'  WHEN G.OUTSIDE_YN='N' THEN '본회' END OUTSIDE_YN
-		, G.OUTSIDE_YN OUTSIDE_YN_CODE, F.OPER_END_DT  , ISNULL(C.EDU_MARKS,0)+ISNULL(C.SERVICE_MARKS,0) RESULT_POINT , D.DETCODENAME RESULT_STATE
-		, C.CODE_KIND, C.CODE_CERTIFI, C.CODE_SEQ, C.CODE_BRAN, DBO. GETCODEVALUE('007',C.CODE_BRAN) AS CODE_BRAN_STR, C.BRAN_SEQ
-		, C.RECEIPT_NO, C.POINT_MANAGE, ISNULL(C.RESULT_STATE, '-1') AS RT , C.RESULT_NO, C.POINT_MANAGE, G.PRINT_KIND, G.PRINTFORM_NO , F.YYYY , F.BRAN_TXT AS BTEXT
-		, (F.CODE_KIND+F.CODE_CERTIFI+F.CODE_SEQ+F.CODE_BRAN+F.BRAN_SEQ+CONVERT(VARCHAR,ISNULL(F.OPERATION_CNT,'0'))+CONVERT(VARCHAR,ISNULL(F.SEASON,'0'))) AS DETCODE
-		FROM (SELECT CODE_KIND , CODE_CERTIFI , CODE_SEQ , CODE_BRAN , BRAN_SEQ , RECEIPT_NO , PERSON_YN FROM OPERATER )A
-		LEFT JOIN (SELECT X.CODE_KIND , X.CODE_CERTIFI , X.CODE_SEQ , X.CODE_BRAN , X.BRAN_SEQ , X.RECEIPT_NO
-		, REPLACE(REPLACE(ISNULL(X.신청서,' ')+','+ISNULL(X.사진,' ')+',' +ISNULL(X.영양사면허증사본,' ')+','+ISNULL(X.경력증명서,' ')+','
-		+ISNULL(X.학위증명서,' ')+ISNULL(X.최종학위성적증명서,' ')+',' +ISNULL(X.기존자격증사본,' '),' ,',''),', ','') DETCODENAME
-		FROM ( SELECT *   FROM (SELECT AB.CODE_KIND, AB.CODE_CERTIFI, AB.CODE_SEQ, AB.CODE_BRAN,  AB.BRAN_SEQ, AB.RECEIPT_NO, BB.DETCODENAME
-		FROM OPER_ADD_FILE AB, COM_CODE BB  WHERE BB.GROUPCODE = '037'  AND BB.DETCODE = AB.ADD_FILE_NO) Z
-		PIVOT (MAX(Z.DETCODENAME) FOR Z.DETCODENAME   IN ([신청서],[사진],[영양사면허증사본],[경력증명서],[학위증명서],[최종학위성적증명서],[기존자격증사본]) ) AS PVT ) X) B
-		ON B.CODE_KIND = A.CODE_KIND   AND B.CODE_CERTIFI = A.CODE_CERTIFI  AND B.CODE_SEQ = A.CODE_SEQ  AND B.CODE_BRAN = A.CODE_BRAN
-		AND B.BRAN_SEQ = A.BRAN_SEQ  AND B.RECEIPT_NO = A.RECEIPT_NO
-		LEFT JOIN OPER_RESULT C   ON C.CODE_KIND = A.CODE_KIND  AND C.CODE_CERTIFI = A.CODE_CERTIFI  AND C.CODE_SEQ = A.CODE_SEQ
-		AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO
-		LEFT JOIN COM_CODE D  ON D.GROUPCODE='023'  AND D.DETCODE=C.RESULT_STATE , EDU_TEST F
-		LEFT JOIN EDU_TEST_NAME G  ON G.CODE_KIND = F.CODE_KIND  AND G.CODE_CERTIFI = F.CODE_CERTIFI  AND G.CODE_SEQ = F.CODE_SEQ
-		WHERE A.CODE_KIND = F.CODE_KIND  
-		AND A.CODE_CERTIFI = F.CODE_CERTIFI
-		AND A.CODE_SEQ = F.CODE_SEQ
-		AND A.CODE_BRAN = F.CODE_BRAN
-		AND A.BRAN_SEQ = F.BRAN_SEQ
-		AND F.CODE_KIND = '2'
-		AND A.PERSON_YN = #{code_pers}  
-		AND F.OPER_END_DT >= #{result_start_dt} 
-		AND F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}			
-		AND ISNULL(C.POINT_MANAGE, '0') IN ('0', #{code_certifi})
-        AND SUBSTRING(G.POINT_MANAGE, #{code_certifi}, 1) = '1'
-		ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
+		SELECT CASE
+                 WHEN F.CODE_KIND = '5' THEN
+                  '제' + CONVERT(VARCHAR, F.OPERATION_CNT) + '회 ' +
+                  CONVERT(VARCHAR, F.SEASON) + '학기 ' + G.EDUTEST_NAME
+                 ELSE
+                  G.EDUTEST_NAME
+               END EDUTEST_NAME,
+               CASE
+                 WHEN G.OUTSIDE_YN != 'N' THEN
+                  '기타'
+                 WHEN G.OUTSIDE_YN = 'N' THEN
+                  '본회'
+               END OUTSIDE_YN,
+               G.OUTSIDE_YN OUTSIDE_YN_CODE,
+               F.OPER_END_DT,
+               ISNULL(C.EDU_MARKS, 0) + ISNULL(C.SERVICE_MARKS, 0) RESULT_POINT,
+               D.DETCODENAME RESULT_STATE,
+               C.CODE_KIND,
+               C.CODE_CERTIFI,
+               C.CODE_SEQ,
+               C.CODE_BRAN,
+               DBO. GETCODEVALUE('007', C.CODE_BRAN) AS CODE_BRAN_STR,
+               C.BRAN_SEQ,
+               C.RECEIPT_NO,
+               C.POINT_MANAGE,
+               ISNULL(C.RESULT_STATE, '-1') AS RT,
+               C.RESULT_NO,
+               C.POINT_MANAGE,
+               G.PRINT_KIND,
+               G.PRINTFORM_NO,
+               F.YYYY,
+               F.BRAN_TXT AS BTEXT
+          FROM (SELECT CODE_KIND,
+                       CODE_CERTIFI,
+                       CODE_SEQ,
+                       CODE_BRAN,
+                       BRAN_SEQ,
+                       RECEIPT_NO,
+                       PERSON_YN
+                  FROM OPERATER) A LEFT JOIN OPER_RESULT C ON C.CODE_KIND = A.CODE_KIND AND C.CODE_CERTIFI = A.CODE_CERTIFI AND C.CODE_SEQ = A.CODE_SEQ AND C.CODE_BRAN = A.CODE_BRAN AND C.BRAN_SEQ = A.BRAN_SEQ AND C.RECEIPT_NO = A.RECEIPT_NO LEFT JOIN COM_CODE D ON D.GROUPCODE = '023' AND D.DETCODE = C.RESULT_STATE,
+               EDU_TEST F LEFT JOIN EDU_TEST_NAME G ON G.CODE_KIND = F.CODE_KIND AND G.CODE_CERTIFI = F.CODE_CERTIFI AND G.CODE_SEQ = F.CODE_SEQ
+         WHERE A.CODE_KIND = F.CODE_KIND AND A.CODE_CERTIFI = F.CODE_CERTIFI AND
+               A.CODE_SEQ = F.CODE_SEQ AND A.CODE_BRAN = F.CODE_BRAN AND
+               A.BRAN_SEQ = F.BRAN_SEQ AND
+               <!-- 전문/전문영양사 평점인정교육/본회 직무교육,직무교육,기타 1~6평점,아동요리지도자교육과정,식습관코치교육과정,요퍼먼스지도사교육과정,쿠키클레이지도사교육과정,영양관리과정(NCP) -->
+               ((A.CODE_CERTIFI = '0' AND A.CODE_KIND = '2' AND A.CODE_SEQ IN ('0996', '0984', '0974', '0975', '0976', '0977', '1002', '0999', '0220', '0982', '0992', '0993', '0990')) OR
+               <!-- 자격증교육 -->
+               (A.CODE_CERTIFI != #{code_certifi} AND A.CODE_KIND = '1')) AND
+               <!-- A.CODE_CERTIFI IN ('0', #{code_certifi}) AND -->
+               A.PERSON_YN = #{code_pers} AND F.OPER_END_DT >= #{result_start_dt} AND
+               F.OPER_END_DT <![CDATA[<=]]> #{result_end_dt}
+               <!-- AND ISNULL(C.POINT_MANAGE, '0') IN ('0', #{code_certifi}) -->
+               <!-- AND SUBSTRING(G.POINT_MANAGE, #{code_certifi}, 1) = '1' -->
+         ORDER BY F.OPER_END_DT DESC, F.YYYY, F.CODE_KIND
 	</select>
 	
 	

@@ -8,7 +8,7 @@
 
 <script type="text/javascript">
 
-function doc_print(detcode, doc_seq)
+/* function doc_print(detcode, doc_seq)
 {
 	shape  = "width=750,height=700,";
     shape += "toolbar=no,location=no,directories=no,status=no,";
@@ -24,7 +24,7 @@ function doc_print(detcode, doc_seq)
 
     shape = shape + ", top=" + syy + ", left=" + sxx;
     window.open(path, "doc_print", shape);
-}
+} */
 
 function point_apply(str1,str2)
 {
@@ -169,7 +169,7 @@ function openPopup()
 							<td><!-- 출력 -->
 								<c:choose>
 									<c:when test="${fn:length(requestScope.myList2[i].result_no) > 0 && requestScope.myList2[i].rt >= 10 }">
-									<a href="javascript:doc_print('${requestScope.myList2[i].detcode}','${requestScope.myList2[i].result_no}')" class="btn">
+									<a href="#" class="btn">
 									출력</a></c:when>
 									<c:otherwise></c:otherwise>
 								</c:choose>

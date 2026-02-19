@@ -158,6 +158,8 @@ public class MyPageHController extends KdaAbstractController
 		String col2 = "";
 		String col3 = "";
 		String total = "";
+		//2026.02 추가
+		String code_certifi = "";
 			
 		try
 		{
@@ -166,13 +168,15 @@ public class MyPageHController extends KdaAbstractController
 			for ( int i = 0; i < myList.size(); i++ )
 			{
 				MYEDUINFO info = (MYEDUINFO)myList.get(i);
-				String temp_result_no  = info.getResult_no();
-				String temp_result_start_dt  = info.getResult_start_dt();
+				String temp_result_no = info.getResult_no();
+				String temp_result_start_dt = info.getResult_start_dt();
 				String temp_result_end_dt = info.getResult_end_dt();
 				String temp_col1 = info.getCol1();
 				String temp_col2 = info.getCol2();
 				String temp_col3 = info.getCol3();
 				String temp_total = info.getTotal();
+				//2026.02 추가
+				String temp_code_certifi = info.getCode_certifi();
 				
 				if(String.valueOf(i).equals(view_num) ){
 					result_no  = temp_result_no;
@@ -182,6 +186,8 @@ public class MyPageHController extends KdaAbstractController
 					col2 = temp_col2;
 					col3 = temp_col3;
 					total = temp_total;
+					//2026.02 추가
+					code_certifi  = temp_code_certifi;
 					
 					model.addAttribute("result_no", result_no);
 					model.addAttribute("result_start_dt",  result_start_dt.substring(0,4) + "."+ result_start_dt.substring(4,6) + "." + result_start_dt.substring(6,8));
@@ -212,7 +218,9 @@ public class MyPageHController extends KdaAbstractController
 		
 		
 		paramMap.put("result_start_dt", result_start_dt);		
-		paramMap.put("result_end_dt", result_end_dt);		
+		paramMap.put("result_end_dt", result_end_dt);
+		//2026.02 추가
+		paramMap.put("code_certifi", code_certifi);
 	
 		model.addAttribute("myList2" , dao.getMyEduOlderly2(paramMap));
 		
