@@ -12,7 +12,37 @@
 	request.setAttribute("file_path", file_path); 
 %>
 
-	
+<c:set var="bs_admin" value="${fn:split(requestScope.boardSettings.bs_admin,',') }" />
+        <c:set var="check" value="0"/>
+        <c:set var="dntchk" value="0"/>
+        <c:if test="${g_isLogin}"> 
+          <c:forEach var="list" items="${bs_admin }">           
+            <c:if test="${list==g_userid }">
+                <c:set var="check" value="1"/> 
+            </c:if>         
+          </c:forEach> 
+          <c:choose>
+              <c:when test="${
+                (
+                  ((requestScope.bbs_board_code >= 133 && requestScope.bbs_board_code <= 152)
+                  || (requestScope.bbs_board_code >= 184 && requestScope.bbs_board_code <= 190)
+                  )
+                  && g_code_big == 103
+                ) 
+                || 
+                (
+                  (requestScope.bbs_board_code >= 153 && requestScope.bbs_board_code <= 157)
+                  && g_code_big == 104
+                )
+                || g_userid == 'ekdldjxm_!@##@!~'
+              }">
+                <c:set var="dntchk" value="1"/>
+              </c:when>
+              <c:otherwise>
+                <c:set var="dntchk" value="0"/>
+              </c:otherwise>
+          </c:choose>
+       </c:if>	
 <script type="text/javascript">
 	
 	var board;
@@ -41,7 +71,8 @@
 	{
 		board.board_form.value 		= "view";
 		board.bbs_idx.value	 		= bbs_idx;
-		board.bbs_board_code.value	= bbs_board_code;
+		board.bbs_board_code.value	= bbs_board_code; 
+		
 		board.submit();
 	}
 
@@ -182,37 +213,7 @@
 
 <div class="btn_wrap mt20">
 	<ul class="fr">
-		<c:set var="bs_admin" value="${fn:split(requestScope.boardSettings.bs_admin,',') }" />
-		<c:set var="check" value="0"/>
-		<c:set var="dntchk" value="0"/>
-		<c:if test="${g_isLogin}"> 
-		  <c:forEach var="list" items="${bs_admin }">			
-			<c:if test="${list==g_userid }">
-				<c:set var="check" value="1"/> 
-			</c:if>			
-		  </c:forEach> 
-		  <c:choose>
-			  <c:when test="${
-			    (
-			      ((requestScope.bbs_board_code >= 133 && requestScope.bbs_board_code <= 152)
-			      || (requestScope.bbs_board_code >= 184 && requestScope.bbs_board_code <= 190)
-			      )
-			      && g_code_big == 103
-			    ) 
-			    || 
-			    (
-			      (requestScope.bbs_board_code >= 153 && requestScope.bbs_board_code <= 157)
-			      && g_code_big == 104
-			    )
-			    || g_userid == 'ekdldjxm_!@##@!~'
-			  }">
-			    <c:set var="dntchk" value="1"/>
-			  </c:when>
-			  <c:otherwise>
-			    <c:set var="dntchk" value="0"/>
-			  </c:otherwise>
-		  </c:choose>
-	   </c:if>
+		
 		<c:if test="${ 
 		(g_user_level <= requestScope.boardSettings.bs_WriteLevel && requestScope.bbs_board_code != 99999 && requestScope.bbs_board_code != 88888 
 		&& !(requestScope.bbs_board_code >= 153 && requestScope.bbs_board_code <= 157)
@@ -253,3 +254,17 @@
 	<a href="javascript:moveNext(${requestScope.boardPage.getNextPage()});" class="p_btn next"><span class="icon"></span><span class="ti">다음</span></a>
 	<a href="javascript:moveLast(${requestScope.boardPage.getLastPage()});" class="p_btn end"><span class="icon"></span><span class="ti">끝</span></a>
 </div>
+
+<%
+String bcode = ParamUtils.getParameter(request, "bbs_board_code", "0");
+String check = (String)pageContext.findAttribute("check");
+if ("1".equals(check)) {
+    session.setAttribute("BOARD_ADMIN_" + bcode, "1");
+    
+} else {
+    session.removeAttribute("BOARD_ADMIN_" + bcode);
+}
+
+
+System.out.println(session.getAttribute("BOARD_ADMIN_"+bcode));
+%>

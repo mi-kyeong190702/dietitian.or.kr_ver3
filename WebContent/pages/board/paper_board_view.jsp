@@ -5,6 +5,8 @@
 
 <%
 	String user_level = session.getAttribute(SessionInfo.USER_LEVEL).toString();
+
+
     
 	
 	PAPERBOARDSETTINGS boardSettings = (PAPERBOARDSETTINGS)request.getAttribute("boardSettings");
@@ -15,17 +17,27 @@
 		str = "<script> alert('조회 권한이 없습니다.'); location.href='/'; </script>";
 		out.println(str); 
 	}
-	 
+	  
+    String check = (String)session.getAttribute("BOARD_ADMIN_" + boardSettings.getBs_code());
+    System.out.println("=======================");
+    System.out.println(check);
+    
+    
+    boolean isBoardAdmin = "1".equals(check);
  
-	if(str=="" && ((boardSettings.getBs_code() >= 133 && boardSettings.getBs_code() <= 152 )
-	|| (boardSettings.getBs_code() >= 187 && boardSettings.getBs_code() <= 190 ) 
-	|| boardSettings.getBs_code() == 184 || boardSettings.getBs_code() == 186 || boardSettings.getBs_code() == 185 )   
-	){  
+    if(!isBoardAdmin && (str=="" && (
+            (boardSettings.getBs_code() >= 133 && boardSettings.getBs_code() <= 152 )
+         || (boardSettings.getBs_code() >= 187 && boardSettings.getBs_code() <= 190 )
+         || boardSettings.getBs_code() == 184
+         || boardSettings.getBs_code() == 186
+         || boardSettings.getBs_code() == 185
+    ))) {
 		
 		String pers_state = session.getAttribute(SessionInfo.PERS_STATE).toString();
 		String code_big = session.getAttribute(SessionInfo.CODE_BIG).toString();
 		
-		if( !code_big.equals("103") && !"ekdldjxm_!@##@!~".equals(g_userid) ){
+		if( !code_big.equals("103") && !"ekdldjxm_!@##@!~".equals(g_userid))  
+		   {
 		
 		  str = "<script> alert('영양교사 분과 회원만 이용 가능합니다.'); history.go(-1); </script>"; 
 		  out.println(str);
@@ -36,18 +48,18 @@
 		}
 	}
 	
-	if(str=="" && ((boardSettings.getBs_code() >= 153 && boardSettings.getBs_code() <= 157 )  )
-	    ){  
-		
-		String code_big = session.getAttribute(SessionInfo.CODE_BIG).toString();
-        
-        if( !code_big.equals("104") && !"ekdldjxm_!@##@!~".equals(g_userid) ){
-        
-          str = "<script> alert('학교영양사 분과 회원만 이용 가능합니다.'); history.go(-1); </script>"; 
-          out.println(str); 
-        //회원상태 정상 / 선인증
-        }else if(  "104".equals(code_big) && !"01".equals(g_pers_state) && !"07".equals(g_pers_state) ){
-            str = "<script> alert('학교영양사 분과 회원만 이용 가능합니다.'); history.go(-1); </script>"; 
+    if(!isBoardAdmin && (str=="" && (boardSettings.getBs_code() >= 153 && boardSettings.getBs_code() <= 157 ))) {
+
+        String code_big = session.getAttribute(SessionInfo.CODE_BIG).toString();
+
+        if( !code_big.equals("104") && !"ekdldjxm_!@##@!~".equals(g_userid) ) {
+
+            str = "<script> alert('학교영양사 분과 회원만 이용 가능합니다.'); history.go(-1); </script>";
+            out.println(str);
+
+        } else if( "104".equals(code_big) && !"01".equals(g_pers_state) && !"07".equals(g_pers_state) ) {
+
+            str = "<script> alert('학교영양사 분과 회원만 이용 가능합니다.'); history.go(-1); </script>";
             out.println(str);
         }
     }

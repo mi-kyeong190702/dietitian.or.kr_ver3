@@ -222,7 +222,7 @@ public class BoardController extends KdaAbstractController
 	@RequestMapping("paper_board_view")
 	public String paper_board_view(	@RequestParam(required=true, defaultValue="0") String bbs_board_code
 								  , @RequestParam(required=false) int bbs_idx	
-								  ,HttpSession session
+								   ,HttpSession session
 								  , Model model ) throws Exception
 	{	
 		log.info("================================ BoardController [paper_board_view] bbs_board_code:" + bbs_board_code);
@@ -231,7 +231,10 @@ public class BoardController extends KdaAbstractController
 		paserBoardService.update_view_count(bbs_idx);
 		List<PAPERBOARD> list =  paserBoardService.select(bbs_idx, bbs_board_code);
 		int chkTeacher = paserBoardService.getChkTeacher(code_pers); 
-		model.addAttribute("ChkTeacher", chkTeacher);
+		model.addAttribute("ChkTeacher", chkTeacher);		
+		
+	    //중관관리자 지정된 아이디가 참일경우 1	
+		System.out.println("check=="+session.getAttribute("BOARD_ADMIN_"+bbs_board_code));
 		 
 		for ( int i = 0; i < list.size(); i++ )
 		{
@@ -297,6 +300,7 @@ public class BoardController extends KdaAbstractController
 			}
 		}
 		model.addAttribute("bbs_board_code", bbs_board_code);
+		model.addAttribute("check", session.getAttribute("BOARD_ADMIN_"+bbs_board_code));
 		model.addAttribute("boardSettings" , paserBoardService.settings(bbs_board_code));
 
 		

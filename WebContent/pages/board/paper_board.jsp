@@ -58,7 +58,7 @@
 	<input type="hidden" name="bbs_category" 	value="<%=bbs_category%>">
 	<input type="hidden" name="bbs_idx" 		value="<%=bbs_idx%>">
 	
-	<input type="hidden" name="g_userid" 		value="<%=g_userid%>">
+	<input type="hidden" name="g_userid" 		value="<%=g_userid%>">  
 </form>
 
 <c:import url="<%=include%>"></c:import>	
