@@ -116,7 +116,7 @@
 										<b>[ - - 해당글은 삭제된 글입니다. - - ]</b>
 							</c:when>
 							<c:when test="${(!requestScope.boardList[i].bbs_del_flag && requestScope.boardSettings.bs_ViewLevel >= g_user_level
-							               && g_code_big == '103') || g_user_level == 1 }"> 
+							               && g_code_big == '103') || g_user_level == 1 || check == 1 }"> 
 								
 								 	<a href="javascript:doSelect(${requestScope.boardList[i].bbs_idx}, ${requestScope.boardList[i].bbs_board_code})">
 											${requestScope.boardList[i].bbs_subject}
