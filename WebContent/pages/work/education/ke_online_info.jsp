@@ -17,7 +17,7 @@
 	<div class="sp_body">
 		<div class="tab_2 div2 mb30">
 			<ul>
-				<li><a href="/work/education/ke_online_info.do" class="on">영양관리(NCP)과정</a></li>
+				<li><a href="/work/education/ke_online_info.do" class="on">영양관리과정(NCP) 교육과정</a></li>
 <!--				<li><a href="/work/education/ke_dietary_info.do">식생활 교육 전문가 과정</a></li>-->
 <!-- 				<li><a href="/work/education/ke_onlinnew_info.do">급식관리영양사직무교육</a></li> -->
 				<li><a href="/work/education/ke_clinical_info.do">임상영양 직무교육</a></li>
@@ -42,7 +42,7 @@
 								</ul>
 							<h4 class="bold i_b_t5 mt10">대상</h4>
 								<ul>
-									<li class="small i_b_t7 ml10">온라인 영양관리과정(NCP)에 관심 있는 영양(교)사 및 식품영양관련(학)과 학생</li>
+									<li class="small i_b_t7 ml10">영양관리과정(NCP)에 관심 있는 영양사 및 식품영양관련(학)과 학생</li>
 								</ul>
 							<h4 class="bold i_b_t5 mt5">기간</h4>
 								<ul>
@@ -66,7 +66,7 @@
 										<tbody>
 											<tr>
 												<td scope="row" class="bgf7">회원</td>
-												<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육센터 배너 중 '온라인 교육센터' 클릭 → 교육신청 → 온라인 NCP 교육 선택 → 수강신청</td>
+												<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육 배너 중 '온라인교육센터' 클릭 → 교육신청 → 온라인 NCP 교육 선택 → 수강신청</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">비회원</td>
@@ -85,7 +85,7 @@
 										<tbody>
 											<tr>
 												<td scope="row" class="bgf7">회원</td>
-												<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육센터 배너 중 '온라인 교육센터' 클릭 → 나의 학습방 → 현재 수강중인 강좌 클릭</td>
+												<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육 배너 중 '온라인교육센터' 클릭 → 나의 학습방 → 현재 수강중인 강좌 클릭</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">비회원</td>
@@ -127,45 +127,37 @@
 										<colgroup>
 											<col width="80">
 											<col width="260">
-											<col width="260">
 										</colgroup>
 										<thead>
 											<tr>
 												<th scope="col" class="bold cm">차시</th>
 												<th scope="col" class="bold cm">강의명</th>
-												<th scope="col" class="bold cm">강사</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td scope="row" class="bgf7">1</td>
 												<td>배경 및 필요성</td>
-												<td class="left">김은미(삼성서울병원 임상영양사)</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">2~3</td>
 												<td>영양판정</td>
-												<td class="left">백지원(삼성서울병원 임상영양사)</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">4~5</td>
 												<td>영양진단</td>
-												<td class="left">이호선(세브란스병원 임상영양사)</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">6~7</td>
 												<td>영양중재</td>
-												<td class="left">노미라(서울대학교병원 임상영양사)</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">8</td>
 												<td>모니터링 및 상담</td>
-												<td class="left">노민영(서울성모병원 임상영양사)</td>
 											</tr>
 											<tr>
 												<td scope="row" class="bgf7">9</td>
 												<td>NCP를 활용한 Case</td>
-												<td class="left">김원경(서울특별시 보라매병원 임상영양사)</td>
 											</tr>
 										</tbody>
 									</table>

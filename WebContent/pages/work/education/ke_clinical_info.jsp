@@ -17,7 +17,7 @@
 	<div class="sp_body">
 		<div class="tab_2 div2 mb30">
 			<ul>
-				<li><a href="/work/education/ke_online_info.do">영양관리(NCP)과정</a></li>
+				<li><a href="/work/education/ke_online_info.do">영양관리과정(NCP) 교육과정</a></li>
 				<!--<li><a href="/work/education/ke_dietary_info.do">식생활 교육 전문가 과정</a></li>-->
 <!-- 				<li><a href="/work/education/ke_onlinnew_info.do">급식관리영양사직무교육</a></li> -->
 				<li><a href="/work/education/ke_clinical_info.do" class="on">임상영양 직무교육</a></li>
@@ -46,7 +46,7 @@
 								</ul>
 							<h4 class="bold i_b_t5 mt10">대상</h4>
 								<ul>
-									<li class="small i_b_t7 ml10">임상영양(영양소 대사, 병태생리, 영양치료 등)에 관심 있는 영양(교)사 및 식품영양관련(학)과 학생</li>
+									<li class="small i_b_t7 ml10">임상영양(영양소 대사, 병태생리, 영양치료 등)에 관심 있는 영양사 및 식품영양관련(학)과 학생</li>
 								</ul>
 							<h4 class="bold i_b_t5 mt5">기간</h4>
 								<ul>
@@ -70,7 +70,7 @@
 													<tbody>
 														<tr>
 															<td scope="row" class="bgf7">회원</td>
-															<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육센터 배너 중 '온라인 교육센터' 클릭 → 교육신청 → 임상영양 교육 센터 → 수강신청</td>
+															<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육 배너 중 '온라인교육센터' 클릭 → 교육신청 → 임상영양 교육 센터 → 수강신청</td>
 														</tr>
 														<tr>
 															<td scope="row" class="bgf7">비회원</td>
@@ -89,7 +89,7 @@
 													<tbody>
 														<tr>
 															<td scope="row" class="bgf7">회원</td>
-															<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육센터 배너 중 '온라인 교육센터' 클릭 → 나의 학습방 → 현재 수강중인 강좌 클릭</td>
+															<td class="left link">대한영양사협회 홈페이지(<a href="www.dietitian.or.kr" title="대한영양사협회 홈페이지로 이동">www.dietitian.or.kr</a>) 로그인 → KDA 교육 배너 중 '온라인교육센터' 클릭 → 나의 학습방 → 현재 수강중인 강좌 클릭</td>
 														</tr>
 														<tr>
 															<td scope="row" class="bgf7">비회원</td>
