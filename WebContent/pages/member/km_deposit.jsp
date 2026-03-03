@@ -66,7 +66,7 @@ function f_openBank() {
 <%-- 			<%  } else { %> --%>
 <!-- 					<a href="/member/km_join_step4_cms.do" class="btn t3 big">CMS입금</a> -->
 <%-- 			<%  } %> --%>
-			<a href="https://tnbsoft.co.kr/cert/client/application/user/dietitian" target="_blank" class="btn t3 big">CMS입금</a>
+			<a href="https://forms.gle/WxWmsQ2pBKEAcm2R6" target="_blank" class="btn t3 big">CMS입금</a>
 		</div>
 		
 		<!-- // Contents End -->

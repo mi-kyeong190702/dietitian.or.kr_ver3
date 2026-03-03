@@ -26,7 +26,7 @@
 				<li>
 					<h5 class="title bold t3 s1 i_b_t3 mt50">연회비</h5><br />
 					<ul class="text s1 mt10 ">
-						<li class="i_box_t1">CMS 출금이체 신청서 <a href="https://tnbsoft.co.kr/cert/client/application/user/dietitian" alt="새창으로 이동"><span class="small cm">(바로가기)</span></a> →
+						<li class="i_box_t1">CMS 출금이체 신청서 <a href="https://forms.gle/WxWmsQ2pBKEAcm2R6" target="_blank" alt="새창으로 이동"><span class="small cm">(바로가기)</span></a> →
 							회원이 신청한 은행 계좌에서 정해진 날짜에 협회 회비 자동이체 인출<br />
 							<span class="small">※ 단, 학생회원, 미취업회원은 일시납만 가능</span>
 						</li>
