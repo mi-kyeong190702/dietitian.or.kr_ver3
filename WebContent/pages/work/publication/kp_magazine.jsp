@@ -87,14 +87,14 @@ if("01".equals(txtMM) || "02".equals(txtMM)) {
 
 		
 		<div class="text s1 mb50">
-			<h5 class="title bold t3 s1 mt40">대한영양사협회 국민영양 기획팀 (임기 : 2024~2025년)</h5>
+			<h5 class="title bold t3 s1 mt40">대한영양사협회 국민영양 기획팀 (임기 : 2026~2027년)</h5>
 			<ul class="mt10">
-				<li class="i_box_t1"><mark class="bold">팀  장</mark> : 김은지(서울영등포초등학교 영양교사)</li>
-				<li class="i_box_t1"><mark class="bold">위  원</mark> : 강신숙(서울아산병원 영양팀장)<br />
+				<li class="i_box_t1"><mark class="bold">팀 장</mark> : 권수현(서울면일초등학교 영양교사)</li>
+				<li class="i_box_t1"><mark class="bold">위 원</mark> : 강신숙(서울아산병원 임상영양사)<br />
 					<ul class="ml40">
-						<li>김보은(삼성서울병원 영양팀 임상영양파트 파트장)<li>
-						<li>박란희(소야초등학교 영양교사)<li>
-						<li>박주현(상당구청 행정지원과 영양사)<li>
+						<li>금명희(보광초등학교 영양교사)<li>
+						<li>송승은(세브란스병원 영양팀 급식관리파트장)<li>
+						<li>염마영(도봉구 어린이사회복지급식관리지원센터 팀장)<li>
 						<li>오유진(한국건강증진개발원 전략경영본부 운영지원부장)<li>
 						<li>이경은(서울여자대학교 식품영양학전공 교수)<li>
 						<li>이나겸(장안대학교 식품영양학과 교수)<li>

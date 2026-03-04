@@ -21,15 +21,15 @@
 						</div>
 					</div> -->
 					
-					<div class="tab_2 div1 mb30">
+					<div class="tab_2 div2 mb30">
 						<ul>
 							<li><a href="/work/education/ke_health_info.do" class="on">의료기관 인증조사 준비 비법노트</a></li>
+							<li><a href="/work/education/ke_cancer_info.do">암환자 교육 및 상담과정</a></li>
 							<!-- <li><a href="/work/education/ke_heart_info.do">뇌·심혈관질환</a></li>
 							<li><a href="/work/education/ke_diabetes_info.do">당뇨</a></li>
 							<li><a href="/work/education/ke_obesity_info.do">비만(심화)</a></li>
 							<li><a href="/work/education/ke_child_info.do">소아비만</a></li>
 							<li><a href="/work/education/ke_kidney_info.do">신장질환</a></li>
-							<li><a href="/work/education/ke_cancer_info.do">암</a></li>
 							<li><a href="/work/education/ke_advice_info.do">영양상담</a></li>
 							<li><a href="/work/education/ke_support_info.do">영양지원</a></li>
 							<li><a href="/work/education/ke_stomach_info.do">위장관질환</a></li>

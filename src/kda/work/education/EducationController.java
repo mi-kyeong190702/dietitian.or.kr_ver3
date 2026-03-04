@@ -431,6 +431,8 @@ public class EducationController extends KdaAbstractController {
 			tmp = "반려동물영양관리사(등록민간자격 발급과정)";
 		} else if ( edu_name.equals("health") ) {
 			tmp = "의료기관 인증조사 준비 비법노트";
+		} else if ( edu_name.equals("cancer") ) {
+			tmp = "암환자 교육 및 상담과정";
 		} else if ( edu_name.equals("coach") ) {
 			tmp = "식습관코치";
 		} else if ( edu_name.equals("kid") ) {
@@ -481,6 +483,8 @@ public class EducationController extends KdaAbstractController {
 			javaScript.setLocation("ke_sport_info.do");
 		} else if ( tmp.equals("의료기관 인증조사 준비 비법노트") ) {
 			javaScript.setLocation("ke_health_info.do");
+		} else if ( tmp.equals("암환자 교육 및 상담과정") ) {
+			javaScript.setLocation("ke_cancer_info.do");
 		} else if ( tmp.equals("식습관코치") ) {
 			javaScript.setLocation("ke_coach_info.do");
 		} else if ( tmp.equals("아동요리지도") ) {
