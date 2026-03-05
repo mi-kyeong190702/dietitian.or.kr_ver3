@@ -225,7 +225,7 @@ function f_SendCard(){
 		
 		// 평생회원일 경우 해당 지부를 본부로
 		var duesBran = parseInt($("#dues_bran").val());
-		if( duesBran >= 90 ) {
+		if( duesBran >= 60 ) {
 			codeBran = "0";
 		}
         

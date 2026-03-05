@@ -560,7 +560,12 @@ public class MemberController extends KdaAbstractController{
 						selected = "selected";
 				}
 				int code_member = KdaStringUtil.nullToInt(row.getCode_member(), 0);
-				if( code_member >= 80  ) {
+				//if( code_member >= 80  ) {
+				//2026.03 수정
+				int tempcd2 = KdaStringUtil.nullToInt(row.getTempcd2(), 0);
+				String detcodename = KdaStringUtil.nullToString(row.getDetcodename()).substring(0, 1);
+				
+				if( code_member < 80 && detcodename.equals("n") && tempcd2 != 2  ) {
 					options += "<option value='"+ row.getCode_member() +"'" + selected + ">"
 						  + row.getDetcodename() + " ("+ row.getTempcd3() + ")" + " ￦  " + "" + row.getSum_dues() +  "</option>";
 				}
