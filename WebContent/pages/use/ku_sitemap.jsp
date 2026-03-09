@@ -205,9 +205,9 @@
 											<!-- <li class="text_b link i_box_t1"><a href="/work/publication/kp_journal_law01.do" target="_self">학술지 규정</a></li>
 											<li class="text_b link i_box_t1"><a href="/work/publication/kp_journal_search.do" target="_self">학술지 검색</a></li>
 											<li class="text_b link i_box_t1"><a href="/work/publication/kp_ebook_list.do" target="_self">학술지 검색(e-Book)</a></li> -->
-											<li class="text_b link i_box_t1"><a href="https://www.koreascience.or.kr/journal/OOSHB5.page" target="_blank">학술지검색</a></li>
-                                            <li class="text_b link i_box_t1"><a href="https://e-jkda.or.kr" target="_blank">저널 홈페이지</a></li>
-                                            <li class="text_b link i_box_t1"><a href="https://jkda.jams.or.kr" target="_blank">온라인 논문투고</a></li>
+											<!-- <li class="text_b link i_box_t1"><a href="https://www.koreascience.or.kr/journal/OOSHB5.page" target="_blank">학술지검색</a></li> -->
+                                            <li class="text_b link i_box_t1"><a href="https://e-jkda.or.kr" target="_blank">JKDA 홈페이지</a></li>
+                                            <!-- <li class="text_b link i_box_t1"><a href="https://jkda.jams.or.kr" target="_blank">온라인 논문투고</a></li> -->
 										</ul>	
 									</li>
 									<!-- <li class="mt20 mr20"><a href="/work/publication/kp_thesis.do" target="_self"><div class="i_b_t2_1"><span class="small bold cb pl10">학술지 논문투고</span></div></a></li> -->

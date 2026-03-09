@@ -177,7 +177,7 @@ function ck(){
                           <li><a href="/work/education/ke_situation.do">교육과정 신청현황</a></li>
                         </ul>
                       </li>
-                      <li><a href="/work/education/ke_about.do">등록민간자격</a>
+                      <!-- <li><a href="/work/education/ke_about.do">등록민간자격</a>
                         <ul class="ns_depth2">
                           <li><a href="/work/education/ke_about.do">등록민간자격 안내</a></li>
                           <li><a href="/work/education/ke_schedule.do">평점인정교육 안내</a></li>
@@ -185,7 +185,7 @@ function ck(){
                           <li><a href="/work/education/ke_exam_situation.do">자격시험 신청 현황</a></li>
                           <li><a href="/work/education/ke_license.do">자격증 신청(신규·갱신)</a></li>
                         </ul>
-                      </li>
+                      </li> -->
                       <li><a href="/work/education/ke_contest_info.do">전국영양사 학술대회</a>
                         <ul class="ns_depth2">
                           <li><a href="/work/education/ke_contest_info.do">학술대회 안내</a></li>
@@ -227,9 +227,9 @@ function ck(){
                           <!-- <li><a href="/work/publication/kp_journal_law01.do">학술지규정</a></li>
                           <li><a href="/work/publication/kp_journal_search.do">학술지검색</a></li>
                           <li><a href="/work/publication/kp_ebook_list.do">학술지검색(e-Book)</a></li> -->
-                          <li><a href="https://www.koreascience.or.kr/journal/OOSHB5.page" target="_blank">학술지검색</a></li>
-                          <li><a href="https://e-jkda.or.kr" target="_blank">저널 홈페이지</a></li>
-                          <li><a href="https://jkda.jams.or.kr" target="_blank">온라인 논문투고</a></li>
+                          <!-- <li><a href="https://www.koreascience.or.kr/journal/OOSHB5.page" target="_blank">학술지검색</a></li> -->
+                          <li><a href="https://e-jkda.or.kr" target="_blank">JKDA 홈페이지</a></li>
+                          <!-- <li><a href="https://jkda.jams.or.kr" target="_blank">온라인 논문투고</a></li> -->
                         </ul>
                       </li>
                       <!-- <li><a href="/work/publication/kp_thesis.do">학술지 논문투고</a></li> -->

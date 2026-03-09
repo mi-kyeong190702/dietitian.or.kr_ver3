@@ -6,6 +6,7 @@
 <%@ taglib prefix="spring" 	uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" href="/css/layout_add.css">
 <div class="s_page">
+    <c:if test="${sessionScope.user_level == 1}">
 				<div class="sp_head">
 					<div class="sp_title">
 						<h3 class="title bold t1 s1 i_b_t1"><mark class="cm">학술지</mark> 검색(e-Book)</h3>
@@ -84,3 +85,4 @@
 					
 				</div>
 			</div>
+</c:if>
