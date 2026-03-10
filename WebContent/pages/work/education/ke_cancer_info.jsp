@@ -98,7 +98,7 @@
                                             <td scope="row" class="bgf7">2</td>
                                             <td class="left">
                                                 <ul>
-                                                    <li class="left">암환자 영양교육 및 상담 실제: 영양문제와영양평가</li>
+                                                    <li class="left">암환자 영양교육 및 상담 실제: 영양문제와 영양평가</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -106,7 +106,7 @@
                                             <td scope="row" class="bgf7">3</td>
                                             <td class="left">
                                                 <ul>
-                                                    <li class="left">암환자 영양교육 및 상담 실제: 항암치료(혈액암,고형암)</li>
+                                                    <li class="left">암환자 영양교육 및 상담 실제: 항암치료(혈액암, 고형암)</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -122,7 +122,7 @@
                                             <td scope="row" class="bgf7">5</td>
                                             <td class="left">
                                                 <ul>
-                                                    <li class="left">암환자 영양교육 및 상담 실제: 수술(소화기계암,기타)</li>
+                                                    <li class="left">암환자 영양교육 및 상담 실제: 수술(소화기계암, 기타)</li>
                                                 </ul>
                                             </td>
                                         </tr>
