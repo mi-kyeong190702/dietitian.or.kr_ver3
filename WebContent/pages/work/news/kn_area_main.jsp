@@ -391,7 +391,7 @@
 						<h1 class="title t4 bold i_b_t6">울산광역시영양사회</h1>
 						<div class="box t3 ssmall ca mt20 line bt p10 cm">
 							<ul>
-								<li><mark class="bold cb">회 장</mark> : 정미경</li>
+								<li><mark class="bold cb">회 장</mark> : 권미희</li>
 								<li><mark class="bold cb">조 직</mark>  : 5개 분과</li>
 								<li><mark class="bold cb">주 소</mark>  : 울산광역시 남구 거마로5, 3층(옥동) (우)44648</li>
 								<li><mark class="bold cb">연 락 처</mark>  : 전화 052)258-6069 / 팩스 052)275-2823</li>

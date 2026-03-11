@@ -296,9 +296,9 @@
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">울산광역시영양사회장 </td>
-							<td>정미경</td>
-							<td>울산대병원</td>
-							<td>영양부장</td>
+							<td>권미희</td>
+							<td>녹수초등학교</td>
+							<td>영양교사</td>
 						</tr>
 						<tr>
 							<td scope="row" class="bgf7">제주특별자치도영양사회장</td>
