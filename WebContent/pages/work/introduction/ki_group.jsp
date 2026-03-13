@@ -243,7 +243,7 @@
 						<tr>
 							<td scope="row" class="bgf7">인천광역시영양사회장</td>
 							<td>이옥주</td>
-							<td>경인여자대학교</td>
+							<td>전) 경인여자대학교</td>
 							<td>식품영양학과 교수</td>
 						</tr>
 						<tr>
@@ -291,7 +291,7 @@
 						<tr>
 							<td scope="row" class="bgf7">경상남도영양사회장</td>
 							<td>김영숙</td>
-							<td>안민초등학교</td>
+							<td>전) 안민초등학교</td>
 							<td>영양교사</td>
 						</tr>
 						<tr>
